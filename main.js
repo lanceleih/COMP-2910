@@ -9,7 +9,7 @@ ctx.font = "30px Arial";
 ctx.fillText("GAME PAUSED",10,50);
 
 function home() {
-    var home = document.getElementById("main");
+    var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
     ctx.font = "30px Arial";
     ctx.fillText("Scholours",90,50);
