@@ -16,3 +16,4 @@ function home() {
     ctx.fillStyle = "#A1C4A6";
     ctx.fillRect(90,126,150,75);
 }
+
