@@ -39,7 +39,8 @@ function home() {
         } else if(x > 90 && x < 240 && y > 260 && y < 335) {
             //ctx.clearRect(0, 0, 320, 480);
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
-            //ctx.clearRect(0, 0, 320, 480);
+            ctx.clearRect(0, 0, 320, 480);
+            leaderboardShape();
         }
     } 
 }
@@ -81,7 +82,8 @@ function backHome() {
         } else if(x > 90 && x < 240 && y > 260 && y < 335) {
             //ctx.clearRect(0, 0, 320, 480);
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
-            //ctx.clearRect(0, 0, 320, 480);
+            ctx.clearRect(0, 0, 320, 480);
+            leaderboardShape();
         }
     } 
 }
@@ -124,7 +126,7 @@ function selectShape() {
         } else if(x > 20 && x < 145 && y > 300 && y < 400) {
             ctx.clearRect(0, 0, 350, 480);
             selectDifficulty();
-        } else if(x > 20 && x < 100 && y > 20 && y < 40) {
+        } else if(x > 15 && x < 100 && y > 15 && y < 40) {
             ctx.clearRect(0, 0, 320, 480);
             backHome();
         }
@@ -168,9 +170,51 @@ function selectDifficulty() {
             //ctx.clearRect(0, 0, 320, 480);
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
             //ctx.clearRect(0, 0, 320, 480);
-        } else if(x > 20 && x < 100 && y > 20 && y < 40) {
+        } else if(x > 15 && x < 100 && y > 15 && y < 40) {
             ctx.clearRect(0, 0, 320, 480);
             selectShape();
+        }
+    } 
+}
+function leaderboardShape() {
+    var home = document.getElementById("mainCanvas");
+    var ctx = home.getContext("2d");
+    document.getElementById("title").src = "title/leaderboardtitle.png";
+    document.getElementById("firstButton").src = "icons/square.png";
+    document.getElementById("secondButton").src = "icons/polygon.png";
+    document.getElementById("thirdButton").src = "icons/hexa.png";
+    var img=document.getElementById("title");
+    ctx.drawImage(img, 15, 40, 300, 132);
+    var img=document.getElementById("firstButton");
+    ctx.drawImage(img,20,180, 125, 100);
+    var img=document.getElementById("secondButton");
+    ctx.drawImage(img,180,180, 125, 100);
+    var img=document.getElementById("thirdButton");
+    ctx.drawImage(img,20,300, 125, 100);
+    var img=document.getElementById("backButton")
+    ctx.drawImage(img, 0, 0, 100, 50);
+    
+    home.addEventListener("click", getPosition, false);
+
+    function getPosition(event)
+    {
+        var x = event.x;
+        var y = event.y;
+        var home = document.getElementById("mainCanvas");
+        var ctx = home.getContext("2d");
+
+        x -= home.offsetLeft;
+        y -= home.offsetTop;
+        //alert(x + ',' + y);
+        if(x > 20 && x < 145 && y > 180 && y < 280) {
+            //ctx.clearRect(0, 0, 320, 480);
+        } else if(x > 180 && x < 305 && y > 180 && y < 280) {
+            //ctx.clearRect(0, 0, 320, 480);
+        } else if(x > 20 && x < 145 && y > 300 && y < 400) {
+            //ctx.clearRect(0, 0, 350, 480);
+        } else if(x > 15 && x < 100 && y > 15 && y < 40) {
+            ctx.clearRect(0, 0, 320, 480);
+            backHome();
         }
     } 
 }
