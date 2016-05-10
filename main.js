@@ -88,14 +88,15 @@ function selectShape() {
 function backHome() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
-    ctx.font = "20px Arial";
-    ctx.fillText('The "U" makes it Canadian',40,460);
     document.getElementById("firstButton").src = "icons/play.png";
     document.getElementById("secondButton").src = "icons/settings.png";
     document.getElementById("thirdButton").src = "icons/leaderboard.png";
     document.getElementById("title").src = "title/titleIcon.png";
+    document.getElementById("slogan").src= "title/slogan.png";
     var img=document.getElementById("title");
     ctx.drawImage(img, 15, 40, 300, 132);
+    var img=document.getElementById("slogan");
+    ctx.drawImage(img, 60, 420, 200, 50);
     var img=document.getElementById("firstButton");
     ctx.drawImage(img,30,150, 300, 150);
     var img=document.getElementById("secondButton");
