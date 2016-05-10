@@ -3,138 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <title>Settings Test Page</title>
+    <link rel="stylesheet" type="text/css" href="base.css">
 </head>
-<body>
+<body onload="startSettings()">
 
-Hello
-<canvas id="myCanvas" width="320" height="480" style="border: thin dashed black; margin-left: 300px">
+<canvas id="myCanvas" width="320" height="480" style="border: thin dashed black;">
     You browser does not support HTML5 canvas tag.
 </canvas>
-
+<img id="backButton" src="icons/BACK.png" alt="back button" height="0" width="0">
+<img id="audioButton" src="icons/audio.png" alt="audio button" height="0" width="0">
+<img id="colourPackButton" src="icons/colourpacks1.png" alt="colourpacks button" height="0" width="0">
+<img id="settingsTitle" src="title/settingstitle.png" alt="title" height="0" width="0">
 <script>
 
-    var c = document.getElementById("myCanvas");
-    var gameCanvas = c.getContext("2d");
-    var colourModeState = false;
-    var palette = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
-    var storePalette = null;
-    var blindPalette = ["I", "II", "III", "IV"];
-    c.addEventListener("mousedown", activeArea, false);
-
-    //Maps the coordinates for the clickable areas on the screen
-    function activeArea(event){
-        var x = event.x;
-        var y = event.y;
-
-        x -=myCanvas.offsetLeft;
-        y -=myCanvas.offsetTop;
-
-
-
-        //Back button function
-        if (x > 20 && x < 90 && y > 20 && y < 50) {
-           alert ("this is the back button");
+    function startSettings() {
+        var c = document.getElementById("myCanvas");
+        var gameCanvas = c.getContext("2d");
+        var colourModeState = false;
+        var palette = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
+        var storePalette = null;
+        var blindPalette = ["I", "II", "III", "IV"];
+        c.addEventListener("mouseup", activeArea, false);
+        var backButtonImg = document.getElementById("backButton");
+        var audioButtonImg = document.getElementById("audioButton");
+        var colourPackButtonImg = document.getElementById("colourPackButton");
+        var settingsTitleImg = document.getElementById("settingsTitle");
+        function drawSettingsTitle(){
+            gameCanvas.drawImage(settingsTitleImg, 15, 40, 300, 132)
+        }
+        function drawBackButton(){
+            gameCanvas.drawImage(backButtonImg, 0, 0, 100, 50);
+        }
+        function drawAudioButton(){
+            gameCanvas.drawImage(audioButtonImg, 90, 180, 150, 75);
         }
 
-        //Audio Button function
-        if (x > 60 && x < 260 && y > 150 && y < 225){
-            alert ("this is the audio button");
+        function drawColourPackButton(){
+            gameCanvas.drawImage(colourPackButtonImg, 90, 260, 150, 75);
         }
 
-        //Colour Pack function
-        if (x > 60 && x < 260 && y > 250 && y < 325){
-            alert("this is the colour pack button");
-        }
+        //Maps the coordinates for the clickable areas on the screen
+        function activeArea(event) {
+            var x = event.x;
+            var y = event.y;
 
-        // Toggle if colourBlindState is true
-        function colourBlindToggleFill(){
-            gameCanvas.fillStyle = "#000000";
-            gameCanvas.fillRect(65, 355, 15, 15);
-        }
-        // Clear the toggle if colourBlindState is false
-        function colourBlindToggleClear() {
-            gameCanvas.clearRect(65, 355, 15, 15);
-        }
+            x -= myCanvas.offsetLeft;
+            y -= myCanvas.offsetTop;
 
-        //State of Colour Blind Mode:
-        // false is OFF, true is ON
 
-        //Colour blind mode function
-        if (x > 60 && x < 85 && y > 350 && y < 375) {
-            //alert("this is the colour blind toggle");
-            if (colourModeState == false) {
-                colourModeState = true;
-                colourBlindToggleFill();
-                storePalette = palette;
-                palette = blindPalette;
-
-                alert(palette);
+            //Back button function
+            if (x > 15 && x < 100 && y > 15 && y < 40) {
+                alert("this is the back button");
             }
-            else if (colourModeState == true) {
-                colourModeState = false;
-                colourBlindToggleClear();
-                palette = storePalette;
-                alert(palette);
+
+            //Audio Button function
+            if (x > 90 && x < 240 && y > 180 && y < 250) {
+                alert("this is the audio button");
             }
-            //alert("Colour toggle is: " + colourModeState);
+
+            //Colour Pack function
+            if (x > 90 && x < 240 && y > 260 && y < 330) {
+               alert("this is the colour pack button");
+            }
+
+            // Toggle if colourBlindState is true
+            function colourBlindToggleFill() {
+                gameCanvas.fillStyle = "#000000";
+                gameCanvas.fillRect(65, 355, 15, 15);
+            }
+
+            // Clear the toggle if colourBlindState is false
+            function colourBlindToggleClear() {
+                gameCanvas.clearRect(65, 355, 15, 15);
+                gameCanvas.fillStyle = "#FFFFFF";
+                gameCanvas.fillRect(65, 355, 15, 15);
+            }
+
+            //State of Colour Blind Mode:
+            // false is OFF, true is ON
+
+            //Colour blind mode function
+            if (x > 60 && x < 85 && y > 350 && y < 375) {
+                //alert("this is the colour blind toggle");
+                if (colourModeState == false) {
+                    colourModeState = true;
+                    colourBlindToggleFill();
+                    storePalette = palette;
+                    palette = blindPalette;
+
+                    alert(palette);
+                }
+                else if (colourModeState == true) {
+                    colourModeState = false;
+                    colourBlindToggleClear();
+                    palette = storePalette;
+                    alert(palette);
+                }
+                //alert("Colour toggle is: " + colourModeState);
+            }
+
+
+            alert("x:" + x + " y:" + y);
         }
 
+        function drawBackground() {
+            gameCanvas.fillStyle = "#FBD78D";
+            gameCanvas.fillRect(0, 0, 320, 480);
+        }
 
-        //alert("x:" + x + " y:" + y);
-    }
+        //Background
+        //drawBackground();
 
-    function drawBackground(){
-        gameCanvas.fillStyle = "#FBD78D";
-        gameCanvas.fillRect(0, 0, 320, 480);
-    }
-    //Background
-        drawBackground();
 
-    function drawBackButton(){
-        gameCanvas.fillStyle = "#A1C4A6";
-        gameCanvas.fillRect(20, 20, 70, 30);
-    }
-    //Back Button
+        //Back Button
+//        function drawBackButton() {
+//            gameCanvas.fillStyle = "#A1C4A6";
+//            gameCanvas.fillRect(20, 20, 70, 30);
+//        }
+
         drawBackButton();
 
-    function drawSettingsTitle(){
-        gameCanvas.font = "50px Arial";
-        gameCanvas.fillStyle = "#000000";
-        gameCanvas.fillText("Settings", 65, 100);
-    }
-    //Settings Heading
+//        function drawSettingsTitle() {
+//            gameCanvas.font = "50px Arial";
+//            gameCanvas.fillStyle = "#000000";
+//            gameCanvas.fillText("Settings", 65, 100);
+//        }
+
+        //Settings Heading
         drawSettingsTitle();
 
-    function drawAudioButton(){
-        gameCanvas.fillStyle = "#F5634A";
-        gameCanvas.fillRect(60, 150, 200, 75);
-    }
-    //Audio
-        drawAudioButton();
+//        function drawAudioButton() {
+//            gameCanvas.fillStyle = "#F5634A";
+//            gameCanvas.fillRect(60, 150, 200, 75);
+//        }
 
-    function drawColourPackButton(){
-        gameCanvas.fillStyle = "#F5634A";
-        gameCanvas.fillRect(60, 250, 200, 75);
-    }
-    //Colour Packs
+        //Audio
+        drawAudioButton();
+        drawSettingsTitle();
+
+//        function drawColourPackButton() {
+//            gameCanvas.fillStyle = "#F5634A";
+//            gameCanvas.fillRect(60, 250, 200, 75);
+//        }
+
+        //Colour Packs
         drawColourPackButton();
 
-    function drawColourBlindToggle(){
-        gameCanvas.fillStyle = "#FFFFFF";
-        gameCanvas.fillRect(60, 350, 25, 25);
-    }
-    //Colour Blind Check Box
+        function drawColourBlindToggle() {
+            gameCanvas.fillStyle = "#FFFFFF";
+            gameCanvas.fillRect(60, 350, 25, 25);
+        }
+
+        //Colour Blind Check Box
         drawColourBlindToggle();
 
-    //Colour Blind Check Box Fill-in
+        //Colour Blind Check Box Fill-in
 
 
-    //Colour Blind Mode Text
-    gameCanvas.font = "20px Arial";
-    gameCanvas.fillStyle = "#000000";
-    gameCanvas.fillText("Colour Blind Mode", 95, 370);
+        //Colour Blind Mode Text
+        gameCanvas.font = "20px Arial";
+        gameCanvas.fillStyle = "#000000";
+        gameCanvas.fillText("Colour Blind Mode", 95, 370);
 
-
+    }
 
 </script>
 </body>
