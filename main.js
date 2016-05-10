@@ -176,6 +176,7 @@ function selectDifficulty() {
         }
     } 
 }
+<<<<<<< HEAD
 function leaderboardShape() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
@@ -219,3 +220,5 @@ function leaderboardShape() {
     } 
 }
 
+=======
+>>>>>>> b58b2a54842a99387e880d399f041cef871f506a
