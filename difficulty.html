@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Difficulty</title>
+    <style>
+        #myCanvas{
+            background : url(BG.jpg)
+        }
+    </style>
+</head>
+<body>
+<img id="difficulty" width="0" height="0" src="icons/difficultytitle.png" alt="diff">
+<img id="easy" width="0" height="0" src="icons/easy.png" alt="easy">
+<img id="medium" width="0" height="0" src="icons/medium.png" alt="medium">
+<img id="hard" width="0" height="0" src="icons/hard.png" alt="hard">
+<img id="back" width="0" height="0" src="icons/BACK.png" alt="back">
+
+<canvas id="myCanvas" width="320" height="480" style="border:10px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+
+    window.onload = function () {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.font = "26px Arial";
+        c.addEventListener("mousedown", doMouseDown, false);
+
+        function doMouseDown(event) {
+
+        }
+
+        //document.getElementById("myCanvas").style.backgroundColor = 'rgba(242, 239, 204, 1.0)'; // rgba values for the background colour
+        var difficulty = document.getElementById("difficulty");
+        ctx.drawImage(difficulty, 13, 25, 300, 132);
+        var back = document.getElementById("back");
+        ctx.drawImage(back,-12,-13,93,59);
+        var easy = document.getElementById("easy");
+        ctx.drawImage(easy, 80, 169, 163, 91);
+        var medium = document.getElementById("medium");
+        ctx.drawImage(medium, 80,274, 163, 91);
+        var hard = document.getElementById("hard");
+        ctx.drawImage(hard, 80, 377, 163,91);
+
+
+    }
+
+    function activeArea(event){
+        var x = event.x;
+        var y = event.y;
+
+        x -=myCanvas.offsetLeft;
+        y -=myCanvas.offsetTop;
+
+    }
+
+    /*ctx.font = "30px Verdana";
+    // Create gradient
+    var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+    gradient.addColorStop("0", "magenta");
+    gradient.addColorStop("0.5", "blue");
+    gradient.addColorStop("1.0", "red");
+    // Fill with gradient
+    ctx.fillStyle = gradient;*/
+
+
+</script>
+
+</body>
+</html>
