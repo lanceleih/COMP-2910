@@ -22,7 +22,7 @@
         var colourModeState = false;
         var palette = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
         var storePalette = null;
-        var blindPalette = ["I", "II", "III", "IV"];
+        //var blindPalette = ["I", "II", "III", "IV"];
         c.addEventListener("mouseup", activeArea, false);
         var backButtonImg = document.getElementById("backButton");
         var audioButtonImg = document.getElementById("audioButton");
@@ -88,16 +88,16 @@
                 if (colourModeState == false) {
                     colourModeState = true;
                     colourBlindToggleFill();
-                    storePalette = palette;
-                    palette = blindPalette;
+                    //storePalette = palette;
+                    //palette = blindPalette;
 
-                    alert(palette);
+                    //alert(palette);
                 }
                 else if (colourModeState == true) {
                     colourModeState = false;
                     colourBlindToggleClear();
-                    palette = storePalette;
-                    alert(palette);
+                    //palette = storePalette;
+                    //alert(palette);
                 }
                 //alert("Colour toggle is: " + colourModeState);
             }
