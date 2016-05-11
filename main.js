@@ -135,19 +135,19 @@ function selectShape() {
 function selectDifficulty() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
-    document.getElementById("firstButton").src = "icons/easy.png";
-    document.getElementById("secondButton").src = "icons/medium.png";
-    document.getElementById("thirdButton").src = "icons/hard.png";
-    document.getElementById("title").src = "title/difficultytitle.png";
-    var img=document.getElementById("title");
+    document.getElementById("easy").src = "icons/easy.png";
+    document.getElementById("medium").src = "icons/medium.png";
+    document.getElementById("hard").src = "icons/hard.png";
+    document.getElementById("difficulty").src = "title/difficultytitle.png";
+    var img=document.getElementById("difficulty");
     ctx.drawImage(img, 15, 40, 300, 132);
-    var img=document.getElementById("firstButton");
+    var img=document.getElementById("easy");
     ctx.drawImage(img,90,180, 150, 75);
-    var img=document.getElementById("secondButton");
+    var img=document.getElementById("medium");
     ctx.drawImage(img,90,260, 150, 75);
-    var img=document.getElementById("thirdButton");
+    var img=document.getElementById("hard");
     ctx.drawImage(img,90,340, 150, 75);
-    var img=document.getElementById("backButton")
+    var img=document.getElementById("back")
     ctx.drawImage(img, 0, 0, 100, 50);
 
     home.addEventListener("click", getPosition, false);
