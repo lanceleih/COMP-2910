@@ -4,11 +4,15 @@
 function home() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
+    var count = 0;
+
+    
     document.getElementById("firstButton").src = "icons/play.png";
     document.getElementById("secondButton").src = "icons/settings.png";
     document.getElementById("thirdButton").src = "icons/leaderboard.png";
     document.getElementById("title").src = "title/titleIcon.png";
     document.getElementById("slogan").src= "title/slogan.png";
+    
     var img=document.getElementById("title");
     ctx.drawImage(img, 15, 40, 300, 132);
     var img=document.getElementById("slogan");
@@ -41,17 +45,29 @@ function home() {
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
             ctx.clearRect(0, 0, 320, 480);
             leaderboardShape();
+        } else if(x > 60 && x < 260 && y > 420 && y < 470) {
+            count = count + 1;
+            if(count == 10) {
+                document.getElementById("main").style.display = "none";
+                document.getElementById("easterEgg").style.display = "block";
+                count = 0;
+            }
         }
     } 
 }
+/*Function for returning to the home page*/
 function backHome() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
+    var count = 0;
+
+    
     document.getElementById("firstButton").src = "icons/play.png";
     document.getElementById("secondButton").src = "icons/settings.png";
     document.getElementById("thirdButton").src = "icons/leaderboard.png";
     document.getElementById("title").src = "title/titleIcon.png";
     document.getElementById("slogan").src= "title/slogan.png";
+    
     var img=document.getElementById("title");
     ctx.drawImage(img, 15, 40, 300, 132);
     var img=document.getElementById("slogan");
@@ -84,9 +100,21 @@ function backHome() {
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
             ctx.clearRect(0, 0, 320, 480);
             leaderboardShape();
+        } else if(x > 60 && x < 260 && y > 420 && y < 470) {
+            count = count + 1;
+            if(count == 10) {
+                document.getElementById("main").style.display = "none";
+                document.getElementById("easterEgg").style.display = "block";
+                count = 0;
+            }
         }
     } 
 }
+/* Hides the easter egg div*/
+function backEaster() {
+    document.getElementById("easterEgg").style.display = "none";
+}
+/*The select shape page for the game*/
 function selectShape() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
@@ -132,22 +160,23 @@ function selectShape() {
         }
     } 
 }
+/*The select difficulty page for the game*/
 function selectDifficulty() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
-    document.getElementById("easy").src = "icons/easy.png";
-    document.getElementById("medium").src = "icons/medium.png";
-    document.getElementById("hard").src = "icons/hard.png";
-    document.getElementById("difficulty").src = "title/difficultytitle.png";
-    var img=document.getElementById("difficulty");
+    document.getElementById("firstButton").src = "icons/easy.png";
+    document.getElementById("secondButton").src = "icons/medium.png";
+    document.getElementById("thirdButton").src = "icons/hard.png";
+    document.getElementById("title").src = "title/difficultytitle.png";
+    var img=document.getElementById("title");
     ctx.drawImage(img, 15, 40, 300, 132);
-    var img=document.getElementById("easy");
+    var img=document.getElementById("firstButton");
     ctx.drawImage(img,90,180, 150, 75);
-    var img=document.getElementById("medium");
+    var img=document.getElementById("secondButton");
     ctx.drawImage(img,90,260, 150, 75);
-    var img=document.getElementById("hard");
+    var img=document.getElementById("thirdButton");
     ctx.drawImage(img,90,340, 150, 75);
-    var img=document.getElementById("back")
+    var img=document.getElementById("backButton")
     ctx.drawImage(img, 0, 0, 100, 50);
 
     home.addEventListener("click", getPosition, false);
@@ -176,6 +205,7 @@ function selectDifficulty() {
         }
     } 
 }
+/*The select shape page for the leaderboard*/
 function leaderboardShape() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
@@ -216,6 +246,7 @@ function leaderboardShape() {
             ctx.clearRect(0, 0, 320, 480);
             backHome();
         }
+
     } 
 }
 
@@ -257,5 +288,5 @@ function paused() {
             }
 
 
-        
-}
+    }    
+

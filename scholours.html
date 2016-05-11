@@ -8,15 +8,23 @@
         <script src="main.js"></script>
     </head>
     <body onload="home()">
-        <canvas id="mainCanvas" width="320" height="480">
-        </canvas>
-        <br>
+        <div id="main">
+            <canvas id="mainCanvas" width="320" height="480">
+            </canvas>
+            <br>
         <img id="title" src="title/titleIcon.png" alt="title" width="0" height="0">
         <img id="slogan" src="title/slogan.png" alt="Scholours slogan" width="0" height="0">
         <img id="firstButton" src="icons/play.png" alt="first button" height="0" width="0">
         <img id="secondButton" src="icons/settings.png" alt="second button" height="0" width="0">
         <img id="thirdButton" src="icons/leaderboard.png" alt="third button" height="0" width="0">
         <img id="backButton" src="icons/BACK.png" alt="back button" height="0" width="0">
-
+        </div>
+        <div id="easterEgg">
+            <form>
+                <input type="image" src="icons/BACK.png" onclick="backEaster()" width="100" height="50">
+            </form>
+            <img src="title/titleIcon.png" id="logoTitle" alt="logo" width="300" height="132">
+            <img src="docwaylon.gif" alt="easter egg gif" id="video" width="300" height="132">
+        </div>
     </body>
 </html>
