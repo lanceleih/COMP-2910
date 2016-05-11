@@ -1,5 +1,21 @@
 canvas {
    border: 1px solid #000000;
-   background-color: #F2EFCC;
-   background-image: url("background/BG.jpg");
+    background-color: #F2EFCC;
+    background-image: url("background/BG.jpg");
+}
+#easterEgg {
+    border: 1px solid #000000;
+    background-color: #F2EFCC;
+    background-image: url("background/BG.jpg");
+    width: 320px;
+    height: 480px;
+    display: none;
+}
+#easterEgg #video {
+    width: 320px;
+    height: 260px;
+    padding-top: 10px;
+}
+#easterEgg #logoTitle {
+    padding-left: 15px;
 }
