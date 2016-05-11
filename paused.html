@@ -1,21 +1,63 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title></title>
-    </head>
-    <body onload="paused()">
-
-        <canvas id="mainCanvas" width="320" height="480" style="border:1px solid #000000; background-color: #F2EFCC; background-image: url('background/BG.jpg')">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Paused</title>
+</head>
+<body>
+    <img id="back" width="0" height="0" src="icons/BACK.png" alt="Go back">
+    <img id="menu" width="0" height="0" src="icons/main_menu.png" alt="menu">
+    <img id="settings" width="0" height="0" src="icons/settings1.png" alt="settings">
+    <img id="restart" width="0" height="0" src="icons/restart.png" alt="restart">
+    <img id="resume" width="0" height="0" src="icons/play.png" alt="resume">
+    <img id="pausedTitle" width="0" height="0" src="title/pausedtitle.png" alt="paused">
+    
+        <canvas id="mainCanvas" width="320" height="480" style="border:1px solid #000000; background-color: #F2EFCC; background-image: url('background/BG.jpg')";>
+            Your browser does not support the HTML5 canvas tag.
         </canvas>
-        <img id="back" width="0" height="0" src="icons/BACK.png" alt="back">
-        <img id="pausedTitle" width="0" height="0" src="title/pausedtitle.png" alt="paused">
-        <img id="resume" width="0" height="0" src="icons/play.png" alt="resume">
-        <img id="restart" width="0" height="0" src="icons/restart.png" alt="restart">
-        <img id="menu" width="0" height="0" src="icons/main_menu.png" alt="menu">
-        <img id="settings" width="0" height="0" src="icons/settings1.png" alt="settings">
 
-        
-    </body>
+    <script>
+          window.onload = function() {
+            var c= document.getElementById("mainCanvas");
+            var ctx = c.getContext("2d");
+
+            var pausedTitle = document.getElementById("pausedTitle");
+            ctx.drawImage(pausedTitle, 15, 40, 300, 132);
+            var resume = document.getElementById("resume");
+            ctx.drawImage(resume, 90,180, 150, 75);
+            var restart = document.getElementById("restart");
+            ctx.drawImage(restart, 90,260, 150, 75);
+            var menu = document.getElementById("menu");
+            ctx.drawImage(menu, 90,340, 150, 75);
+
+            c.addEventListener("click", tapped, false);
+
+            function tapped(event) {
+                var x = event.x;
+                var y = event.y;
+                var page = document.getElementById("mainCanvas");
+                var ctx = page.getContext("2d");
+
+                x -= page.offsetLeft;
+                y -= page.offsetTop;
+
+                if(x > 90 && x < 240 && y > 180 && y < 255) {
+                    alert("Resume game!");
+                } else if(x > 90 && x < 240 && y > 260 && y < 335) {
+                    alert("Restart game!");
+                } else if(x > 90 && x < 240 && y > 340 && y < 415) {
+                    alert("Return to the menu!");
+                };
+
+
+            }
+
+
+
+};
+    </script>
+
+
+
+</body>
 </html>
