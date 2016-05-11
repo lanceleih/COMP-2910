@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <title>Difficulty</title>
     <style>
-        #myCanvas{
+        #mainCanvas{
             background : url(background/BG.jpg)
         }
     </style>
 
 </head>
 <body>
-
-        <br>
         <img id="difficulty" width="0" height="0" src="title/difficultytitle.png" alt="diff">
         <img id="easy" width="0" height="0" src="icons/easy.png" alt="easy">
         <img id="medium" width="0" height="0" src="icons/medium.png" alt="medium">
         <img id="hard" width="0" height="0" src="icons/hard.png" alt="hard">
         <img id="back" width="0" height="0" src="icons/BACK.png" alt="back">
 
- <canvas id="mainCanvas" width="320" height="480" style="border:10px solid #d3d3d3;">
+ <canvas id="mainCanvas" width="320" height="480" style="border:1px solid #000000; background-color: #F2EFCC; background-image: url('background/BG.jpg')";>
     Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
@@ -51,9 +49,9 @@
             //alert(x + ',' + y);
 
             if(x > 90 && x < 240 && y > 180 && y < 255) {
-                ctx.clearRect(0, 0, 320, 480);
+                //ctx.clearRect(0, 0, 320, 480);
                 alert("you like easy eh");
-                selectShape();
+                //selectShape();
             } else if(x > 90 && x < 240 && y > 260 && y < 335) {
                 //ctx.clearRect(0, 0, 320, 480);
                 alert("you like medium");
@@ -61,8 +59,8 @@
                 //ctx.clearRect(0, 0, 320, 480);
                 alert("this is difficult one!");
             } else if(x > 15 && x < 100 && y > 15 && y < 40) {
-                ctx.clearRect(0, 0, 320, 480);
-                selectShape();
+                //ctx.clearRect(0, 0, 320, 480);
+                //selectShape();
                 alert("let's go back!");
 
             }
