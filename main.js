@@ -39,16 +39,11 @@ function home() {
         if (x > 90 && x < 240 && y > 180 && y < 255) {
             ctx.clearRect(0, 0, 320, 480);
             selectShape();
-<<<<<<< HEAD
-        } else if (x > 90 && x < 240 && y > 260 && y < 335) {
-            //ctx.clearRect(0, 0, 320, 480);
-        } else if (x > 90 && x < 240 && y > 340 && y < 415) {
-=======
+        }  else if (x > 90 && x < 240 && y > 340 && y < 415) {
         } else if(x > 90 && x < 240 && y > 260 && y < 335) {
             ctx.clearRect(0, 0, 320, 480);
             startSettings();
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
->>>>>>> 440d4c07998da8788ec8da4edf33d234c9c0a707
             ctx.clearRect(0, 0, 320, 480);
             leaderboardShape();
         } else if (x > 60 && x < 260 && y > 420 && y < 470) {
@@ -227,10 +222,17 @@ function leaderboardShape() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
     document.getElementById("title").src = "title/leaderboardtitle.png";
+<<<<<<< HEAD
+    document.getElementById("square").src = "icons/square.png";
+    document.getElementById("diamond").src = "icons/polygon.png";
+    document.getElementById("hex").src = "icons/hexa.png";
+    var img=document.getElementById("title");
+=======
     document.getElementById("firstButton").src = "icons/square.png";
     document.getElementById("secondButton").src = "icons/polygon.png";
     document.getElementById("thirdButton").src = "icons/hexa.png";
     var img = document.getElementById("title");
+>>>>>>> 71a938c59ba833733788b301d923befe90ff0a91
     ctx.drawImage(img, 15, 40, 300, 132);
     var img = document.getElementById("firstButton");
     ctx.drawImage(img, 20, 180, 125, 100);
