@@ -207,7 +207,7 @@ function selectShape() {
 }*/
 
 /* Grace updated difficulty function */
-function difficulty() {
+function selectDifficulty() {
     var c= document.getElementById("mainCanvas");
     var ctx = c.getContext("2d");
     var difficulty = document.getElementById("difficulty");
@@ -245,9 +245,10 @@ function difficulty() {
             //ctx.clearRect(0, 0, 320, 480);
             alert("this is difficult one!");
         } else if(x > 15 && x < 100 && y > 15 && y < 40) {
-            //ctx.clearRect(0, 0, 320, 480);
+            ctx.clearRect(0, 0, 320, 480);
             //selectShape();
-            alert("let's go back!");
+            //alert("let's go back!");
+            selectShape();
 
         }
     }
