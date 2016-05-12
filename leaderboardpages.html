@@ -6,47 +6,200 @@
         <title>Leaderboard Pages/Tabs</title>
         <link rel="stylesheet" type="text/css" href="base.css">
     </head>
-    <body onload="leadEasy()">
+    <body onload="loadEasy()">
         <canvas id="mainCanvas" width="320" height="480">
             </canvas>
         <br>
         <img id="easyTitle" width="0" height="0" src="title/difficultyeasytitle.png" alt="Easy Leaderboard">
+        <img id="mediumTitle" width="0" height="0" src="title/difficultymediumtitle.png" alt="Medium Leaderboard">
+        <img id="hardTitle" width="0" height="0" src="title/difficultyhardtitle.png" alt="Hard Leaderboard">
         <img id="back" width="0" height="0" src="icons/BACK.png" alt="Go back">
 
         <script>
-            function leadEasy() {
+            function loadEasy() {
                 var c = document.getElementById("mainCanvas");
                 var ctx = c.getContext("2d");
-                
+
                 var back = document.getElementById("back");
                 ctx.drawImage(back, 0, 0, 100, 50);
                 var easyTitle = document.getElementById("easyTitle");
                 ctx.drawImage(easyTitle, 28, 60, 263, 38);
                 drawBoard();
 
+                c.addEventListener("click", tapped, false);
+
                 function drawBoard() {
                     var c = document.getElementById("mainCanvas");
                     var ctx = c.getContext("2d");
-                    var y = 125;
                     var y1 = 125;
+                    var y2 = 400;
+                    var x1 = 30;
+                    var x2 = 290;
 
                     // Column for rank number
                     for (var x = 30; x <= 60; x += 30) {
                         ctx.beginPath();
-                        ctx.moveTo(x, y);
-                        ctx.lineTo(x, 400);
+                        ctx.moveTo(x, y1);
+                        ctx.lineTo(x, y2);
+                        ctx.closePath();
+                        ctx.strokeStyle = "black";
+                        ctx.stroke();
+                    }
+
+                    ctx.beginPath();
+                    ctx.moveTo(x2, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.closePath();
+                    ctx.stroke();
+
+                    // Row for names
+                    for (var y = 125; y <= 400; y += 27.5) {
+                        ctx.beginPath();
+                        ctx.moveTo(x1, y);
+                        ctx.lineTo(x2, y);
+                        ctx.stroke();
+                    }
+                };
+
+                function tapped(event) {
+                    var x = event.x;
+                    var y = event.y;
+                    var home = document.getElementById("mainCanvas");
+                    var ctx = home.getContext("2d");
+
+                    x -= home.offsetLeft;
+                    y -= home.offsetTop;
+
+                    if (x > 0 && x < 100 && y > 0 && y < 50) {
+                        alert("back");
+                    } else if (x > 28 && x < 235 && y > 38 && y > 60) {
+                        ctx.clearRect(0, 0, 320, 480);
+                        loadMedium();
+                    }
+                };
+            }
+            function loadMedium() {
+                var c = document.getElementById("mainCanvas");
+                var ctx = c.getContext("2d");
+
+                var back = document.getElementById("back");
+                ctx.drawImage(back, 0, 0, 100, 50);
+                var easyTitle = document.getElementById("mediumTitle");
+                ctx.drawImage(easyTitle, 28, 60, 263, 38);
+                drawBoard();
+
+                c.addEventListener("click", tapped, false);
+
+                function drawBoard() {
+                    var c = document.getElementById("mainCanvas");
+                    var ctx = c.getContext("2d");
+                    var y1 = 125;
+                    var y2 = 400;
+                    var x1 = 30;
+                    var x2 = 290;
+
+                    // Column for rank number
+                    for (var x = 30; x <= 60; x += 30) {
+                        ctx.beginPath();
+                        ctx.moveTo(x, y1);
+                        ctx.lineTo(x, y2);
+                        ctx.closePath();
+                        ctx.strokeStyle = "black";
+                        ctx.stroke();
+                    }
+
+                    ctx.beginPath();
+                    ctx.moveTo(x2, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.closePath();
+                    ctx.stroke();
+
+                    // Row for names
+                    for (var y = 125; y <= 400; y += 27.5) {
+                        ctx.beginPath();
+                        ctx.moveTo(x1, y);
+                        ctx.lineTo(x2, y);
+                        ctx.stroke();
+                    }
+                };
+
+                function tapped(event) {
+                    var x = event.x;
+                    var y = event.y;
+                    var home = document.getElementById("mainCanvas");
+                    var ctx = home.getContext("2d");
+
+                    x -= home.offsetLeft;
+                    y -= home.offsetTop;
+
+                    if (x > 0 && x < 100 && y > 0 && y < 50) {
+                        alert("back");
+                    } else if (x > 28 && x < 235 && y > 38 && y > 60) {
+                        ctx.clearRect(0, 0, 320, 480);
+                        loadHard();
+                    }
+                };
+            }
+            function loadHard() {
+                var c = document.getElementById("mainCanvas");
+                var ctx = c.getContext("2d");
+
+                var back = document.getElementById("back");
+                ctx.drawImage(back, 0, 0, 100, 50);
+                var easyTitle = document.getElementById("hardTitle");
+                ctx.drawImage(easyTitle, 28, 60, 263, 38);
+                drawBoard();
+
+                c.addEventListener("click", tapped, false);
+
+                function drawBoard() {
+                    var c = document.getElementById("mainCanvas");
+                    var ctx = c.getContext("2d");
+                    var y1 = 125;
+                    var y2 = 400;
+                    var x1 = 30;
+                    var x2 = 290;
+
+                    // Column for rank number
+                    for (var x = 30; x <= 60; x += 30) {
+                        ctx.beginPath();
+                        ctx.moveTo(x, y1);
+                        ctx.lineTo(x, y2);
                         ctx.closePath();
                         ctx.strokeStyle = "black";
                         ctx.stroke();
                     }
                     
+                    ctx.beginPath();
+                    ctx.moveTo(x2, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.closePath();
+                    ctx.stroke();
 
-                    
+                    // Row for names
+                    for (var y = 125; y <= 400; y += 27.5) {
+                        ctx.beginPath();
+                        ctx.moveTo(x1, y);
+                        ctx.lineTo(x2, y);
+                        ctx.stroke();
+                    }
+                };
 
+                function tapped(event) {
+                    var x = event.x;
+                    var y = event.y;
+                    var home = document.getElementById("mainCanvas");
+                    var ctx = home.getContext("2d");
 
+                    x -= home.offsetLeft;
+                    y -= home.offsetTop;
 
-
-
+                    if (x > 0 && x < 100 && y > 0 && y < 50) {
+                        alert("back");
+                    } else if (x > 28 && x < 235 && y > 38 && y > 60) {
+                        ctx.clearRect(0, 0, 320, 480);
+                        loadEasy();
+                    }
                 };
             }
 
