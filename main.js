@@ -211,9 +211,9 @@ function leaderboardShape() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
     document.getElementById("title").src = "title/leaderboardtitle.png";
-    document.getElementById("firstButton").src = "icons/square.png";
-    document.getElementById("secondButton").src = "icons/polygon.png";
-    document.getElementById("thirdButton").src = "icons/hexa.png";
+    document.getElementById("square").src = "icons/square.png";
+    document.getElementById("diamond").src = "icons/polygon.png";
+    document.getElementById("hex").src = "icons/hexa.png";
     var img=document.getElementById("title");
     ctx.drawImage(img, 15, 40, 300, 132);
     var img=document.getElementById("firstButton");
