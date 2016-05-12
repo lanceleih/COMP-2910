@@ -1,5 +1,11 @@
+body {
+margin: 0;
+padding: 0;
+}
 canvas {
-   border: 1px solid #000000;
+margin: 0;   
+padding: 0;
+border: 1px solid #000000;
     background-color: #F2EFCC;
     background-image: url("background/BG.jpg");
 }
