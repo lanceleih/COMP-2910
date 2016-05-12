@@ -161,7 +161,7 @@ function selectShape() {
     } 
 }
 /*The select difficulty page for the game*/
-function selectDifficulty() {
+ /*function selectDifficulty() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
     document.getElementById("firstButton").src = "icons/easy.png";
@@ -204,6 +204,54 @@ function selectDifficulty() {
             selectShape();
         }
     } 
+}*/
+
+/* Grace updated difficulty function */
+function difficulty() {
+    var c= document.getElementById("mainCanvas");
+    var ctx = c.getContext("2d");
+    var difficulty = document.getElementById("difficulty");
+    ctx.drawImage(difficulty, 15, 40, 300, 132);
+    var easy = document.getElementById("easy");
+    ctx.drawImage(easy, 90,180, 150, 75);
+    var medium = document.getElementById("medium");
+    ctx.drawImage(medium, 90,260, 150, 75);
+    var hard = document.getElementById("hard");
+    ctx.drawImage(hard, 90,340, 150, 75);
+    var back=document.getElementById("back")
+    ctx.drawImage(back, 0, 0, 100, 50);
+    c.addEventListener("click", getPosition, false);
+
+
+    function getPosition(event)
+    {
+        var x = event.x;
+        var y = event.y;
+        var home = document.getElementById("mainCanvas");
+        var ctx = home.getContext("2d");
+
+        x -= home.offsetLeft;
+        y -= home.offsetTop;
+        //alert(x + ',' + y);
+
+        if(x > 90 && x < 240 && y > 180 && y < 255) {
+            //ctx.clearRect(0, 0, 320, 480);
+            alert("you like easy eh");
+            //selectShape();
+        } else if(x > 90 && x < 240 && y > 260 && y < 335) {
+            //ctx.clearRect(0, 0, 320, 480);
+            alert("you like medium");
+        } else if(x > 90 && x < 240 && y > 340 && y < 415) {
+            //ctx.clearRect(0, 0, 320, 480);
+            alert("this is difficult one!");
+        } else if(x > 15 && x < 100 && y > 15 && y < 40) {
+            //ctx.clearRect(0, 0, 320, 480);
+            //selectShape();
+            alert("let's go back!");
+
+        }
+    }
+
 }
 /*The select shape page for the leaderboard*/
 function leaderboardShape() {
