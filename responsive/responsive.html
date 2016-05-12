@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"charset="utf-8" />
+        <title>Scholours Game</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="responsiveMain.js"></script>
+    </head>
+    <body>
+        <div id="home" class="divs">
+            <br>
+            <br>
+            <img class="title" src="title/titleIcon.png" alt="logo"><br>
+            <input type="image" src="icons/play.png" onclick="selectShape()"><br>
+            <input type="image" src="icons/settings.png" onclick="selectSettings()"><br>
+            <input type="image" src="icons/leaderboard.png" onclick="selectLeaderboardShape()"><br>
+            <input type="image" src="title/slogan.png" id="slogan" onclick="easterEgg()"><br>
+        </div>
+        <div id="selectShape" class="divs">
+            <input type="image" src="icons/BACK.png" id="backButton" onclick="shapeSelectBack()"><br>
+            <img class="title" src="title/shapetitle.png" alt="title"><br>
+            <input type="image" src="icons/square.png" onclick="selectDifficulty()"><br>
+            <input type="image" src="icons/polygon.png" onclick="selectDifficulty()"><br>
+            <input type="image" src="icons/hexa.png" onclick="selectDifficulty()"><br><br>
+        </div>
+        <div id="difficulty" class="divs">
+            <input type="image" src="icons/BACK.png" id="backButton" onclick="difficultySelectBack()"><br>
+            <img class="title" src="title/difficultytitle.png" alt="title"><br>
+            <input type="image" src="icons/easy.png"><br>
+            <input type="image" src="icons/medium.png"><br>
+            <input type="image" src="icons/hard.png"><br><br>
+        </div>
+        <div id="leaderboardShape" class="divs">
+            <input type="image" src="icons/BACK.png" id="backButton" onclick="leaderboardShapeBack()"><br>
+            <img class="title" src="title/leaderboardtitle.png" alt="title"><br>
+            <input type="image" src="icons/square.png"><br>
+            <input type="image" src="icons/polygon.png"><br>
+            <input type="image" src="icons/hexa.png"><br><br>
+        </div>
+        <div id="settings" class="divs">
+            <input type="image" src="icons/BACK.png" id="backButton" onclick="settingBack()"><br>
+            <img class="title" src="title/settingstitle.png" alt="title"><br>
+            <input type="image" src="icons/audio.png"><br>
+            <input type="image" src="icons/colour_packs.png"><br>
+            <input type="image" src="icons/hexa.png"><br><br>
+        </div>
+        <div id="easterEgg" class="divs">
+            <input type="image" src="icons/BACK.png" onclick="backEaster()" id="backButton">
+            <img src="title/titleIcon.png" alt="logo" class="title">
+            <img src="docwaylon.gif" alt="easter egg gif" id="video">
+        </div>
+    </body>
+</html>
