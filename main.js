@@ -174,24 +174,7 @@ function selectShape() {
 <<<<<<< HEAD
 
 
-/* Grace updated difficulty function */
-function selectDifficulty() {
-    var c = document.getElementById("mainCanvas");
-    var ctx = c.getContext("2d");
 
-    var difficulty = document.getElementById("difficulty");
-    ctx.drawImage(difficulty, 15, 40, 300, 132);
-    var easy = document.getElementById("easy");
-    ctx.drawImage(easy, 90, 180, 150, 75);
-    var medium = document.getElementById("medium");
-    ctx.drawImage(medium, 90, 260, 150, 75);
-    var hard = document.getElementById("hard");
-    ctx.drawImage(hard, 90, 340, 150, 75);
-    var back = document.getElementById("back")
-    ctx.drawImage(back, 0, 0, 100, 50);
-
-    c.addEventListener("click", getPosition, false);
-=======
 /*The select difficulty page for the game*/
  function selectDifficulty() {
     var home = document.getElementById("mainCanvas");
@@ -208,43 +191,26 @@ function selectDifficulty() {
     ctx.drawImage(img,90,260, 150, 75);
     var img=document.getElementById("thirdButton");
     ctx.drawImage(img,90,340, 150, 75);
-    var img=document.getElementById("backButton")
+    var img=document.getElementById("back")
     ctx.drawImage(img, 0, 0, 100, 50);
->>>>>>> 440d4c07998da8788ec8da4edf33d234c9c0a707
+
 
     home.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
         var x = event.x;
         var y = event.y;
-<<<<<<< HEAD
-        var selectDifficulty = document.getElementById("mainCanvas");
-        var ctx = selectDifficulty.getContext("2d");
-=======
+     
         var home = document.getElementById("mainCanvas");
         var ctx = home.getContext("2d");
->>>>>>> 440d4c07998da8788ec8da4edf33d234c9c0a707
+
 
         x -= home.offsetLeft;
         y -= home.offsetTop;
         //alert(x + ',' + y);
-<<<<<<< HEAD
 
-        if (x > 90 && x < 240 && y > 180 && y < 255) {
-            //ctx.clearRect(0, 0, 320, 480);
-            //alert("you like easy eh");
-            //selectShape();
-            // home();
-        } else if (x > 90 && x < 240 && y > 260 && y < 335) {
-            ctx.clearRect(0, 0, 320, 480);
-            selectDifficulty();
-            //alert("you like medium");
-        } else if (x > 90 && x < 240 && y > 340 && y < 415) {
-            ctx.clearRect(0, 0, 320, 480);
-            //home();
-            alert("this is difficult one!");
-        } else if (x > 15 && x < 100 && y > 15 && y < 40) {
-=======
+
+     
    
         if(x > 90 && x < 240 && y > 180 && y < 255) {
             //ctx.clearRect(0, 0, 320, 480);
@@ -253,7 +219,6 @@ function selectDifficulty() {
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
             //ctx.clearRect(0, 0, 320, 480);
         } else if(x > 15 && x < 100 && y > 15 && y < 40) {
->>>>>>> 440d4c07998da8788ec8da4edf33d234c9c0a707
             ctx.clearRect(0, 0, 320, 480);
             selectShape();
         }
