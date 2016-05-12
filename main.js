@@ -252,41 +252,37 @@ function leaderboardShape() {
 
 /* Javascript for the Paused Page */
 function paused() {
-            var c = document.getElementById("mainCanvas");
-            var ctx = c.getContext("2d");
+    var c = document.getElementById("mainCanvas");
+    var ctx = c.getContext("2d");
 
-            var pausedTitle = document.getElementById("pausedTitle");
-            ctx.drawImage(pausedTitle, 12, 40, 300, 132);
-            var resume = document.getElementById("resume");
-            ctx.drawImage(resume, 90, 180, 150, 75);
-            var restart = document.getElementById("restart");
-            ctx.drawImage(restart, 90, 260, 150, 75);
-            var menu = document.getElementById("menu");
-            ctx.drawImage(menu, 90, 340, 150, 75);
+    var pausedTitle = document.getElementById("pausedTitle");
+    ctx.drawImage(pausedTitle, 12, 40, 300, 132);
+    var resume = document.getElementById("resume");
+    ctx.drawImage(resume, 90, 180, 150, 75);
+    var restart = document.getElementById("restart");
+    ctx.drawImage(restart, 90, 260, 150, 75);
+    var menu = document.getElementById("menu");
+    ctx.drawImage(menu, 90, 340, 150, 75);
 
-            c.addEventListener("click", tapped, false);
+    c.addEventListener("click", tapped, false);
 
-            function tapped(event) {
-                var x = event.x;
-                var y = event.y;
-                var page = document.getElementById("mainCanvas");
-                var ctx = page.getContext("2d");
+    function tapped(event) {
+        var x = event.x;
+        var y = event.y;
+        var page = document.getElementById("mainCanvas");
+        var ctx = page.getContext("2d");
 
-                x -= page.offsetLeft;
-                y -= page.offsetTop;
+        x -= page.offsetLeft;
+        y -= page.offsetTop;
 
-                if (x > 90 && x < 240 && y > 180 && y < 255) {
-                    alert("Resume game");
-                } else if (x > 90 && x < 240 && y > 260 && y < 335) {
-                    alert("Restart game!");
-                } else if (x > 90 && x < 240 && y > 340 && y < 415) {
-                    alert("Menu");
-                };
-
-                
-
-            }
-
-
-    }    
+        if (x > 90 && x < 240 && y > 180 && y < 255) {
+            // alert("Resume game");
+        } else if (x > 90 && x < 240 && y > 260 && y < 335) {
+            // alert("Restart game!");
+        } else if (x > 90 && x < 240 && y > 340 && y < 415) {
+            ctx.clearRect(0, 0, 320, 480);
+            home();
+        };
+    }
+}    
 

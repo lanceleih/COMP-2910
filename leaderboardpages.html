@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Leaderboard Pages/Tabs</title>
+        <link rel="stylesheet" type="text/css" href="base.css">
+    </head>
+    <body onload="leadEasy()">
+        <canvas id="mainCanvas" width="320" height="480">
+            </canvas>
+        <br>
+        <img id="easyTitle" width="0" height="0" src="title/difficultyeasytitle.png" alt="Easy Leaderboard">
+
+        <script>
+            function leadEasy() {
+                var c = document.getElementById("mainCanvas");
+                var ctx = c.getContext("2d");
+
+                var easyTitle = document.getElementById("easyTitle");
+                ctx.drawImage(easyTitle, 28, 40, 263, 38);
+            }
+        </script>
+    </body>
+</html>
