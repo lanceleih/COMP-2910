@@ -19,7 +19,31 @@
 
                 var easyTitle = document.getElementById("easyTitle");
                 ctx.drawImage(easyTitle, 28, 40, 263, 38);
+                
+
+                function drawBoard() {
+                    var c = document.getElementById("mainCanvas");
+                    var ctx = c.getContext("2d");
+                    var bw = 400;
+                    var bh = 400;
+                    var p = 10;
+
+                    for (var x = 0; x <= bw; x += 40) {
+                        context.moveTo(0.5 + x + p, p);
+                        context.lineTo(0.5 + x + p, bh + p);
+                    }
+
+
+                    for (var x = 0; x <= bh; x += 40) {
+                        context.moveTo(p, 0.5 + x + p);
+                        context.lineTo(bw + p, 0.5 + x + p);
+                    }
+
+                    context.strokeStyle = "black";
+                    context.stroke();
+                };
             }
+
         </script>
     </body>
 </html>
