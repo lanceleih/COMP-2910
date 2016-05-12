@@ -161,7 +161,7 @@ function selectShape() {
     } 
 }
 /*The select difficulty page for the game*/
- /*function selectDifficulty() {
+ function selectDifficulty() {
     var home = document.getElementById("mainCanvas");
     var ctx = home.getContext("2d");
     document.getElementById("firstButton").src = "icons/easy.png";
@@ -193,8 +193,7 @@ function selectShape() {
         //alert(x + ',' + y);
    
         if(x > 90 && x < 240 && y > 180 && y < 255) {
-            ctx.clearRect(0, 0, 320, 480);
-            selectShape();
+            //ctx.clearRect(0, 0, 320, 480);
         } else if(x > 90 && x < 240 && y > 260 && y < 335) {
             //ctx.clearRect(0, 0, 320, 480);
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
@@ -204,7 +203,7 @@ function selectShape() {
             selectShape();
         }
     } 
-}*/
+}
 
 /* Grace updated difficulty function */
 function difficulty() {
