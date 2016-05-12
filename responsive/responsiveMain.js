@@ -58,3 +58,9 @@ function settingBack() {
     var settings = document.getElementById("settings");
     settings.style.display = "none";
 }
+function backPause() {
+    var home = document.getElementById("home");
+    home.style.display = "block";
+    var pause = document.getElementById("pause");
+    pause.style.display = "none";
+}
