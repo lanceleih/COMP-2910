@@ -38,6 +38,56 @@ function selectShape() {
     home.style.display = "none";
     var leaderboardShape = document.getElementById("leaderboardShape");
     leaderboardShape.style.display = "block";
+} function selectLeaderboardEasy() {
+    var leaderboardSquareEasy = document.getElementById("leaderboardSquareEasy");
+    leaderboardSquareEasy.style.display = "block";
+    var leaderboardShape = document.getElementById("leaderboardShape");
+    leaderboardShape.style.display = "none";
+} function leaderboardSquareEasyBack() {
+    var leaderboardSquareEasy = document.getElementById("leaderboardSquareEasy");
+    leaderboardSquareEasy.style.display = "none";
+    var leaderboardShape = document.getElementById("leaderboardShape");
+    leaderboardShape.style.display = "block";
+} function leaderboardEasyToHard() {
+    var leaderboardSquareEasy = document.getElementById("leaderboardSquareEasy");
+    leaderboardSquareEasy.style.display = "none";
+    var leaderboardSquareHard = document.getElementById("leaderboardSquareHard");
+    leaderboardSquareHard.style.display = "block";
+} function leaderboardEasyToMedium() {
+    var leaderboardSquareEasy = document.getElementById("leaderboardSquareEasy");
+    leaderboardSquareEasy.style.display = "none";
+    var leaderboardSquareMedium = document.getElementById("leaderboardSquareMedium");
+    leaderboardSquareMedium.style.display = "block";
+} function leaderboardSquareMediumBack() {
+    var leaderboardSquareMedium = document.getElementById("leaderboardSquareMedium");
+    leaderboardSquareMedium.style.display = "none";
+    var leaderboardShape = document.getElementById("leaderboardShape");
+    leaderboardShape.style.display = "block";
+} function leaderboardMediumToEasy() {
+    var leaderboardSquareEasy = document.getElementById("leaderboardSquareEasy");
+    leaderboardSquareEasy.style.display = "block";
+    var leaderboardSquareMedium = document.getElementById("leaderboardSquareMedium");
+    leaderboardSquareMedium.style.display = "none";
+} function leaderboardMediumToHard() {
+    var leaderboardSquareHard = document.getElementById("leaderboardSquareHard");
+    leaderboardSquareHard.style.display = "block";
+    var leaderboardSquareMedium = document.getElementById("leaderboardSquareMedium");
+    leaderboardSquareMedium.style.display = "none";
+} function leaderboardSquareHardBack() {
+    var leaderboardSquareHard = document.getElementById("leaderboardSquareHard");
+    leaderboardSquareHard.style.display = "none";
+    var leaderboardShape = document.getElementById("leaderboardShape");
+    leaderboardShape.style.display = "block";
+} function leaderboardHardToMedium() {
+    var leaderboardSquareHard = document.getElementById("leaderboardSquareHard");
+    leaderboardSquareHard.style.display = "none";
+    var leaderboardSquareMedium = document.getElementById("leaderboardSquareMedium");
+    leaderboardSquareMedium.style.display = "block";
+} function leaderboardHardToEasy() {
+    var leaderboardSquareHard = document.getElementById("leaderboardSquareHard");
+    leaderboardSquareHard.style.display = "none";
+    var leaderboardSquareEasy = document.getElementById("leaderboardSquareEasy");
+    leaderboardSquareEasy.style.display = "block";
 } function leaderboardShapeBack() {
     var home = document.getElementById("home");
     home.style.display = "block";
