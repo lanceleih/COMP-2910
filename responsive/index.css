@@ -3,6 +3,9 @@ body {
     margin: 0 20% 0 30%;
     /*background-image: url("background/BG.jpg");*/
 }
+h1 {
+    text-align: center;
+}
 .divs {
     background-image: url("background/BG.jpg");
     min-width: 320px;
@@ -11,10 +14,20 @@ body {
     max-height: 100%;
     display: none;
 }
-#backButton {
+.backButton {
     width: 30%;
     height: 15%;
     padding-left: 0;
+}
+.arrow {
+width:15%;
+height: 15%;
+display: inline;
+padding-left: 12%;
+padding-top: 30%;
+}
+#rightArrow {
+padding-left: 45%;
 }
 input {
     width: 40%;
