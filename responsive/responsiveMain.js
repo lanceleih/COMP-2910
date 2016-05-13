@@ -138,4 +138,14 @@ function selectShape() {
     jungle.style.display = "block";
     var backstreet = document.getElementById("backstreet");
     backstreet.style.display = "none";
+} function selectAudio() {
+    var audio = document.getElementById("audio");
+    audio.style.display = "block";
+    var settings = document.getElementById("settings");
+    settings.style.display = "none";
+} function audioBack() {
+    var audio = document.getElementById("audio");
+    audio.style.display = "none";
+    var settings = document.getElementById("settings");
+    settings.style.display = "block";
 }
