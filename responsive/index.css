@@ -3,6 +3,9 @@ body {
     margin: 0 20% 0 30%;
     /*background-image: url("background/BG.jpg");*/
 }
+h1 {
+    text-align: center;
+}
 .divs {
     background-image: url("background/BG.jpg");
     min-width: 320px;
@@ -11,16 +14,55 @@ body {
     max-height: 100%;
     display: none;
 }
-#backButton {
+.backButton {
     width: 30%;
     height: 15%;
     padding-left: 0;
+}
+.arrow {
+width:15%;
+height: 15%;
+display: inline;
+padding-left: 12%;
+padding-top: 30%;
+}
+#bgmHeading {
+    width: 50%;
+    height: 50%;
+    padding-left: 20%;
+    padding-top: 10%;
+}
+#fxHeading {
+    width: 25%;
+    height: 25%;
+    padding-left: 20%;
+    padding-top: 20%;
+}
+#rightArrow {
+padding-left: 45%;
+}
+a img{
+    width: 40%;
+    height: 40%;
+    padding-left: 30%;
+    padding-bottom: 5%;
+
 }
 input {
     width: 40%;
     height: 40%;
     padding-left: 30%;
     padding-bottom: 5%;
+}
+#titleLogo {
+    width: 40%;
+    height: 40%;
+    padding-bottom: 5%;
+}
+#cubeLogo {
+    padding-left: 10%;
+    width: 20%;
+    height: 20%;
 }
 .title {
     width: 80%;
