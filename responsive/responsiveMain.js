@@ -1,3 +1,4 @@
+var count = 0;
 function selectShape() {
     var home = document.getElementById("home");
     home.style.display = "none";
@@ -11,10 +12,14 @@ function shapeSelectBack() {
     home.style.display = "block";
 }
 function easterEgg() {
-    var home = document.getElementById("home");
-    home.style.display = "none";
-    var shape = document.getElementById("easterEgg");
-    shape.style.display = "block";
+    count++;
+    if(count == 10) {
+        var home = document.getElementById("home");
+        home.style.display = "none";
+        var shape = document.getElementById("easterEgg");
+        shape.style.display = "block";
+        count = 0;
+    }
 }
 function backEaster() {
     var home = document.getElementById("home");
