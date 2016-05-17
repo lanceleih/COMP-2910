@@ -166,7 +166,7 @@ function selectShape() {
         }
     }
 }
-<<<<<<< HEAD
+
 
 
 
@@ -178,6 +178,7 @@ function selectShape() {
     document.getElementById("secondButton").src = "icons/medium.png";
     document.getElementById("thirdButton").src = "icons/hard.png";
     document.getElementById("title").src = "title/difficultytitle.png";
+
     var img=document.getElementById("title");
     ctx.drawImage(img, 15, 40, 300, 132);
     var img=document.getElementById("firstButton");
@@ -204,9 +205,6 @@ function selectShape() {
         y -= home.offsetTop;
         //alert(x + ',' + y);
 
-
-     
-   
         if(x > 90 && x < 240 && y > 180 && y < 255) {
             //ctx.clearRect(0, 0, 320, 480);
         } else if(x > 90 && x < 240 && y > 260 && y < 335) {
