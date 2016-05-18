@@ -6,9 +6,14 @@
         <title>Scholours Game</title>
         <link rel="stylesheet" type="text/css" href="index.css">
         <script src="responsiveMain.js"></script>
-    </head>
+</head>
     <body>
-        <div id="home" class="divs">
+    <!--Background Music sourced from: http://opengameart.org/content/pixel-adventures-->
+    <audio id="bgm" src="audio/Pixel adventures.mp3" autoplay loop>
+        Your browser does not support the audio tag.
+    </audio>
+
+    <div id="home" class="divs">
             <br>
             <br>
             <img src="icons/cube.png" alt="logo" id="cubeLogo">
@@ -18,6 +23,7 @@
             <input type="image" src="icons/leaderboard.png" onclick="selectLeaderboardShape()"><br>
             <input type="image" src="title/slogan.png" id="slogan" onclick="easterEgg()"><br>
         </div>
+        
         <div id="selectShape" class="divs">
             <input type="image" src="icons/BACK.png" class="backButton" onclick="shapeSelectBack()"><br>
             <img class="title" src="title/shapetitle.png" alt="title"><br>
@@ -25,20 +31,49 @@
             <input type="image" src="icons/polygon.png" onclick="selectDifficulty()"><br>
             <input type="image" src="icons/hexa.png" onclick="selectDifficulty()"><br><br>
         </div>
+        
         <div id="difficulty" class="divs">
             <input type="image" src="icons/BACK.png" class="backButton" onclick="difficultySelectBack()"><br>
             <img class="title" src="title/difficultytitle.png" alt="title"><br>
-            <input type="image" src="icons/easy.png"><br>
+            <a href="1_3.html">
+            <img border="0" alt="easy button" src="icons/easy.png">
+            </a>
             <input type="image" src="icons/medium.png"><br>
             <input type="image" src="icons/hard.png"><br><br>
         </div>
+        
         <div id="leaderboardShape" class="divs">
             <input type="image" src="icons/BACK.png" class="backButton" onclick="leaderboardShapeBack()"><br>
             <img class="title" src="title/leaderboardtitle.png" alt="title"><br>
-            <input type="image" src="icons/square.png"><br>
+            <input type="image" src="icons/square.png" onclick="selectLeaderboardEasy()"><br>
             <input type="image" src="icons/polygon.png"><br>
             <input type="image" src="icons/hexa.png"><br><br>
         </div>
+        
+        <div id="leaderboardSquareEasy" class="divs">
+            <input type="image" src="icons/BACK.png" class="backButton" onclick="leaderboardSquareEasyBack()"><br>
+            <img src="title/difficultyeasytitle.png" alt="easy difficulty" class="title">
+            <input type="image" src="icons/left_arrow.png" class="arrow" onclick="leaderboardEasyToHard()">
+            <input type="image" src="icons/right_arrow.png" class="arrow" id="rightArrow" onclick="leaderboardEasyToMedium()">
+            <br>
+        </div>
+        
+        <div id="leaderboardSquareMedium" class="divs">
+            <input type="image" src="icons/BACK.png" class="backButton" onclick="leaderboardSquareMediumBack()"><br>
+            <img src="title/difficultymediumtitle.png" alt="medium difficulty" class="title">
+            <input type="image" src="icons/left_arrow.png" class="arrow" onclick="leaderboardMediumToEasy()">
+            <input type="image" src="icons/right_arrow.png" class="arrow" id="rightArrow" onclick="leaderboardMediumToHard()">
+            <br>
+        </div>
+        
+        <div id="leaderboardSquareHard" class="divs">
+            <input type="image" src="icons/BACK.png" class="backButton" onclick="leaderboardSquareHardBack()"><br>
+            <img src="title/difficultyhardtitle.png" alt="hard difficulty" class="title">
+            <input type="image" src="icons/left_arrow.png" class="arrow" onclick="leaderboardHardToMedium()">
+            <input type="image" src="icons/right_arrow.png" class="arrow" id="rightArrow" onclick="leaderboardHardToEasy()">
+            <br>
+        </div>
+        
         <div id="settings" class="divs">
             <input type="image" src="icons/BACK.png" class="backButton" onclick="settingBack()"><br>
             <img class="title" src="title/settingstitle.png" alt="title"><br>
@@ -46,6 +81,7 @@
             <input type="image" src="icons/colour_packs.png" onclick="selectColourPack()"><br>
             <input type="checkbox" value="colourblind">Colour Blind<br><br>
         </div>
+        
         <div id="easterEgg" class="divs">
             <input type="image" src="icons/BACK.png" onclick="backEaster()" class="backButton">
             <br>
@@ -53,14 +89,34 @@
             <img src="icons/title.png" alt="logo" id="titleLogo"><br>
             <img src="docwaylon.gif" alt="easter egg gif" id="video">
         </div>
+        
         <div id="audio" class="divs">
             <input type="image" src="icons/BACK.png" class="backButton" onclick="audioBack()"><br>
             <img class="title" src="title/audiosettings.png" alt="title"><br>
-            <img src="icons/background_music.png" id="bgmHeading"><br>
-            <img src="icons/Effects.png" id="fxHeading">
-        </div>
+            <img src="icons/background_music.png" id="bgmHeading" alt="music"><br>
+            <div id="bgmSliderDiv">
+                <input id="bgmSlider" type="range" min="0" max="1" value="0.1" step="0.05" oninput="setBgmVolume()">
+                <br><input type="button" onclick="muteBgm()" value="test">
+            </div>
+            <img src="icons/Effects.png" id="fxHeading" alt="effects">
+            <div id="sfxSliderDiv">
+                <input id="sfxSlider" type="range" min="0" max="1" value="0.5" step="0.05" oninput="setSfxVolume()">
+                <br><input type="button" onclick="muteSfx()" value="test">
+            </div>
 
+        </div>
+        
         <div id="pause" class="divs">
+            <br>
+            <br>
+            <img class="title" src="title/resulttitle.png" alt="logo"><br>
+            <h1>Game Over</h1>
+            <h1>Your Time: </h1>
+            <input type="image" src="icons/restart.png"><br>
+            <input type="image" src="icons/main_menu.png"><br>
+        </div>
+        
+        <div id="result" class="divs">
             <br>
             <br>
             <img class="title" src="title/pausedtitle.png" alt="logo"><br>
@@ -68,6 +124,7 @@
             <input type="image" src="icons/restart.png"><br>
             <input type="image" src="icons/main_menu.png" onclick="backPause()"><br>
         </div>
+        
         <div id="jungleLove" class="divs">
             <input type="image" src="icons/BACK.png" class="backButton" onclick="jungleBack()"><br>
             <img src="title/choosecolourpack.png" alt="choose colour pack" class="title">
@@ -76,6 +133,7 @@
             <br>
             <h1>Jungle Love</h1>
         </div>
+        
         <div id="spookyGhosts" class="divs">
             <input type="image" src="icons/BACK.png" class="backButton" onclick="ghostsBack()"><br>
             <img src="title/choosecolourpack.png" alt="choose colour pack" class="title">
@@ -84,6 +142,7 @@
             <br>
             <h1>Spooky Ghosts</h1>
         </div>
+        
         <div id="iceCream" class="divs">
             <input type="image" src="icons/BACK.png" class="backButton" onclick="icecreamBack()"><br>
             <img src="title/choosecolourpack.png" alt="choose colour pack" class="title">
@@ -92,6 +151,7 @@
             <br>
             <h1>Ice Cream Supreme</h1>
         </div>
+        
         <div id="beerGoogles" class="divs">
             <input type="image" src="icons/BACK.png" class="backButton" onclick="beerBack()"><br>
             <img src="title/choosecolourpack.png" alt="choose colour pack" class="title">
@@ -100,6 +160,7 @@
             <br>
             <h1>Beer Googles</h1>
         </div>
+        
         <div id="backstreet" class="divs">
             <input type="image" src="icons/BACK.png" class="backButton" onclick="backstreetBack()"><br>
             <img src="title/choosecolourpack.png" alt="choose colour pack" class="title">
