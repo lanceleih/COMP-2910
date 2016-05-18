@@ -8,7 +8,12 @@
         <script src="responsiveMain.js"></script>
 </head>
     <body>
-        <div id="home" class="divs">
+    <!--Background Music sourced from: http://opengameart.org/content/pixel-adventures-->
+    <audio id="bgm" src="audio/Pixel adventures.mp3" autoplay loop>
+        Your browser does not support the audio tag.
+    </audio>
+
+    <div id="home" class="divs">
             <br>
             <br>
             <img src="icons/cube.png" alt="logo" id="cubeLogo">
@@ -89,7 +94,16 @@
             <input type="image" src="icons/BACK.png" class="backButton" onclick="audioBack()"><br>
             <img class="title" src="title/audiosettings.png" alt="title"><br>
             <img src="icons/background_music.png" id="bgmHeading" alt="music"><br>
+            <div id="bgmSliderDiv">
+                <input id="bgmSlider" type="range" min="0" max="1" value="0.1" step="0.05" oninput="setBgmVolume()">
+                <br><input type="button" onclick="muteBgm()" value="test">
+            </div>
             <img src="icons/Effects.png" id="fxHeading" alt="effects">
+            <div id="sfxSliderDiv">
+                <input id="sfxSlider" type="range" min="0" max="1" value="0.5" step="0.05" oninput="setSfxVolume()">
+                <br><input type="button" onclick="muteSfx()" value="test">
+            </div>
+
         </div>
         
         <div id="pause" class="divs">
