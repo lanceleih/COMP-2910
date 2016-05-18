@@ -47,9 +47,10 @@ function home() {
     }
 }
 /*Function for returning to the home page*/
-/*function backHome() {
+function backHome() {
     var count = 0;
-
+    canvas = document.getElementById("mainCanvas");
+    ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, 320, 480);
 
     var img = document.getElementById("logo");
@@ -58,12 +59,12 @@ function home() {
     ctx.drawImage(img, 60, 420, 200, 50);
     var img = document.getElementById("playButton");
     ctx.drawImage(img, 90, 180, 150, 75);
-    var img = document.getElementById("setttingsButton");
+    var img = document.getElementById("settingsButton");
     ctx.drawImage(img, 90, 260, 150, 75);
     var img = document.getElementById("leaderboardButton");
     ctx.drawImage(img, 90, 340, 150, 75);
 
-    home.addEventListener("click", getPosition, false);
+    canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
         var x = event.x - canvas.offsetLeft;
@@ -87,7 +88,7 @@ function home() {
             }
         }
     }
-}*/
+}
 
 
 
