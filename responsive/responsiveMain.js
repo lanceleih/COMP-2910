@@ -1,4 +1,34 @@
 var count = 0;
+// All audio crap BEGIN
+var sfx1 = new Audio("audio/testSfx1.mp3");
+window.onload = function initBgmVolume(){
+    var bgmHTML = document.getElementById("bgm");
+    bgmHTML.volume = document.getElementById("bgmSlider").value;
+}
+
+function setBgmVolume() {
+    var bgmHTML = document.getElementById("bgm");
+    bgmHTML.volume = document.getElementById("bgmSlider").value;
+}
+function alertBGM(){
+    alert(document.getElementById("bgmSlider").value);
+}
+
+function muteBgm() {
+    var bgmHTML = document.getElementById("bgm");
+    bgmHTML.volume = 0;
+    document.getElementById("bgmSlider").value = 0;
+}
+
+function setSfxVolume() {
+    sfx1.volume = document.getElementById("sfxSlider").value;
+}
+function actSfx1(){
+    sfx1.play();
+}
+
+
+// All audio crap END
 function selectShape() {
     var home = document.getElementById("home");
     home.style.display = "none";
@@ -194,8 +224,10 @@ function selectShape() {
     var settings = document.getElementById("settings");
     settings.style.display = "none";
 } function audioBack() {
+    sfx1.play();
     var audio = document.getElementById("audio");
     audio.style.display = "none";
     var settings = document.getElementById("settings");
     settings.style.display = "block";
+
 }
