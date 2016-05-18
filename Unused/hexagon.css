@@ -1,0 +1,76 @@
+
+.divs {
+    background-image: url("../background/BG.jpg");
+    min-width: 320px;
+    min-height: 480px;
+    width: 320px;
+    height: 480px;
+    max-height: 100%;
+    margin: auto;
+    position: absolute;
+}
+
+.board {
+    margin-top: 75px;
+}
+
+/*Courtesy of http://csshexagon.com/*/
+.hexagon {
+    float: left;
+    position: relative;
+    width: 70px;
+    height: 40.41px;
+    background-color: #FFFFFF;
+    margin: 20.21px 0;
+    margin-left: 1px;
+}
+
+.hexagon:before,
+.hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+}
+
+.hexagon:before {
+    bottom: 100%;
+    border-bottom: 20.21px solid #FFFFFF;
+}
+
+.hexagon:after {
+    top: 100%;
+    width: 0;
+    border-top: 20.21px solid #FFFFFF;
+}
+
+.nextrow {
+    clear: left;
+}
+
+.evenrow {
+    margin-left: 36.5px;
+}
+
+.row1 {
+
+}
+
+.row2 {
+    margin-top: .87px;
+}
+
+.row3 {
+    margin-top: .87px;
+
+}
+
+.row4 {
+    margin-top: .87px;
+
+}
+
+.fixed {
+
+}
