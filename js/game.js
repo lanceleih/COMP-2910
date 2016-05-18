@@ -1,18 +1,22 @@
-const MAX_TILES = 25;
-const MAX_ROWS = 5;
-const MAX_COLS = MAX_TILES / MAX_ROWS;
-const OFFSET_LEFT = 20;
-const OFFSET_RIGHT = 20;
-const OFFSET_TOP = 100;
-const OFFSET_BOTTOM = 100;
-const BOARD_WIDTH = 320 - OFFSET_LEFT - OFFSET_RIGHT;
-const BOARD_HEIGHT = 480 - OFFSET_TOP - OFFSET_BOTTOM;
-const TILE_SHAPE = "square";
-const DEFAULT_COLOR = "#FFFFFF";
-const TILE_WIDTH = BOARD_WIDTH / MAX_COLS;
-const TILE_HEIGHT = BOARD_HEIGHT / MAX_ROWS;
+var MAX_TILES = 25;
+var MAX_ROWS = 5;
+var MAX_COLS = MAX_TILES / MAX_ROWS;
+var OFFSET_LEFT = 20;
+var OFFSET_RIGHT = 20;
+var OFFSET_TOP = 100;
+var OFFSET_BOTTOM = 100;
+var BOARD_WIDTH = 320 - OFFSET_LEFT - OFFSET_RIGHT;
+var BOARD_HEIGHT = 480 - OFFSET_TOP - OFFSET_BOTTOM;
+var TILE_SHAPE = "square";
+var DEFAULT_COLOR = "#FFFFFF";
+var TILE_WIDTH = BOARD_WIDTH / MAX_COLS;
+var TILE_HEIGHT = BOARD_HEIGHT / MAX_ROWS;
 
 var tiles;
+/*0=square 1=diamond 2=hexagon*/
+var shape;
+/*0=easy 1=medium 2=hard*/
+var difficulty;
 
 var palette = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 
@@ -62,16 +66,43 @@ function paused() {
 
 
 function newGame() {
-
-    var startTime = 0;
-    var elapsedTime = 0;
-    var colorInventory = new Array(4);
-    var tilesColored = 0;
-    createTileArray(MAX_ROWS, MAX_COLS);
-    initializeColorInventory();
-    createFixedTiles();
-    game();
-    //gameResult();
+    switch(shape) {
+        case 0:
+            if(difficulty == 0) {
+                var startTime = 0;
+                var elapsedTime = 0;
+                var colorInventory = new Array(4);
+                var tilesColored = 0;
+                createTileArray(MAX_ROWS, MAX_COLS);
+                initializeColorInventory();
+                createFixedTiles();
+                game();
+                //gameResult();
+            } else if(difficulty == 1) {
+                
+            } else {
+                
+            }
+            break;
+        case 1:
+            if(difficulty == 0) {
+                
+            } else if(difficulty == 1) {
+                
+            } else {
+                
+            }
+            break;
+        case 2:
+            if(difficulty == 0) {
+                
+            } else if(difficulty == 1) {
+                
+            } else {
+                
+            }
+            break;
+    }
 }
 
 function createTileArray(row, col) {
@@ -245,6 +276,7 @@ function game() {
         switch (TILE_SHAPE) {
             case "square":
                 return validateSquareGame();
+                break;
             case "rhombus":
             case "hexagon":
             default:

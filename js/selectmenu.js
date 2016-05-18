@@ -31,11 +31,14 @@ function selectShape() {
         //alert(x + ',' + y);
         if (x > 20 && x < 145 && y > 180 && y < 280) {
             home.removeEventListener("click", getPosition, false);
+            shape = 0;
             selectDifficulty();
         } else if (x > 180 && x < 305 && y > 180 && y < 280) {
+            shape = 1;
             //selectDifficulty();
         } else if (x > 20 && x < 145 && y > 300 && y < 400) {
             //selectDifficulty();
+            shape = 2;
         } else if (x > 15 && x < 100 && y > 15 && y < 40) {
             home.removeEventListener("click", getPosition, false);
             backHome();
@@ -73,11 +76,14 @@ function selectDifficulty() {
         if(x > 90 && x < 240 && y > 180 && y < 255) {
             //easy difficulty
             home.removeEventListener("click", getPosition, false);
+            difficulty = 0;
             newGame();
         } else if(x > 90 && x < 240 && y > 260 && y < 335) {
             //medium difficulty
+            difficulty = 1;
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
             //hard difficulty
+            difficulty = 2;
         } else if(x > 15 && x < 100 && y > 15 && y < 40) {
             home.removeEventListener("click", getPosition, false);
             selectShape();
