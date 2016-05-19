@@ -16,11 +16,6 @@ function backEaster() {
     document.getElementById("easterEgg").style.display = "none";
     document.getElementById("main").style.display = "block";
 }
-function backEasySquareLeaderboard() {
-    document.getElementById("leaderboardEasySquareTable").style.display = "none";
-    document.getElementById("main").style.display = "block";
-    leaderboardShape();
-}
 /*Pause Button for Game*/
 function createPauseBtn() {
     var img = document.getElementById("pauseButton");
