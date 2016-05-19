@@ -58,6 +58,7 @@ function loadEasy() {
             canvas.removeEventListener("click", tapped, false);
             leaderboardShape();
         } else if (x > 28 && x < 235 && y > 38 && y > 60) {
+            canvas.removeEventListener("click", tapped, false);
             loadMedium();
         }
     }
@@ -81,6 +82,7 @@ function loadMedium() {
             canvas.removeEventListener("click", tapped, false);
             leaderboardShape();
         } else if (x > 28 && x < 235 && y > 38 && y > 60) {
+            canvas.removeEventListener("click", tapped, false);
             loadHard();
         }
     }
@@ -104,6 +106,7 @@ function loadHard() {
             canvas.removeEventListener("click", tapped, false);
             leaderboardShape();
         } else if (x > 28 && x < 235 && y > 38 && y > 60) {
+            canvas.removeEventListener("click", tapped, false);
             loadEasy();
         }
     }

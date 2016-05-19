@@ -11,8 +11,22 @@ function formatTime(time) {
     return minute + ":" + second + "." + decisecond;
 }
 
-
 /* Hides the easter egg div*/
 function backEaster() {
     document.getElementById("easterEgg").style.display = "none";
+}
+
+/*Pause Button for Game*/
+function createPauseBtn() {
+    ctx.strokeStyle = "#000000";
+    ctx.fillStyle = "#FFFFFF";
+    ctx.beginPath();
+    ctx.rect(240, 20, 60, 60);
+    ctx.stroke();
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "#000000";
+    ctx.beginPath();
+    ctx.fillText("Pause", 250, 55);
 }

@@ -1,18 +1,3 @@
-// old global variables -- debricated
-var MAX_TILES;
-var MAX_ROWS;
-var MAX_COLS;
-var OFFSET_LEFT = 20;
-var OFFSET_RIGHT = 20;
-var OFFSET_TOP = 100;
-var OFFSET_BOTTOM = 100;
-var BOARD_WIDTH = 320 - OFFSET_LEFT - OFFSET_RIGHT;
-var BOARD_HEIGHT = 480 - OFFSET_TOP - OFFSET_BOTTOM;
-var TILE_SHAPE = "square";
-var DEFAULT_COLOR = "#FFFFFF";
-var TILE_WIDTH;
-var TILE_HEIGHT;
-
 // new global variables
 var shape;
 var difficulty;
@@ -52,7 +37,7 @@ var uh;
 // tile array
 var tiles;
 // coloring palette array
-var palette = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
+//var palette = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 // default color -- white
 var default_color = "#FFFFFF";
 // timer
@@ -68,11 +53,10 @@ var tilesColored;
 
 /*The select shape page for the game*/
 function selectShape() {
-
     ctx.clearRect(0, 0, 320, 480);
 
     var img = document.getElementById("shapeTitle");
-    ctx.drawImage(img, 15, 40, 300, 132);
+    ctx.drawImage(img, 13, 40, 300, 132);
     var img = document.getElementById("squareButton");
     ctx.drawImage(img, 20, 180, 125, 100);
     var img = document.getElementById("diamondButton");
@@ -117,7 +101,7 @@ function selectDifficulty() {
     ctx.clearRect(0, 0, 320, 480);
 
     var img=document.getElementById("difficultyTitle");
-    ctx.drawImage(img, 15, 40, 300, 132);
+    ctx.drawImage(img, 13, 40, 300, 132);
     var img=document.getElementById("easyButton");
     ctx.drawImage(img,90,180, 150, 75);
     var img=document.getElementById("mediumButton");
@@ -160,7 +144,6 @@ function selectDifficulty() {
 function newGame() {
     initializePositions();
     initializeGame();
-    drawComponent();
     game();
 }
 
@@ -212,7 +195,7 @@ function initializeGame() {
             max_tile = max_row * max_col;
             tile_width = board_width / max_col;
             tile_height = board_height / max_row;
-            initializeSquareArray(max_row, max_col);
+            initializeSquareArray();
             break;
         case 1:
             switch (difficulty) {
@@ -222,18 +205,19 @@ function initializeGame() {
                     break;
                 case 1:
                     max_row = 5;
-                    max_col = 5;
+                    max_col = 4;
                     break;
                 case 2:
                     max_row = 6;
-                    max_col = 6;
+                    max_col = 4;
                     break;
             }
             max_tile = max_row * max_col;
-            tile_width = board_width / max_col;
-            tile_height = board_height / max_row;
-            initializeSquareArray(max_row, max_col);
-            //initializeDiamondArray(max_row, max_col);
+            tile_width = board_width / (max_col + 0.5);
+            tile_height = board_height / (1 + 0.5 * (max_row - 1));
+            uw = tile_width / 2;
+            uh = tile_height / 2;
+            initializeDiamondArray();
             break;
         case 2:
             switch (difficulty) {
@@ -251,28 +235,28 @@ function initializeGame() {
                     break;
             }
             max_tile = max_row * max_col;
-            tile_width = board_width / (max_row + 0.5);
-            tile_height = board_height / ( 1 + (0.75) * (max_col - 1));
+            tile_width = board_width / (max_col + 0.5);
+            tile_height = board_height / ( 1 + 0.75 * (max_row - 1));
             uw = tile_width / 2;
             uh = tile_height / 4;
-            initializeHexagonArray(max_row, max_col);
+            initializeHexagonArray();
             break;
     }
     initializeColorInventory();
     initializeFixedTiles();
 }
 
-function initializeSquareArray(row, col) {
-    tiles = new Array(row);
-    for (var i = 0; i < row; i++) {
-        tiles[i] = new Array(col);
-        for (var j = 0; j < col; j++) {
+function initializeSquareArray() {
+    tiles = new Array(max_row);
+    for (var i = 0; i < max_row; i++) {
+        tiles[i] = new Array(max_col);
+        for (var j = 0; j < max_col; j++) {
             tiles[i][j] = {
                 color: -1,
-                width: tile_width,
-                height: tile_height,
-                x: board_x + tile_width * j,
-                y: board_y + tile_height * i,
+                /*width: tile_width,
+                 height: tile_height,
+                 x: board_x + tile_width * j,
+                 y: board_y + tile_height * i,*/
                 side: 4,
                 coordinates: {
                     p1: {x: board_x + tile_width * j, y: board_y + tile_height * i},
@@ -286,7 +270,31 @@ function initializeSquareArray(row, col) {
     }
 }
 
-function initializeHexagonArray(row, col) {
+function initializeDiamondArray() {
+    tiles = new Array(max_row);
+    for (var i = 0; i < max_row; i++) {
+        tiles[i] = new Array(max_col);
+        for (var j = 0; j < max_col; j++) {
+            // if odd row
+            var modx = 0;
+            if (i % 2 == 1)
+                modx = uw;
+            tiles[i][j] = {
+                color: -1,
+                side: 4,
+                coordinates: {
+                    p1: {x: board_x + uw + tile_width*j + modx, y: board_y + uh*i},
+                    p2: {x: board_x + tile_width*(j+1) + modx, y: board_y + uh*(i+1)},
+                    p3: {x: board_x + uw + tile_width*j + modx, y: board_y + tile_height + uh*i},
+                    p4: {x: board_x + tile_width*j + modx, y: board_y + uh*(i+1)}
+                },
+                fixed: false
+            };
+        }
+    }
+}
+
+function initializeHexagonArray() {
     tiles = new Array(max_row);
     for (var i = 0; i < max_row; i++) {
         tiles[i] = new Array(max_col);
@@ -368,14 +376,14 @@ function initializeFixedTiles() {
     colorInventory[3]--;
     tilesColored++;
     if (difficulty > 0) {
-        tiles[4][4].fixed = true;
-        tiles[4][4].color = 0;
+        tiles[1][3].fixed = true;
+        tiles[1][3].color = 0;
         colorInventory[0]--;
         tilesColored++;
     }
     if (difficulty > 1) {
-        tiles[5][5].fixed = true;
-        tiles[5][5].color = 1;
+        tiles[0][2].fixed = true;
+        tiles[0][2].color = 1;
         colorInventory[1]--;
         tilesColored++;
     }
@@ -401,6 +409,7 @@ function game() {
     // ctx.shadowColor = "transparent";
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // drawComponent();
     drawTiles();
     drawColorInventory();
     drawFixedTile();
@@ -408,7 +417,7 @@ function game() {
     createPauseBtn();
     createTimer();
     resumeTimer();
-    canvas.addEventListener("click", clickGame, false);
+    canvas.addEventListener("mouseup", clickGame, false);
 
     function drawTiles() {
         ctx.strokeStyle = "#000000";
@@ -455,7 +464,7 @@ function game() {
                 }
         } else if (canvas_x > pause_x && canvas_x < pause_x + pause_width && canvas_y > pause_y && canvas_y < pause_y + pause_height) {
             // clicks pause button
-            canvas.removeEventListener("click", clickGame, false);
+            canvas.removeEventListener("mouseup", clickGame, false);
             clearInterval(gameTimer);
             paused();
         }
@@ -463,12 +472,120 @@ function game() {
         // validates when all tiles are colored
         if (tilesColored == max_tile) {
             if (validateGame() === true) {
-                canvas.removeEventListener("click", clickGame, false);
+                canvas.removeEventListener("mouseup", clickGame, false);
                 clearInterval(gameTimer);
                 gameResult();
             }
         }
     }
+
+    /*function calculateMaxTilesRowCol() {
+        switch(shape) {
+            case 0:
+                if (difficulty == 0) {
+                    maxCols = 4;
+                    maxRows = 4;
+                    maxTiles = maxRows * maxCols;
+                } else if (difficulty == 1) {
+                    maxCols = 5;
+                    maxRows = 5;
+                    maxTiles = maxRows * maxCols;
+                } else {
+                    maxCols = 6;
+                    maxRows = 6;
+                    maxTiles = maxRows * maxCols;
+                }
+                break;
+            case 1:
+                if(difficulty == 0) {
+                    maxCols = 4;
+                    maxRows = 8;
+                    maxTiles = maxRows * maxCols;
+                } else if(difficulty == 1) {
+                    maxCols = 5;
+                    maxRows = 9;
+                    maxTiles = maxRows * maxCols;
+                } else {
+                    maxCols = 6;
+                    maxRows = 10;
+                    maxTiles = maxRows * maxCols;
+                }
+                break;
+            case 2:
+                if(difficulty == 0) {
+                    maxCols = 4;
+                    maxRows = 4;
+                    maxTiles = maxRows * maxCols;
+                } else if(difficulty == 1) {
+                    maxCols = 5;
+                    maxRows = 5;
+                    maxTiles = maxRows * maxCols;
+                } else {
+                    maxCols = 6;
+                    maxRows = 6;
+                    maxTiles = maxRows * maxCols;
+                }
+                break;
+        }
+    }*/
+
+    /*function newGame() {
+     startTime = 0;
+     elapsedTime = 0;
+     colorInventory = new Array(4);
+     tilesColored = 0;
+     calculateMaxTilesRowCol();
+     startGame();
+     }*/
+
+    /*function startGame() {
+        switch (shape) {
+            case 0:
+                if (difficulty == 0) {
+                    createSquareArray(maxRows, maxCols);
+                    initializeSquareEasyColorInventory();
+                    createFixedEasySquare();
+                    squareGame();
+                } else if (difficulty == 1) {
+                    createSquareArray(maxRows, maxCols);
+                    initializeSquareMediumColorInventory();
+                    createFixedMediumSquare();
+                    squareGame();
+                } else {
+                    createSquareArray(maxRows, maxCols);
+                    initializeSquareHardColorInventory();
+                    createFixedHardSquare();
+                    squareGame();
+                }
+                break;
+            case 1:
+                if (difficulty == 0) {
+                    createDiamondArray(maxRows, maxCols);
+                    initializeDiamondEasyColorInventory();
+                    createFixedEasyDiamond();
+                    diamondGame();
+                } else if (difficulty == 1) {
+                    createDiamondArray(maxRows, maxCols);
+                    initializeDiamondMediumColorInventory();
+                    createFixedMediumDiamond();
+                    diamondGame();
+                } else {
+                    createDiamondArray(maxRows, maxCols);
+                    initializeDiamondHardColorInventory();
+                    createFixedHardDiamond();
+                    diamondGame();
+                }
+                break;
+            case 2:
+                if (difficulty == 0) {
+
+                } else if (difficulty == 1) {
+
+                } else {
+
+                }
+                break;
+        }*/
 
     function getTile(coordX, coordY) {
         switch (shape) {
@@ -496,8 +613,45 @@ function game() {
         }
     }
 
+    /*    function getTile(coordX, coordY) {
+     for (var i = 0; i < tiles.length; i++) {
+     for (var j = 0; j < tiles[0].length; j++) {
+     if (tiles[i][j].x < coordX && tiles[i][j].x + tiles[i][j].width > coordX) {
+     if (tiles[i][j].y < coordY && tiles[i][j].y + tiles[i][j].height > coordY) {
+     //alert(tiles[i][j].x + " < " + coordX + " < " + (tiles[i][j].x + tiles[i][j].width) + "\n"
+     //+ tiles[i][j].y + " < " + coordY + " < " + (tiles[i][j].y + tiles[i][j].height) + "\n"
+     //+ "It's tiles[" + j + "][" + i + "]");
+     return tiles[i][j];
+     }
+     }
+     }
+     }
+     }*/
+
     function getDiamondTile(coordX, coordY) {
-        return tiles[0][0];
+        for (var i = 0; i < max_row; i++) {
+            for (var j = 0; j < max_col; j++) {
+                // coordinates of the center of the diamond
+                var cx = tile_width / 2;
+                var cy = tile_height / 2;
+                var modx = 0;
+                if (i % 2 == 1)
+                    modx = uw;
+                var x1 = coordX - board_x - tile_width * j - modx;
+                var y1 = coordY - board_y - uh * i;
+                if (x1 > 0 && x1 < tile_width && y1 > 0 && y1 < tile_height) {
+                    // courtesy of http://stackoverflow.com/questions/27022064/detect-click-in-a-diamond
+                    var dx = Math.abs(x1 - cx);
+                    var dy = Math.abs(y1 - cy);
+                    var d = dx / tile_width + dy / tile_height;
+                    if (d <= 0.5) {
+                        // alert("You clicked [" + i + "][" + j + "]");
+                        return tiles[i][j];
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     function getHexagonTile(coordX, coordY) {
@@ -510,9 +664,9 @@ function game() {
                 var x1 = (tiles[i][j].coordinates.p3.x - tiles[i][j].coordinates.p5.x) - cx;
                 var y1 = (tiles[i][j].coordinates.p3.y - tiles[i][j].coordinates.p1.y) - cy;
                 // coordinates of the click - modified
-                modx = 0;
+                var modx = 0;
                 if (i % 2 == 1)
-                    modx =  uw;
+                    modx = uw;
                 var x2 = coordX - board_x - tile_width * j - modx;
                 var y2 = coordY - board_y - uh * 3 * i;
                 // if mouseclick falls within the square that contains the hexagon
@@ -591,7 +745,7 @@ function game() {
                 return validateSquareGame();
                 break;
             case 1:
-                return false;
+                return validateDiamondGame();
                 break;
             case 2:
                 return validateHexagonGame();
@@ -604,8 +758,8 @@ function game() {
 
     function validateSquareGame() {
         for (var i = 0; i < max_tile; i++) {
-            var row = ~~(i/max_row);
-            var col = i%max_col;
+            var row = ~~(i / max_row);
+            var col = i % max_col;
             // -1, 0
             if (row - 1 >= 0) {
                 if (tiles[row][col].color === tiles[row - 1][col].color) {
@@ -638,9 +792,96 @@ function game() {
         return true;
     }
 
+    /*function fillTile(tile) {
+     var newColor = getNextColor(tile.color);
+     // Check if newColor is usable -- is there any newColor left in the color inventory
+     while (colorInventory[newColor] === 0) {
+     newColor = getNextColor(newColor);
+     }
+     if (newColor === -1) {
+     ctx.fillStyle = DEFAULT_COLOR;
+     } else {
+     ctx.fillStyle = palette[newColor];
+     }
+     ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
+     ctx.beginPath();
+     ctx.rect(tile.x, tile.y, tile.width, tile.height);
+     ctx.fill();
+     if (tile.color == -1) {
+     // no color -> a color
+     tilesColored++;
+     colorInventory[newColor]--;
+     } else if (newColor == -1) {
+     // a color -> no color
+     tilesColored--;
+     colorInventory[tile.color]++;
+     } else {
+     // this color -> new color
+     colorInventory[tile.color]++;
+     colorInventory[newColor]--;
+     }
+     updateRemainingColors();
+     tile.color = newColor;
+     }*/
+
+    function validateDiamondGame() {
+        for (var i = 0; i < max_row; i++) {
+            for (var j = 0; j < max_col; j++) {
+                // if even row
+                if (i % 2 == 1) {
+                    // -1, +1
+                    if (i - 1 >= 0 && j + 1 < max_col) {
+                        if (tiles[i][j].color === tiles[i - 1][j + 1].color) {
+                            // alert("tiles[" + i + "][" + j + "] (" + tiles[i][j].color + ") == tiles[" + (i-1) + "][" + (j+1) + "] (" + tiles[i-1][j+1].color + ")");
+                            return false;
+                        }
+                    }
+                    // +1, +1
+                    if (i + 1 < max_row && j + 1 < max_col) {
+                        if (tiles[i][j].color === tiles[i + 1][j + 1].color) {
+                            // alert("tiles[" + i + "][" + j + "] (" + tiles[i][j].color + ") == tiles[" + (i+1) + "][" + (j+1) + "] (" + tiles[i+1][j+1].color + ")");
+                            return false;
+                        }
+                    }
+                }
+                else {
+                    // -1, -1
+                    if (i - 1 >= 0 && j - 1 >= 0) {
+                        if (tiles[i][j].color === tiles[i - 1][j - 1].color) {
+                            // alert("tiles[" + i + "][" + j + "] (" + tiles[i][j].color + ") == tiles[" + (i-1) + "][" + (j-1) + "] (" + tiles[i-1][j-1].color + ")");
+                            return false;
+                        }
+                    }
+                    // +1, -1
+                    if (i + 1 < max_row && j - 1 >= 0) {
+                        if (tiles[i][j].color === tiles[i + 1][j - 1].color) {
+                            // alert("tiles[" + i + "][" + j + "] (" + tiles[i][j].color + ") == tiles[" + (i+1) + "][" + (j-1) + "] (" + tiles[i+1][j-1].color + ")");
+                            return false;
+                        }
+                    }
+                }
+                // -1, 0
+                if (i - 1 >= 0) {
+                    if (tiles[i][j].color === tiles[i - 1][j].color) {
+                        // alert("tiles[" + i + "][" + j + "] (" + tiles[i][j].color + ") == tiles[" + (i-1) + "][" + j + "] (" + tiles[i-1][j].color + ")");
+                        return false;
+                    }
+                }
+                // +1, 0
+                if (i + 1 < max_row) {
+                    if (tiles[i][j].color === tiles[i + 1][j].color) {
+                        // alert("tiles[" + i + "][" + j + "] (" + tiles[i][j].color + ") == tiles[" + (i+1) + "][" + j + "] (" + tiles[i+1][j].color + ")");
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
     function validateHexagonGame() {
         for (var i = 0; i < max_row; i++) {
-            for (var j =0; j < max_col; j++) {
+            for (var j = 0; j < max_col; j++) {
                 // if even row
                 if (i % 2 == 1) {
                     // -1, +1
@@ -732,14 +973,14 @@ function game() {
                         case 2:
                             // draw \ on fixed tile
                             ctx.beginPath();
-                            ctx.moveTo(tiles[i][j].coordinates.p6.x+11, tiles[i][j].coordinates.p6.y-7);
-                            ctx.lineTo(tiles[i][j].coordinates.p3.x-11, tiles[i][j].coordinates.p3.y+7);
+                            ctx.moveTo(tiles[i][j].coordinates.p6.x + 11, tiles[i][j].coordinates.p6.y - 7);
+                            ctx.lineTo(tiles[i][j].coordinates.p3.x - 11, tiles[i][j].coordinates.p3.y + 7);
                             ctx.stroke();
                             ctx.closePath();
                             // draw / on fixed tile
                             ctx.beginPath();
-                            ctx.moveTo(tiles[i][j].coordinates.p2.x-11, tiles[i][j].coordinates.p2.y-7);
-                            ctx.lineTo(tiles[i][j].coordinates.p5.x+11, tiles[i][j].coordinates.p5.y+7);
+                            ctx.moveTo(tiles[i][j].coordinates.p2.x - 11, tiles[i][j].coordinates.p2.y - 7);
+                            ctx.lineTo(tiles[i][j].coordinates.p5.x + 11, tiles[i][j].coordinates.p5.y + 7);
                             ctx.stroke();
                             ctx.closePath();
                             break;
@@ -794,28 +1035,30 @@ function game() {
     }
 
     function createTimer() {
-        ctx.strokeStyle = "#000000";
-        ctx.fillStyle = "#FFFFFF";
-        ctx.beginPath();
-        ctx.rect(20, 20, 200, 60);
-        //ctx.stroke();
-        ctx.fill();
-        ctx.closePath();
+        // ctx.strokeStyle = "#000000";
+        // ctx.fillStyle = "#FFFFFF";
+        // ctx.beginPath();
+        // ctx.rect(20, 20, 200, 60);
+        // //ctx.stroke();
+        // ctx.fill();
+        // ctx.closePath();
+        var img = document.getElementById("timerImage");
+        ctx.drawImage(img, timer_x, timer_y, timer_width, timer_height);
         startTime = new Date().getTime();
     }
 
     function updateTimer() {
-        ctx.clearRect(21, 21, 198, 58);
-        ctx.fillStyle = "#FFFFFF";
+        //ctx.clearRect(21, 21, 198, 58);
+        ctx.fillStyle = "#C7B577";
         ctx.beginPath();
-        ctx.fillRect(21, 21, 198, 58);
+        ctx.fillRect(90, 40, 120, 20);
 
         ctx.fillStyle = "#000000";
         ctx.font = "30px monospace";
-        elapsedTime = parseInt((new Date().getTime()-startTime) / 100, 10);
+        elapsedTime = parseInt((new Date().getTime() - startTime) / 100, 10);
         var timeString = formatTime(elapsedTime);
         ctx.beginPath();
-        ctx.fillText(timeString, 30, 60);
+        ctx.fillText(timeString, 90, 60);
     }
 
     function resumeTimer() {
@@ -824,17 +1067,19 @@ function game() {
     }
 
     function createPauseBtn() {
-        ctx.strokeStyle = "#000000";
-        ctx.fillStyle = "#FFFFFF";
-        ctx.beginPath();
-        ctx.rect(240, 20, 60, 60);
-        //ctx.stroke();
-        ctx.fill();
-        ctx.closePath();
-
-        ctx.fillStyle = "#000000";
-        ctx.beginPath();
-        ctx.fillText("Pause", 250, 55);
+        // ctx.strokeStyle = "#000000";
+        // ctx.fillStyle = "#FFFFFF";
+        // ctx.beginPath();
+        // ctx.rect(240, 20, 60, 60);
+        // //ctx.stroke();
+        // ctx.fill();
+        // ctx.closePath();
+        //
+        // ctx.fillStyle = "#000000";
+        // ctx.beginPath();
+        // ctx.fillText("Pause", 250, 55);
+        var img = document.getElementById("pauseButton");
+        ctx.drawImage(img, pause_x, pause_y, pause_width, pause_height);
     }
 }
 
@@ -907,3 +1152,61 @@ function gameResult() {
         }
     }
 }
+
+    /*function fillFixedTile() {
+     for (var i = 0; i < maxRows; i++) {
+     for (var j = 0; j < maxCols; j++) {
+     if (tiles[i][j].fixed === true) {
+     ctx.fillStyle = palette[tiles[i][j].color];
+     ctx.strokeStyle = "#000000";
+     ctx.clearRect(tiles[i][j].x, tiles[i][j].y, tiles[i][j].width, tiles[i][j].height);
+
+     // // fill color
+     ctx.beginPath();
+     ctx.rect(tiles[i][j].x, tiles[i][j].y, tiles[i][j].width, tiles[i][j].height);
+     ctx.fill();
+     //ctx.stroke();
+     ctx.closePath();
+
+     // draw X on fixed tile
+     ctx.beginPath();
+     ctx.moveTo(tiles[i][j].x, tiles[i][j].y);
+     ctx.lineTo(tiles[i][j].x + tiles[i][j].width, tiles[i][j].y + tiles[i][j].height);
+     ctx.stroke();
+     ctx.closePath();
+     ctx.beginPath();
+     ctx.moveTo(tiles[i][j].x + tiles[i][j].width, tiles[i][j].y);
+     ctx.lineTo(tiles[i][j].x, tiles[i][j].y + tiles[i][j].height);
+     ctx.stroke();
+     ctx.closePath();
+     }
+     }
+     }
+     }*/
+
+/*function drawColorInventory() {
+    //alert(c.height);
+    var colorInvX = OFFSET_LEFT;
+    // OFFSET_TOP + BOARD_HEIGHT + OFFSET_LEFT
+    var colorInvY = 400;
+    var colorInvWidth = BOARD_WIDTH;
+    // c.height - OFFSET_TOP - BOARD_HEIGHT - OFFSET_LEFT - OFFSET_LEFT
+    var colorInvHeight = 60;
+
+    ctx.fillStyle = "#FFFFFF";
+    ctx.strokeStyle = "#000000";
+    ctx.beginPath();
+    ctx.rect(colorInvX, colorInvY, colorInvWidth, colorInvHeight);
+    ctx.stroke();
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = palette[0];
+    ctx.fillRect(30, 410, 30, 40);
+    ctx.fillStyle = palette[1];
+    ctx.fillRect(100, 410, 30, 40);
+    ctx.fillStyle = palette[2];
+    ctx.fillRect(170, 410, 30, 40);
+    ctx.fillStyle = palette[3];
+    ctx.fillRect(240, 410, 30, 40);
+}*/
