@@ -33,18 +33,22 @@ function leaderboardShape() {
         if (x > 20 && x < 145 && y > 180 && y < 280) {
             // square shape
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             loadEasy();
         } else if (x > 180 && x < 305 && y > 180 && y < 280) {
             // rhombus shape
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             loadEasy();
         } else if (x > 20 && x < 145 && y > 300 && y < 400) {
             // hexagon shape
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             loadEasy();
         } else if (x > 15 && x < 100 && y > 15 && y < 40) {
             // back button
             canvas.removeEventListener("click", getPosition, false);
+            sfx1.play();
             backHome();
         }
 
@@ -79,9 +83,11 @@ function loadEasy() {
 
         if (x > 0 && x < 100 && y > 0 && y < 50) {
             canvas.removeEventListener("click", tapped, false);
+            sfx2.play();
             leaderboardShape();
         } else if (x > 28 && x < 235 && y > 38 && y > 60) {
             canvas.removeEventListener("click", tapped, false);
+            sfx2.play();
             loadMedium();
         }
     }
@@ -103,9 +109,11 @@ function loadMedium() {
 
         if (x > 0 && x < 100 && y > 0 && y < 50) {
             canvas.removeEventListener("click", tapped, false);
+            sfx2.play();
             leaderboardShape();
         } else if (x > 28 && x < 235 && y > 38 && y > 60) {
             canvas.removeEventListener("click", tapped, false);
+            sfx2.play();
             loadHard();
         }
     }
@@ -127,9 +135,11 @@ function loadHard() {
 
         if (x > 0 && x < 100 && y > 0 && y < 50) {
             canvas.removeEventListener("click", tapped, false);
+            sfx2.play();
             leaderboardShape();
         } else if (x > 28 && x < 235 && y > 38 && y > 60) {
             canvas.removeEventListener("click", tapped, false);
+            sfx2.play();
             loadEasy();
         }
     }
