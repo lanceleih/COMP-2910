@@ -37,6 +37,24 @@ var sfxVolume3Img = document.getElementById("sfxVolume3");
 var sfxVolume4Img = document.getElementById("sfxVolume4");
 var sfxVolume5Img = document.getElementById("sfxVolume5");
 
+var bgmVolume1SelectImg = document.getElementById("bgmVolume1Select");
+var bgmVolume2SelectImg = document.getElementById("bgmVolume2Select");
+var bgmVolume3SelectImg = document.getElementById("bgmVolume3Select");
+var bgmVolume4SelectImg = document.getElementById("bgmVolume4Select");
+var bgmVolume5SelectImg = document.getElementById("bgmVolume5Select");
+
+var sfxVolume1SelectImg = document.getElementById("sfxVolume1Select");
+var sfxVolume2SelectImg = document.getElementById("sfxVolume2Select");
+var sfxVolume3SelectImg = document.getElementById("sfxVolume3Select");
+var sfxVolume4SelectImg = document.getElementById("sfxVolume4Select");
+var sfxVolume5SelectImg = document.getElementById("sfxVolume5Select");
+
+var bgmMuteImg = document.getElementById("bgmMute");
+var bgmMuteSelectImg = document.getElementById("bgmMuteSelect");
+
+var sfxMuteImg = document.getElementById("sfxMute");
+var sfxMuteSelectImg = document.getElementById("sfxMuteSelect");
+
 var bgmStateArray = ["#008000", "#998365"];
 var bgmState1 = bgmStateArray[1];
 var bgmState2 = bgmStateArray[0];
