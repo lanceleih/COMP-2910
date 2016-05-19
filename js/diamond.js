@@ -1,19 +1,33 @@
 function createDiamondArray(row, col) {
-    TILE_WIDTH = BOARD_WIDTH / col;
-    TILE_HEIGHT = BOARD_HEIGHT / row;
+    TILE_WIDTH = (BOARD_WIDTH / col) * 0.9;
+    TILE_HEIGHT = (BOARD_HEIGHT / row) * 1.9;
     tiles = new Array(row);
     for (var i = 0; i < row; i++) {
         tiles[i] = new Array(col);
         for (var j = 0; j< col; j++) {
-            tiles[i][j] = {
-                shape: TILE_SHAPE,
-                color: -1,
-                width: TILE_WIDTH - 2,
-                height: TILE_HEIGHT - 2,
-                x: TILE_WIDTH * j + OFFSET_LEFT + 1,
-                y: TILE_HEIGHT * i + OFFSET_TOP + 1,
-                fixed: false
-            };
+            if (i % 2 == 0) {
+                tiles[i][j] = {
+                    shape: TILE_SHAPE,
+                    color: -1,
+                    width: TILE_WIDTH - 2,
+                    height: TILE_HEIGHT - 2,
+                    x: TILE_WIDTH * j + OFFSET_LEFT + 1,
+                    y: TILE_HEIGHT * (i / 2) + OFFSET_TOP + 1,
+                    fixed: false,
+                    odd: false
+                };
+            } else {
+                tiles[i][j] = {
+                    shape: TILE_SHAPE,
+                    color: -1,
+                    width: TILE_WIDTH - 2,
+                    height: TILE_HEIGHT - 2,
+                    x: (TILE_WIDTH * j + OFFSET_LEFT + 1) + (TILE_WIDTH / 2) ,
+                    y: (TILE_HEIGHT * (i / 2) + OFFSET_TOP + 1),
+                    fixed: false,
+                    odd: true
+                };
+            }
         }
     }
 }
@@ -153,18 +167,17 @@ function drawDiamondTiles() {
             else {
                 tileColor = palette[tiles[i][j].color];
             }
-            ctx.beginPath();
-            /*Top*/
-            ctx.moveTo((tiles[i][j].x + (tiles[i][j].width / 2)), (tiles[i][j].y));
-            /*Right*/
-            ctx.lineTo((tiles[i][j].x + (tiles[i][j].width)),(tiles[i][j].y + (tiles[i][j].height / 2)));
-            /*Bottom*/
-            ctx.lineTo((tiles[i][j].x + (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height)));
-            /*Left*/
-            ctx.lineTo((tiles[i][j].x),(tiles[i][j].y + (tiles[i][j].height / 2)));
-            ctx.closePath();
-            ctx.fill();
-
+                ctx.beginPath();
+                /*Top*/
+                ctx.moveTo((tiles[i][j].x + (tiles[i][j].width / 2)), (tiles[i][j].y));
+                /*Right*/
+                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width)),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                /*Bottom*/
+                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height)));
+                /*Left*/
+                ctx.lineTo((tiles[i][j].x),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                ctx.closePath();
+                ctx.fill();
         }
     }
 }
@@ -181,15 +194,15 @@ function fillDiamondTile(tile) {
     }
     ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
     ctx.beginPath();
-            /*Top*/
-            ctx.moveTo((tile.x + (tile.width / 2)), (tile.y));
-            /*Right*/
-            ctx.lineTo((tile.x + (tile.width)),(tile.y + (tile.height / 2)));
-            /*Bottom*/
-            ctx.lineTo((tile.x + (tile.width / 2)),(tile.y + (tile.height)));
-            /*Left*/
-            ctx.lineTo((tile.x),(tile.y + (tile.height / 2)));
-            ctx.closePath();
+    /*Top*/
+    ctx.moveTo((tile.x + (tile.width / 2)), (tile.y));
+    /*Right*/
+    ctx.lineTo((tile.x + (tile.width)),(tile.y + (tile.height / 2)));
+    /*Bottom*/
+    ctx.lineTo((tile.x + (tile.width / 2)),(tile.y + (tile.height)));
+    /*Left*/
+    ctx.lineTo((tile.x),(tile.y + (tile.height / 2)));
+    ctx.closePath();
     ctx.fill();
     if (tile.color == -1) {
         // no color -> a color
