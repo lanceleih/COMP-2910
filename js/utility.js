@@ -17,7 +17,7 @@ function backEaster() {
     document.getElementById("main").style.display = "block";
 }
 function backLeaderboard() {
-    document.getElementById("leaderboardTable").style.display = "none";
+    document.getElementById("leaderboardEasyTable").style.display = "none";
     document.getElementById("main").style.display = "block";
 }
 /*Pause Button for Game*/
