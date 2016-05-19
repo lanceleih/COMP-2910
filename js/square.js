@@ -1,4 +1,4 @@
-function createDiamondArray(row, col) {
+function createSquareArray(row, col) {
     TILE_WIDTH = BOARD_WIDTH / row;
     TILE_HEIGHT = BOARD_HEIGHT / col;
     tiles = new Array(row);
@@ -17,7 +17,7 @@ function createDiamondArray(row, col) {
         }
     }
 }
-function createFixedEasyDiamond() {
+function createFixedEasySquare() {
     tiles[0][0].fixed = true;
     tiles[0][0].color = 0;
     colorInventory[0]--;
@@ -35,7 +35,7 @@ function createFixedEasyDiamond() {
     colorInventory[3]--;
     tilesColored++;
 }
-function createFixedMediumDiamond() {
+function createFixedMediumSquare() {
     tiles[0][0].fixed = true;
     tiles[0][0].color = 0;
     colorInventory[0]--;
@@ -57,7 +57,7 @@ function createFixedMediumDiamond() {
     colorInventory[0]--;
     tilesColored++;
 }
-function createFixedHardDiamond() {
+function createFixedHardSquare() {
     tiles[0][0].fixed = true;
     tiles[0][0].color = 0;
     colorInventory[0]--;
@@ -79,29 +79,29 @@ function createFixedHardDiamond() {
     colorInventory[0]--;
     tilesColored++;
     tiles[5][5].fixed = true;
-    tiles[5][5].color = 0;
+    tiles[5][5].color = 2;
     colorInventory[0]--;
     tilesColored++;
 }
-function initializeDiamondEasyColorInventory() {
+function initializeSquareEasyColorInventory() {
     colorInventory[0] = 5;
     colorInventory[1] = 3;
     colorInventory[2] = 3;
     colorInventory[3] = 5;
 }
-function initializeDiamondMediumColorInventory() {
+function initializeSquareMediumColorInventory() {
     colorInventory[0] = 7;
     colorInventory[1] = 6;
     colorInventory[2] = 6;
     colorInventory[3] = 6;
 }
-function initializeDiamondHardColorInventory() {
+function initializeSquareHardColorInventory() {
     colorInventory[0] = 10;
     colorInventory[1] = 9;
     colorInventory[2] = 10;
     colorInventory[3] = 7;
 }
-function diamondGame() {
+function SquareGame() {
     ctx.strokeStyle = "#000000";
     ctx.fillStyle = "#FFFFFF";
     ctx.lineWidth = 2;
@@ -143,4 +143,3 @@ function diamondGame() {
         }
     }
 }
-
