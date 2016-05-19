@@ -109,7 +109,7 @@ function squareGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     //createTileArray(maxRows, maxCols);
-    drawTiles();
+    drawSquareTiles();
     drawColorInventory();
     fillFixedTile();
     drawRemainingColors();
@@ -140,6 +140,26 @@ function squareGame() {
                 clearInterval(gameTimer);
                 gameResult();
             }
+        }
+    }
+}
+
+function drawSquareTiles() {
+    for (var i = 0; i < tiles.length; i++) {
+        for (var j = 0; j < tiles[0].length; j++) {
+            var tileColor;
+            if (tiles[i][j].color === -1) {
+                tileColor = DEFAULT_COLOR;
+            }
+            else {
+                tileColor = palette[tiles[i][j].color];
+            }
+            ctx.fillStyle = tileColor;
+            ctx.beginPath();
+            ctx.rect(tiles[i][j].x, tiles[i][j].y, tiles[i][j].width, tiles[i][j].height);
+            ctx.stroke();
+            ctx.fill();
+            ctx.closePath();
         }
     }
 }

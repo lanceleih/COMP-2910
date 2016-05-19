@@ -65,19 +65,16 @@ function startGame() {
                 initializeSquareEasyColorInventory();
                 createFixedEasySquare();
                 squareGame();
-                //gameResult();
             } else if (difficulty == 1) {
                 createSquareArray(maxRows, maxCols);
                 initializeSquareMediumColorInventory();
                 createFixedMediumSquare();
                 squareGame();
-                //gameResult();
             } else {
                 createSquareArray(maxRows, maxCols);
                 initializeSquareHardColorInventory();
                 createFixedHardSquare();
                 squareGame();
-                //gameResult();
             }
             break;
         case 1:
@@ -86,19 +83,16 @@ function startGame() {
                 initializeDiamondEasyColorInventory();
                 createFixedEasyDiamond();
                 diamondGame();
-                //gameResult();
             } else if(difficulty == 1) {
                 createDiamondArray(maxRows, maxCols);
                 initializeDiamondMediumColorInventory();
                 createFixedMediumDiamond();
                 diamondGame();
-                //gameResult();
             } else {
                 createDiamondArray(maxRows, maxCols);
                 initializeDiamondHardColorInventory();
                 createFixedHardDiamond();
                 diamondGame();
-                //gameResult();
             }
             break;
         case 2:
@@ -112,26 +106,6 @@ function startGame() {
             break;
     }
 }
-function drawTiles() {
-    for (var i = 0; i < tiles.length; i++) {
-        for (var j = 0; j < tiles[0].length; j++) {
-            var tileColor;
-            if (tiles[i][j].color === -1) {
-                tileColor = DEFAULT_COLOR;
-            }
-            else {
-                tileColor = palette[tiles[i][j].color];
-            }
-            ctx.fillStyle = tileColor;
-            ctx.beginPath();
-            ctx.rect(tiles[i][j].x, tiles[i][j].y, tiles[i][j].width, tiles[i][j].height);
-            ctx.stroke();
-            ctx.fill();
-            ctx.closePath();
-        }
-    }
-}
-
 function getTile(coordX, coordY) {
     for (var i = 0; i < tiles.length; i++) {
         for (var j = 0; j < tiles[0].length; j++) {
