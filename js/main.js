@@ -83,6 +83,7 @@ function home() {
 }
 /*Function for returning to the home page*/
 function backHome() {
+    document.getElementById("addName").style.display = "none"; // leaderboard textbox disappears
     var count = 0;
     canvas = document.getElementById("mainCanvas");
     ctx = canvas.getContext("2d");

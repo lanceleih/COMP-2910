@@ -49,6 +49,7 @@ function calculateMaxTilesRowCol() {
 }
 
 function newGame() {
+    document.getElementById("addName").style.display = "none"; // leaderboard textbox disappears
     startTime = 0;
     elapsedTime = 0;
     colorInventory = new Array(4);
