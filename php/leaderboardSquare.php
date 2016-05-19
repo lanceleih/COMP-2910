@@ -11,15 +11,16 @@
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
+        echo "<table><tr><th>ID</th><th>Name</th><th>Time</th></tr>";
         // output data of each row
         while($row = mysqli_fetch_assoc($result)) {
-            echo "id: " . $row["id"]. " - Name: " . $row["name"]. " - Time: " . $row["time"]."<br>";
-        }
+            if($row[shape] ==  && $row[difficulty == ])
+                echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["time"]."</td></tr>";
+    }
+    echo "</table>";
     } else {
         echo "0 results";
     }
 
     mysqli_close($conn);
-    name, id, time, shape, difficulty
-
 ?>
