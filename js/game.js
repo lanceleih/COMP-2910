@@ -190,12 +190,14 @@ function clickGame(event) {
         var tile = getTile(canvas_x, canvas_y);
         if (tile != null)
             if (tile.fixed === false) {
+                sfx2.play();
                 fillTile(tile);
             }
     } else if (canvas_x > pause_x && canvas_x < pause_x + pause_width && canvas_y > pause_y && canvas_y < pause_y + pause_height) {
         // clicks pause button
         canvas.removeEventListener("mouseup", clickGame, false);
         clearInterval(gameTimer);
+        sfx2.play();
         paused();
     }
 
