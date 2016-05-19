@@ -34,6 +34,8 @@ function gameResult() {
         } else if (canvas_x > 85 && canvas_x < 235 && canvas_y > 385 && canvas_y < 460) {
             canvas.removeEventListener("mouseup", gameResultMouseUp, false);
             backHome();
+        } else if(canvas_x > 275 && canvas_x < 300 && canvas_y > 230 && canvas_y < 255) {
+            alert("Submit name.");
         }
     }
 }

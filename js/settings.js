@@ -1,56 +1,53 @@
 
-    // Jungle Love
-    var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
+// Jungle Love
+var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
 // Backstreet's Back
-    var palette1 = ["#1E3259", "#BFA58E", "#736B6A", "#260101"];
+var palette1 = ["#1E3259", "#BFA58E", "#736B6A", "#260101"];
 // Spooky Ghosts
-    var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
+var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
 // Beer Goggles
-    var palette3 = ["#678314", "#D66718", "#F8E5A1", "#B05514"];
+var palette3 = ["#678314", "#D66718", "#F8E5A1", "#B05514"];
 //Ice Cream Desserts
-    var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
+var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 
-    var paletteTitle0Img = document.getElementById("paletteTitle0");
-    var paletteTitle1Img = document.getElementById("paletteTitle1");
-    var paletteTitle2Img = document.getElementById("paletteTitle2");
-    var paletteTitle3Img = document.getElementById("paletteTitle3");
-    var paletteTitle4Img = document.getElementById("paletteTitle4");
+var paletteTitle0Img = document.getElementById("paletteTitle0");
+var paletteTitle1Img = document.getElementById("paletteTitle1");
+var paletteTitle2Img = document.getElementById("paletteTitle2");
+var paletteTitle3Img = document.getElementById("paletteTitle3");
+var paletteTitle4Img = document.getElementById("paletteTitle4");
 
-    var paletteTitleArray = [paletteTitle0Img, paletteTitle1Img, paletteTitle2Img, paletteTitle3Img, paletteTitle4Img];
-    var paletteTitle = paletteTitle4Img;
-    var palette = palette4;
-    var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"]
-    var paletteImg = paletteImgArray[4];
-    var colourModeStateFill = "#FFFFFF";
-    var colourModeState = false;
-
-
-    var bgmStateArray = ["#008000", "#998365"];
-    var bgmState1 = bgmStateArray[1];
-    var bgmState2 = bgmStateArray[0];
-    var bgmState3 = bgmStateArray[0];
-    var bgmState4 = bgmStateArray[0];
-    var bgmState5 = bgmStateArray[0];
-    var bgmMuteState = bgmStateArray[0];
-    var sfxStateArray = ["#008000", "#9998365"];
-    var sfxState1 = sfxStateArray[0];
-    var sfxState2 = sfxStateArray[0];
-    var sfxState3 = sfxStateArray[0];
-    var sfxState4 = sfxStateArray[1];
-    var sfxState5 = sfxStateArray[0];
-    var sfxMuteState = sfxStateArray[0];
-    var danCount = 0;
+var paletteTitleArray = [paletteTitle0Img, paletteTitle1Img, paletteTitle2Img, paletteTitle3Img, paletteTitle4Img];
+var paletteTitle = paletteTitle4Img;
+var palette = palette4;
+var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"]
+var paletteImg = paletteImgArray[4];
+var colourModeStateFill = "#FFFFFF";
+var colourModeState = false;
 
 
+var bgmStateArray = ["#008000", "#998365"];
+var bgmState1 = bgmStateArray[1];
+var bgmState2 = bgmStateArray[0];
+var bgmState3 = bgmStateArray[0];
+var bgmState4 = bgmStateArray[0];
+var bgmState5 = bgmStateArray[0];
+var bgmMuteState = bgmStateArray[0];
+var sfxStateArray = ["#008000", "#9998365"];
+var sfxState1 = sfxStateArray[0];
+var sfxState2 = sfxStateArray[0];
+var sfxState3 = sfxStateArray[0];
+var sfxState4 = sfxStateArray[1];
+var sfxState5 = sfxStateArray[0];
+var sfxMuteState = sfxStateArray[0];
+var danCount = 0;
+    
 /* Call settings */
 function startSettings() {
-    var c = document.getElementById("mainCanvas");
-    var ctx = c.getContext("2d");
     //var palette = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
 
     // /var storePalette = null;
     //var blindPalette = ["I", "II", "III", "IV"];
-    c.addEventListener("mouseup", activeArea, false);
+    canvas.addEventListener("mouseup", activeArea, false);
 
     // Button ID's
     var backButtonImg = document.getElementById("backButton");
@@ -92,16 +89,13 @@ function startSettings() {
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
-        var x = event.x;
-        var y = event.y;
-
-        x -= mainCanvas.offsetLeft;
-        y -= mainCanvas.offsetTop;
-
+        var x = event.x - canvas.offsetLeft;
+        var y = event.y - canvas.offsetTop;
 
         //Back button function
         if (x > 15 && x < 100 && y > 15 && y < 40) {
-            c.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             sfx1.play();
             backHome();
             //alert("this is the back button");
@@ -109,7 +103,8 @@ function startSettings() {
 
         //Audio Button function
         if (x > 90 && x < 240 && y > 180 && y < 250) {
-            c.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             sfx2.play();
             startAudioSettings();
             //alert("this is the audio button");
@@ -117,7 +112,8 @@ function startSettings() {
 
         //Colour Pack function
         if (x > 90 && x < 240 && y > 260 && y < 330) {
-            c.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             sfx2.play();
             startColourSettings();
             //alert("this is the colour pack button");
@@ -170,9 +166,7 @@ function startSettings() {
 }
 /* Call audio settings */
 function startAudioSettings() {
-    var c = document.getElementById("mainCanvas");
-    var ctx = c.getContext("2d");
-    c.addEventListener("mouseup", activeArea, false);
+    canvas.addEventListener("mouseup", activeArea, false);
     var backButtonImg = document.getElementById("backButton");
     var audioTitleImg = document.getElementById("audioTitle");
     var bgmHeaderImg = document.getElementById("bgmHeader");
@@ -287,16 +281,13 @@ function startAudioSettings() {
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
-        var x = event.x;
-        var y = event.y;
-
-        x -= mainCanvas.offsetLeft;
-        y -= mainCanvas.offsetTop;
-
+        var x = event.x - canvas.offsetLeft;
+        var y = event.y - canvas.offsetTop;
 
         //Back button function
         if (x > 15 && x < 100 && y > 15 && y < 40) {
-            c.removeEventListener("mouseup", activeArea, false);
+            canvas.removecanvasEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             sfx1.play();
             startSettings();
             //alert ("this is the back button");
@@ -547,10 +538,7 @@ function startAudioSettings() {
 }
 /* Call Colour Settings */
 function startColourSettings() {
-    var c = document.getElementById("mainCanvas");
-    var ctx = c.getContext("2d");
-
-    c.addEventListener("mouseup", activeArea, false);
+    canvas.addEventListener("mouseup", activeArea, false);
 
     var backButtonImg = document.getElementById("backButton");
     var leftArrowImg = document.getElementById("leftArrow");
@@ -576,17 +564,13 @@ function startColourSettings() {
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
-        var x = event.x;
-        var y = event.y;
-
-        x -= mainCanvas.offsetLeft;
-        y -= mainCanvas.offsetTop;
-
+        var x = event.x - canvas.offsetLeft;
+        var y = event.y - canvas.offsetTop;
 
         //Back button function
         if (x > 15 && x < 100 && y > 15 && y < 40) {
             ctx.clearRect(0, 0, 320, 480);
-            c.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             startSettings();
             //alert ("this is the back button");
         }
