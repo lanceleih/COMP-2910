@@ -44,3 +44,6 @@ canvas {
     height: 480px;
     display: none;
 }
+.rightLearderboardArrow {
+    float: right;
+}

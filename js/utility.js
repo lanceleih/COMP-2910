@@ -19,6 +19,7 @@ function backEaster() {
 function backLeaderboard() {
     document.getElementById("leaderboardEasySquareTable").style.display = "none";
     document.getElementById("main").style.display = "block";
+    leaderboardShape();
 }
 /*Pause Button for Game*/
 function createPauseBtn() {

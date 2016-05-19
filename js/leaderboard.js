@@ -55,7 +55,7 @@ function leaderboardShape() {
             // back button
             canvas.removeEventListener("click", getPosition, false);
             sfx1.play();
-            backHome();
+            home();
         }
 
     }

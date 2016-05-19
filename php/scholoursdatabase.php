@@ -129,7 +129,7 @@
 </div>
 <div id="leaderboardEasySquareTable">
     <img src="../img/icons/BACK.png" id="leaderBack" alt="leaderboard back button" onclick="backLeaderboard()" width="100" height="50">
-    <img id="leaderboardEasy" src="../img/title/difficultyeasytitle.png" alt="Scholours" width="300" height="50">
+    <img id="leaderboardEasyTable" src="../img/title/difficultyeasytitle.png" alt="Scholours" width="300" height="50">
     <?php
         $servername = "mysql4.000webhost.com";
         $username = "a7385043_2910";
@@ -156,6 +156,8 @@
         }
         $conn->close();
     ?>
+    <img class="leftLeaderboardArrow" src="../img/icons/left_arrow.png" alt="left button" height="100" width="50">
+    <img class="rightLearderboardArrow" src="../img/icons/right_arrow.png" alt="right button" height="100" width="50">
 </div>
 </body>
 </html>
