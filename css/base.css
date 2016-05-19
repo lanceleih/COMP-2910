@@ -25,3 +25,9 @@ border: 1px solid #000000;
 #easterEgg #logoTitle {
     padding-left: 15px;
 }
+#addName {
+    position: absolute;
+    left:  135px;
+    top: 235px;
+    display: none;
+}
