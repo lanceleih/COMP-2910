@@ -1,6 +1,6 @@
-var MAX_TILES = 25;
-var MAX_ROWS = 5;
-var MAX_COLS = MAX_TILES / MAX_ROWS;
+var maxTiles;
+var maxRows;
+var maxCols;
 var OFFSET_LEFT = 20;
 var OFFSET_RIGHT = 20;
 var OFFSET_TOP = 100;
@@ -9,8 +9,8 @@ var BOARD_WIDTH = 320 - OFFSET_LEFT - OFFSET_RIGHT;
 var BOARD_HEIGHT = 480 - OFFSET_TOP - OFFSET_BOTTOM;
 var TILE_SHAPE = "square";
 var DEFAULT_COLOR = "#FFFFFF";
-var TILE_WIDTH = BOARD_WIDTH / MAX_COLS;
-var TILE_HEIGHT = BOARD_HEIGHT / MAX_ROWS;
+var TILE_WIDTH;
+var TILE_HEIGHT;
 
 var tiles;
 /*0=square 1=diamond 2=hexagon*/
@@ -19,12 +19,12 @@ var shape;
 var difficulty;
 
 var palette = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
+var colorInventory;
+var tilesColored;
 
 var gameTimer;
-var startTime = 0;
-var elapsedTime = 0;
-var colorInventory = new Array(4);
-var tilesColored = 0;
+var elapsedTime;
+var startTime;
 
 /* Javascript for the Paused Page */
 function paused() {
@@ -64,33 +64,104 @@ function paused() {
     }
 }
 
-
-function newGame() {
+function calculateMaxTilesRowCol() {
     switch(shape) {
         case 0:
-            if(difficulty == 0) {
-                var startTime = 0;
-                var elapsedTime = 0;
-                var colorInventory = new Array(4);
-                var tilesColored = 0;
-                createTileArray(MAX_ROWS, MAX_COLS);
-                initializeColorInventory();
-                createFixedTiles();
-                game();
-                //gameResult();
-            } else if(difficulty == 1) {
-                
+            if (difficulty == 0) {
+                maxCols = 4;
+                maxRows = 4;
+                maxTiles = maxRows * maxCols;
+            } else if (difficulty == 1) {
+                maxCols = 5;
+                maxRows = 5;
+                maxTiles = maxRows * maxCols;
             } else {
-                
+                maxCols = 6;
+                maxRows = 6;
+                maxTiles = maxRows * maxCols;
             }
             break;
         case 1:
             if(difficulty == 0) {
-                
+                maxCols = 4;
+                maxRows = 8;
+                maxTiles = maxRows * maxCols;
             } else if(difficulty == 1) {
-                
+                maxCols = 5;
+                maxRows = 9;
+                maxTiles = maxRows * maxCols;
             } else {
-                
+                maxCols = 6;
+                maxRows = 10;
+                maxTiles = maxRows * maxCols;
+            }
+            break;
+        case 2:
+            if(difficulty == 0) {
+                maxCols = 4;
+                maxRows = 4;
+                maxTiles = maxRows * maxCols;
+            } else if(difficulty == 1) {
+                maxCols = 5;
+                maxRows = 5;
+                maxTiles = maxRows * maxCols;
+            } else {
+                maxCols = 6;
+                maxRows = 6;
+                maxTiles = maxRows * maxCols;
+            }
+            break;
+    }
+}
+
+function newGame() {
+    startTime = 0;
+    elapsedTime = 0;
+    colorInventory = new Array(4);
+    tilesColored = 0;
+    calculateMaxTilesRowCol();
+
+    switch(shape) {
+        case 0:
+            if (difficulty == 0) {
+                createSquareArray(maxRows, maxCols);
+                initializeColorInventory();
+                createFixedTiles();
+                game();
+                //gameResult();
+            } else if (difficulty == 1) {
+                createSquareArray(maxRows, maxCols);
+                initializeColorInventory();
+                createFixedTiles();
+                game();
+                //gameResult();
+            } else {
+                createSquareArray(maxRows, maxCols);
+                initializeColorInventory();
+                createFixedTiles();
+                game();
+                //gameResult();
+            }
+            break;
+        case 1:
+            if(difficulty == 0) {
+                createDiamondArray(maxRows, maxCols);
+                initializeColorInventory();
+                createFixedEasyDiamond();
+                game();
+                //gameResult();
+            } else if(difficulty == 1) {
+                createDiamondArray(maxRows, maxCols);
+                initializeColorInventory();
+                createFixedMediumDiamond();
+                game();
+                //gameResult();
+            } else {
+                createDiamondArray(maxRows, maxCols);
+                initializeColorInventory();
+                createFixedHardDiamond();
+                game();
+                //gameResult();
             }
             break;
         case 2:
@@ -105,7 +176,9 @@ function newGame() {
     }
 }
 
-function createTileArray(row, col) {
+function createSquareArray(row, col) {
+    TILE_WIDTH = BOARD_WIDTH / row;
+    TILE_HEIGHT = BOARD_HEIGHT / col;
     tiles = new Array(row);
     for (var i = 0; i < row; i++) {
         tiles[i] = new Array(col);
@@ -154,15 +227,13 @@ function createFixedTiles() {
 }
 
 function game() {
-    var c = document.getElementById("mainCanvas");
-    var ctx = c.getContext("2d");
     ctx.strokeStyle = "#000000";
     ctx.fillStyle = "#FFFFFF";
     ctx.lineWidth = 2;
     //ctx.shadowColor = "transparent";
-    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    //createTileArray(MAX_ROWS, MAX_COLS);
+    //createTileArray(maxRows, maxCols);
     drawTiles();
     drawColorInventory();
     fillFixedTile();
@@ -171,7 +242,7 @@ function game() {
     createTimer();
     resumeTimer();
     //var gameTimer = setInterval(updateTimer, 100);
-    c.addEventListener("mouseup", doMouseUp, false);
+    canvas.addEventListener("mouseup", doMouseUp, false);
 
     function drawTiles() {
         for (var i = 0; i < tiles.length; i++) {
@@ -194,22 +265,22 @@ function game() {
     }
 
     function doMouseUp(event) {
-        var canvas_x = event.pageX - c.offsetLeft;
-        var canvas_y = event.pageY - c.offsetTop;
+        var canvas_x = event.pageX - canvas.offsetLeft;
+        var canvas_y = event.pageY - canvas.offsetTop;
         if (canvas_x > OFFSET_LEFT && canvas_x < OFFSET_LEFT + BOARD_WIDTH && canvas_y > OFFSET_TOP && canvas_y < OFFSET_TOP + BOARD_HEIGHT) {
             var tile = getTile(canvas_x, canvas_y);
             if (tile.fixed === false) {
                 fillTile(tile);
             }
         } else if (canvas_x > 240 && canvas_x < 300 && canvas_y > 20 && canvas_y < 80) {
-            c.removeEventListener("mouseup", doMouseUp, false);
+            canvas.removeEventListener("mouseup", doMouseUp, false);
             clearInterval(gameTimer);
             paused();
         }
 
-        if (tilesColored == MAX_TILES) {
+        if (tilesColored == maxTiles) {
             if (validateGame() === true) {
-                c.removeEventListener("mouseup", doMouseUp, false);
+                canvas.removeEventListener("mouseup", doMouseUp, false);
                 clearInterval(gameTimer);
                 gameResult();
             }
@@ -285,9 +356,9 @@ function game() {
     }
 
     function validateSquareGame() {
-        for (var i = 0; i < MAX_TILES; i++) {
-            var row = ~~(i/MAX_ROWS);
-            var col = i%MAX_COLS;
+        for (var i = 0; i < maxTiles; i++) {
+            var row = ~~(i/maxRows);
+            var col = i%maxCols;
             if (row - 1 >= 0) {
                 if (tiles[row][col].color === tiles[row - 1][col].color) {
                     //						alert("tiles[" + row + "][" + col + "] (" + tiles[row][col].color + ") == tiles[" + (row-1) + "][" + col + "] (" + tiles[row-1][col].color + ")");
@@ -300,13 +371,13 @@ function game() {
                     return false;
                 }
             }
-            if (row + 1 < MAX_ROWS) {
+            if (row + 1 < maxRows) {
                 if (tiles[row][col].color === tiles[row + 1][col].color) {
                     //						alert("tiles[" + row + "][" + col + "] (" + tiles[row][col].color + ") == tiles[" + (row+1) + "][" + col + "] (" + tiles[row+1][col].color + ")");
                     return false;
                 }
             }
-            if (col + 1 < MAX_COLS) {
+            if (col + 1 < maxCols) {
                 if (tiles[row][col].color === tiles[row][col + 1].color) {
                     //						alert("tiles[" + row + "][" + col + "] (" + tiles[row][col].color + ") == tiles[" + row + "][" + (col+1) + "] (" + tiles[row][col+1].color + ")");
                     return false;
@@ -317,8 +388,8 @@ function game() {
     }
 
     function fillFixedTile() {
-        for (var i = 0; i < MAX_ROWS; i++) {
-            for (var j = 0; j < MAX_COLS; j++) {
+        for (var i = 0; i < maxRows; i++) {
+            for (var j = 0; j < maxCols; j++) {
                 if (tiles[i][j].fixed === true) {
                     ctx.fillStyle = palette[tiles[i][j].color];
                     ctx.strokeStyle = "#000000";
