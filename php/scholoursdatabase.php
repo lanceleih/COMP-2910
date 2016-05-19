@@ -127,7 +127,7 @@
         <input type="text" name="name" id="addName" size="15">
     </form>
 </div>
-<div id="leaderboardEasyTable">
+<div id="leaderboardEasySquareTable">
     <img src="../img/icons/BACK.png" id="leaderBack" alt="leaderboard back button" onclick="backLeaderboard()" width="100" height="50">
     <img id="leaderboardEasy" src="../img/title/difficultyeasytitle.png" alt="Scholours" width="300" height="50">
     <?php
