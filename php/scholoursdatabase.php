@@ -127,8 +127,11 @@
         <input type="text" name="name" id="addName" size="15">
     </form>
 </div>
-<div id="leaderboardTable">
-    <input type="image" src="../img/icons/BACK.png" onclick="backLeaderboard()" width="100" height="50">
+<div id="leaderboardEasyTable">
+    <form>
+        <input type="image" src="../img/icons/BACK.png" onclick="backLeaderboard()" width="100" height="50">
+    </form>
+    <img id="leaderboardEasy" src="../img/title/difficultyeasytitle.png" alt="Scholours" width="300" height="50">
     <?php
         $servername = "mysql4.000webhost.com";
         $username = "a7385043_2910";
