@@ -11,7 +11,7 @@ function createDiamondArray(row, col) {
                     color: -1,
                     width: TILE_WIDTH - 2,
                     height: TILE_HEIGHT - 2,
-                    x: TILE_WIDTH * j + OFFSET_LEFT + 1,
+                    x: TILE_WIDTH * j + OFFSET_LEFT + 30,
                     y: TILE_HEIGHT * (i / 2) + OFFSET_TOP + 1,
                     fixed: false,
                     odd: false
@@ -22,7 +22,7 @@ function createDiamondArray(row, col) {
                     color: -1,
                     width: TILE_WIDTH - 2,
                     height: TILE_HEIGHT - 2,
-                    x: (TILE_WIDTH * j + OFFSET_LEFT + 1) + (TILE_WIDTH / 2) ,
+                    x: (TILE_WIDTH * j + OFFSET_LEFT + 30) + (TILE_WIDTH / 2),
                     y: (TILE_HEIGHT * (i / 2) + OFFSET_TOP + 1),
                     fixed: false,
                     odd: true
@@ -98,22 +98,22 @@ function createFixedHardDiamond() {
     tilesColored++;
 }
 function initializeDiamondEasyColorInventory() {
-    colorInventory[0] = 5;
-    colorInventory[1] = 3;
-    colorInventory[2] = 3;
-    colorInventory[3] = 5;
+    colorInventory[0] = 8;
+    colorInventory[1] = 8;
+    colorInventory[2] = 8;
+    colorInventory[3] = 8;
 }
 function initializeDiamondMediumColorInventory() {
-    colorInventory[0] = 7;
-    colorInventory[1] = 6;
-    colorInventory[2] = 6;
-    colorInventory[3] = 6;
+    colorInventory[0] = 10;
+    colorInventory[1] = 12;
+    colorInventory[2] = 14;
+    colorInventory[3] = 9;
 }
 function initializeDiamondHardColorInventory() {
-    colorInventory[0] = 10;
-    colorInventory[1] = 9;
-    colorInventory[2] = 10;
-    colorInventory[3] = 7;
+    colorInventory[0] = 15;
+    colorInventory[1] = 15;
+    colorInventory[2] = 15;
+    colorInventory[3] = 15;
 }
 function diamondGame() {
     ctx.strokeStyle = "#000000";
@@ -169,13 +169,13 @@ function drawDiamondTiles() {
             }
                 ctx.beginPath();
                 /*Top*/
-                ctx.moveTo((tiles[i][j].x + (tiles[i][j].width / 2)), (tiles[i][j].y));
+                ctx.moveTo((tiles[i][j].x), (tiles[i][j].y));
                 /*Right*/
-                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width)),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height / 2)));
                 /*Bottom*/
-                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height)));
+                ctx.lineTo((tiles[i][j].x),(tiles[i][j].y + (tiles[i][j].height)));
                 /*Left*/
-                ctx.lineTo((tiles[i][j].x),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                ctx.lineTo((tiles[i][j].x  - (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height / 2)));
                 ctx.closePath();
                 ctx.fill();
         }
@@ -192,16 +192,15 @@ function fillDiamondTile(tile) {
     } else {
         ctx.fillStyle = palette[newColor];
     }
-    ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
     ctx.beginPath();
     /*Top*/
-    ctx.moveTo((tile.x + (tile.width / 2)), (tile.y));
+    ctx.moveTo((tile.x), (tile.y));
     /*Right*/
-    ctx.lineTo((tile.x + (tile.width)),(tile.y + (tile.height / 2)));
+    ctx.lineTo((tile.x + (tile.width / 2)),(tile.y + (tile.height / 2)));
     /*Bottom*/
-    ctx.lineTo((tile.x + (tile.width / 2)),(tile.y + (tile.height)));
+    ctx.lineTo((tile.x),(tile.y + (tile.height)));
     /*Left*/
-    ctx.lineTo((tile.x),(tile.y + (tile.height / 2)));
+    ctx.lineTo((tile.x - (tile.width / 2)),(tile.y + (tile.height / 2)));
     ctx.closePath();
     ctx.fill();
     if (tile.color == -1) {
@@ -227,34 +226,33 @@ function fillDiamondFixedTile() {
             if (tiles[i][j].fixed === true) {
                 ctx.fillStyle = palette[tiles[i][j].color];
                 ctx.strokeStyle = "#000000";
-                ctx.clearRect(tiles[i][j].x, tiles[i][j].y, tiles[i][j].width, tiles[i][j].height);
 
                 // // fill color
                 ctx.beginPath();
                 /*Top*/
-                ctx.moveTo((tiles[i][j].x + (tiles[i][j].width / 2)), (tiles[i][j].y));
+                ctx.moveTo((tiles[i][j].x), (tiles[i][j].y));
                 /*Right*/
-                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width)),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height / 2)));
                 /*Bottom*/
-                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height)));
+                ctx.lineTo((tiles[i][j].x),(tiles[i][j].y + (tiles[i][j].height)));
                 /*Left*/
-                ctx.lineTo((tiles[i][j].x),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                ctx.lineTo((tiles[i][j].x  - (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height / 2)));
                 ctx.closePath();
                 ctx.fill();
 
                 // draw X on fixed tile
                 ctx.beginPath();
                 /*Top*/
-                ctx.moveTo((tiles[i][j].x + (tiles[i][j].width / 2)), (tiles[i][j].y));
+                ctx.moveTo((tiles[i][j].x), (tiles[i][j].y));
                 /*Bottom*/
-                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height)));
+                ctx.lineTo((tiles[i][j].x),(tiles[i][j].y + (tiles[i][j].height)));
                 ctx.stroke();
                 ctx.closePath();
                 ctx.beginPath();
                 /*Right*/
-                ctx.moveTo((tiles[i][j].x + (tiles[i][j].width)),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                ctx.moveTo((tiles[i][j].x + (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height / 2)));
                 /*Left*/
-                ctx.lineTo((tiles[i][j].x),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                ctx.lineTo((tiles[i][j].x - (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height / 2)));
                 ctx.stroke();
                 ctx.closePath();
             }
