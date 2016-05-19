@@ -128,9 +128,7 @@
     </form>
 </div>
 <div id="leaderboardEasyTable">
-    <form>
-        <input type="image" src="../img/icons/BACK.png" onclick="backLeaderboard()" width="100" height="50">
-    </form>
+    <img src="../img/icons/BACK.png" id="easterBack" alt="leaderboard back button" onclick="backLeaderboard()" width="100" height="50">
     <img id="leaderboardEasy" src="../img/title/difficultyeasytitle.png" alt="Scholours" width="300" height="50">
     <?php
         $servername = "mysql4.000webhost.com";

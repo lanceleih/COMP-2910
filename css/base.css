@@ -12,7 +12,7 @@ canvas {
     background-image: url("../img/background/BG.jpg");
 }
 #easterEgg {
-    border: 1px solid #000000;
+    border: none;
     background-color: #F2EFCC;
     background-image: url("../img/background/BG.jpg");
     width: 320px;
@@ -27,7 +27,7 @@ canvas {
 #easterEgg #logoTitle {
     padding-left: 15px;
 }
-img {
+#main img {
     display: none;
 }
 #addName {
@@ -43,7 +43,4 @@ img {
     width: 320px;
     height: 480px;
     display: none;
-}
-#leaderboardEasy {
-    display: block;
 }
