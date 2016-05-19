@@ -30,7 +30,7 @@ function paused() {
             // alert("go home");
             canvas.removeEventListener("click", tapped, false);
             sfx1.play();
-            backHome();
+            home();
         }
     }
 }
@@ -74,7 +74,7 @@ function gameResult() {
             document.getElementById("addName").style.display = "none";
             canvas.removeEventListener("mouseup", gameResultMouseUp, false);
             sfx1.play();
-            backHome();
+            home();
         } else if(canvas_x > 275 && canvas_x < 300 && canvas_y > 230 && canvas_y < 255) {
             document.getElementById("addName").style.display = "none";
             // sendInfo();
