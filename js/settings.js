@@ -1,13 +1,13 @@
 
     // Jungle Love
     var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
-// Backstreet's Back
-    var palette1 = ["#1E3259", "#BFA58E", "#736B6A", "#260101"];
-// Spooky Ghosts
+// Autumn's Splendor
+    var palette1 = ["#FE845F", "#51545B", "#FAD0B8", "#BCC4C7"];
+// Pacman Ghosts
     var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
+// Ice Cream Desserts
+    var palette3 = ["#7D9772", "#BDDFBB", "#F9B899", "#FBC86B"];
 // Beer Goggles
-    var palette3 = ["#678314", "#D66718", "#F8E5A1", "#B05514"];
-//Ice Cream Desserts
     var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 
     var paletteTitle0Img = document.getElementById("paletteTitle0");
@@ -32,7 +32,7 @@
     var bgmState4 = bgmStateArray[0];
     var bgmState5 = bgmStateArray[0];
     var bgmMuteState = bgmStateArray[0];
-    var sfxStateArray = ["#008000", "#9998365"];
+    var sfxStateArray = ["#008000", "#998365"];
     var sfxState1 = sfxStateArray[0];
     var sfxState2 = sfxStateArray[0];
     var sfxState3 = sfxStateArray[0];
