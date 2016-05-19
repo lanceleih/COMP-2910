@@ -55,15 +55,7 @@ function leaderboardShape() {
     }
 }
 function loadEasy() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-
-        }
-    };
-
-  xhttp.open("POST", "../php/leaderboardeasy.php", true);
-  xhttp.send();
+    
     var c = document.getElementById("mainCanvas");
     var ctx = c.getContext("2d");
 
