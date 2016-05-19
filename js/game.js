@@ -104,45 +104,6 @@ function initializeGame() {
     initializeFixedTiles();
 }
 
-function initializeColorInventory() {
-    if (max_tile == 16) {
-        colorInventory[0] = 4;
-        colorInventory[1] = 4;
-        colorInventory[2] = 4;
-        colorInventory[3] = 4;
-    }
-    else if (max_tile == 25) {
-        colorInventory[0] = 7;
-        colorInventory[1] = 6;
-        colorInventory[2] = 6;
-        colorInventory[3] = 6;
-    }
-    else if (max_tile == 36) {
-        colorInventory[0] = 10;
-        colorInventory[1] = 9;
-        colorInventory[2] = 10;
-        colorInventory[3] = 7;
-    }
-    else if (max_tile == 32) {
-        colorInventory[0] = 8;
-        colorInventory[1] = 8;
-        colorInventory[2] = 8;
-        colorInventory[3] = 8;
-    }
-    else if (max_tile == 24) {
-        colorInventory[0] = 6;
-        colorInventory[1] = 6;
-        colorInventory[2] = 6;
-        colorInventory[3] = 6;
-    }
-    else {
-        colorInventory[0] = 7;
-        colorInventory[1] = 6;
-        colorInventory[2] = 6;
-        colorInventory[3] = 6;
-    }
-}
-
 function initializeFixedTiles() {
     tiles[0][0].fixed = true;
     tiles[0][0].color = 0;
@@ -175,18 +136,6 @@ function initializeFixedTiles() {
 
 }
 
-function drawComponent() {
-    ctx.strokeStyle = "#000000";
-    // timer border
-    ctx.strokeRect(timer_x, timer_y, timer_width, timer_height);
-    // pause button border
-    ctx.strokeRect(pause_x, pause_y, pause_width, pause_height);
-    // game board border
-    ctx.strokeRect(board_x, board_y , board_width, board_height);
-    // color inventory border
-    ctx.strokeRect(inventory_x, inventory_y, inventory_width, inventory_height);
-}
-
 function game() {
     ctx.strokeStyle = "#000000";
     ctx.fillStyle = "#FFFFFF";
@@ -203,212 +152,170 @@ function game() {
     createTimer();
     resumeTimer();
     canvas.addEventListener("mouseup", clickGame, false);
+}
 
-    function drawTiles() {
-        ctx.strokeStyle = "#000000";
-        for (var i = 0; i < max_row; i++) {
-            for (var j = 0; j < max_col; j++) {
-                var tileColor;
-                if (tiles[i][j].color === -1) {
-                    tileColor = default_color;
-                }
-                else {
-                    tileColor = palette[tiles[i][j].color];
-                }
-                ctx.fillStyle = tileColor;
-                ctx.beginPath();
-                ctx.moveTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
-                ctx.lineTo(tiles[i][j].coordinates.p2.x, tiles[i][j].coordinates.p2.y);
-                ctx.lineTo(tiles[i][j].coordinates.p3.x, tiles[i][j].coordinates.p3.y);
-                ctx.lineTo(tiles[i][j].coordinates.p4.x, tiles[i][j].coordinates.p4.y);
-                if (tiles[i][j].side > 4) // pentagon + hexagon
-                    ctx.lineTo(tiles[i][j].coordinates.p5.x, tiles[i][j].coordinates.p5.y);
-                if (tiles[i][j].side > 5) // hexagon
-                    ctx.lineTo(tiles[i][j].coordinates.p6.x, tiles[i][j].coordinates.p6.y);
-                ctx.lineTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
-                ctx.fill();
-                ctx.stroke();
-                ctx.closePath();
+function drawTiles() {
+    ctx.strokeStyle = "#000000";
+    for (var i = 0; i < max_row; i++) {
+        for (var j = 0; j < max_col; j++) {
+            var tileColor;
+            if (tiles[i][j].color === -1) {
+                tileColor = default_color;
             }
+            else {
+                tileColor = palette[tiles[i][j].color];
+            }
+            ctx.fillStyle = tileColor;
+            ctx.beginPath();
+            ctx.moveTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
+            ctx.lineTo(tiles[i][j].coordinates.p2.x, tiles[i][j].coordinates.p2.y);
+            ctx.lineTo(tiles[i][j].coordinates.p3.x, tiles[i][j].coordinates.p3.y);
+            ctx.lineTo(tiles[i][j].coordinates.p4.x, tiles[i][j].coordinates.p4.y);
+            if (tiles[i][j].side > 4) // pentagon + hexagon
+                ctx.lineTo(tiles[i][j].coordinates.p5.x, tiles[i][j].coordinates.p5.y);
+            if (tiles[i][j].side > 5) // hexagon
+                ctx.lineTo(tiles[i][j].coordinates.p6.x, tiles[i][j].coordinates.p6.y);
+            ctx.lineTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
+            ctx.fill();
+            ctx.stroke();
+            ctx.closePath();
         }
     }
+}
 
-    function clickGame(event) {
-        var canvas_x = event.pageX - canvas.offsetLeft;
-        var canvas_y = event.pageY - canvas.offsetTop;
-        // clicks game board
-        if (canvas_x > board_x && canvas_x < board_x + board_width && canvas_y > board_y && canvas_y < board_y + board_height) {
-            var tile = getTile(canvas_x, canvas_y);
-            if (tile != null)
-                if (tile.fixed === false) {
-                    fillTile(tile);
-                }
-        } else if (canvas_x > pause_x && canvas_x < pause_x + pause_width && canvas_y > pause_y && canvas_y < pause_y + pause_height) {
-            // clicks pause button
+function clickGame(event) {
+    var canvas_x = event.pageX - canvas.offsetLeft;
+    var canvas_y = event.pageY - canvas.offsetTop;
+    // clicks game board
+    if (canvas_x > board_x && canvas_x < board_x + board_width && canvas_y > board_y && canvas_y < board_y + board_height) {
+        var tile = getTile(canvas_x, canvas_y);
+        if (tile != null)
+            if (tile.fixed === false) {
+                sfx2.play();
+                fillTile(tile);
+            }
+    } else if (canvas_x > pause_x && canvas_x < pause_x + pause_width && canvas_y > pause_y && canvas_y < pause_y + pause_height) {
+        // clicks pause button
+        canvas.removeEventListener("mouseup", clickGame, false);
+        clearInterval(gameTimer);
+        sfx2.play();
+        paused();
+    }
+
+    // validates when all tiles are colored
+    if (tilesColored == max_tile) {
+        if (validateGame() === true) {
             canvas.removeEventListener("mouseup", clickGame, false);
             clearInterval(gameTimer);
-            paused();
-        }
-
-        // validates when all tiles are colored
-        if (tilesColored == max_tile) {
-            if (validateGame() === true) {
-                canvas.removeEventListener("mouseup", clickGame, false);
-                clearInterval(gameTimer);
-                gameResult();
-            }
+            gameResult();
         }
     }
-    function getTile(coordX, coordY) {
-        switch (shape) {
-            case 0:
-                return getSquareTile(coordX, coordY);
-                break;
-            case 1:
-                return getDiamondTile(coordX, coordY);
-                break;
-            case 2:
-                return getHexagonTile(coordX, coordY);
-                break;
-        }
+}
+
+function getTile(coordX, coordY) {
+    switch (shape) {
+        case 0:
+            return getSquareTile(coordX, coordY);
+            break;
+        case 1:
+            return getDiamondTile(coordX, coordY);
+            break;
+        case 2:
+            return getHexagonTile(coordX, coordY);
+            break;
     }
+}
 
-    function fillTile(tile) {
-        var newColor = getNextColor(tile.color);
-        // Check if newColor is usable -- is there any newColor left in the color inventory
-        while (colorInventory[newColor] === 0) {
-            newColor = getNextColor(newColor);
-        }
-        if (newColor === -1) {
-            ctx.fillStyle = default_color;
-        } else {
-            ctx.fillStyle = palette[newColor];
-        }
-        //ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
-        ctx.beginPath();
-        // ctx.rect(tile.x, tile.y, tile.width, tile.height);
-        ctx.moveTo(tile.coordinates.p1.x, tile.coordinates.p1.y);
-        ctx.lineTo(tile.coordinates.p2.x, tile.coordinates.p2.y);
-        ctx.lineTo(tile.coordinates.p3.x, tile.coordinates.p3.y);
-        ctx.lineTo(tile.coordinates.p4.x, tile.coordinates.p4.y);
-        if (tile.side > 4) // pentagon + hexagon
-            ctx.lineTo(tile.coordinates.p5.x, tile.coordinates.p5.y);
-        if (tile.side > 5) // hexagon
-            ctx.lineTo(tile.coordinates.p6.x, tile.coordinates.p6.y);
-        ctx.lineTo(tile.coordinates.p1.x, tile.coordinates.p1.y);
-        ctx.fill();
-        ctx.stroke();
-
-        if (tile.color == -1) {
-            // no color -> a color
-            tilesColored++;
-            colorInventory[newColor]--;
-        } else if (newColor == -1) {
-            // a color -> no color
-            tilesColored--;
-            colorInventory[tile.color]++;
-        } else {
-            // this color -> new color
-            colorInventory[tile.color]++;
-            colorInventory[newColor]--;
-        }
-        updateRemainingColors();
-        tile.color = newColor;
+function fillTile(tile) {
+    var newColor = getNextColor(tile.color);
+    // Check if newColor is usable -- is there any newColor left in the color inventory
+    while (colorInventory[newColor] === 0) {
+        newColor = getNextColor(newColor);
     }
-
-    function getNextColor(colorIndex) {
-        if (colorIndex < palette.length - 1) {
-            return colorIndex + 1;
-        }
-        else {
-            return -1;
-        }
+    if (newColor === -1) {
+        ctx.fillStyle = default_color;
+    } else {
+        ctx.fillStyle = palette[newColor];
     }
+    //ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
+    ctx.beginPath();
+    // ctx.rect(tile.x, tile.y, tile.width, tile.height);
+    ctx.moveTo(tile.coordinates.p1.x, tile.coordinates.p1.y);
+    ctx.lineTo(tile.coordinates.p2.x, tile.coordinates.p2.y);
+    ctx.lineTo(tile.coordinates.p3.x, tile.coordinates.p3.y);
+    ctx.lineTo(tile.coordinates.p4.x, tile.coordinates.p4.y);
+    if (tile.side > 4) // pentagon + hexagon
+        ctx.lineTo(tile.coordinates.p5.x, tile.coordinates.p5.y);
+    if (tile.side > 5) // hexagon
+        ctx.lineTo(tile.coordinates.p6.x, tile.coordinates.p6.y);
+    ctx.lineTo(tile.coordinates.p1.x, tile.coordinates.p1.y);
+    ctx.fill();
+    ctx.stroke();
 
+    if (tile.color == -1) {
+        // no color -> a color
+        tilesColored++;
+        colorInventory[newColor]--;
+    } else if (newColor == -1) {
+        // a color -> no color
+        tilesColored--;
+        colorInventory[tile.color]++;
+    } else {
+        // this color -> new color
+        colorInventory[tile.color]++;
+        colorInventory[newColor]--;
+    }
+    updateRemainingColors();
+    tile.color = newColor;
+}
 
-    function drawFixedTile() {
-        for (var i = 0; i < max_row; i++) {
-            for (var j = 0; j < max_col; j++) {
-                if (tiles[i][j].fixed === true) {
-                    ctx.strokeStyle = "#000000";
-                    switch (shape) {
-                        case 0:
-                            // draw \ on fixed tile
-                            ctx.beginPath();
-                            ctx.moveTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
-                            ctx.lineTo(tiles[i][j].coordinates.p3.x, tiles[i][j].coordinates.p3.y);
-                            ctx.stroke();
-                            ctx.closePath();
-                            // draw / on fixed tile
-                            ctx.beginPath();
-                            ctx.moveTo(tiles[i][j].coordinates.p2.x, tiles[i][j].coordinates.p2.y);
-                            ctx.lineTo(tiles[i][j].coordinates.p4.x, tiles[i][j].coordinates.p4.y);
-                            ctx.stroke();
-                            ctx.closePath();
-                            break;
-                        case 1:
-                            break;
-                        case 2:
-                            // draw \ on fixed tile
-                            ctx.beginPath();
-                            ctx.moveTo(tiles[i][j].coordinates.p6.x + 11, tiles[i][j].coordinates.p6.y - 7);
-                            ctx.lineTo(tiles[i][j].coordinates.p3.x - 11, tiles[i][j].coordinates.p3.y + 7);
-                            ctx.stroke();
-                            ctx.closePath();
-                            // draw / on fixed tile
-                            ctx.beginPath();
-                            ctx.moveTo(tiles[i][j].coordinates.p2.x - 11, tiles[i][j].coordinates.p2.y - 7);
-                            ctx.lineTo(tiles[i][j].coordinates.p5.x + 11, tiles[i][j].coordinates.p5.y + 7);
-                            ctx.stroke();
-                            ctx.closePath();
-                            break;
-                    }
+function getNextColor(colorIndex) {
+    if (colorIndex < palette.length - 1) {
+        return colorIndex + 1;
+    }
+    else {
+        return -1;
+    }
+}
+
+function drawFixedTile() {
+    for (var i = 0; i < max_row; i++) {
+        for (var j = 0; j < max_col; j++) {
+            if (tiles[i][j].fixed === true) {
+                ctx.strokeStyle = "#000000";
+                switch (shape) {
+                    case 0:
+                        // draw \ on fixed tile
+                        ctx.beginPath();
+                        ctx.moveTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
+                        ctx.lineTo(tiles[i][j].coordinates.p3.x, tiles[i][j].coordinates.p3.y);
+                        ctx.stroke();
+                        ctx.closePath();
+                        // draw / on fixed tile
+                        ctx.beginPath();
+                        ctx.moveTo(tiles[i][j].coordinates.p2.x, tiles[i][j].coordinates.p2.y);
+                        ctx.lineTo(tiles[i][j].coordinates.p4.x, tiles[i][j].coordinates.p4.y);
+                        ctx.stroke();
+                        ctx.closePath();
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        // draw \ on fixed tile
+                        ctx.beginPath();
+                        ctx.moveTo(tiles[i][j].coordinates.p6.x + 11, tiles[i][j].coordinates.p6.y - 7);
+                        ctx.lineTo(tiles[i][j].coordinates.p3.x - 11, tiles[i][j].coordinates.p3.y + 7);
+                        ctx.stroke();
+                        ctx.closePath();
+                        // draw / on fixed tile
+                        ctx.beginPath();
+                        ctx.moveTo(tiles[i][j].coordinates.p2.x - 11, tiles[i][j].coordinates.p2.y - 7);
+                        ctx.lineTo(tiles[i][j].coordinates.p5.x + 11, tiles[i][j].coordinates.p5.y + 7);
+                        ctx.stroke();
+                        ctx.closePath();
+                        break;
                 }
             }
         }
-    }
-
-    function drawColorInventory() {
-        //draw the inventory
-        ctx.fillStyle = "#FFFFFF";
-        ctx.strokeStyle = "#000000";
-        ctx.beginPath();
-        ctx.rect(inventory_x, inventory_y, inventory_width, inventory_height);
-        // ctx.stroke();
-        ctx.fill();
-        ctx.closePath();
-
-        // draw the palette colors
-        ctx.fillStyle = palette[0];
-        ctx.fillRect(30, 410, 30, 40);
-        ctx.fillStyle = palette[1];
-        ctx.fillRect(100, 410, 30, 40);
-        ctx.fillStyle = palette[2];
-        ctx.fillRect(170, 410, 30, 40);
-        ctx.fillStyle = palette[3];
-        ctx.fillRect(240, 410, 30, 40);
-    }
-
-    function drawRemainingColors() {
-        ctx.font = "15px Arial";
-        ctx.fillStyle = "#000000";
-        ctx.fillText(colorInventory[0], 65, 435);
-        ctx.fillText(colorInventory[1], 135, 435);
-        ctx.fillText(colorInventory[2], 205, 435);
-        ctx.fillText(colorInventory[3], 275, 435);
-    }
-
-    function updateRemainingColors() {
-        // removes previous numbers
-        ctx.fillStyle = "#FFFFFF";
-        //ctx.clearRect(65, 410, 20, 40);
-        ctx.fillRect(65, 410, 20, 40);
-        //ctx.clearRect(135, 410, 20, 40);
-        ctx.fillRect(135, 410, 20, 40);
-        //ctx.clearRect(205, 410, 20, 40);
-        ctx.fillRect(205, 410, 20, 40);
-        //ctx.clearRect(275, 410, 20, 40);
-        ctx.fillRect(275, 410, 20, 40);
-        drawRemainingColors();
     }
 }
