@@ -12,7 +12,7 @@ canvas {
     background-image: url("../img/background/BG.jpg");
 }
 #easterEgg {
-    border: 1px solid #000000;
+    border: none;
     background-color: #F2EFCC;
     background-image: url("../img/background/BG.jpg");
     width: 320px;
@@ -27,12 +27,20 @@ canvas {
 #easterEgg #logoTitle {
     padding-left: 15px;
 }
-img {
+#main img {
     display: none;
 }
 #addName {
     position: absolute;
     left:  135px;
     top: 235px;
+    display: none;
+}
+#leaderboardEasyTable {
+    border: 1px solid #000000;
+    background-color: #F2EFCC;
+    background-image: url("../img/background/BG.jpg");
+    width: 320px;
+    height: 480px;
     display: none;
 }

@@ -11,14 +11,16 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
+        echo "<table><tr><th>ID</th><th>Name</th><th>Time</th></tr>";
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            echo "id: " . $row["id"]. " - Name: " . $row["name"]. " - Time: " . $row["time"]."<br>";
+            if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"easy") == 0) {
+                echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["time"]."</td></tr>";
+            }
         }
+        echo "</table>";
     } else {
         echo "0 results";
     }
-
     $conn->close();
-
 ?>
