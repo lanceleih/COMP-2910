@@ -91,7 +91,7 @@ function selectShape() {
         } else if (x > 15 && x < 100 && y > 15 && y < 40) {
             // back to home
             canvas.removeEventListener("click", getPosition, false);
-            backHome();
+            home();
         }
     }
 }
@@ -206,11 +206,11 @@ function initializeGame() {
                     break;
                 case 1:
                     max_row = 5;
-                    max_col = 4;
+                    max_col = 5;
                     break;
                 case 2:
                     max_row = 6;
-                    max_col = 4;
+                    max_col = 6;
                     break;
             }
             max_tile = max_row * max_col;
@@ -254,10 +254,6 @@ function initializeSquareArray() {
         for (var j = 0; j < max_col; j++) {
             tiles[i][j] = {
                 color: -1,
-                /*width: tile_width,
-                 height: tile_height,
-                 x: board_x + tile_width * j,
-                 y: board_y + tile_height * i,*/
                 side: 4,
                 coordinates: {
                     p1: {x: board_x + tile_width * j, y: board_y + tile_height * i},
@@ -377,14 +373,14 @@ function initializeFixedTiles() {
     colorInventory[3]--;
     tilesColored++;
     if (difficulty > 0) {
-        tiles[1][3].fixed = true;
-        tiles[1][3].color = 0;
+        tiles[4][4].fixed = true;
+        tiles[4][4].color = 0;
         colorInventory[0]--;
         tilesColored++;
     }
     if (difficulty > 1) {
-        tiles[0][2].fixed = true;
-        tiles[0][2].color = 1;
+        tiles[5][5].fixed = true;
+        tiles[5][5].color = 1;
         colorInventory[1]--;
         tilesColored++;
     }
@@ -1113,7 +1109,7 @@ function paused() {
         } else if (x > 90 && x < 240 && y > 340 && y < 415) {
             // alert("go home");
             canvas.removeEventListener("click", tapped, false);
-            backHome();
+            home();
         }
     }
 }
@@ -1149,7 +1145,7 @@ function gameResult() {
             newGame();
         } else if (canvas_x > 85 && canvas_x < 235 && canvas_y > 385 && canvas_y < 460) {
             canvas.removeEventListener("mouseup", gameResultMouseUp, false);
-            backHome();
+            home();
         }
     }
 }

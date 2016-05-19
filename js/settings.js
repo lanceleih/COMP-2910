@@ -286,7 +286,7 @@ function startAudioSettings() {
 
         //Back button function
         if (x > 15 && x < 100 && y > 15 && y < 40) {
-            canvas.removecanvasEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             canvas.removeEventListener("mouseup", activeArea, false);
             sfx1.play();
             startSettings();
