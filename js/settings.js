@@ -116,7 +116,7 @@ function startSettings() {
             canvas.removeEventListener("mouseup", activeArea, false);
             canvas.removeEventListener("mouseup", activeArea, false);
             sfx1.play();
-            backHome();
+            home();
             //alert("this is the back button");
         }
 

@@ -63,11 +63,11 @@ function initializeGame() {
                     break;
                 case 1:
                     max_row = 5;
-                    max_col = 4;
+                    max_col = 5;
                     break;
                 case 2:
                     max_row = 6;
-                    max_col = 4;
+                    max_col = 6;
                     break;
             }
             max_tile = max_row * max_col;
@@ -122,18 +122,17 @@ function initializeFixedTiles() {
     colorInventory[3]--;
     tilesColored++;
     if (difficulty > 0) {
-        tiles[1][3].fixed = true;
-        tiles[1][3].color = 0;
+        tiles[4][4].fixed = true;
+        tiles[4][4].color = 0;
         colorInventory[0]--;
         tilesColored++;
     }
     if (difficulty > 1) {
-        tiles[0][2].fixed = true;
-        tiles[0][2].color = 1;
+        tiles[5][5].fixed = true;
+        tiles[5][5].color = 1;
         colorInventory[1]--;
         tilesColored++;
     }
-
 }
 
 function game() {
@@ -319,3 +318,4 @@ function drawFixedTile() {
         }
     }
 }
+
