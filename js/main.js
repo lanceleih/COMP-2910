@@ -3,6 +3,7 @@
 /*Global variables*/
 var canvas;
 var ctx;
+
 /*Game Board variables*/
 var maxTiles;
 var maxRows;

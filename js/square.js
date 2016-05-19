@@ -101,7 +101,7 @@ function initializeSquareHardColorInventory() {
     colorInventory[2] = 10;
     colorInventory[3] = 7;
 }
-function SquareGame() {
+function squareGame() {
     ctx.strokeStyle = "#000000";
     ctx.fillStyle = "#FFFFFF";
     ctx.lineWidth = 2;

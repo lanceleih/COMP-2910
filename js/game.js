@@ -54,26 +54,29 @@ function newGame() {
     colorInventory = new Array(4);
     tilesColored = 0;
     calculateMaxTilesRowCol();
+    startGame();
+}
 
+function startGame() {
     switch(shape) {
         case 0:
             if (difficulty == 0) {
                 createSquareArray(maxRows, maxCols);
                 initializeSquareEasyColorInventory();
                 createFixedEasySquare();
-                game();
+                squareGame();
                 //gameResult();
             } else if (difficulty == 1) {
                 createSquareArray(maxRows, maxCols);
                 initializeSquareMediumColorInventory();
                 createFixedMediumSquare();
-                game();
+                squareGame();
                 //gameResult();
             } else {
                 createSquareArray(maxRows, maxCols);
                 initializeSquareHardColorInventory();
                 createFixedHardSquare();
-                game();
+                squareGame();
                 //gameResult();
             }
             break;
@@ -82,19 +85,19 @@ function newGame() {
                 createDiamondArray(maxRows, maxCols);
                 initializeDiamondEasyColorInventory();
                 createFixedEasyDiamond();
-                game();
+                diamondGame();
                 //gameResult();
             } else if(difficulty == 1) {
                 createDiamondArray(maxRows, maxCols);
                 initializeDiamondMediumColorInventory();
                 createFixedMediumDiamond();
-                game();
+                diamondGame();
                 //gameResult();
             } else {
                 createDiamondArray(maxRows, maxCols);
                 initializeDiamondHardColorInventory();
                 createFixedHardDiamond();
-                game();
+                diamondGame();
                 //gameResult();
             }
             break;
@@ -108,56 +111,6 @@ function newGame() {
             }
             break;
     }
-}
-
-function createSquareArray(row, col) {
-    TILE_WIDTH = BOARD_WIDTH / row;
-    TILE_HEIGHT = BOARD_HEIGHT / col;
-    tiles = new Array(row);
-    for (var i = 0; i < row; i++) {
-        tiles[i] = new Array(col);
-        for (var j = 0; j< col; j++) {
-            tiles[i][j] = {
-                shape: TILE_SHAPE,
-                color: -1,
-                width: TILE_WIDTH - 2,
-                height: TILE_HEIGHT - 2,
-                x: TILE_WIDTH * j + OFFSET_LEFT + 1,
-                y: TILE_HEIGHT * i + OFFSET_TOP + 1,
-                fixed: false
-            };
-        }
-    }
-}
-
-function initializeColorInventory() {
-    colorInventory[0] = 7;
-    colorInventory[1] = 6;
-    colorInventory[2] = 6;
-    colorInventory[3] = 6;
-}
-
-function createFixedTiles() {
-    tiles[0][0].fixed = true;
-    tiles[0][0].color = 0;
-    colorInventory[0]--;
-    tilesColored++;
-    tiles[1][1].fixed = true;
-    tiles[1][1].color = 1;
-    colorInventory[1]--;
-    tilesColored++;
-    tiles[2][2].fixed = true;
-    tiles[2][2].color = 2;
-    colorInventory[2]--;
-    tilesColored++;
-    tiles[3][3].fixed = true;
-    tiles[3][3].color = 3;
-    colorInventory[3]--;
-    tilesColored++;
-    tiles[4][4].fixed = true;
-    tiles[4][4].color = 0;
-    colorInventory[0]--;
-    tilesColored++;
 }
 function drawTiles() {
     for (var i = 0; i < tiles.length; i++) {
@@ -178,14 +131,15 @@ function drawTiles() {
         }
     }
 }
+
 function getTile(coordX, coordY) {
     for (var i = 0; i < tiles.length; i++) {
         for (var j = 0; j < tiles[0].length; j++) {
             if (tiles[i][j].x < coordX && tiles[i][j].x + tiles[i][j].width > coordX) {
                 if (tiles[i][j].y < coordY && tiles[i][j].y + tiles[i][j].height > coordY) {
-                    //							alert(tiles[i][j].x + " < " + coordX + " < " + (tiles[i][j].x + tiles[i][j].width) + "\n"
-                    //								+ tiles[i][j].y + " < " + coordY + " < " + (tiles[i][j].y + tiles[i][j].height) + "\n"
-                    //								+ "It's tiles[" + j + "][" + i + "]");
+                    //alert(tiles[i][j].x + " < " + coordX + " < " + (tiles[i][j].x + tiles[i][j].width) + "\n"
+                    //+ tiles[i][j].y + " < " + coordY + " < " + (tiles[i][j].y + tiles[i][j].height) + "\n"
+                    //+ "It's tiles[" + j + "][" + i + "]");
                     return tiles[i][j];
                 }
             }
@@ -199,48 +153,6 @@ function getNextColor(colorIndex) {
     else {
         return -1;
     }
-}
-function validateGame() {
-    switch (TILE_SHAPE) {
-        case "square":
-            return validateSquareGame();
-            break;
-        case "rhombus":
-        case "hexagon":
-        default:
-            return false;
-    }
-}
-function validateSquareGame() {
-    for (var i = 0; i < maxTiles; i++) {
-        var row = ~~(i/maxRows);
-        var col = i%maxCols;
-        if (row - 1 >= 0) {
-            if (tiles[row][col].color === tiles[row - 1][col].color) {
-                //						alert("tiles[" + row + "][" + col + "] (" + tiles[row][col].color + ") == tiles[" + (row-1) + "][" + col + "] (" + tiles[row-1][col].color + ")");
-                return false;
-            }
-        }
-        if (col - 1 >= 0) {
-            if (tiles[row][col].color === tiles[row][col - 1].color) {
-                //						alert("tiles[" + row + "][" + col + "] (" + tiles[row][col].color + ") == tiles[" + row + "][" + (col-1) + "] (" + tiles[row][col-1].color + ")");
-                return false;
-            }
-        }
-        if (row + 1 < maxRows) {
-            if (tiles[row][col].color === tiles[row + 1][col].color) {
-                //						alert("tiles[" + row + "][" + col + "] (" + tiles[row][col].color + ") == tiles[" + (row+1) + "][" + col + "] (" + tiles[row+1][col].color + ")");
-                return false;
-            }
-        }
-        if (col + 1 < maxCols) {
-            if (tiles[row][col].color === tiles[row][col + 1].color) {
-                //						alert("tiles[" + row + "][" + col + "] (" + tiles[row][col].color + ") == tiles[" + row + "][" + (col+1) + "] (" + tiles[row][col+1].color + ")");
-                return false;
-            }
-        }
-    }
-    return true;
 }
 function fillTile(tile) {
     var newColor = getNextColor(tile.color);
@@ -274,8 +186,6 @@ function fillTile(tile) {
     tile.color = newColor;
 }
 
-
-
 function fillFixedTile() {
     for (var i = 0; i < maxRows; i++) {
         for (var j = 0; j < maxCols; j++) {
@@ -302,14 +212,10 @@ function fillFixedTile() {
                 ctx.lineTo(tiles[i][j].x, tiles[i][j].y+tiles[i][j].height);
                 ctx.stroke();
                 ctx.closePath();
-
-
             }
         }
     }
 }
-
-
 
 function drawColorInventory() {
     //alert(c.height);
@@ -358,91 +264,4 @@ function updateRemainingColors() {
     ctx.clearRect(275, 410, 20, 40);
     ctx.fillRect(275, 410, 20, 40);
     drawRemainingColors();
-}
-
-function createTimer() {
-    ctx.strokeStyle = "#000000";
-    ctx.fillStyle = "#FFFFFF";
-    ctx.beginPath();
-    ctx.rect(20, 20, 200, 60);
-    ctx.stroke();
-    ctx.fill();
-    ctx.closePath();
-    startTime = new Date().getTime();
-}
-
-function updateTimer() {
-    ctx.clearRect(21, 21, 198, 58);
-    ctx.fillStyle = "#FFFFFF";
-    ctx.beginPath();
-    ctx.fillRect(21, 21, 198, 58);
-
-    ctx.fillStyle = "#000000";
-    ctx.font = "30px monospace";
-    elapsedTime = parseInt((new Date().getTime()-startTime) / 100, 10);
-    var timeString = formatTime(elapsedTime);
-    ctx.beginPath();
-    ctx.fillText(timeString, 30, 60);
-}
-
-function resumeTimer() {
-    startTime = new Date().getTime() - new Date(elapsedTime * 100);
-    gameTimer = setInterval(updateTimer, 100);
-}
-
-function createPauseBtn() {
-    ctx.strokeStyle = "#000000";
-    ctx.fillStyle = "#FFFFFF";
-    ctx.beginPath();
-    ctx.rect(240, 20, 60, 60);
-    ctx.stroke();
-    ctx.fill();
-    ctx.closePath();
-
-    ctx.fillStyle = "#000000";
-    ctx.beginPath();
-    ctx.fillText("Pause", 250, 55);
-}
-
-function game() {
-    ctx.strokeStyle = "#000000";
-    ctx.fillStyle = "#FFFFFF";
-    ctx.lineWidth = 2;
-    //ctx.shadowColor = "transparent";
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    //createTileArray(maxRows, maxCols);
-    drawTiles();
-    drawColorInventory();
-    fillFixedTile();
-    drawRemainingColors();
-    createPauseBtn();
-    createTimer();
-    resumeTimer();
-    //var gameTimer = setInterval(updateTimer, 100);
-    canvas.addEventListener("mouseup", doMouseUp, false);
-
-
-    function doMouseUp(event) {
-        var canvas_x = event.pageX - canvas.offsetLeft;
-        var canvas_y = event.pageY - canvas.offsetTop;
-        if (canvas_x > OFFSET_LEFT && canvas_x < OFFSET_LEFT + BOARD_WIDTH && canvas_y > OFFSET_TOP && canvas_y < OFFSET_TOP + BOARD_HEIGHT) {
-            var tile = getTile(canvas_x, canvas_y);
-            if (tile.fixed === false) {
-                fillTile(tile);
-            }
-        } else if (canvas_x > 240 && canvas_x < 300 && canvas_y > 20 && canvas_y < 80) {
-            canvas.removeEventListener("mouseup", doMouseUp, false);
-            clearInterval(gameTimer);
-            paused();
-        }
-
-        if (tilesColored == maxTiles) {
-            if (validateGame() === true) {
-                canvas.removeEventListener("mouseup", doMouseUp, false);
-                clearInterval(gameTimer);
-                gameResult();
-            }
-        }
-    }
 }

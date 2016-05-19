@@ -58,7 +58,13 @@ function paused() {
 
         if (x > 90 && x < 240 && y > 180 && y < 255) {
             home.removeEventListener("click", tapped, false);
-            game();
+            if(shape == 0) {
+                squareGame();
+            } else if(shape == 1) {
+                diamondGame();
+            } else {
+                squareGame();
+            }
         } else if (x > 90 && x < 240 && y > 260 && y < 335) {
             // alert("Restart game!");
             home.removeEventListener("click", tapped, false);
