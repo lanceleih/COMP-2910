@@ -5,6 +5,9 @@ var canvas;
 var ctx;
 
 /* Audio: BGM & SFX */
+var bgm = new Audio("../audio/shop.mp3");
+var sfx1 = new Audio("../audio/tap.wav");
+var sfx2 = new Audio("../audio/click.wav");
 
 
 /*Game Board variables*/
@@ -41,6 +44,10 @@ var startTime;
 
 /* Javascript for the home page*/
 function home() {
+    bgm.volume = 0.2;
+    sfx1.volume = 0.8;
+    sfx2.volume = 0.8;
+    bgm.play();
     canvas = document.getElementById("mainCanvas");
     ctx = canvas.getContext("2d");
     var count = 0;
@@ -64,12 +71,15 @@ function home() {
 
         if (x > 90 && x < 240 && y > 180 && y < 255) {
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             selectShape();
         } else if(x > 90 && x < 240 && y > 260 && y < 335) {
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             startSettings();
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             leaderboardShape();
         } else if (x > 60 && x < 260 && y > 420 && y < 470) {
             count = count + 1;
@@ -107,12 +117,15 @@ function backHome() {
 
         if (x > 90 && x < 240 && y > 180 && y < 255) {
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             selectShape();
         } else if(x > 90 && x < 240 && y > 260 && y < 335) {
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             startSettings();
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             leaderboardShape();
         } else if (x > 60 && x < 260 && y > 420 && y < 470) {
             count = count + 1;
