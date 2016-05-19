@@ -14,8 +14,12 @@ function formatTime(time) {
 /* Hides the easter egg div*/
 function backEaster() {
     document.getElementById("easterEgg").style.display = "none";
+    document.getElementById("main").style.display = "block";
 }
-
+function backLeaderboard() {
+    document.getElementById("leaderboardTable").style.display = "none";
+    document.getElementById("main").style.display = "block";
+}
 /*Pause Button for Game*/
 function createPauseBtn() {
     var img = document.getElementById("pauseButton");

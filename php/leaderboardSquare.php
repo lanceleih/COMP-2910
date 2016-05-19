@@ -14,10 +14,11 @@
         echo "<table><tr><th>ID</th><th>Name</th><th>Time</th></tr>";
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"easy") == 0)
+            if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"easy") == 0) {
                 echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["time"]."</td></tr>";
-    }
-    echo "</table>";
+            }
+        }
+        echo "</table>";
     } else {
         echo "0 results";
     }

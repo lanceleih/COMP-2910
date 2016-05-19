@@ -35,16 +35,22 @@ function leaderboardShape() {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             loadEasy();
+            document.getElementById("main").style.display = "none";
+            document.getElementById("leaderboardTable").style.display = "block";
         } else if (x > 180 && x < 305 && y > 180 && y < 280) {
             // rhombus shape
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             loadEasy();
+            document.getElementById("main").style.display = "none";
+            document.getElementById("leaderboardTable").style.display = "block";
         } else if (x > 20 && x < 145 && y > 300 && y < 400) {
             // hexagon shape
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             loadEasy();
+            document.getElementById("main").style.display = "none";
+            document.getElementById("leaderboardTable").style.display = "block";
         } else if (x > 15 && x < 100 && y > 15 && y < 40) {
             // back button
             canvas.removeEventListener("click", getPosition, false);

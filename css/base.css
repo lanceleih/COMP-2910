@@ -36,3 +36,11 @@ img {
     top: 235px;
     display: none;
 }
+#leaderboardTable {
+    border: 1px solid #000000;
+    background-color: #F2EFCC;
+    background-image: url("../img/background/BG.jpg");
+    width: 320px;
+    height: 480px;
+    display: none;
+}
