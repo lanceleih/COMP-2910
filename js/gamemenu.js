@@ -1,3 +1,38 @@
+/* Javascript for the Paused Page */
+function paused() {
+
+    ctx.clearRect(0, 0, 320, 480);
+    var pausedTitle = document.getElementById("pausedTitle");
+    ctx.drawImage(pausedTitle, 12, 40, 300, 132);
+    var resume = document.getElementById("resumeButton");
+    ctx.drawImage(resume, 90, 180, 150, 75);
+    var restart = document.getElementById("restartButton");
+    ctx.drawImage(restart, 90, 260, 150, 75);
+    var menu = document.getElementById("menuButton");
+    ctx.drawImage(menu, 90, 340, 150, 75);
+
+    canvas.addEventListener("click", tapped, false);
+
+    function tapped(event) {
+        var x = event.x - canvas.offsetLeft;
+        var y = event.y - canvas.offsetTop;
+
+        if (x > 90 && x < 240 && y > 180 && y < 255) {
+            canvas.removeEventListener("click", tapped, false);
+            game();
+        } else if (x > 90 && x < 240 && y > 260 && y < 335) {
+            // alert("Restart game!");
+            canvas.removeEventListener("click", tapped, false);
+            newGame();
+        } else if (x > 90 && x < 240 && y > 340 && y < 415) {
+            // alert("go home");
+            canvas.removeEventListener("click", tapped, false);
+            backHome();
+        }
+    }
+}
+
+/* Javascript for the Game Result Page*/
 function gameResult() {
     ctx.strokeStyle = "#000000";
     ctx.fillStyle = "#FFFFFF";
@@ -6,23 +41,18 @@ function gameResult() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#000000";
+    ctx.font = "30px monospace";
 
     ctx.drawImage(document.getElementById("resultTitle"), 11, 20);
     ctx.drawImage(document.getElementById("restartButton"), 85, 300, 150, 75);
     ctx.drawImage(document.getElementById("menuButton"), 85, 385, 150, 75);
 
     var timeString = formatTime(elapsedTime);
-
-    ctx.font = "30px monospace";
     ctx.beginPath();
-    ctx.fillText("Your Time: " + timeString, 10, 200);
+    ctx.fillText("Congratulations", 35, 200);
 
-    ctx.font = "20px monospace";
     ctx.beginPath();
-    ctx.fillText("Enter name: ", 10, 250);
-    ctx.drawImage(document.getElementById("rightArrow"),275, 230, 25, 25);
-    document.getElementById("addName").style.display = "block";
-
+    ctx.fillText("Your Time: " + timeString, 10, 250);
     canvas.addEventListener("mouseup", gameResultMouseUp, false);
 
     function gameResultMouseUp(event) {
@@ -36,50 +66,6 @@ function gameResult() {
             backHome();
         } else if(canvas_x > 275 && canvas_x < 300 && canvas_y > 230 && canvas_y < 255) {
             alert("Submit name.");
-        }
-    }
-}
-
-/* Javascript for the Paused Page */
-function paused() {
-    var home = document.getElementById("mainCanvas");
-    var ctx = home.getContext("2d");
-    ctx.clearRect(0, 0, 320, 480);
-    var pausedTitle = document.getElementById("pausedTitle");
-    ctx.drawImage(pausedTitle, 12, 40, 300, 132);
-    var resume = document.getElementById("resumeButton");
-    ctx.drawImage(resume, 90, 180, 150, 75);
-    var restart = document.getElementById("restartButton");
-    ctx.drawImage(restart, 90, 260, 150, 75);
-    var menu = document.getElementById("menuButton");
-    ctx.drawImage(menu, 90, 340, 150, 75);
-
-    home.addEventListener("click", tapped, false);
-
-    function tapped(event) {
-        var x = event.x;
-        var y = event.y;
-
-        x -= home.offsetLeft;
-        y -= home.offsetTop;
-
-        if (x > 90 && x < 240 && y > 180 && y < 255) {
-            home.removeEventListener("click", tapped, false);
-            if(shape == 0) {
-                squareGame();
-            } else if(shape == 1) {
-                diamondGame();
-            } else {
-                squareGame();
-            }
-        } else if (x > 90 && x < 240 && y > 260 && y < 335) {
-            // alert("Restart game!");
-            home.removeEventListener("click", tapped, false);
-            newGame();
-        } else if (x > 90 && x < 240 && y > 340 && y < 415) {
-            // alert("go home");
-            home.removeEventListener("click", tapped, false);
-            backHome();
         }
     }
 }
