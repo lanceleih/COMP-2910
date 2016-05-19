@@ -19,14 +19,17 @@ function paused() {
 
         if (x > 90 && x < 240 && y > 180 && y < 255) {
             canvas.removeEventListener("click", tapped, false);
+            sfx2.play();
             game();
         } else if (x > 90 && x < 240 && y > 260 && y < 335) {
             // alert("Restart game!");
             canvas.removeEventListener("click", tapped, false);
+            sfx2.play();
             newGame();
         } else if (x > 90 && x < 240 && y > 340 && y < 415) {
             // alert("go home");
             canvas.removeEventListener("click", tapped, false);
+            sfx1.play();
             backHome();
         }
     }
@@ -60,9 +63,11 @@ function gameResult() {
         var canvas_y = event.pageY - canvas.offsetTop;
         if (canvas_x > 85 && canvas_x < 235 && canvas_y > 300 && canvas_y < 375) {
             canvas.removeEventListener("mouseup", gameResultMouseUp, false);
+            sfx2.play();
             newGame();
         } else if (canvas_x > 85 && canvas_x < 235 && canvas_y > 385 && canvas_y < 460) {
             canvas.removeEventListener("mouseup", gameResultMouseUp, false);
+            sfx1.play();
             backHome();
         }
     }

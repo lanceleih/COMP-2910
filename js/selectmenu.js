@@ -27,20 +27,24 @@ function selectShape() {
             // square shape
             shape = 0;
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             selectDifficulty();
         } else if (x > 180 && x < 305 && y > 180 && y < 280) {
             // diamond shape
             shape = 1;
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             selectDifficulty();
         } else if (x > 20 && x < 145 && y > 300 && y < 400) {
             // hexagon shape
             shape = 2;
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             selectDifficulty();
         } else if (x > 15 && x < 100 && y > 15 && y < 40) {
             // back to home
             canvas.removeEventListener("click", getPosition, false);
+            sfx1.play();
             backHome();
         }
     }
@@ -72,20 +76,24 @@ function selectDifficulty() {
             // easy difficulty
             difficulty = 0;
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             newGame();
         } else if(x > 90 && x < 240 && y > 260 && y < 335) {
             // medium difficulty
             difficulty = 1;
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             newGame();
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
             // hard difficulty
             difficulty = 2;
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             newGame();
         } else if(x > 15 && x < 100 && y > 15 && y < 40) {
             // back to select shape
             canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             selectShape();
         }
     }
