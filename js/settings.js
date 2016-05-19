@@ -1,45 +1,57 @@
 // Jungle Love
-    var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
+var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
 // Autumn's Splendor
-    var palette1 = ["#FE845F", "#51545B", "#FAD0B8", "#BCC4C7"];
+var palette1 = ["#FE845F", "#51545B", "#FAD0B8", "#BCC4C7"];
 // Pacman Ghosts
-    var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
+var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
 // Ice Cream Desserts
-    var palette3 = ["#7D9772", "#BDDFBB", "#F9B899", "#FBC86B"];
+var palette3 = ["#7D9772", "#BDDFBB", "#F9B899", "#FBC86B"];
 // Beer Goggles
-    var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
+var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
+// R/G Colour Blind Palette
+var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"]
+var paletteTitle0Img = document.getElementById("paletteTitle0");
+var paletteTitle1Img = document.getElementById("paletteTitle1");
+var paletteTitle2Img = document.getElementById("paletteTitle2");
+var paletteTitle3Img = document.getElementById("paletteTitle3");
+var paletteTitle4Img = document.getElementById("paletteTitle4");
 
-    var paletteTitle0Img = document.getElementById("paletteTitle0");
-    var paletteTitle1Img = document.getElementById("paletteTitle1");
-    var paletteTitle2Img = document.getElementById("paletteTitle2");
-    var paletteTitle3Img = document.getElementById("paletteTitle3");
-    var paletteTitle4Img = document.getElementById("paletteTitle4");
+var paletteTitleArray = [paletteTitle0Img, paletteTitle1Img, paletteTitle2Img, paletteTitle3Img, paletteTitle4Img];
+var paletteTitle = paletteTitle4Img;
+var storePalette = null;
+var palette = palette4;
+var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"];
+var paletteImg = paletteImgArray[4];
+var colourModeStateFill = "#FFFFFF";
+var colourModeState = false;
 
-    var paletteTitleArray = [paletteTitle0Img, paletteTitle1Img, paletteTitle2Img, paletteTitle3Img, paletteTitle4Img];
-    var paletteTitle = paletteTitle4Img;
-    var palette = palette4;
-    var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"]
-    var paletteImg = paletteImgArray[4];
-    var colourModeStateFill = "#FFFFFF";
-    var colourModeState = false;
+var bgmVolume1Img = document.getElementById("bgmVolume1");
+var bgmVolume2Img = document.getElementById("bgmVolume2");
+var bgmVolume3Img = document.getElementById("bgmVolume3");
+var bgmVolume4Img = document.getElementById("bgmVolume4");
+var bgmVolume5Img = document.getElementById("bgmVolume5");
 
+var sfxVolume1Img = document.getElementById("sfxVolume1");
+var sfxVolume2Img = document.getElementById("sfxVolume2");
+var sfxVolume3Img = document.getElementById("sfxVolume3");
+var sfxVolume4Img = document.getElementById("sfxVolume4");
+var sfxVolume5Img = document.getElementById("sfxVolume5");
 
-    var bgmStateArray = ["#008000", "#998365"];
-    var bgmState1 = bgmStateArray[1];
-    var bgmState2 = bgmStateArray[0];
-    var bgmState3 = bgmStateArray[0];
-    var bgmState4 = bgmStateArray[0];
-    var bgmState5 = bgmStateArray[0];
-    var bgmMuteState = bgmStateArray[0];
-    var sfxStateArray = ["#008000", "#998365"];
-    var sfxState1 = sfxStateArray[0];
-    var sfxState2 = sfxStateArray[0];
-    var sfxState3 = sfxStateArray[0];
-    var sfxState4 = sfxStateArray[1];
-    var sfxState5 = sfxStateArray[0];
-    var sfxMuteState = sfxStateArray[0];
-    var danCount = 0;
-
+var bgmStateArray = ["#008000", "#998365"];
+var bgmState1 = bgmStateArray[1];
+var bgmState2 = bgmStateArray[0];
+var bgmState3 = bgmStateArray[0];
+var bgmState4 = bgmStateArray[0];
+var bgmState5 = bgmStateArray[0];
+var bgmMuteState = bgmStateArray[0];
+var sfxStateArray = ["#008000", "#998365"];
+var sfxState1 = sfxStateArray[0];
+var sfxState2 = sfxStateArray[0];
+var sfxState3 = sfxStateArray[0];
+var sfxState4 = sfxStateArray[1];
+var sfxState5 = sfxStateArray[0];
+var sfxMuteState = sfxStateArray[0];
+var danCount = 0;
 
 
 /* Call settings */
@@ -129,8 +141,8 @@ function startSettings() {
                 colourModeState = true;
                 ctx.clearRect(65, 355, 15, 15);
                 drawColourBlindToggleFill();
-                //storePalette = palette;
-                //palette = blindPalette;
+                storePalette = palette;
+                palette = rgPalette;
                 //alert(colourModeState);
                 //alert("this is blind butotn");
             }
@@ -139,7 +151,7 @@ function startSettings() {
                 colourModeState = false;
                 ctx.clearRect(65, 355, 15, 15);
                 drawColourBlindToggleFill();
-                //palette = storePalette;
+                palette = storePalette;
                 //alert(colourModeState);
                 //alert("this is the blind button");
             }
@@ -229,7 +241,7 @@ function startAudioSettings() {
         ctx.fillRect(65, 325, 200, 40);
     }
 
-    function drawSfxVolume1(){
+    function drawSfxVolume1() {
         ctx.clearRect(55, 325, 40, 40);
         ctx.fillStyle = sfxState1;
         ctx.fillRect(55, 325, 40, 40);
@@ -252,18 +264,20 @@ function startAudioSettings() {
         ctx.fillStyle = sfxState4;
         ctx.fillRect(190, 325, 40, 40);
     }
+
     function drawSfxVolume5() {
         ctx.clearRect(235, 325, 40, 40);
         ctx.fillStyle = sfxState5;
         ctx.fillRect(235, 325, 40, 40);
     }
+
     function drawBgmMuteButton() {
         ctx.clearRect(110, 220, 100, 40);
         ctx.fillStyle = bgmMuteState;
         ctx.fillRect(110, 220, 100, 40)
     }
 
-    function drawSfxMuteButton(){
+    function drawSfxMuteButton() {
         ctx.clearRect(110, 370, 100, 40);
         ctx.fillStyle = sfxMuteState;
         ctx.fillRect(110, 370, 100, 40)
@@ -277,7 +291,6 @@ function startAudioSettings() {
         sfx1.volume = 0;
         sfx2.volume = 0;
     }
-
 
 
     //Maps the coordinates for the clickable areas on the screen
@@ -403,7 +416,7 @@ function startAudioSettings() {
 
         //Sfx Volume1
         if (x > 55 && x < 95 && y > 325 && y < 365) {
-             //alert("sfx1");
+            //alert("sfx1");
             sfx1.volume = 0.2;
             sfx2.volume = 0.2;
             sfx2.play();
@@ -572,6 +585,7 @@ function startColourSettings() {
         if (x > 15 && x < 100 && y > 15 && y < 40) {
             ctx.clearRect(0, 0, 320, 480);
             canvas.removeEventListener("mouseup", activeArea, false);
+            sfx1.play();
             startSettings();
             //alert ("this is the back button");
         }
@@ -603,6 +617,7 @@ function startColourSettings() {
                 paletteTitle = paletteTitleArray[0];
                 paletteImg = paletteImgArray[0];
             }
+            sfx2.play();
             drawTile0();
             drawTile1();
             drawTile2();
@@ -645,6 +660,7 @@ function startColourSettings() {
                 paletteImg = paletteImgArray[0];
 
             }
+            sfx2.play();
             drawTile0();
             drawTile1();
             drawTile2();
@@ -660,8 +676,8 @@ function startColourSettings() {
         if (x > 265 && x < 290 && y > 70 && y < 100) {
 
             danCount++;
-            if (danCount == 13){
-                palette = ["#998365","#1E3259","#EF1921","#678314","#A1C4A6"];
+            if (danCount == 13) {
+                palette = ["#998365", "#1E3259", "#EF1921", "#678314", "#A1C4A6"];
                 paletteTitle = "Ballfondler's Delight";
                 paletteImg = "#FF0F0F0";
                 drawTile0();
@@ -731,7 +747,7 @@ function startColourSettings() {
     drawColourPackTitle();
     //drawPreview();
     drawPackPanel();
-   // drawTitlePanel();
+    // drawTitlePanel();
     drawTile0();
     drawTile1();
     drawTile2();
