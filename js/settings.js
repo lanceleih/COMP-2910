@@ -1,46 +1,47 @@
-
 // Jungle Love
-var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
-// Backstreet's Back
-var palette1 = ["#1E3259", "#BFA58E", "#736B6A", "#260101"];
-// Spooky Ghosts
-var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
+    var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
+// Autumn's Splendor
+    var palette1 = ["#FE845F", "#51545B", "#FAD0B8", "#BCC4C7"];
+// Pacman Ghosts
+    var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
+// Ice Cream Desserts
+    var palette3 = ["#7D9772", "#BDDFBB", "#F9B899", "#FBC86B"];
 // Beer Goggles
-var palette3 = ["#678314", "#D66718", "#F8E5A1", "#B05514"];
-//Ice Cream Desserts
-var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
+    var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 
-var paletteTitle0Img = document.getElementById("paletteTitle0");
-var paletteTitle1Img = document.getElementById("paletteTitle1");
-var paletteTitle2Img = document.getElementById("paletteTitle2");
-var paletteTitle3Img = document.getElementById("paletteTitle3");
-var paletteTitle4Img = document.getElementById("paletteTitle4");
+    var paletteTitle0Img = document.getElementById("paletteTitle0");
+    var paletteTitle1Img = document.getElementById("paletteTitle1");
+    var paletteTitle2Img = document.getElementById("paletteTitle2");
+    var paletteTitle3Img = document.getElementById("paletteTitle3");
+    var paletteTitle4Img = document.getElementById("paletteTitle4");
 
-var paletteTitleArray = [paletteTitle0Img, paletteTitle1Img, paletteTitle2Img, paletteTitle3Img, paletteTitle4Img];
-var paletteTitle = paletteTitle4Img;
-var palette = palette4;
-var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"]
-var paletteImg = paletteImgArray[4];
-var colourModeStateFill = "#FFFFFF";
-var colourModeState = false;
+    var paletteTitleArray = [paletteTitle0Img, paletteTitle1Img, paletteTitle2Img, paletteTitle3Img, paletteTitle4Img];
+    var paletteTitle = paletteTitle4Img;
+    var palette = palette4;
+    var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"]
+    var paletteImg = paletteImgArray[4];
+    var colourModeStateFill = "#FFFFFF";
+    var colourModeState = false;
 
 
-var bgmStateArray = ["#008000", "#998365"];
-var bgmState1 = bgmStateArray[1];
-var bgmState2 = bgmStateArray[0];
-var bgmState3 = bgmStateArray[0];
-var bgmState4 = bgmStateArray[0];
-var bgmState5 = bgmStateArray[0];
-var bgmMuteState = bgmStateArray[0];
-var sfxStateArray = ["#008000", "#9998365"];
-var sfxState1 = sfxStateArray[0];
-var sfxState2 = sfxStateArray[0];
-var sfxState3 = sfxStateArray[0];
-var sfxState4 = sfxStateArray[1];
-var sfxState5 = sfxStateArray[0];
-var sfxMuteState = sfxStateArray[0];
-var danCount = 0;
-    
+    var bgmStateArray = ["#008000", "#998365"];
+    var bgmState1 = bgmStateArray[1];
+    var bgmState2 = bgmStateArray[0];
+    var bgmState3 = bgmStateArray[0];
+    var bgmState4 = bgmStateArray[0];
+    var bgmState5 = bgmStateArray[0];
+    var bgmMuteState = bgmStateArray[0];
+    var sfxStateArray = ["#008000", "#998365"];
+    var sfxState1 = sfxStateArray[0];
+    var sfxState2 = sfxStateArray[0];
+    var sfxState3 = sfxStateArray[0];
+    var sfxState4 = sfxStateArray[1];
+    var sfxState5 = sfxStateArray[0];
+    var sfxMuteState = sfxStateArray[0];
+    var danCount = 0;
+
+
+
 /* Call settings */
 function startSettings() {
     //var palette = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
@@ -286,7 +287,7 @@ function startAudioSettings() {
 
         //Back button function
         if (x > 15 && x < 100 && y > 15 && y < 40) {
-            canvas.removecanvasEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             canvas.removeEventListener("mouseup", activeArea, false);
             sfx1.play();
             startSettings();
