@@ -2,6 +2,17 @@
 function leaderboardShape() {
     ctx.clearRect(0, 0, 320, 480);
 
+    var leaderboardShapeTitle=document.getElementById("leaderboardShapeTitle");
+    ctx.drawImage(leaderboardShapeTitle, 15, 40, 300, 132);
+    var square = document.getElementById("squareButton");
+    ctx.drawImage(square, 20, 180, 125, 100);
+    var diamond = document.getElementById("diamondButton");
+    ctx.drawImage(diamond, 180, 180, 125, 100);
+    var hexagon = document.getElementById("hexButton");
+    ctx.drawImage(hexagon, 20, 300, 125, 100);
+    var back = document.getElementById("backButton");
+    ctx.drawImage(back, 0, 0, 100, 50);
+
     var img=document.getElementById("leaderboardShapeTitle");
     ctx.drawImage(img, 15, 40, 300, 132);
     var img = document.getElementById("squareButton");
@@ -44,12 +55,24 @@ function leaderboardShape() {
     }
 }
 function loadEasy() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+
+        }
+    };
+
+  xhttp.open("POST", "../php/leaderboardeasy.php", true);
+  xhttp.send();
+    var c = document.getElementById("mainCanvas");
+    var ctx = c.getContext("2d");
+
     ctx.clearRect(0, 0, 320, 480);
 
     var back = document.getElementById("backButton");
     ctx.drawImage(back, 0, 0, 100, 50);
-    var easyTitle = document.getElementById("easyTitle");
-    ctx.drawImage(easyTitle, 28, 60, 263, 38);
+    var easy = document.getElementById("easyTitle");
+    ctx.drawImage(easy, 28, 60, 263, 38);
     drawBoard();
 
     canvas.addEventListener("click", tapped, false);

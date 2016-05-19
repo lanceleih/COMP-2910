@@ -44,31 +44,41 @@ function gameResult() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#000000";
-    ctx.font = "30px monospace";
+    
 
     ctx.drawImage(document.getElementById("resultTitle"), 11, 20);
     ctx.drawImage(document.getElementById("restartButton"), 85, 300, 150, 75);
     ctx.drawImage(document.getElementById("menuButton"), 85, 385, 150, 75);
+    ctx.drawImage(document.getElementById("rightArrow"), 275, 230, 25, 25);
+    document.getElementById("addName").style.display = "block";
 
+    ctx.font = "20px monospace";
+    ctx.beginPath();
+    ctx.fillText("Enter name: ", 10, 250);
+
+    ctx.font = "30px monospace";
     var timeString = formatTime(elapsedTime);
     ctx.beginPath();
-    ctx.fillText("Congratulations", 35, 200);
-
-    ctx.beginPath();
-    ctx.fillText("Your Time: " + timeString, 10, 250);
+    ctx.fillText("Your Time: " + timeString, 10, 200);
     canvas.addEventListener("mouseup", gameResultMouseUp, false);
 
     function gameResultMouseUp(event) {
         var canvas_x = event.pageX - canvas.offsetLeft;
         var canvas_y = event.pageY - canvas.offsetTop;
         if (canvas_x > 85 && canvas_x < 235 && canvas_y > 300 && canvas_y < 375) {
+            document.getElementById("addName").style.display = "none";
             canvas.removeEventListener("mouseup", gameResultMouseUp, false);
             sfx2.play();
             newGame();
         } else if (canvas_x > 85 && canvas_x < 235 && canvas_y > 385 && canvas_y < 460) {
+            document.getElementById("addName").style.display = "none";
             canvas.removeEventListener("mouseup", gameResultMouseUp, false);
             sfx1.play();
             backHome();
+        } else if(canvas_x > 275 && canvas_x < 300 && canvas_y > 230 && canvas_y < 255) {
+            document.getElementById("addName").style.display = "none";
+            // sendInfo();
+            alert("Name submitted.");
         }
     }
 }

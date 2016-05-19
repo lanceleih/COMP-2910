@@ -21,3 +21,15 @@ function createPauseBtn() {
     var img = document.getElementById("pauseButton");
     ctx.drawImage(img, pause_x, pause_y, pause_width, pause_height);
 }
+
+function drawComponent() {
+    ctx.strokeStyle = "#000000";
+    // timer border
+    ctx.strokeRect(timer_x, timer_y, timer_width, timer_height);
+    // pause button border
+    ctx.strokeRect(pause_x, pause_y, pause_width, pause_height);
+    // game board border
+    ctx.strokeRect(board_x, board_y , board_width, board_height);
+    // color inventory border
+    ctx.strokeRect(inventory_x, inventory_y, inventory_width, inventory_height);
+}
