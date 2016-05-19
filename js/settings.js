@@ -52,11 +52,11 @@ var bgmState4 = volume4Img;
 var bgmState5 = volume5Img;
 var bgmMuteState = muteImg;
 var sfxStateArray = ["#008000", "#998365"];
-var sfxState1 = sfxVolume1Img;
-var sfxState2 = sfxVolume2Img;
-var sfxState3 = sfxVolume3Img;
-var sfxState4 = sfxVolume4SelectImg;
-var sfxState5 = sfxVolume5Img;
+var sfxState1 = volume1Img;
+var sfxState2 = volume2Img;
+var sfxState3 = volume3Img;
+var sfxState4 = volume4SelectImg;
+var sfxState5 = volume5Img;
 var sfxMuteState = muteImg;
 var danCount = 0;
 
