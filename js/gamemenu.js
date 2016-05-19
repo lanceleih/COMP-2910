@@ -6,18 +6,23 @@ function gameResult() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#000000";
-    ctx.font = "30px monospace";
 
     ctx.drawImage(document.getElementById("resultTitle"), 11, 20);
     ctx.drawImage(document.getElementById("restartButton"), 85, 300, 150, 75);
     ctx.drawImage(document.getElementById("menuButton"), 85, 385, 150, 75);
 
     var timeString = formatTime(elapsedTime);
-    ctx.beginPath();
-    ctx.fillText("Game Over", 85, 200);
 
+    ctx.font = "30px monospace";
     ctx.beginPath();
-    ctx.fillText("Your Time: " + timeString, 10, 250);
+    ctx.fillText("Your Time: " + timeString, 10, 200);
+
+    ctx.font = "20px monospace";
+    ctx.beginPath();
+    ctx.fillText("Enter name: ", 10, 250);
+    ctx.drawImage(document.getElementById("rightArrow"),275, 230, 25, 25);
+    document.getElementById("addName").style.display = "block";
+
     canvas.addEventListener("mouseup", gameResultMouseUp, false);
 
     function gameResultMouseUp(event) {

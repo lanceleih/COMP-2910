@@ -173,6 +173,7 @@ function initializePositions() {
 }
 
 function initializeGame() {
+    document.getElementById("addName").style.display = "none"; // leaderboard textbox disappears
     startTime = 0;
     elapsedTime = 0;
     tilesColored = 0;
