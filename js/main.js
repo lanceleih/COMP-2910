@@ -3,6 +3,37 @@
 /*Global variables*/
 var canvas;
 var ctx;
+/*Game Board variables*/
+var maxTiles;
+var maxRows;
+var maxCols;
+var OFFSET_LEFT = 20;
+var OFFSET_RIGHT = 20;
+var OFFSET_TOP = 100;
+var OFFSET_BOTTOM = 100;
+var BOARD_WIDTH = 320 - OFFSET_LEFT - OFFSET_RIGHT;
+var BOARD_HEIGHT = 480 - OFFSET_TOP - OFFSET_BOTTOM;
+var TILE_SHAPE = "square";
+var DEFAULT_COLOR = "#FFFFFF";
+var TILE_WIDTH;
+var TILE_HEIGHT;
+
+var tiles;
+
+/*0=square 1=diamond 2=hexagon*/
+var shape;
+/*0=easy 1=medium 2=hard*/
+var difficulty;
+
+/*Colour Inventory*/
+var palette = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
+var colorInventory;
+var tilesColored;
+
+/*Timer*/
+var gameTimer;
+var elapsedTime;
+var startTime;
 
 /* Javascript for the home page*/
 function home() {
