@@ -3,12 +3,10 @@
     var ctx;
 /*The select shape page for the game*/
 function selectShape() {
-    home = document.getElementById("mainCanvas");
-    ctx = home.getContext("2d");
     ctx.clearRect(0, 0, 320, 480);
 
     var img = document.getElementById("shapeTitle");
-    ctx.drawImage(img, 15, 40, 300, 132);
+    ctx.drawImage(img, 13, 40, 300, 132);
     var img = document.getElementById("squareButton");
     ctx.drawImage(img, 20, 180, 125, 100);
     var img = document.getElementById("diamondButton");
@@ -18,31 +16,35 @@ function selectShape() {
     var img = document.getElementById("backButton");
     ctx.drawImage(img, 0, 0, 100, 50);
 
-    home.addEventListener("click", getPosition, false);
+    canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
-        var x = event.x;
-        var y = event.y;
-        var home = document.getElementById("mainCanvas");
-        var ctx = home.getContext("2d");
+        var x = event.x - canvas.offsetLeft;
+        var y = event.y - canvas.offsetTop;
 
-        x -= home.offsetLeft;
-        y -= home.offsetTop;
         //alert(x + ',' + y);
         if (x > 20 && x < 145 && y > 180 && y < 280) {
-            home.removeEventListener("click", getPosition, false);
+            // square shape
             shape = 0;
+            canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             selectDifficulty();
         } else if (x > 180 && x < 305 && y > 180 && y < 280) {
-            home.removeEventListener("click", getPosition, false);
+            // diamond shape
             shape = 1;
+            canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             selectDifficulty();
         } else if (x > 20 && x < 145 && y > 300 && y < 400) {
-            home.removeEventListener("click", getPosition, false);
+            // hexagon shape
             shape = 2;
+            canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             selectDifficulty();
         } else if (x > 15 && x < 100 && y > 15 && y < 40) {
-            home.removeEventListener("click", getPosition, false);
+            // back to home
+            canvas.removeEventListener("click", getPosition, false);
+            sfx1.play();
             backHome();
         }
     }
@@ -50,12 +52,10 @@ function selectShape() {
 
 /*The select difficulty page for the game*/
 function selectDifficulty() {
-    home = document.getElementById("mainCanvas");
-    ctx = home.getContext("2d");
     ctx.clearRect(0, 0, 320, 480);
 
     var img=document.getElementById("difficultyTitle");
-    ctx.drawImage(img, 15, 40, 300, 132);
+    ctx.drawImage(img, 13, 40, 300, 132);
     var img=document.getElementById("easyButton");
     ctx.drawImage(img,90,180, 150, 75);
     var img=document.getElementById("mediumButton");
@@ -65,33 +65,35 @@ function selectDifficulty() {
     var img=document.getElementById("backButton");
     ctx.drawImage(img, 0, 0, 100, 50);
 
-    home.addEventListener("click", getPosition, false);
+    canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
-        var x = event.x;
-        var y = event.y;
-
-        x -= home.offsetLeft;
-        y -= home.offsetTop;
+        var x = event.x - canvas.offsetLeft;
+        var y = event.y - canvas.offsetTop;
         //alert(x + ',' + y);
 
         if(x > 90 && x < 240 && y > 180 && y < 255) {
-            //easy difficulty
-            home.removeEventListener("click", getPosition, false);
+            // easy difficulty
             difficulty = 0;
+            canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             newGame();
         } else if(x > 90 && x < 240 && y > 260 && y < 335) {
-            //medium difficulty
-            home.removeEventListener("click", getPosition, false);
+            // medium difficulty
             difficulty = 1;
+            canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             newGame();
         } else if(x > 90 && x < 240 && y > 340 && y < 415) {
-            //hard difficulty
-            home.removeEventListener("click", getPosition, false);
+            // hard difficulty
             difficulty = 2;
+            canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             newGame();
         } else if(x > 15 && x < 100 && y > 15 && y < 40) {
-            home.removeEventListener("click", getPosition, false);
+            // back to select shape
+            canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
             selectShape();
         }
     }
