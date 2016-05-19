@@ -41,9 +41,10 @@ function home() {
     canvas = document.getElementById("mainCanvas");
     ctx = canvas.getContext("2d");
     var count = 0;
-
+    var img = document.getElementById("cube");
+    ctx.drawImage(img, 15, 70, 70, 70);
     var img = document.getElementById("logo");
-    ctx.drawImage(img, 15, 40, 300, 132);
+    ctx.drawImage(img, 80, 70, 200, 70);
     var img = document.getElementById("slogan");
     ctx.drawImage(img, 60, 420, 200, 50);
     var img = document.getElementById("playButton");
@@ -85,8 +86,10 @@ function backHome() {
     ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, 320, 480);
 
+    var img = document.getElementById("cube");
+    ctx.drawImage(img, 15, 70, 70, 70);
     var img = document.getElementById("logo");
-    ctx.drawImage(img, 15, 40, 300, 132);
+    ctx.drawImage(img, 80, 70, 200, 70);
     var img = document.getElementById("slogan");
     ctx.drawImage(img, 60, 420, 200, 50);
     var img = document.getElementById("playButton");

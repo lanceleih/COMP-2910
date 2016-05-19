@@ -138,7 +138,7 @@ function diamondGame() {
         var canvas_x = event.pageX - canvas.offsetLeft;
         var canvas_y = event.pageY - canvas.offsetTop;
         if (canvas_x > OFFSET_LEFT && canvas_x < OFFSET_LEFT + BOARD_WIDTH && canvas_y > OFFSET_TOP && canvas_y < OFFSET_TOP + BOARD_HEIGHT) {
-            var tile = getTile(canvas_x, canvas_y);
+            var tile = getDiamondTile(canvas_x, canvas_y);
             if (tile.fixed === false) {
                 fillDiamondTile(tile);
             }
@@ -157,6 +157,22 @@ function diamondGame() {
         }
     }
 }
+function getDiamondTile(coordX, coordY) {
+    for (var i = 0; i < tiles.length; i++) {
+        for (var j = 0; j < tiles[0].length; j++) {
+            if(coordX > tiles[i][j].x  - (tiles[i][j].width / 2))
+            if (tiles[i][j].x < coordX && tiles[i][j].x + tiles[i][j].width > coordX) {
+                if (tiles[i][j].y < coordY && tiles[i][j].y + tiles[i][j].height > coordY) {
+                    //alert(tiles[i][j].x + " < " + coordX + " < " + (tiles[i][j].x + tiles[i][j].width) + "\n"
+                    //+ tiles[i][j].y + " < " + coordY + " < " + (tiles[i][j].y + tiles[i][j].height) + "\n"
+                    //+ "It's tiles[" + j + "][" + i + "]");
+                    return tiles[i][j];
+                }
+            }
+        }
+    }
+}
+
 function drawDiamondTiles() {
     for (var i = 0; i < tiles.length; i++) {
         for (var j = 0; j < tiles[0].length; j++) {
