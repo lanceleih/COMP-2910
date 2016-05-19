@@ -4,6 +4,9 @@
 var canvas;
 var ctx;
 
+/* Audio: BGM & SFX */
+
+
 /*Game Board variables*/
 var maxTiles;
 var maxRows;

@@ -1,3 +1,4 @@
+// Jungle Love
 var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
 // Backstreet's Back
 var palette1 = ["#1E3259", "#BFA58E", "#736B6A", "#260101"];
@@ -10,6 +11,11 @@ var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 
 var paletteTitleArray = ["Jungle Love", "Backstreet's Back", "Spooky Ghosts", "Beer Goggles", "Ice Cream Supreme"];
 var paletteTitle = paletteTitleArray[4];
+var palette = palette4;
+var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "B05514", "#953B32"]
+var paletteImg = paletteImgArray[4];
+var colourModeStateFill = "#FFFFFF";
+var colourModeState = false;
 
 /* Call settings */
 function startSettings() {
@@ -136,6 +142,8 @@ function startAudioSettings() {
     c.addEventListener("mouseup", activeArea, false);
     var backButtonImg = document.getElementById("backButton");
     var audioTitleImg = document.getElementById("audioTitle");
+    var bgmHeaderImg = document.getElementById("bgmHeader");
+    var sfxHeaderImg = document.getElementById("sfxHeader");
 
     function drawBackButton() {
         ctx.drawImage(backButtonImg, 0, 0, 100, 50);
@@ -146,9 +154,7 @@ function startAudioSettings() {
     }
 
     function drawBackgroundMusicTitle(){
-        ctx.fillStyle = "#000000";
-        ctx.font = "20px Arial";
-        ctx.fillText("Background Music", 65, 160);
+        ctx.drawImage(bgmHeaderImg, 65, 140, 150, 34);
     }
 
     function drawBackgroundSlider(){
@@ -157,14 +163,12 @@ function startAudioSettings() {
     }
 
     function drawSfxTitle(){
-        ctx.fillStyle = "#000000";
-        ctx.font = "20px Arial";
-        ctx.fillText("Sound Effects", 65, 260);
+        ctx.drawImage(sfxHeaderImg, 65, 270, 79, 34);
     }
 
     function drawSfxSlider(){
         ctx.fillStyle = "#008000";
-        ctx.fillRect(65, 275, 200, 40);
+        ctx.fillRect(65, 305, 200, 40);
     }
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
@@ -242,29 +246,35 @@ function startColourSettings() {
             if (palette == palette0) {
                 palette = palette4;
                 paletteTitle = paletteTitleArray[4];
+                paletteImg = paletteImgArray[4];
             }
             else if (palette == palette4) {
                 palette = palette3;
                 paletteTitle = paletteTitleArray[3];
+                paletteImg = paletteImgArray[3];
             }
             else if (palette == palette3) {
                 palette = palette2;
                 paletteTitle = paletteTitleArray[2];
+                paletteImg = paletteImgArray[2];
             }
             else if (palette == palette2) {
                 palette = palette1;
                 paletteTitle = paletteTitleArray[1];
+                paletteImg = paletteImgArray[1];
             }
             else if (palette == palette1) {
                 palette = palette0;
                 paletteTitle = paletteTitleArray[0];
+                paletteImg = paletteImgArray[0];
             }
             drawTile0();
             drawTile1();
             drawTile2();
             drawTile3();
             drawColourPackString();
-            //alert(palette);
+            drawPackPanel();
+
 
 
         }
@@ -274,26 +284,31 @@ function startColourSettings() {
             if (palette == palette0) {
                 palette = palette1;
                 paletteTitle = paletteTitleArray[1];
+                paletteImg = paletteImgArray[1];
 
             }
             else if (palette == palette1) {
                 palette = palette2;
                 paletteTitle = paletteTitleArray[2];
+                paletteImg = paletteImgArray[2];
 
             }
             else if (palette == palette2) {
                 palette = palette3;
                 paletteTitle = paletteTitleArray[3];
+                paletteImg = paletteImgArray[3];
 
             }
             else if (palette == palette3) {
                 palette = palette4;
                 paletteTitle = paletteTitleArray[4];
+                paletteImg = paletteImgArray[4];
 
             }
             else if (palette == palette4) {
                 palette = palette0;
                 paletteTitle = paletteTitleArray[0];
+                paletteImg = paletteImgArray[0];
 
             }
             drawTile0();
@@ -301,6 +316,7 @@ function startColourSettings() {
             drawTile2();
             drawTile3();
             drawColourPackString();
+            drawPackPanel();
             //alert(palette);
         }
 
@@ -315,7 +331,8 @@ function startColourSettings() {
 
     //The Colour Pack Panel
     function drawPackPanel() {
-        ctx.fillStyle = "#F5634A";
+        ctx.clearRect(50, 220, 220, 170);
+        ctx.fillStyle = paletteImg;
         ctx.fillRect(50, 220, 220, 170);
     }
 
