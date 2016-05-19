@@ -16,7 +16,7 @@ function backEaster() {
     document.getElementById("easterEgg").style.display = "none";
     document.getElementById("main").style.display = "block";
 }
-function backLeaderboard() {
+function backEasySquareLeaderboard() {
     document.getElementById("leaderboardEasySquareTable").style.display = "none";
     document.getElementById("main").style.display = "block";
     leaderboardShape();
