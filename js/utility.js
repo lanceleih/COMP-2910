@@ -14,6 +14,7 @@ function formatTime(time) {
 /* Hides the easter egg div*/
 function backEaster() {
     document.getElementById("easterEgg").style.display = "none";
+    document.getElementById("main").style.display = "block";
 }
 
 /*Pause Button for Game*/
