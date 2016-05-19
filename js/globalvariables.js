@@ -4,7 +4,7 @@
     var ctx;
 
     /* Audio: BGM & SFX */
-    var bgm = new Audio("../audio/shop.mp3");
+    var bgm = new Audio("../audio/shop2.mp3");
     var sfx1 = new Audio("../audio/tap.wav");
     var sfx2 = new Audio("../audio/click.wav");
 
@@ -14,9 +14,65 @@
     var difficulty;
 
     /*Colour Inventory*/
+// Jungle Love
+var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
+// Autumn's Splendor
+var palette1 = ["#FE845F", "#51545B", "#FAD0B8", "#BCC4C7"];
+// Pacman Ghosts
+var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
+// Ice Cream Desserts
+var palette3 = ["#7D9772", "#BDDFBB", "#F9B899", "#FBC86B"];
+// Beer Goggles
+var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
+// R/G Colour Blind Palette
+var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"];
 
+var paletteTitle0Img = document.getElementById("paletteTitle0");
+var paletteTitle1Img = document.getElementById("paletteTitle1");
+var paletteTitle2Img = document.getElementById("paletteTitle2");
+var paletteTitle3Img = document.getElementById("paletteTitle3");
+var paletteTitle4Img = document.getElementById("paletteTitle4");
 
-    var palette = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
+var paletteTitleArray = [paletteTitle0Img, paletteTitle1Img, paletteTitle2Img, paletteTitle3Img, paletteTitle4Img];
+var paletteTitle = paletteTitle4Img;
+var storePalette = null;
+var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"];
+var paletteImg = paletteImgArray[4];
+var colourModeStateFill = "#FFFFFF";
+var colourModeState = false;
+
+var volume1Img = document.getElementById("volume1");
+var volume2Img = document.getElementById("volume2");
+var volume3Img = document.getElementById("volume3");
+var volume4Img = document.getElementById("volume4");
+var volume5Img = document.getElementById("volume5");
+
+var volume1SelectImg = document.getElementById("volume1Select");
+var volume2SelectImg = document.getElementById("volume2Select");
+var volume3SelectImg = document.getElementById("volume3Select");
+var volume4SelectImg = document.getElementById("volume4Select");
+var volume5SelectImg = document.getElementById("volume5Select");
+
+var muteImg = document.getElementById("volumeMute");
+var muteSelectImg = document.getElementById("volumeMuteSelect");
+
+var bgmStateArray = ["#008000", "#998365"];
+var bgmState1 = volume1SelectImg;
+var bgmState2 = volume2Img;
+var bgmState3 = volume3Img;
+var bgmState4 = volume4Img;
+var bgmState5 = volume5Img;
+var bgmMuteState = muteImg;
+var sfxStateArray = ["#008000", "#998365"];
+var sfxState1 = volume1Img;
+var sfxState2 = volume2Img;
+var sfxState3 = volume3Img;
+var sfxState4 = volume4SelectImg;
+var sfxState5 = volume5Img;
+var sfxMuteState = muteImg;
+var danCount = 0;
+var palette = palette4;
+
 
 
 // new global variables
