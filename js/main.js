@@ -1,5 +1,8 @@
+/* Javascript for All Parts of Game */
+
 /* Javascript for the home page*/
 function home() {
+    
     bgm.volume = 0.2;
     sfx1.volume = 0.8;
     sfx2.volume = 0.8;

@@ -9,7 +9,8 @@ var palette3 = ["#7D9772", "#BDDFBB", "#F9B899", "#FBC86B"];
 // Beer Goggles
 var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 // R/G Colour Blind Palette
-var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"]
+var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"];
+
 var paletteTitle0Img = document.getElementById("paletteTitle0");
 var paletteTitle1Img = document.getElementById("paletteTitle1");
 var paletteTitle2Img = document.getElementById("paletteTitle2");
@@ -25,52 +26,39 @@ var paletteImg = paletteImgArray[4];
 var colourModeStateFill = "#FFFFFF";
 var colourModeState = false;
 
-var bgmVolume1Img = document.getElementById("bgmVolume1");
-var bgmVolume2Img = document.getElementById("bgmVolume2");
-var bgmVolume3Img = document.getElementById("bgmVolume3");
-var bgmVolume4Img = document.getElementById("bgmVolume4");
-var bgmVolume5Img = document.getElementById("bgmVolume5");
+var volume1Img = document.getElementById("volume1");
+var volume2Img = document.getElementById("volume2");
+var volume3Img = document.getElementById("volume3");
+var volume4Img = document.getElementById("volume4");
+var volume5Img = document.getElementById("volume5");
 
-var sfxVolume1Img = document.getElementById("sfxVolume1");
-var sfxVolume2Img = document.getElementById("sfxVolume2");
-var sfxVolume3Img = document.getElementById("sfxVolume3");
-var sfxVolume4Img = document.getElementById("sfxVolume4");
-var sfxVolume5Img = document.getElementById("sfxVolume5");
+var volume1SelectImg = document.getElementById("volume1Select");
+var volume2SelectImg = document.getElementById("volume2Select");
+var volume3SelectImg = document.getElementById("volume3Select");
+var volume4SelectImg = document.getElementById("volume4Select");
+var volume5SelectImg = document.getElementById("volume5Select");
 
-var bgmVolume1SelectImg = document.getElementById("bgmVolume1Select");
-var bgmVolume2SelectImg = document.getElementById("bgmVolume2Select");
-var bgmVolume3SelectImg = document.getElementById("bgmVolume3Select");
-var bgmVolume4SelectImg = document.getElementById("bgmVolume4Select");
-var bgmVolume5SelectImg = document.getElementById("bgmVolume5Select");
 
-var sfxVolume1SelectImg = document.getElementById("sfxVolume1Select");
-var sfxVolume2SelectImg = document.getElementById("sfxVolume2Select");
-var sfxVolume3SelectImg = document.getElementById("sfxVolume3Select");
-var sfxVolume4SelectImg = document.getElementById("sfxVolume4Select");
-var sfxVolume5SelectImg = document.getElementById("sfxVolume5Select");
 
-var bgmMuteImg = document.getElementById("bgmMute");
-var bgmMuteSelectImg = document.getElementById("bgmMuteSelect");
+var muteImg = document.getElementById("volumeMute");
+var muteSelectImg = document.getElementById("volumeMuteSelect");
 
-var sfxMuteImg = document.getElementById("sfxMute");
-var sfxMuteSelectImg = document.getElementById("sfxMuteSelect");
 
 var bgmStateArray = ["#008000", "#998365"];
-var bgmState1 = bgmStateArray[1];
-var bgmState2 = bgmStateArray[0];
-var bgmState3 = bgmStateArray[0];
-var bgmState4 = bgmStateArray[0];
-var bgmState5 = bgmStateArray[0];
-var bgmMuteState = bgmStateArray[0];
+var bgmState1 = volume1SelectImg;
+var bgmState2 = volume2Img;
+var bgmState3 = volume3Img;
+var bgmState4 = volume4Img;
+var bgmState5 = volume5Img;
+var bgmMuteState = muteImg;
 var sfxStateArray = ["#008000", "#998365"];
-var sfxState1 = sfxStateArray[0];
-var sfxState2 = sfxStateArray[0];
-var sfxState3 = sfxStateArray[0];
-var sfxState4 = sfxStateArray[1];
-var sfxState5 = sfxStateArray[0];
-var sfxMuteState = sfxStateArray[0];
+var sfxState1 = sfxVolume1Img;
+var sfxState2 = sfxVolume2Img;
+var sfxState3 = sfxVolume3Img;
+var sfxState4 = sfxVolume4SelectImg;
+var sfxState5 = sfxVolume5Img;
+var sfxMuteState = muteImg;
 var danCount = 0;
-
 
 /* Call settings */
 function startSettings() {
@@ -215,90 +203,81 @@ function startAudioSettings() {
         ctx.drawImage(bgmHeaderImg, 65, 140, 150, 34);
     }
 
-    function drawBackgroundSlider() {
-        ctx.fillStyle = "#008000";
-        ctx.fillRect(65, 175, 200, 40);
-    }
-
     function drawBgmVolume1() {
-        ctx.clearRect(55, 175, 40, 40);
-        ctx.fillStyle = bgmState1;
-        ctx.fillRect(55, 175, 40, 40);
+        ctx.clearRect(55, 175, 40, 37);
+        //ctx.fillStyle = bgmState1;
+        ctx.drawImage(document.getElementById("bgmVolume1Select"), 55, 175, 40, 37);
     }
 
     function drawBgmVolume2() {
-        ctx.clearRect(100, 175, 40, 40);
-        ctx.fillStyle = bgmState2;
-        ctx.fillRect(100, 175, 40, 40);
+        ctx.clearRect(100, 175, 40, 37);
+        //ctx.fillStyle = bgmState2;
+        ctx.drawImage(document.getElementById("bgmVolume2"), 100, 175, 40, 37);
     }
 
     function drawBgmVolume3() {
-        ctx.clearRect(145, 175, 40, 40);
-        ctx.fillStyle = bgmState3;
-        ctx.fillRect(145, 175, 40, 40);
+        ctx.clearRect(145, 175, 40, 37);
+        //ctx.fillStyle = bgmState3;
+        ctx.drawImage(document.getElementById("bgmVolume3"),145, 175, 40, 37);
     }
 
     function drawBgmVolume4() {
-        ctx.clearRect(190, 175, 40, 40);
-        ctx.fillStyle = bgmState4;
-        ctx.fillRect(190, 175, 40, 40);
+        ctx.clearRect(190, 175, 40, 37);
+        //ctx.fillStyle = bgmState4;
+        ctx.drawImage(document.getElementById("bgmVolume4"),190, 175, 40, 37);
     }
 
     function drawBgmVolume5() {
-        ctx.clearRect(235, 175, 40, 40);
-        ctx.fillStyle = bgmState5;
-        ctx.fillRect(235, 175, 40, 40);
+        ctx.clearRect(235, 175, 40, 37);
+        //ctx.fillStyle = bgmState5;
+        ctx.drawImage(document.getElementById("bgmVolume5"), 235, 175, 40, 37);
     }
 
     function drawSfxTitle() {
         ctx.drawImage(sfxHeaderImg, 65, 290, 79, 34);
     }
 
-    function drawSfxSlider() {
-        ctx.fillStyle = "#008000";
-        ctx.fillRect(65, 325, 200, 40);
-    }
 
     function drawSfxVolume1() {
-        ctx.clearRect(55, 325, 40, 40);
-        ctx.fillStyle = sfxState1;
-        ctx.fillRect(55, 325, 40, 40);
+        ctx.clearRect(55, 325, 40, 37);
+        //ctx.fillStyle = sfxState1;
+        ctx.drawImage(document.getElementById("sfxVolume1"),55, 325, 40, 37);
     }
 
     function drawSfxVolume2() {
-        ctx.clearRect(100, 325, 40, 40);
-        ctx.fillStyle = sfxState2;
-        ctx.fillRect(100, 325, 40, 40);
+        ctx.clearRect(100, 325, 40, 37);
+        //ctx.fillStyle = sfxState2;
+        ctx.drawImage(document.getElementById("sfxVolume2"),100, 325, 40, 37);
     }
 
     function drawSfxVolume3() {
-        ctx.clearRect(145, 325, 40, 40);
-        ctx.fillStyle = sfxState3;
-        ctx.fillRect(145, 325, 40, 40);
+        ctx.clearRect(145, 325, 40, 37);
+        //ctx.fillStyle = sfxState3;
+        ctx.drawImage(document.getElementById("sfxVolume3"),145, 325, 40, 37);
     }
 
     function drawSfxVolume4() {
-        ctx.clearRect(190, 325, 40, 40);
-        ctx.fillStyle = sfxState4;
-        ctx.fillRect(190, 325, 40, 40);
+        ctx.clearRect(190, 325, 40, 37);
+        //ctx.fillStyle = sfxState4;
+        ctx.drawImage(document.getElementById("sfxVolume4Select"),190, 325, 40, 37);
     }
 
     function drawSfxVolume5() {
-        ctx.clearRect(235, 325, 40, 40);
-        ctx.fillStyle = sfxState5;
-        ctx.fillRect(235, 325, 40, 40);
+        ctx.clearRect(235, 325, 40, 37);
+        //ctx.fillStyle = sfxState5;
+        ctx.drawImage(document.getElementById("sfxVolume5"),235, 325, 40, 37);
     }
 
     function drawBgmMuteButton() {
         ctx.clearRect(110, 220, 100, 40);
-        ctx.fillStyle = bgmMuteState;
-        ctx.fillRect(110, 220, 100, 40)
+        //ctx.fillStyle = bgmMuteState;
+        ctx.drawImage(document.getElementById("bgmMute"), 220, 100, 40);
     }
 
     function drawSfxMuteButton() {
         ctx.clearRect(110, 370, 100, 40);
-        ctx.fillStyle = sfxMuteState;
-        ctx.fillRect(110, 370, 100, 40)
+        //ctx.fillStyle = sfxMuteState;
+        ctx.drawImage(document.getElementById("sfxMute"),110, 370, 100, 40);
     }
 
     function muteBgm() {
