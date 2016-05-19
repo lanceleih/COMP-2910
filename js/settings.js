@@ -1,5 +1,4 @@
-
-    // Jungle Love
+// Jungle Love
     var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
 // Autumn's Splendor
     var palette1 = ["#FE845F", "#51545B", "#FAD0B8", "#BCC4C7"];
@@ -42,15 +41,14 @@
     var danCount = 0;
 
 
+
 /* Call settings */
 function startSettings() {
-    var c = document.getElementById("mainCanvas");
-    var ctx = c.getContext("2d");
     //var palette = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
 
     // /var storePalette = null;
     //var blindPalette = ["I", "II", "III", "IV"];
-    c.addEventListener("mouseup", activeArea, false);
+    canvas.addEventListener("mouseup", activeArea, false);
 
     // Button ID's
     var backButtonImg = document.getElementById("backButton");
@@ -92,16 +90,13 @@ function startSettings() {
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
-        var x = event.x;
-        var y = event.y;
-
-        x -= mainCanvas.offsetLeft;
-        y -= mainCanvas.offsetTop;
-
+        var x = event.x - canvas.offsetLeft;
+        var y = event.y - canvas.offsetTop;
 
         //Back button function
         if (x > 15 && x < 100 && y > 15 && y < 40) {
-            c.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             sfx1.play();
             backHome();
             //alert("this is the back button");
@@ -109,7 +104,8 @@ function startSettings() {
 
         //Audio Button function
         if (x > 90 && x < 240 && y > 180 && y < 250) {
-            c.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             sfx2.play();
             startAudioSettings();
             //alert("this is the audio button");
@@ -117,7 +113,8 @@ function startSettings() {
 
         //Colour Pack function
         if (x > 90 && x < 240 && y > 260 && y < 330) {
-            c.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             sfx2.play();
             startColourSettings();
             //alert("this is the colour pack button");
@@ -170,9 +167,7 @@ function startSettings() {
 }
 /* Call audio settings */
 function startAudioSettings() {
-    var c = document.getElementById("mainCanvas");
-    var ctx = c.getContext("2d");
-    c.addEventListener("mouseup", activeArea, false);
+    canvas.addEventListener("mouseup", activeArea, false);
     var backButtonImg = document.getElementById("backButton");
     var audioTitleImg = document.getElementById("audioTitle");
     var bgmHeaderImg = document.getElementById("bgmHeader");
@@ -287,16 +282,13 @@ function startAudioSettings() {
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
-        var x = event.x;
-        var y = event.y;
-
-        x -= mainCanvas.offsetLeft;
-        y -= mainCanvas.offsetTop;
-
+        var x = event.x - canvas.offsetLeft;
+        var y = event.y - canvas.offsetTop;
 
         //Back button function
         if (x > 15 && x < 100 && y > 15 && y < 40) {
-            c.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             sfx1.play();
             startSettings();
             //alert ("this is the back button");
@@ -547,10 +539,7 @@ function startAudioSettings() {
 }
 /* Call Colour Settings */
 function startColourSettings() {
-    var c = document.getElementById("mainCanvas");
-    var ctx = c.getContext("2d");
-
-    c.addEventListener("mouseup", activeArea, false);
+    canvas.addEventListener("mouseup", activeArea, false);
 
     var backButtonImg = document.getElementById("backButton");
     var leftArrowImg = document.getElementById("leftArrow");
@@ -576,17 +565,13 @@ function startColourSettings() {
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
-        var x = event.x;
-        var y = event.y;
-
-        x -= mainCanvas.offsetLeft;
-        y -= mainCanvas.offsetTop;
-
+        var x = event.x - canvas.offsetLeft;
+        var y = event.y - canvas.offsetTop;
 
         //Back button function
         if (x > 15 && x < 100 && y > 15 && y < 40) {
             ctx.clearRect(0, 0, 320, 480);
-            c.removeEventListener("mouseup", activeArea, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             startSettings();
             //alert ("this is the back button");
         }
