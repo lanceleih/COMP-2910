@@ -111,7 +111,7 @@ function diamondGame() {
     //createTileArray(maxRows, maxCols);
     drawDiamondTiles();
     drawColorInventory();
-    fillFixedTile();
+    fillDiamondFixedTile();
     drawRemainingColors();
     createPauseBtn();
     createTimer();
@@ -126,7 +126,7 @@ function diamondGame() {
         if (canvas_x > OFFSET_LEFT && canvas_x < OFFSET_LEFT + BOARD_WIDTH && canvas_y > OFFSET_TOP && canvas_y < OFFSET_TOP + BOARD_HEIGHT) {
             var tile = getTile(canvas_x, canvas_y);
             if (tile.fixed === false) {
-                fillTile(tile);
+                fillDiamondTile(tile);
             }
         } else if (canvas_x > 240 && canvas_x < 300 && canvas_y > 20 && canvas_y < 80) {
             canvas.removeEventListener("mouseup", doMouseUp, false);
@@ -165,6 +165,86 @@ function drawDiamondTiles() {
             ctx.closePath();
             ctx.fill();
 
+        }
+    }
+}
+function fillDiamondTile(tile) {
+    var newColor = getNextColor(tile.color);
+    // Check if newColor is usable -- is there any newColor left in the color inventory
+    while (colorInventory[newColor] === 0) {
+        newColor = getNextColor(newColor);
+    }
+    if (newColor === -1) {
+        ctx.fillStyle = DEFAULT_COLOR;
+    } else {
+        ctx.fillStyle = palette[newColor];
+    }
+    ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
+    ctx.beginPath();
+            /*Top*/
+            ctx.moveTo((tile.x + (tile.width / 2)), (tile.y));
+            /*Right*/
+            ctx.lineTo((tile.x + (tile.width)),(tile.y + (tile.height / 2)));
+            /*Bottom*/
+            ctx.lineTo((tile.x + (tile.width / 2)),(tile.y + (tile.height)));
+            /*Left*/
+            ctx.lineTo((tile.x),(tile.y + (tile.height / 2)));
+            ctx.closePath();
+    ctx.fill();
+    if (tile.color == -1) {
+        // no color -> a color
+        tilesColored++;
+        colorInventory[newColor]--;
+    } else if (newColor == -1) {
+        // a color -> no color
+        tilesColored--;
+        colorInventory[tile.color]++;
+    } else {
+        // this color -> new color
+        colorInventory[tile.color]++;
+        colorInventory[newColor]--;
+    }
+    updateRemainingColors();
+    tile.color = newColor;
+}
+
+function fillDiamondFixedTile() {
+    for (var i = 0; i < maxRows; i++) {
+        for (var j = 0; j < maxCols; j++) {
+            if (tiles[i][j].fixed === true) {
+                ctx.fillStyle = palette[tiles[i][j].color];
+                ctx.strokeStyle = "#000000";
+                ctx.clearRect(tiles[i][j].x, tiles[i][j].y, tiles[i][j].width, tiles[i][j].height);
+
+                // // fill color
+                ctx.beginPath();
+                /*Top*/
+                ctx.moveTo((tiles[i][j].x + (tiles[i][j].width / 2)), (tiles[i][j].y));
+                /*Right*/
+                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width)),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                /*Bottom*/
+                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height)));
+                /*Left*/
+                ctx.lineTo((tiles[i][j].x),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                ctx.closePath();
+                ctx.fill();
+
+                // draw X on fixed tile
+                ctx.beginPath();
+                /*Top*/
+                ctx.moveTo((tiles[i][j].x + (tiles[i][j].width / 2)), (tiles[i][j].y));
+                /*Bottom*/
+                ctx.lineTo((tiles[i][j].x + (tiles[i][j].width / 2)),(tiles[i][j].y + (tiles[i][j].height)));
+                ctx.stroke();
+                ctx.closePath();
+                ctx.beginPath();
+                /*Right*/
+                ctx.moveTo((tiles[i][j].x + (tiles[i][j].width)),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                /*Left*/
+                ctx.lineTo((tiles[i][j].x),(tiles[i][j].y + (tiles[i][j].height / 2)));
+                ctx.stroke();
+                ctx.closePath();
+            }
         }
     }
 }
