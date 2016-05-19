@@ -1,11 +1,13 @@
 body {
-margin: 0;
-padding: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 canvas {
-margin: 0;   
-padding: 0;
-border: 1px solid #000000;
+    margin: auto;
+    padding: 0;
+    border: none;
     background-color: #F2EFCC;
     background-image: url("../img/background/BG.jpg");
 }
@@ -24,4 +26,8 @@ border: 1px solid #000000;
 }
 #easterEgg #logoTitle {
     padding-left: 15px;
+}
+
+img {
+    display: none;
 }
