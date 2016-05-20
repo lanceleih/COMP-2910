@@ -37,7 +37,6 @@ canvas {
     display: none;
 }
 .leaderboards {
-    border: 1px solid #000000;
     background-color: #F2EFCC;
     background-image: url("../img/background/BG.jpg");
     width: 320px;
@@ -46,4 +45,8 @@ canvas {
 }
 .rightLearderboardArrow {
     float: right;
+}
+table th, table td {
+    padding: 5% 20%; 
+    text-align: center;
 }

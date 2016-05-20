@@ -143,11 +143,11 @@
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo "<table><tr><th>ID</th><th>Name</th><th>Time</th></tr>";
+            echo "<table><tr>".str_repeat("&nbsp;", 10)."<th>ID</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
             // output data of each row
             while($row = $result->fetch_assoc()) {
                 if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"easy") == 0) {
-                    echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["time"]."</td></tr>";
+                    echo "<tr><td>".$row["id"].str_repeat("&nbsp;", 10)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
                 }
             }
             echo "</table>";
@@ -175,11 +175,11 @@
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo "<table><tr><th>ID</th><th>Name</th><th>Time</th></tr>";
+            echo "<table><tr>".str_repeat("&nbsp;", 10)."<th>ID</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"medium") == 0) {
-                    echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["time"]."</td></tr>";
+                if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"easy") == 0) {
+                    echo "<tr><td>".$row["id"].str_repeat("&nbsp;", 10)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
                 }
             }
             echo "</table>";
@@ -207,11 +207,11 @@
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo "<table><tr><th>ID</th><th>Name</th><th>Time</th></tr>";
+            echo "<table><tr>".str_repeat("&nbsp;", 10)."<th>ID</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"hard") == 0) {
-                    echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["time"]."</td></tr>";
+                if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"easy") == 0) {
+                    echo "<tr><td>".$row["id"].str_repeat("&nbsp;", 10)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
                 }
             }
             echo "</table>";
