@@ -503,27 +503,27 @@ function startColourSettings() {
             if (palette == palette0) {
                 palette = palette4;
                 paletteTitle = images[16];
-                paletteImg = paletteImgArray[4];
+                paletteImg = images[21];
             }
             else if (palette == palette4) {
                 palette = palette3;
                 paletteTitle = images[15];
-                paletteImg = paletteImgArray[3];
+                paletteImg = images[20];
             }
             else if (palette == palette3) {
                 palette = palette2;
                 paletteTitle = images[14];
-                paletteImg = paletteImgArray[2];
+                paletteImg = images[19];
             }
             else if (palette == palette2) {
                 palette = palette1;
                 paletteTitle = images[13];
-                paletteImg = paletteImgArray[1];
+                paletteImg = images[18];
             }
             else if (palette == palette1) {
                 palette = palette0;
                 paletteTitle = images[12];
-                paletteImg = paletteImgArray[0];
+                paletteImg = images[17];
             }
             sfx2.play();
             drawTile0();
@@ -541,31 +541,31 @@ function startColourSettings() {
             if (palette == palette0) {
                 palette = palette1;
                 paletteTitle = images[13];
-                paletteImg = paletteImgArray[1];
+                paletteImg = images[18];
 
             }
             else if (palette == palette1) {
                 palette = palette2;
                 paletteTitle = images[14];
-                paletteImg = paletteImgArray[2];
+                paletteImg = images[19];
 
             }
             else if (palette == palette2) {
                 palette = palette3;
                 paletteTitle = images[15];
-                paletteImg = paletteImgArray[3];
+                paletteImg = images[20];
 
             }
             else if (palette == palette3) {
                 palette = palette4;
                 paletteTitle = images[16];
-                paletteImg = paletteImgArray[4];
+                paletteImg = images[21];
 
             }
             else if (palette == palette4) {
                 palette = palette0;
                 paletteTitle = images[12];
-                paletteImg = paletteImgArray[0];
+                paletteImg = images[17];
 
             }
             sfx2.play();
@@ -584,15 +584,31 @@ function startColourSettings() {
         if (x > 265 && x < 290 && y > 70 && y < 100) {
 
             danCount++;
-            if (danCount % 13 == 0) {
+            if (danCount % 3 == 0 && danFlag == false) {
+                danFlag = true;
+                alert(danFlag);
                 palette = ["#998365", "#1E3259", "#EF1921", "#678314", "#A1C4A6"];
-                paletteTitle = "Ballfondler's Delight";
-                paletteImg = "#FF0F0F0";
+                storeImg = paletteImg;
+                storePaletteTitle = paletteTitle;
+                paletteTitle = images[23];
+                paletteImg = images[22];
                 drawTile0();
                 drawTile1();
                 drawTile2();
                 drawTile3();
-                //drawColourPackString();
+                drawColourPackString();
+                drawPackPanel();
+            }
+            else if (danCount % 3 != 0 && danFlag == true){
+                danFlag = false;
+                alert(danFlag);
+                paletteImg = storeImg;
+                paletteTitle = storePaletteTitle;
+                drawTile0();
+                drawTile1();
+                drawTile2();
+                drawTile3();
+                drawColourPackString();
                 drawPackPanel();
             }
 
@@ -610,8 +626,7 @@ function startColourSettings() {
     //The Colour Pack Panel
     function drawPackPanel() {
         ctx.clearRect(50, 220, 220, 170);
-        ctx.fillStyle = paletteImg;
-        ctx.fillRect(50, 220, 220, 170);
+        ctx.drawImage(paletteImg, 50, 220, 220, 170);
     }
 
     function drawColourPackString() {

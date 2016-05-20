@@ -27,9 +27,9 @@ var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
 var palette1 = ["#FE845F", "#51545B", "#FAD0B8", "#BCC4C7"];
 // Pacman Ghosts
 var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
-// Ice Cream Desserts
+// Beer Goggles for now
 var palette3 = ["#7D9772", "#BDDFBB", "#F9B899", "#FBC86B"];
-// Beer Goggles
+// Ice Cream Desserts
 var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 // R/G Colour Blind Palette
 var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"];
@@ -53,9 +53,17 @@ var preload = [
     "../img/icons/Jungle%20love.png", //12
     "../img/icons/Autumn's%20Splendor.png", //13
     "../img/icons/pacman%20ghosts.png", //14
-    "../img/icons/icecream.png", //15
-    "../img/icons/Beer%20Goggles.png" //16
-
+    "../img/icons/Beer%20Goggles.png", //15
+    "../img/icons/icecream.png", //16
+    // Colour Pack Panel Images
+    "../img/background/jungleLovePanel2.jpg", //17
+    "../img/background/autumnPanel2.jpg", //18
+    "../img/background/pacmanGhostPanel2.jpg", //19
+    "../img/background/beerGogglesPanel2.jpg", //20
+    "../img/background/iceCreamPanel2.jpg", //21
+    //Easter Egg
+    "../img/background/easterEggPanel.jpg", //22
+    "../img/background/easterEggTitle.png" //23
 ];
 
 var images = [];
@@ -65,9 +73,10 @@ for (i = 0; i < preload.length; i++) {
 }
 
 var paletteTitle = images[16];
+var storeImg = null;
+var storePaletteTitle = null;
 var storePalette = null;
-var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"];
-var paletteImg = paletteImgArray[4];
+var paletteImg = images[21];
 var colourModeStateFill = "#FFFFFF";
 var colourModeState = false;
 
@@ -86,6 +95,7 @@ var sfxState4 = images[8];
 var sfxState5 = images[4];
 var sfxMuteState = images[10];
 var danCount = 0;
+var danFlag = false;
 var palette = palette4;
 
 // new global variables
