@@ -90,9 +90,10 @@
         z. resume.png           - resume button
         aa. rightarrow.png      - right arrow button
         ab. scores.png          - scores button
-        ab. settings.png        - settings button
-        ac. square.png          - square button
-        ad.
+        ac. settings.png        - settings button
+        ad. square.png          - square button
+        ae. title.png           - title name (Scholours)
+        af. tutorial.png        - tutorial button
     III. title
         a. audiosettings.png            - audio settings banner
         b. choosecolourpack.png         - colour pack banner
