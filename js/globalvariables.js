@@ -4,7 +4,7 @@
     var ctx;
 
     /* Audio: BGM & SFX */
-    var bgm = new Audio("../audio/shop2.mp3");
+    var bgm = new Audio("../audio/shopExtended.mp3");
     var sfx1 = new Audio("../audio/tap.wav");
     var sfx2 = new Audio("../audio/click.wav");
 

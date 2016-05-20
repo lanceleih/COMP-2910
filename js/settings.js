@@ -75,7 +75,7 @@ function startSettings() {
 
     ctx.clearRect(0, 0, 320, 480);
    //Settings Title
-        ctx.drawImage(settingsTitleImg, 15, 40, 300, 132)
+        ctx.drawImage(settingsTitleImg, 15, 40, 300, 132);
 
 
     //Back button
