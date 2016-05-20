@@ -614,6 +614,7 @@ function startColourSettings() {
                 palette = palette4;
                 paletteTitle = paletteTitleArray[4];
                 paletteImg = paletteImgArray[4];
+
             }
             else if (palette == palette4) {
                 palette = palette3;
