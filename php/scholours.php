@@ -127,6 +127,5 @@
         <input type="text" name="name" id="addName" size="15">
     </form>
 </div>
-<div id="leaderboardTable"></div>
 </body>
 </html>
