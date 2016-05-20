@@ -9,12 +9,12 @@ canvas {
     padding: 0;
     border: none;
     background-color: #F2EFCC;
-    background-image: url("../img/background/BG.jpg");
+    background-image: url("../img/background/bg.jpg");
 }
 #easterEgg {
     border: none;
     background-color: #F2EFCC;
-    background-image: url("../img/background/BG.jpg");
+    background-image: url("../img/background/bg.jpg");
     width: 320px;
     height: 480px;
     display: none;
@@ -44,7 +44,7 @@ canvas {
 }
 .leaderboards {
     background-color: #F2EFCC;
-    background-image: url("../img/background/BG.jpg");
+    background-image: url("../img/background/bg.jpg");
     position: relative;
     width: 320px;
     height: 480px;
