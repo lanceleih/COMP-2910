@@ -34,21 +34,18 @@ function leaderboardShape() {
             // square shape
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
-            loadEasy();
             document.getElementById("main").style.display = "none";
             document.getElementById("leaderboardEasySquareTable").style.display = "block";
         } else if (x > 180 && x < 305 && y > 180 && y < 280) {
             // rhombus shape
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
-            loadEasy();
             document.getElementById("main").style.display = "none";
             document.getElementById("leaderboardEasySquareTable").style.display = "block";
         } else if (x > 20 && x < 145 && y > 300 && y < 400) {
             // hexagon shape
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
-            loadEasy();
             document.getElementById("main").style.display = "none";
             document.getElementById("leaderboardEasySquareTable").style.display = "block";
         } else if (x > 15 && x < 100 && y > 15 && y < 40) {
@@ -64,4 +61,38 @@ function backEasySquareLeaderboard() {
     document.getElementById("leaderboardEasySquareTable").style.display = "none";
     document.getElementById("main").style.display = "block";
     leaderboardShape();
+}
+function backMediumSquareLeaderboard() {
+    document.getElementById("leaderboardMediumSquareTable").style.display = "none";
+    document.getElementById("main").style.display = "block";
+    leaderboardShape();
+}
+function backHardSquareLeaderboard() {
+    document.getElementById("leaderboardHardSquareTable").style.display = "none";
+    document.getElementById("main").style.display = "block";
+    leaderboardShape();
+}
+function leaderboardEasyToMedium() {
+    document.getElementById("leaderboardEasySquareTable").style.display = "none";
+    document.getElementById("leaderboardMediumSquareTable").style.display = "block";
+}
+function leaderboardEasyToHard() {
+    document.getElementById("leaderboardEasySquareTable").style.display = "none";
+    document.getElementById("leaderboardHardSquareTable").style.display = "block";
+}
+function leaderboardMediumToHard() {
+    document.getElementById("leaderboardMediumSquareTable").style.display = "none";
+    document.getElementById("leaderboardHardSquareTable").style.display = "block";
+}
+function leaderboardMediumToEasy() {
+    document.getElementById("leaderboardMediumSquareTable").style.display = "none";
+    document.getElementById("leaderboardEasySquareTable").style.display = "block";
+}
+function leaderboardHardToEasy() {
+    document.getElementById("leaderboardHardSquareTable").style.display = "none";
+    document.getElementById("leaderboardEasySquareTable").style.display = "block";
+}
+function leaderboardHardToMedium() {
+    document.getElementById("leaderboardHardSquareTable").style.display = "none";
+    document.getElementById("leaderboardMediumSquareTable").style.display = "block";
 }
