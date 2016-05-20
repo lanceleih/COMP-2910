@@ -82,7 +82,7 @@ function gameResult() {
             document.getElementById("addNameButton").style.display = "none";
             canvas.removeEventListener("mouseup", gameResultMouseUp, false);
             // sendInfo();
-            // home();
+
         }
     }
 }
