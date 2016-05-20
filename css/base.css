@@ -39,14 +39,23 @@ canvas {
 .leaderboards {
     background-color: #F2EFCC;
     background-image: url("../img/background/BG.jpg");
+    position: relative;
     width: 320px;
     height: 480px;
     display: none;
 }
 .rightLearderboardArrow {
-    float: right;
+    position: absolute;
+    right: 0;
 }
+.leftLearderboardArrow {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
 table th, table td {
-    padding: 5% 20%; 
+    font-size: 1.5em;
+    padding: 5%; 
     text-align: center;
 }
