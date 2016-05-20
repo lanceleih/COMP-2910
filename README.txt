@@ -142,4 +142,6 @@
 
 6. php
     a. scholoursdatabase.php    - identical to the html, except with leaderboard functionality
+    b. addscore.php             - 
+    c. getscore.php             - 
 **************************************************************************************************
