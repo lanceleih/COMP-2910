@@ -45,7 +45,7 @@ function selectShape() {
             // back to home
             canvas.removeEventListener("click", getPosition, false);
             sfx1.play();
-            backHome();
+            home();
         }
     }
 }
@@ -93,7 +93,7 @@ function selectDifficulty() {
         } else if(x > 15 && x < 100 && y > 15 && y < 40) {
             // back to select shape
             canvas.removeEventListener("click", getPosition, false);
-            sfx2.play();
+            sfx1.play();
             selectShape();
         }
     }

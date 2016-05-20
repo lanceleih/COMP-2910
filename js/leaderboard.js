@@ -49,7 +49,7 @@ function leaderboardShape() {
             // back button
             canvas.removeEventListener("click", getPosition, false);
             sfx1.play();
-            backHome();
+            home();
         }
 
     }
@@ -83,7 +83,7 @@ function loadEasy() {
 
         if (x > 0 && x < 100 && y > 0 && y < 50) {
             canvas.removeEventListener("click", tapped, false);
-            sfx2.play();
+            sfx1.play();
             leaderboardShape();
         } else if (x > 28 && x < 235 && y > 38 && y > 60) {
             canvas.removeEventListener("click", tapped, false);
@@ -109,7 +109,7 @@ function loadMedium() {
 
         if (x > 0 && x < 100 && y > 0 && y < 50) {
             canvas.removeEventListener("click", tapped, false);
-            sfx2.play();
+            sfx1.play();
             leaderboardShape();
         } else if (x > 28 && x < 235 && y > 38 && y > 60) {
             canvas.removeEventListener("click", tapped, false);
@@ -135,7 +135,7 @@ function loadHard() {
 
         if (x > 0 && x < 100 && y > 0 && y < 50) {
             canvas.removeEventListener("click", tapped, false);
-            sfx2.play();
+            sfx1.play();
             leaderboardShape();
         } else if (x > 28 && x < 235 && y > 38 && y > 60) {
             canvas.removeEventListener("click", tapped, false);
