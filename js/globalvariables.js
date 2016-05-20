@@ -46,6 +46,31 @@ var paletteImg = paletteImgArray[4];
 var colourModeStateFill = "#FFFFFF";
 var colourModeState = false;
 
+var preload = [
+    //Default volume icons
+    "../img/volume/volumeOne.png", //0
+    "../img/volume/volumeTwo.png", //1
+    "../img/volume/volumeThree.png", //2
+    "../img/volume/volumeFour.png",  //3
+    "../img/volume/volumeFive.png",  //4
+    //Selected volume icons
+    "../img/volume/volumeOneClicked.png", //5
+    "../img/volume/volumeTwoClicked.png",  //6
+    "../img/volume/volumeThreeClicked.png",  //7
+    "../img/volume/volumeFourClicked.png", //8
+    "../img/volume/volumeFiveClicked.png", //9
+    // Mute buttons
+    "../img/volume/mute.png",  //10
+    "../img/volume/muteClicked.png" //11
+
+];
+
+var images = [];
+for (i = 0; i < preload.length; i++) {
+    images[i] = new Image();
+    images[i].src = preload[i];
+}
+
 var volume1Img = document.getElementById("volume1");
 var volume2Img = document.getElementById("volume2");
 var volume3Img = document.getElementById("volume3");
@@ -62,26 +87,22 @@ var muteImg = document.getElementById("volumeMute");
 var muteSelectImg = document.getElementById("volumeMuteSelect");
 
 var bgmStateArray = ["#008000", "#998365"];
-var bgmState1 = volume1SelectImg;
-var bgmState2 = volume2Img;
-var bgmState3 = volume3Img;
-var bgmState4 = volume4Img;
-var bgmState5 = volume5Img;
-var bgmMuteState = muteImg;
+var bgmState1 = images[5];
+var bgmState2 = images[1];
+var bgmState3 = images[2];
+var bgmState4 = images[3];
+var bgmState5 = images[4];
+var bgmMuteState = images[10];
 var sfxStateArray = ["#008000", "#998365"];
-var sfxState1 = volume1Img;
-var sfxState2 = volume2Img;
-var sfxState3 = volume3Img;
-var sfxState4 = volume4SelectImg;
-var sfxState5 = volume5Img;
-var sfxMuteState = muteImg;
+var sfxState1 = images[0];
+var sfxState2 = images[1];
+var sfxState3 = images[2];
+var sfxState4 = images[8];
+var sfxState5 = images[4];
+var sfxMuteState = images[10];
 var danCount = 0;
 var palette = palette4;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 1c990e939383eefec7f25e1bd00b552081c38fa1
 // new global variables
 // offsets, margins, and x, y, width, height of every components in game
 var offset_left;
