@@ -51,7 +51,7 @@ var preload = [
     "../img/volume/muteclicked.png", //11
     // Colour Pack Title Images
     "../img/icons/junglelove.png", //12
-    "../img/icons/autumnssplendor.png", //13
+    "../img/icons/autumn.png", //13
     "../img/icons/pacmanghosts.png", //14
     "../img/icons/beergoggles.png", //15
     "../img/icons/icecream.png", //16
