@@ -20,6 +20,7 @@
     <script src="../js/colourpack.js"></script>
     <script src="../js/timer.js"></script>
     <script src="../js/validategame.js"></script>
+    <script src="../js/form.js"></script>
 </head>
 <body onload="home()">
 <div id="main">
@@ -70,32 +71,20 @@
     <img id="audioTitle" src="../img/title/audiosettings.png" alt="audio title" height="0" width="0">
     <img id="bgmHeader" src="../img/icons/background_music.png" alt="bgm header" height="0" width="0">
     <img id="sfxHeader" src="../img/icons/Effects.png" alt="sfx header" height="0" width="0">
-    <img id="bgmVolume1" src="../img/volume/volumeOne.png" alt="bgm volume 1" height="0" width="0">
-    <img id="bgmVolume2" src="../img/volume/volumeTwo.png" alt="bgm volume 2" height="0" width="0">
-    <img id="bgmVolume3" src="../img/volume/volumeThree.png" alt="bgm volume 3" height="0" width="0">
-    <img id="bgmVolume4" src="../img/volume/volumeFour.png" alt="bgm volume 4" height="0" width="0">
-    <img id="bgmVolume5" src="../img/volume/volumeFive.png" alt="bgm volume 5" height="0" width="0">
-    <img id="sfxVolume1" src="../img/volume/volumeOne.png" alt="sfx volume 1" height="0" width="0">
-    <img id="sfxVolume2" src="../img/volume/volumeTwo.png" alt="sfx volume 2" height="0" width="0">
-    <img id="sfxVolume3" src="../img/volume/volumeThree.png" alt="sfx volume 3" height="0" width="0">
-    <img id="sfxVolume4" src="../img/volume/volumeFour.png" alt="sfx volume 4" height="0" width="0">
-    <img id="sfxVolume5" src="../img/volume/volumeFive.png" alt="sfx volume 5" height="0" width="0">
+    <img id="volume1" src="../img/volume/volumeOne.png" alt="bgm volume 1" height="0" width="0">
+    <img id="volume2" src="../img/volume/volumeTwo.png" alt="bgm volume 2" height="0" width="0">
+    <img id="volume3" src="../img/volume/volumeThree.png" alt="bgm volume 3" height="0" width="0">
+    <img id="volume4" src="../img/volume/volumeFour.png" alt="bgm volume 4" height="0" width="0">
+    <img id="volume5" src="../img/volume/volumeFive.png" alt="bgm volume 5" height="0" width="0">
 
-    <img id="bgmVolume1Select" src="../img/volume/volumeOneClicked.png" alt="bgm volume 1 Clicked" height="0" width="0">
-    <img id="bgmVolume2Select" src="../img/volume/volumeTwoClicked.png" alt="bgm volume 2 Clicked" height="0" width="0">
-    <img id="bgmVolume3Select" src="../img/volume/volumeThreeClicked.png" alt="bgm volume 3 Clicked" height="0" width="0">
-    <img id="bgmVolume4Select" src="../img/volume/volumeFourClicked.png" alt="bgm volume 4 Clicked" height="0" width="0">
-    <img id="bgmVolume5Select" src="../img/volume/volumeFiveClicked.png" alt="bgm volume 5 Clicked" height="0" width="0">
-    <img id="sfxVolume1Select" src="../img/volume/volumeOneClicked.png" alt="sfx volume 1 Clicked" height="0" width="0">
-    <img id="sfxVolume2Select" src="../img/volume/volumeTwoClicked.png" alt="sfx volume 2 Clicked" height="0" width="0">
-    <img id="sfxVolume3Select" src="../img/volume/volumeThreeClicked.png" alt="sfx volume 3 Clicked" height="0" width="0">
-    <img id="sfxVolume4Select" src="../img/volume/volumeFourClicked.png" alt="sfx volume 4 Clicked" height="0" width="0">
-    <img id="sfxVolume5Select" src="../img/volume/volumeFiveClicked.png" alt="sfx volume 5 Clicked" height="0" width="0">
+    <img id="volume1Select" src="../img/volume/volumeOneClicked.png" alt="bgm volume 1 Clicked" height="0" width="0">
+    <img id="volume2Select" src="../img/volume/volumeTwoClicked.png" alt="bgm volume 2 Clicked" height="0" width="0">
+    <img id="volume3Select" src="../img/volume/volumeThreeClicked.png" alt="bgm volume 3 Clicked" height="0" width="0">
+    <img id="volume4Select" src="../img/volume/volumeFourClicked.png" alt="bgm volume 4 Clicked" height="0" width="0">
+    <img id="volume5Select" src="../img/volume/volumeFiveClicked.png" alt="bgm volume 5 Clicked" height="0" width="0">
+    <img id="volumeMute" src="../img/volume/mute.png" alt="bgm mute" height="0" width="0">
+    <img id="volumeMuteSelect" src="../img/volume/muteClicked.png" alt="bgm mute selected" height="0" width="0">
 
-    <img id="bgmMute" src="../img/volume/mute.png" alt="bgm mute" height="0" width="0">
-    <img id="bgmMuteSelect" src="../img/volume/muteClicked.png" alt="bgm mute selected" height="0" width="0">
-    <img id="sfxMute" src="../img/volume/mute.png" alt="sfx mute" height="0" width="0">
-    <img id="sfxMuteSelect" src="../img/volume/muteClicked.png" alt="sfx mute selected" height="0" width="0">
     <!-- Images needed for Colour Pack page -->
     <img id="colourPackTitle" src="../img/title/choosecolourpack.png" alt="colour pack title" height="0" width="0">
     <img id="leftArrow" src="../img/icons/left_arrow.png" alt="left button" height="0" width="0">
@@ -115,18 +104,22 @@
     <img id="hardTitle" src="../img/title/difficultyhardtitle.png" alt="leaderboard diffulty hard title" height="0" width="0">
 </div>
 <div id="easterEgg">
-    <form>
-        <input type="image" src="../img/icons/BACK.png" onclick="backEaster()" width="100" height="50">
-    </form>
-    <img id="cube" src="../img/icons/cube.png" alt="logo" width="300" height="50">
-    <img id="logo" src="../img/title/title.png" alt="Scholours" width="70" height="70">
+    <img src="../img/icons/BACK.png" id="easterBack" alt="easter egg back button" onclick="backEaster()" width="100" height="50">
+    <img id="cube" src="../img/icons/cube.png" alt="logo" width="50" height="50">
+    <img id="logo" src="../img/title/title.png" alt="Scholours" width="300" height="50">
     <img src="../img/docwaylon.gif" id="video" alt="easter egg gif" width="300" height="132">
 </div>
 <div id="leaderboardInput">
-    <form method="post">
+    <form method="post" action="http://scholours.net23.net/php/scholoursdatabase.php" onsubmit="changeValues()">
         <input type="text" name="name" id="addName" size="15">
+        <input type="hidden" name="time" id="time">
+        <input type="hidden" name="shape" id="shape">
+        <input type="hidden" name="difficulty" id="difficulty">
+        <input type="image" name="submit" id="addNameButton" alt="submit" src="../img/icons/right_arrow2.png">
     </form>
 </div>
+</body>
+</html>
 <div class="leaderboards" id="leaderboardEasySquareTable">
     <img src="../img/icons/BACK.png" id="leaderBack" alt="leaderboard back button" onclick="backEasySquareLeaderboard()" width="100" height="50">
     <img id="leaderboardEasySquare" src="../img/title/difficultyeasytitle.png" alt="Scholours" width="300" height="50">
@@ -222,6 +215,30 @@
     ?>
     <img class="leftLeaderboardArrow" onclick="leaderboardHardToMedium()" src="../img/icons/left_arrow.png" alt="left button" height="100" width="50">
     <img class="rightLearderboardArrow" onclick="leaderboardHardToEasy()" src="../img/icons/right_arrow.png" alt="right button" height="100" width="50">
+</div>
+<div id="sendUserInfo">
+    <?php
+        if(isset($_POST['submit'])) {
+            $servername = "mysql4.000webhost.com";
+            $username = "a7385043_2910";
+            $password = "Scholours16";
+            $db = "a7385043_2910";
+
+            $conn = new mysqli($servername,$username,$password, $db);
+
+            $name = $_POST['name'];
+            $time = $_POST['time'];
+            $shape = $_POST['shape'];
+            $difficulty = $_POST['difficulty'];
+
+            $sql = "INSERT INTO leaderboard (id, name, time, shape, difficulty) VALUES ( NULL, '$name', $time', '$shape', '$difficulty')";
+
+            $result = $conn->query($sql);
+
+            mysqli_close($conn);
+        }
+
+    ?>
 </div>
 </body>
 </html>

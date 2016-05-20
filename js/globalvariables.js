@@ -4,7 +4,7 @@ var canvas;
 var ctx;
 
 /* Audio: BGM & SFX */
-var bgm = new Audio("../audio/shopExtended.mp3");
+var bgm = new Audio("../audio/shop.mp3");
 var sfx1 = new Audio("../audio/tap2.wav");
 var sfx2 = new Audio("../audio/click2.wav");
 var sfx3 = new Audio("../audio/glass2.wav");
