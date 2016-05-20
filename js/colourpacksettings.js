@@ -1,7 +1,9 @@
 /* Call Colour Settings */
 function startColourSettings() {
+    //Event listener for the click-able areas
     canvas.addEventListener("mouseup", activeArea, false);
 
+    //Button ID's and headers/titles
     var backButtonImg = document.getElementById("backButton");
     var leftArrowImg = document.getElementById("leftArrow");
     var rightArrowImg = document.getElementById("rightArrow");
@@ -23,7 +25,7 @@ function startColourSettings() {
             //alert ("this is the back button");
         }
 
-        //Left Arrow Button
+        //Left Arrow Button clicks
         if (x > 5 && x < 40 && y > 280 && y < 320) {
             if (palette == palette0) {
                 palette = palette4;
@@ -62,7 +64,7 @@ function startColourSettings() {
 
         }
 
-        //Right Arrow Button
+        //Right Arrow Button clicks
         if (x > 280 && x < 315 && y > 280 && y < 320) {
             if (palette == palette0) {
                 palette = palette1;
@@ -142,44 +144,44 @@ function startColourSettings() {
 
     }
 
-    //Preview Colours
+    //Functions
 
-    function drawPreview() {
-        ctx.fillStyle = "#F5634A";
-        ctx.fillRect(25, 120, 270, 80);
-    }
 
-    //The Colour Pack Panel
+    //Draws palette image
     function drawPackPanel() {
         ctx.clearRect(50, 220, 220, 170);
         ctx.drawImage(paletteImg, 50, 220, 220, 170);
     }
 
+    //Draws palette colour pack titles
     function drawColourPackString() {
         ctx.clearRect(45, 410, 250, 63);
         ctx.drawImage(paletteTitle, 45, 410, 250, 63);
 
     }
 
-
+    //Draws the first colour in the colour pack
     function drawTile0() {
         ctx.clearRect(25, 125, 65, 70);
         ctx.fillStyle = palette[0];
         ctx.fillRect(25, 125, 65, 70)
     }
 
+    //Draws the second colour in the colour pack
     function drawTile1() {
         ctx.clearRect(95, 125, 65, 70);
         ctx.fillStyle = palette[1];
         ctx.fillRect(95, 125, 65, 70)
     }
 
+    //Draws the third colour in the colour pack
     function drawTile2() {
         ctx.clearRect(165, 125, 65, 70);
         ctx.fillStyle = palette[2];
         ctx.fillRect(165, 125, 65, 70)
     }
-
+    
+    //Draws the fourth colour in the colour pack
     function drawTile3() {
         ctx.clearRect(235, 125, 65, 70);
         ctx.fillStyle = palette[3];
@@ -187,7 +189,8 @@ function startColourSettings() {
     }
 
 
-
+    // Initialized buttons and images
+    //Clears previous page
     ctx.clearRect(0, 0, 320, 480);
     //Back button
     ctx.drawImage(backButtonImg, 0, 0, 100, 50);
