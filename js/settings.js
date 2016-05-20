@@ -1,71 +1,7 @@
-// Jungle Love
-var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
-// Autumn's Splendor
-var palette1 = ["#FE845F", "#51545B", "#FAD0B8", "#BCC4C7"];
-// Pacman Ghosts
-var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
-// Ice Cream Desserts
-var palette3 = ["#7D9772", "#BDDFBB", "#F9B899", "#FBC86B"];
-// Beer Goggles
-var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
-// R/G Colour Blind Palette
-var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"];
 
-var paletteTitle0Img = document.getElementById("paletteTitle0");
-var paletteTitle1Img = document.getElementById("paletteTitle1");
-var paletteTitle2Img = document.getElementById("paletteTitle2");
-var paletteTitle3Img = document.getElementById("paletteTitle3");
-var paletteTitle4Img = document.getElementById("paletteTitle4");
-
-var paletteTitleArray = [paletteTitle0Img, paletteTitle1Img, paletteTitle2Img, paletteTitle3Img, paletteTitle4Img];
-var paletteTitle = paletteTitle4Img;
-var storePalette = null;
-var palette = palette4;
-var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"];
-var paletteImg = paletteImgArray[4];
-var colourModeStateFill = "#FFFFFF";
-var colourModeState = false;
-
-var volume1Img = document.getElementById("volume1");
-var volume2Img = document.getElementById("volume2");
-var volume3Img = document.getElementById("volume3");
-var volume4Img = document.getElementById("volume4");
-var volume5Img = document.getElementById("volume5");
-
-var volume1SelectImg = document.getElementById("volume1Select");
-var volume2SelectImg = document.getElementById("volume2Select");
-var volume3SelectImg = document.getElementById("volume3Select");
-var volume4SelectImg = document.getElementById("volume4Select");
-var volume5SelectImg = document.getElementById("volume5Select");
-
-
-
-var muteImg = document.getElementById("volumeMute");
-var muteSelectImg = document.getElementById("volumeMuteSelect");
-
-
-var bgmStateArray = ["#008000", "#998365"];
-var bgmState1 = volume1SelectImg;
-var bgmState2 = volume2Img;
-var bgmState3 = volume3Img;
-var bgmState4 = volume4Img;
-var bgmState5 = volume5Img;
-var bgmMuteState = muteImg;
-var sfxStateArray = ["#008000", "#998365"];
-var sfxState1 = volume1Img;
-var sfxState2 = volume2Img;
-var sfxState3 = volume3Img;
-var sfxState4 = volume4SelectImg;
-var sfxState5 = volume5Img;
-var sfxMuteState = muteImg;
-var danCount = 0;
 
 /* Call settings */
 function startSettings() {
-    //var palette = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
-
-    // /var storePalette = null;
-    //var blindPalette = ["I", "II", "III", "IV"];
     canvas.addEventListener("mouseup", activeArea, false);
 
     // Button ID's
@@ -75,35 +11,7 @@ function startSettings() {
     var settingsTitleImg = document.getElementById("settingsTitle");
     var colourBlindImg = document.getElementById("colourBlindText");
 
-    function drawSettingsTitle() {
-        ctx.drawImage(settingsTitleImg, 15, 40, 300, 132)
-    }
 
-    function drawBackButton() {
-        ctx.drawImage(backButtonImg, 0, 0, 100, 50);
-    }
-
-    function drawAudioButton() {
-        ctx.drawImage(audioButtonImg, 90, 180, 150, 75);
-    }
-
-    function drawColourPackButton() {
-        ctx.drawImage(colourPackButtonImg, 90, 260, 150, 75);
-    }
-
-    function drawColourBlindText() {
-        ctx.drawImage(colourBlindImg, 90, 343, 175, 36);
-    }
-
-    function drawColourBlindToggle() {
-        ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(60, 350, 25, 25);
-    }
-
-    function drawColourBlindToggleFill() {
-        ctx.fillStyle = colourModeStateFill;
-        ctx.fillRect(65, 355, 15, 15);
-    }
 
 
     //Maps the coordinates for the clickable areas on the screen
@@ -166,20 +74,36 @@ function startSettings() {
     }
 
     ctx.clearRect(0, 0, 320, 480);
-    drawBackButton();
+   //Settings Title
+        ctx.drawImage(settingsTitleImg, 15, 40, 300, 132);
 
-    //Settings Heading
-    drawSettingsTitle();
 
-    //Audio
-    drawAudioButton();
+    //Back button
+        ctx.drawImage(backButtonImg, 0, 0, 100, 50);
 
-    //Colour Packs
-    drawColourPackButton();
 
-    //Colour Blind Check Box
-    drawColourBlindText();
-    drawColourBlindToggle();
+    //Audio button
+        ctx.drawImage(audioButtonImg, 90, 180, 150, 75);
+
+
+    //Colour pack button
+        ctx.drawImage(colourPackButtonImg, 90, 260, 150, 75);
+
+
+    //Colour Blind Image
+        ctx.drawImage(colourBlindImg, 90, 343, 175, 36);
+
+
+        //Colour Blind Toggle Box
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(60, 350, 25, 25);
+
+
+    function drawColourBlindToggleFill() {
+        ctx.fillStyle = colourModeStateFill;
+        ctx.fillRect(65, 355, 15, 15);
+    }
+
     drawColourBlindToggleFill();
 
 }
@@ -206,31 +130,31 @@ function startAudioSettings() {
     function drawBgmVolume1() {
         ctx.clearRect(55, 175, 40, 37);
         //ctx.fillStyle = bgmState1;
-        ctx.drawImage(document.getElementById("bgmVolume1Select"), 55, 175, 40, 37);
+        ctx.drawImage(bgmState1, 55, 175, 40, 37);
     }
 
     function drawBgmVolume2() {
         ctx.clearRect(100, 175, 40, 37);
         //ctx.fillStyle = bgmState2;
-        ctx.drawImage(document.getElementById("bgmVolume2"), 100, 175, 40, 37);
+        ctx.drawImage(bgmState2, 100, 175, 40, 37);
     }
 
     function drawBgmVolume3() {
         ctx.clearRect(145, 175, 40, 37);
         //ctx.fillStyle = bgmState3;
-        ctx.drawImage(document.getElementById("bgmVolume3"),145, 175, 40, 37);
+        ctx.drawImage(bgmState3,145, 175, 40, 37);
     }
 
     function drawBgmVolume4() {
         ctx.clearRect(190, 175, 40, 37);
         //ctx.fillStyle = bgmState4;
-        ctx.drawImage(document.getElementById("bgmVolume4"),190, 175, 40, 37);
+        ctx.drawImage(bgmState4,190, 175, 40, 37);
     }
 
     function drawBgmVolume5() {
         ctx.clearRect(235, 175, 40, 37);
         //ctx.fillStyle = bgmState5;
-        ctx.drawImage(document.getElementById("bgmVolume5"), 235, 175, 40, 37);
+        ctx.drawImage(bgmState5, 235, 175, 40, 37);
     }
 
     function drawSfxTitle() {
@@ -241,43 +165,43 @@ function startAudioSettings() {
     function drawSfxVolume1() {
         ctx.clearRect(55, 325, 40, 37);
         //ctx.fillStyle = sfxState1;
-        ctx.drawImage(document.getElementById("sfxVolume1"),55, 325, 40, 37);
+        ctx.drawImage(sfxState1,55, 325, 40, 37);
     }
 
     function drawSfxVolume2() {
         ctx.clearRect(100, 325, 40, 37);
         //ctx.fillStyle = sfxState2;
-        ctx.drawImage(document.getElementById("sfxVolume2"),100, 325, 40, 37);
+        ctx.drawImage(sfxState2,100, 325, 40, 37);
     }
 
     function drawSfxVolume3() {
         ctx.clearRect(145, 325, 40, 37);
         //ctx.fillStyle = sfxState3;
-        ctx.drawImage(document.getElementById("sfxVolume3"),145, 325, 40, 37);
+        ctx.drawImage(sfxState3,145, 325, 40, 37);
     }
 
     function drawSfxVolume4() {
         ctx.clearRect(190, 325, 40, 37);
         //ctx.fillStyle = sfxState4;
-        ctx.drawImage(document.getElementById("sfxVolume4Select"),190, 325, 40, 37);
+        ctx.drawImage(sfxState4,190, 325, 40, 37);
     }
 
     function drawSfxVolume5() {
         ctx.clearRect(235, 325, 40, 37);
         //ctx.fillStyle = sfxState5;
-        ctx.drawImage(document.getElementById("sfxVolume5"),235, 325, 40, 37);
+        ctx.drawImage(sfxState5,235, 325, 40, 37);
     }
 
     function drawBgmMuteButton() {
         ctx.clearRect(110, 220, 100, 40);
         //ctx.fillStyle = bgmMuteState;
-        ctx.drawImage(document.getElementById("bgmMute"), 220, 100, 40);
+        ctx.drawImage(bgmMuteState, 110, 220, 100, 40);
     }
 
     function drawSfxMuteButton() {
         ctx.clearRect(110, 370, 100, 40);
         //ctx.fillStyle = sfxMuteState;
-        ctx.drawImage(document.getElementById("sfxMute"),110, 370, 100, 40);
+        ctx.drawImage(sfxMuteState,110, 370, 100, 40);
     }
 
     function muteBgm() {
@@ -307,12 +231,13 @@ function startAudioSettings() {
         //Bgm Mute button
         if (x > 110 && x < 210 && y > 220 && y < 260) {
             muteBgm();
-            bgmState1 = bgmStateArray[0];
-            bgmState2 = bgmStateArray[0];
-            bgmState3 = bgmStateArray[0];
-            bgmState4 = bgmStateArray[0];
-            bgmState5 = bgmStateArray[0];
-            bgmMuteState = bgmStateArray[1];
+
+            bgmState1 = images[0];
+            bgmState2 = images[1];
+            bgmState3 = images[2];
+            bgmState4 = images[3];
+            bgmState5 = images[4];
+            bgmMuteState = images[11];
             drawBgmVolume1();
             drawBgmVolume2();
             drawBgmVolume3();
@@ -325,12 +250,12 @@ function startAudioSettings() {
         if (x > 55 && x < 90 && y > 175 && y < 215) {
             //alert("volume1");
             bgm.volume = 0.2;
-            bgmState1 = bgmStateArray[1];
-            bgmState2 = bgmStateArray[0];
-            bgmState3 = bgmStateArray[0];
-            bgmState4 = bgmStateArray[0];
-            bgmState5 = bgmStateArray[0];
-            bgmMuteState = bgmStateArray[0];
+            bgmState1 = images[5];
+            bgmState2 = images[1];
+            bgmState3 = images[2];
+            bgmState4 = images[3];
+            bgmState5 = images[4];
+            bgmMuteState = images[10];
             drawBgmVolume1();
             drawBgmVolume2();
             drawBgmVolume3();
@@ -344,12 +269,12 @@ function startAudioSettings() {
         if (x > 100 && x < 140 && y > 175 && y < 215) {
             // alert("volume2");
             bgm.volume = 0.4;
-            bgmState1 = bgmStateArray[0];
-            bgmState2 = bgmStateArray[1];
-            bgmState3 = bgmStateArray[0];
-            bgmState4 = bgmStateArray[0];
-            bgmState5 = bgmStateArray[0];
-            bgmMuteState = bgmStateArray[0];
+            bgmState1 = images[0];
+            bgmState2 = images[6];
+            bgmState3 = images[2];
+            bgmState4 = images[3];
+            bgmState5 = images[4];
+            bgmMuteState = images[10];
             drawBgmVolume1();
             drawBgmVolume2();
             drawBgmVolume3();
@@ -361,12 +286,12 @@ function startAudioSettings() {
         if (x > 145 && x < 185 && y > 175 && y < 215) {
             // alert("volume3");
             bgm.volume = 0.6;
-            bgmState1 = bgmStateArray[0];
-            bgmState2 = bgmStateArray[0];
-            bgmState3 = bgmStateArray[1];
-            bgmState4 = bgmStateArray[0];
-            bgmState5 = bgmStateArray[0];
-            bgmMuteState = bgmStateArray[0];
+            bgmState1 = images[0];
+            bgmState2 = images[1];
+            bgmState3 = images[7];
+            bgmState4 = images[3];
+            bgmState5 = images[4];
+            bgmMuteState = images[10];
             drawBgmVolume1();
             drawBgmVolume2();
             drawBgmVolume3();
@@ -378,12 +303,12 @@ function startAudioSettings() {
         if (x > 190 && x < 230 && y > 175 && y < 215) {
             //alert("volume4");
             bgm.volume = 0.8;
-            bgmState1 = bgmStateArray[0];
-            bgmState2 = bgmStateArray[0];
-            bgmState3 = bgmStateArray[0];
-            bgmState4 = bgmStateArray[1];
-            bgmState5 = bgmStateArray[0];
-            bgmMuteState = bgmStateArray[0];
+            bgmState1 = images[0];
+            bgmState2 = images[1];
+            bgmState3 = images[2];
+            bgmState4 = images[8];
+            bgmState5 = images[4];
+            bgmMuteState = images[10];
             drawBgmVolume1();
             drawBgmVolume2();
             drawBgmVolume3();
@@ -395,12 +320,12 @@ function startAudioSettings() {
         if (x > 235 && x < 275 && y > 175 && y < 215) {
             // alert("volume5");
             bgm.volume = 1.0;
-            bgmState1 = bgmStateArray[0];
-            bgmState2 = bgmStateArray[0];
-            bgmState3 = bgmStateArray[0];
-            bgmState4 = bgmStateArray[0];
-            bgmState5 = bgmStateArray[1];
-            bgmMuteState = bgmStateArray[0];
+            bgmState1 = images[0];
+            bgmState2 = images[1];
+            bgmState3 = images[2];
+            bgmState4 = images[3];
+            bgmState5 = images[9];
+            bgmMuteState = images[10];
             drawBgmVolume1();
             drawBgmVolume2();
             drawBgmVolume3();
@@ -417,12 +342,13 @@ function startAudioSettings() {
             sfx1.volume = 0.2;
             sfx2.volume = 0.2;
             sfx2.play();
-            sfxState1 = sfxStateArray[1];
-            sfxState2 = sfxStateArray[0];
-            sfxState3 = sfxStateArray[0];
-            sfxState4 = sfxStateArray[0];
-            sfxState5 = sfxStateArray[0];
-            sfxMuteState = sfxStateArray[0];
+            sfxState1 = images[5];
+            sfxState2 = images[1];
+            sfxState3 = images[2];
+            sfxState4 = images[3];
+            sfxState5 = images[4];
+            sfxMuteState = images[0];
+            sfxMuteState = images[10];
             drawSfxVolume1();
             drawSfxVolume2();
             drawSfxVolume3();
@@ -437,12 +363,12 @@ function startAudioSettings() {
             sfx1.volume = 0.4;
             sfx2.volume = 0.4;
             sfx2.play();
-            sfxState1 = sfxStateArray[0];
-            sfxState2 = sfxStateArray[1];
-            sfxState3 = sfxStateArray[0];
-            sfxState4 = sfxStateArray[0];
-            sfxState5 = sfxStateArray[0];
-            sfxMuteState = sfxStateArray[0];
+            sfxState1 = images[0];
+            sfxState2 = images[6];
+            sfxState3 = images[2];
+            sfxState4 = images[3];
+            sfxState5 = images[4];
+            sfxMuteState = images[10];
             drawSfxVolume1();
             drawSfxVolume2();
             drawSfxVolume3();
@@ -457,12 +383,12 @@ function startAudioSettings() {
             sfx1.volume = 0.6;
             sfx2.volume = 0.6;
             sfx2.play();
-            sfxState1 = sfxStateArray[0];
-            sfxState2 = sfxStateArray[0];
-            sfxState3 = sfxStateArray[1];
-            sfxState4 = sfxStateArray[0];
-            sfxState5 = sfxStateArray[0];
-            sfxMuteState = sfxStateArray[0];
+            sfxState1 = images[0];
+            sfxState2 = images[1];
+            sfxState3 = images[7];
+            sfxState4 = images[3];
+            sfxState5 = images[4];
+            sfxMuteState = images[10];
             drawSfxVolume1();
             drawSfxVolume2();
             drawSfxVolume3();
@@ -477,12 +403,12 @@ function startAudioSettings() {
             sfx1.volume = 0.8;
             sfx2.volume = 0.8;
             sfx2.play();
-            sfxState1 = sfxStateArray[0];
-            sfxState2 = sfxStateArray[0];
-            sfxState3 = sfxStateArray[0];
-            sfxState4 = sfxStateArray[1];
-            sfxState5 = sfxStateArray[0];
-            sfxMuteState = sfxStateArray[0];
+            sfxState1 = images[0];
+            sfxState2 = images[1];
+            sfxState3 = images[2];
+            sfxState4 = images[8];
+            sfxState5 = images[4];
+            sfxMuteState = images[10];
             drawSfxVolume1();
             drawSfxVolume2();
             drawSfxVolume3();
@@ -497,12 +423,12 @@ function startAudioSettings() {
             sfx1.volume = 1.0;
             sfx2.volume = 1.0;
             sfx2.play();
-            sfxState1 = sfxStateArray[0];
-            sfxState2 = sfxStateArray[0];
-            sfxState3 = sfxStateArray[0];
-            sfxState4 = sfxStateArray[0];
-            sfxState5 = sfxStateArray[1];
-            sfxMuteState = sfxStateArray[0];
+            sfxState1 = images[0];
+            sfxState2 = images[1];
+            sfxState3 = images[2];
+            sfxState4 = images[3];
+            sfxState5 = images[9];
+            sfxMuteState = images[10];
             drawSfxVolume1();
             drawSfxVolume2();
             drawSfxVolume3();
@@ -514,12 +440,12 @@ function startAudioSettings() {
         //Sfx Mute button
         if (x > 110 && x < 210 && y > 370 && y < 410) {
             muteSfx();
-            sfxState1 = sfxStateArray[0];
-            sfxState2 = sfxStateArray[0];
-            sfxState3 = sfxStateArray[0];
-            sfxState4 = sfxStateArray[0];
-            sfxState5 = sfxStateArray[0];
-            sfxMuteState = sfxStateArray[1];
+            sfxState1 = images[0];
+            sfxState2 = images[1];
+            sfxState3 = images[2];
+            sfxState4 = images[3];
+            sfxState5 = images[4];
+            sfxMuteState = images[11];
             drawSfxVolume1();
             drawSfxVolume2();
             drawSfxVolume3();
@@ -556,22 +482,7 @@ function startColourSettings() {
     var rightArrowImg = document.getElementById("rightArrow");
     var colourPackTitleImg = document.getElementById("colourPackTitle");
 
-    function drawBackButton() {
-        ctx.drawImage(backButtonImg, 0, 0, 100, 50);
-    }
 
-    function drawLeftArrow() {
-        ctx.drawImage(leftArrowImg, 5, 280, 40, 46);
-    }
-
-    function drawRightArrow() {
-        ctx.drawImage(rightArrowImg, 278, 280, 40, 46);
-    }
-
-
-    function drawColourPackTitle() {
-        ctx.drawImage(colourPackTitleImg, 30, 60, 263, 42);
-    }
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
@@ -591,28 +502,28 @@ function startColourSettings() {
         if (x > 5 && x < 40 && y > 280 && y < 320) {
             if (palette == palette0) {
                 palette = palette4;
-                paletteTitle = paletteTitleArray[4];
-                paletteImg = paletteImgArray[4];
+                paletteTitle = images[16];
+                paletteImg = images[21];
             }
             else if (palette == palette4) {
                 palette = palette3;
-                paletteTitle = paletteTitleArray[3];
-                paletteImg = paletteImgArray[3];
+                paletteTitle = images[15];
+                paletteImg = images[20];
             }
             else if (palette == palette3) {
                 palette = palette2;
-                paletteTitle = paletteTitleArray[2];
-                paletteImg = paletteImgArray[2];
+                paletteTitle = images[14];
+                paletteImg = images[19];
             }
             else if (palette == palette2) {
                 palette = palette1;
-                paletteTitle = paletteTitleArray[1];
-                paletteImg = paletteImgArray[1];
+                paletteTitle = images[13];
+                paletteImg = images[18];
             }
             else if (palette == palette1) {
                 palette = palette0;
-                paletteTitle = paletteTitleArray[0];
-                paletteImg = paletteImgArray[0];
+                paletteTitle = images[12];
+                paletteImg = images[17];
             }
             sfx2.play();
             drawTile0();
@@ -629,32 +540,32 @@ function startColourSettings() {
         if (x > 280 && x < 315 && y > 280 && y < 320) {
             if (palette == palette0) {
                 palette = palette1;
-                paletteTitle = paletteTitleArray[1];
-                paletteImg = paletteImgArray[1];
+                paletteTitle = images[13];
+                paletteImg = images[18];
 
             }
             else if (palette == palette1) {
                 palette = palette2;
-                paletteTitle = paletteTitleArray[2];
-                paletteImg = paletteImgArray[2];
+                paletteTitle = images[14];
+                paletteImg = images[19];
 
             }
             else if (palette == palette2) {
                 palette = palette3;
-                paletteTitle = paletteTitleArray[3];
-                paletteImg = paletteImgArray[3];
+                paletteTitle = images[15];
+                paletteImg = images[20];
 
             }
             else if (palette == palette3) {
                 palette = palette4;
-                paletteTitle = paletteTitleArray[4];
-                paletteImg = paletteImgArray[4];
+                paletteTitle = images[16];
+                paletteImg = images[21];
 
             }
             else if (palette == palette4) {
                 palette = palette0;
-                paletteTitle = paletteTitleArray[0];
-                paletteImg = paletteImgArray[0];
+                paletteTitle = images[12];
+                paletteImg = images[17];
 
             }
             sfx2.play();
@@ -673,10 +584,14 @@ function startColourSettings() {
         if (x > 265 && x < 290 && y > 70 && y < 100) {
 
             danCount++;
-            if (danCount == 13) {
+            if (danCount % 3 == 0 && danFlag == false) {
+                danFlag = true;
+                alert(danFlag);
                 palette = ["#998365", "#1E3259", "#EF1921", "#678314", "#A1C4A6"];
-                paletteTitle = "Ballfondler's Delight";
-                paletteImg = "#FF0F0F0";
+                storeImg = paletteImg;
+                storePaletteTitle = paletteTitle;
+                paletteTitle = images[23];
+                paletteImg = images[22];
                 drawTile0();
                 drawTile1();
                 drawTile2();
@@ -684,6 +599,19 @@ function startColourSettings() {
                 drawColourPackString();
                 drawPackPanel();
             }
+            else if (danCount % 3 != 0 && danFlag == true){
+                danFlag = false;
+                alert(danFlag);
+                paletteImg = storeImg;
+                paletteTitle = storePaletteTitle;
+                drawTile0();
+                drawTile1();
+                drawTile2();
+                drawTile3();
+                drawColourPackString();
+                drawPackPanel();
+            }
+
         }
 
     }
@@ -698,13 +626,12 @@ function startColourSettings() {
     //The Colour Pack Panel
     function drawPackPanel() {
         ctx.clearRect(50, 220, 220, 170);
-        ctx.fillStyle = paletteImg;
-        ctx.fillRect(50, 220, 220, 170);
+        ctx.drawImage(paletteImg, 50, 220, 220, 170);
     }
 
     function drawColourPackString() {
-        ctx.clearRect(95, 420, 150, 37);
-        ctx.drawImage(paletteTitle0Img, 95, 420, 150, 37);
+        ctx.clearRect(45, 410, 250, 63);
+        ctx.drawImage(paletteTitle, 45, 410, 250, 63);
 
     }
 
@@ -733,24 +660,26 @@ function startColourSettings() {
         ctx.fillRect(235, 125, 65, 70)
     }
 
-    function drawTitlePanel() {
-        ctx.fillStyle = "#F5634A";
-        ctx.fillRect(25, 410, 270, 55);
-    }
+
 
     ctx.clearRect(0, 0, 320, 480);
-    drawBackButton();
-    //Colour Pack Heading
-    drawColourPackTitle();
-    //drawPreview();
+    //Back button
+        ctx.drawImage(backButtonImg, 0, 0, 100, 50);
+
+    //Left arrow
+        ctx.drawImage(leftArrowImg, 5, 280, 40, 46);
+
+    //Right arrow
+        ctx.drawImage(rightArrowImg, 278, 280, 40, 46);
+
+    //Colour pack title
+        ctx.drawImage(colourPackTitleImg, 30, 60, 263, 42);
+
     drawPackPanel();
-    // drawTitlePanel();
     drawTile0();
     drawTile1();
     drawTile2();
     drawTile3();
-    drawLeftArrow();
-    drawRightArrow();
     drawColourPackString();
 
 }

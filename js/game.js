@@ -190,7 +190,7 @@ function clickGame(event) {
         var tile = getTile(canvas_x, canvas_y);
         if (tile != null)
             if (tile.fixed === false) {
-                sfx2.play();
+                sfx3.play();
                 fillTile(tile);
             }
     } else if (canvas_x > pause_x && canvas_x < pause_x + pause_width && canvas_y > pause_y && canvas_y < pause_y + pause_height) {
@@ -298,6 +298,18 @@ function drawFixedTile() {
                         ctx.closePath();
                         break;
                     case 1:
+                        // draw | on fixed tile
+                        ctx.beginPath();
+                        ctx.moveTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
+                        ctx.lineTo(tiles[i][j].coordinates.p3.x, tiles[i][j].coordinates.p3.y);
+                        ctx.stroke();
+                        ctx.closePath();
+                        // draw - on fixed tile
+                        ctx.beginPath();
+                        ctx.moveTo(tiles[i][j].coordinates.p2.x, tiles[i][j].coordinates.p2.y);
+                        ctx.lineTo(tiles[i][j].coordinates.p4.x, tiles[i][j].coordinates.p4.y);
+                        ctx.stroke();
+                        ctx.closePath();
                         break;
                     case 2:
                         // draw \ on fixed tile
