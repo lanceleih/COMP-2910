@@ -35,16 +35,22 @@ function leaderboardShape() {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             loadEasy();
+            document.getElementById("main").style.display = "none";
+            document.getElementById("leaderboardEasySquareTable").style.display = "block";
         } else if (x > 180 && x < 305 && y > 180 && y < 280) {
             // rhombus shape
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             loadEasy();
+            document.getElementById("main").style.display = "none";
+            document.getElementById("leaderboardEasySquareTable").style.display = "block";
         } else if (x > 20 && x < 145 && y > 300 && y < 400) {
             // hexagon shape
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             loadEasy();
+            document.getElementById("main").style.display = "none";
+            document.getElementById("leaderboardEasySquareTable").style.display = "block";
         } else if (x > 15 && x < 100 && y > 15 && y < 40) {
             // back button
             canvas.removeEventListener("click", getPosition, false);
@@ -55,15 +61,7 @@ function leaderboardShape() {
     }
 }
 function loadEasy() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-
-        }
-    };
-
-  xhttp.open("POST", "../php/leaderboardeasy.php", true);
-  xhttp.send();
+    
     var c = document.getElementById("mainCanvas");
     var ctx = c.getContext("2d");
 

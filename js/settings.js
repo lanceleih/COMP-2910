@@ -1,83 +1,7 @@
-// Jungle Love
-var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
-// Autumn's Splendor
-var palette1 = ["#FE845F", "#51545B", "#FAD0B8", "#BCC4C7"];
-// Pacman Ghosts
-var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
-// Ice Cream Desserts
-var palette3 = ["#7D9772", "#BDDFBB", "#F9B899", "#FBC86B"];
-// Beer Goggles
-var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
-// R/G Colour Blind Palette
-var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"]
-var paletteTitle0Img = document.getElementById("paletteTitle0");
-var paletteTitle1Img = document.getElementById("paletteTitle1");
-var paletteTitle2Img = document.getElementById("paletteTitle2");
-var paletteTitle3Img = document.getElementById("paletteTitle3");
-var paletteTitle4Img = document.getElementById("paletteTitle4");
-
-var paletteTitleArray = [paletteTitle0Img, paletteTitle1Img, paletteTitle2Img, paletteTitle3Img, paletteTitle4Img];
-var paletteTitle = paletteTitle4Img;
-var storePalette = null;
-var palette = palette4;
-var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"];
-var paletteImg = paletteImgArray[4];
-var colourModeStateFill = "#FFFFFF";
-var colourModeState = false;
-
-var bgmVolume1Img = document.getElementById("bgmVolume1");
-var bgmVolume2Img = document.getElementById("bgmVolume2");
-var bgmVolume3Img = document.getElementById("bgmVolume3");
-var bgmVolume4Img = document.getElementById("bgmVolume4");
-var bgmVolume5Img = document.getElementById("bgmVolume5");
-
-var sfxVolume1Img = document.getElementById("sfxVolume1");
-var sfxVolume2Img = document.getElementById("sfxVolume2");
-var sfxVolume3Img = document.getElementById("sfxVolume3");
-var sfxVolume4Img = document.getElementById("sfxVolume4");
-var sfxVolume5Img = document.getElementById("sfxVolume5");
-
-var bgmVolume1SelectImg = document.getElementById("bgmVolume1Select");
-var bgmVolume2SelectImg = document.getElementById("bgmVolume2Select");
-var bgmVolume3SelectImg = document.getElementById("bgmVolume3Select");
-var bgmVolume4SelectImg = document.getElementById("bgmVolume4Select");
-var bgmVolume5SelectImg = document.getElementById("bgmVolume5Select");
-
-var sfxVolume1SelectImg = document.getElementById("sfxVolume1Select");
-var sfxVolume2SelectImg = document.getElementById("sfxVolume2Select");
-var sfxVolume3SelectImg = document.getElementById("sfxVolume3Select");
-var sfxVolume4SelectImg = document.getElementById("sfxVolume4Select");
-var sfxVolume5SelectImg = document.getElementById("sfxVolume5Select");
-
-var bgmMuteImg = document.getElementById("bgmMute");
-var bgmMuteSelectImg = document.getElementById("bgmMuteSelect");
-
-var sfxMuteImg = document.getElementById("sfxMute");
-var sfxMuteSelectImg = document.getElementById("sfxMuteSelect");
-
-var bgmStateArray = ["#008000", "#998365"];
-var bgmState1 = bgmStateArray[1];
-var bgmState2 = bgmStateArray[0];
-var bgmState3 = bgmStateArray[0];
-var bgmState4 = bgmStateArray[0];
-var bgmState5 = bgmStateArray[0];
-var bgmMuteState = bgmStateArray[0];
-var sfxStateArray = ["#008000", "#998365"];
-var sfxState1 = sfxStateArray[0];
-var sfxState2 = sfxStateArray[0];
-var sfxState3 = sfxStateArray[0];
-var sfxState4 = sfxStateArray[1];
-var sfxState5 = sfxStateArray[0];
-var sfxMuteState = sfxStateArray[0];
-var danCount = 0;
 
 
 /* Call settings */
 function startSettings() {
-    //var palette = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
-
-    // /var storePalette = null;
-    //var blindPalette = ["I", "II", "III", "IV"];
     canvas.addEventListener("mouseup", activeArea, false);
 
     // Button ID's
@@ -87,35 +11,7 @@ function startSettings() {
     var settingsTitleImg = document.getElementById("settingsTitle");
     var colourBlindImg = document.getElementById("colourBlindText");
 
-    function drawSettingsTitle() {
-        ctx.drawImage(settingsTitleImg, 15, 40, 300, 132)
-    }
 
-    function drawBackButton() {
-        ctx.drawImage(backButtonImg, 0, 0, 100, 50);
-    }
-
-    function drawAudioButton() {
-        ctx.drawImage(audioButtonImg, 90, 180, 150, 75);
-    }
-
-    function drawColourPackButton() {
-        ctx.drawImage(colourPackButtonImg, 90, 260, 150, 75);
-    }
-
-    function drawColourBlindText() {
-        ctx.drawImage(colourBlindImg, 90, 343, 175, 36);
-    }
-
-    function drawColourBlindToggle() {
-        ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(60, 350, 25, 25);
-    }
-
-    function drawColourBlindToggleFill() {
-        ctx.fillStyle = colourModeStateFill;
-        ctx.fillRect(65, 355, 15, 15);
-    }
 
 
     //Maps the coordinates for the clickable areas on the screen
@@ -178,20 +74,36 @@ function startSettings() {
     }
 
     ctx.clearRect(0, 0, 320, 480);
-    drawBackButton();
+   //Settings Title
+        ctx.drawImage(settingsTitleImg, 15, 40, 300, 132);
 
-    //Settings Heading
-    drawSettingsTitle();
 
-    //Audio
-    drawAudioButton();
+    //Back button
+        ctx.drawImage(backButtonImg, 0, 0, 100, 50);
 
-    //Colour Packs
-    drawColourPackButton();
 
-    //Colour Blind Check Box
-    drawColourBlindText();
-    drawColourBlindToggle();
+    //Audio button
+        ctx.drawImage(audioButtonImg, 90, 180, 150, 75);
+
+
+    //Colour pack button
+        ctx.drawImage(colourPackButtonImg, 90, 260, 150, 75);
+
+
+    //Colour Blind Image
+        ctx.drawImage(colourBlindImg, 90, 343, 175, 36);
+
+
+        //Colour Blind Toggle Box
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(60, 350, 25, 25);
+
+
+    function drawColourBlindToggleFill() {
+        ctx.fillStyle = colourModeStateFill;
+        ctx.fillRect(65, 355, 15, 15);
+    }
+
     drawColourBlindToggleFill();
 
 }
@@ -215,90 +127,81 @@ function startAudioSettings() {
         ctx.drawImage(bgmHeaderImg, 65, 140, 150, 34);
     }
 
-    function drawBackgroundSlider() {
-        ctx.fillStyle = "#008000";
-        ctx.fillRect(65, 175, 200, 40);
-    }
-
     function drawBgmVolume1() {
-        ctx.clearRect(55, 175, 40, 40);
-        ctx.fillStyle = bgmState1;
-        ctx.fillRect(55, 175, 40, 40);
+        ctx.clearRect(55, 175, 40, 37);
+        //ctx.fillStyle = bgmState1;
+        ctx.drawImage(document.getElementById("bgmVolume1Select"), 55, 175, 40, 37);
     }
 
     function drawBgmVolume2() {
-        ctx.clearRect(100, 175, 40, 40);
-        ctx.fillStyle = bgmState2;
-        ctx.fillRect(100, 175, 40, 40);
+        ctx.clearRect(100, 175, 40, 37);
+        //ctx.fillStyle = bgmState2;
+        ctx.drawImage(document.getElementById("bgmVolume2"), 100, 175, 40, 37);
     }
 
     function drawBgmVolume3() {
-        ctx.clearRect(145, 175, 40, 40);
-        ctx.fillStyle = bgmState3;
-        ctx.fillRect(145, 175, 40, 40);
+        ctx.clearRect(145, 175, 40, 37);
+        //ctx.fillStyle = bgmState3;
+        ctx.drawImage(document.getElementById("bgmVolume3"),145, 175, 40, 37);
     }
 
     function drawBgmVolume4() {
-        ctx.clearRect(190, 175, 40, 40);
-        ctx.fillStyle = bgmState4;
-        ctx.fillRect(190, 175, 40, 40);
+        ctx.clearRect(190, 175, 40, 37);
+        //ctx.fillStyle = bgmState4;
+        ctx.drawImage(document.getElementById("bgmVolume4"),190, 175, 40, 37);
     }
 
     function drawBgmVolume5() {
-        ctx.clearRect(235, 175, 40, 40);
-        ctx.fillStyle = bgmState5;
-        ctx.fillRect(235, 175, 40, 40);
+        ctx.clearRect(235, 175, 40, 37);
+        //ctx.fillStyle = bgmState5;
+        ctx.drawImage(document.getElementById("bgmVolume5"), 235, 175, 40, 37);
     }
 
     function drawSfxTitle() {
         ctx.drawImage(sfxHeaderImg, 65, 290, 79, 34);
     }
 
-    function drawSfxSlider() {
-        ctx.fillStyle = "#008000";
-        ctx.fillRect(65, 325, 200, 40);
-    }
 
     function drawSfxVolume1() {
-        ctx.clearRect(55, 325, 40, 40);
-        ctx.fillStyle = sfxState1;
-        ctx.fillRect(55, 325, 40, 40);
+        ctx.clearRect(55, 325, 40, 37);
+        //ctx.fillStyle = sfxState1;
+        ctx.drawImage(document.getElementById("sfxVolume1"),55, 325, 40, 37);
     }
 
     function drawSfxVolume2() {
-        ctx.clearRect(100, 325, 40, 40);
-        ctx.fillStyle = sfxState2;
-        ctx.fillRect(100, 325, 40, 40);
+        ctx.clearRect(100, 325, 40, 37);
+        //ctx.fillStyle = sfxState2;
+        ctx.drawImage(document.getElementById("sfxVolume2"),100, 325, 40, 37);
     }
 
     function drawSfxVolume3() {
-        ctx.clearRect(145, 325, 40, 40);
-        ctx.fillStyle = sfxState3;
-        ctx.fillRect(145, 325, 40, 40);
+        ctx.clearRect(145, 325, 40, 37);
+        //ctx.fillStyle = sfxState3;
+        ctx.drawImage(document.getElementById("sfxVolume3"),145, 325, 40, 37);
     }
 
     function drawSfxVolume4() {
-        ctx.clearRect(190, 325, 40, 40);
-        ctx.fillStyle = sfxState4;
-        ctx.fillRect(190, 325, 40, 40);
+        ctx.clearRect(190, 325, 40, 37);
+        //ctx.fillStyle = sfxState4;
+        ctx.drawImage(document.getElementById("sfxVolume4Select"),190, 325, 40, 37);
     }
 
     function drawSfxVolume5() {
-        ctx.clearRect(235, 325, 40, 40);
-        ctx.fillStyle = sfxState5;
-        ctx.fillRect(235, 325, 40, 40);
+        ctx.clearRect(235, 325, 40, 37);
+        //ctx.fillStyle = sfxState5;
+        ctx.drawImage(document.getElementById("sfxVolume5"),235, 325, 40, 37);
     }
 
     function drawBgmMuteButton() {
         ctx.clearRect(110, 220, 100, 40);
-        ctx.fillStyle = bgmMuteState;
-        ctx.fillRect(110, 220, 100, 40)
+        //ctx.fillStyle = bgmMuteState;
+        ctx.drawImage(document.getElementById("bgmMute"), 220, 100, 40);
     }
 
     function drawSfxMuteButton() {
         ctx.clearRect(110, 370, 100, 40);
-        ctx.fillStyle = sfxMuteState;
-        ctx.fillRect(110, 370, 100, 40)
+        //ctx.fillStyle = sfxMuteState;
+        ctx.drawImage(document.getElementById("sfxMute"),110, 370, 100, 40);
     }
 
     function muteBgm() {
@@ -577,22 +480,7 @@ function startColourSettings() {
     var rightArrowImg = document.getElementById("rightArrow");
     var colourPackTitleImg = document.getElementById("colourPackTitle");
 
-    function drawBackButton() {
-        ctx.drawImage(backButtonImg, 0, 0, 100, 50);
-    }
 
-    function drawLeftArrow() {
-        ctx.drawImage(leftArrowImg, 5, 280, 40, 46);
-    }
-
-    function drawRightArrow() {
-        ctx.drawImage(rightArrowImg, 278, 280, 40, 46);
-    }
-
-
-    function drawColourPackTitle() {
-        ctx.drawImage(colourPackTitleImg, 30, 60, 263, 42);
-    }
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
@@ -640,7 +528,7 @@ function startColourSettings() {
             drawTile1();
             drawTile2();
             drawTile3();
-            drawColourPackString();
+            //drawColourPackString();
             drawPackPanel();
 
 
@@ -683,7 +571,7 @@ function startColourSettings() {
             drawTile1();
             drawTile2();
             drawTile3();
-            drawColourPackString();
+            //drawColourPackString();
             drawPackPanel();
             //alert(palette);
         }
@@ -702,7 +590,7 @@ function startColourSettings() {
                 drawTile1();
                 drawTile2();
                 drawTile3();
-                drawColourPackString();
+                //drawColourPackString();
                 drawPackPanel();
             }
         }
@@ -754,24 +642,26 @@ function startColourSettings() {
         ctx.fillRect(235, 125, 65, 70)
     }
 
-    function drawTitlePanel() {
-        ctx.fillStyle = "#F5634A";
-        ctx.fillRect(25, 410, 270, 55);
-    }
+
 
     ctx.clearRect(0, 0, 320, 480);
-    drawBackButton();
-    //Colour Pack Heading
-    drawColourPackTitle();
-    //drawPreview();
+    //Back button
+        ctx.drawImage(backButtonImg, 0, 0, 100, 50);
+
+    //Left arrow
+        ctx.drawImage(leftArrowImg, 5, 280, 40, 46);
+
+    //Right arrow
+        ctx.drawImage(rightArrowImg, 278, 280, 40, 46);
+
+    //Colour pack title
+        ctx.drawImage(colourPackTitleImg, 30, 60, 263, 42);
+
     drawPackPanel();
-    // drawTitlePanel();
     drawTile0();
     drawTile1();
     drawTile2();
     drawTile3();
-    drawLeftArrow();
-    drawRightArrow();
-    drawColourPackString();
+    //drawColourPackString();
 
 }
