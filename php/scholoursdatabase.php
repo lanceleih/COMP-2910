@@ -110,7 +110,7 @@
     <img src="../img/docwaylon.gif" id="video" alt="easter egg gif" width="300" height="132">
 </div>
 <div id="leaderboardInput">
-    <form method="post" action="http://scholours.net23.net/php/scholoursdatabase.php" onsubmit="changeValues()">
+    <form method="post" action="http://scholours.net23.net/php/addscore.php" onsubmit="changeValues()">
         <input type="text" name="name" id="addName" size="15">
         <input type="hidden" name="time" id="time">
         <input type="hidden" name="shape" id="shape">
@@ -216,25 +216,6 @@
     ?>
     <img class="leftLeaderboardArrow" onclick="leaderboardHardToMedium()" src="../img/icons/left_arrow.png" alt="left button" height="100" width="50">
     <img class="rightLearderboardArrow" onclick="leaderboardHardToEasy()" src="../img/icons/right_arrow.png" alt="right button" height="100" width="50">
-</div>
-<div id="sendUserInfo">
-    <?php
-        if(isset($_POST['submit'])) {
-            $servername = "mysql4.000webhost.com";
-            $username = "a7385043_2910";
-            $password = "Scholours16";
-            $db = "a7385043_2910";
-
-            $conn = new mysqli($servername,$username,$password, $db);
-
-            $sql = "INSERT INTO leaderboard (id, name, time, shape, difficulty) VALUES ( NULL, '$_POST['name']', '$_POST['time']', '$_POST['shape']', '$_POST['difficulty']')";
-
-            $result = $conn->query($sql);
-
-            mysqli_close($conn);
-        }
-
-    ?>
 </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /* Javascript for the Form */
 function changeValues() {
-    document.getElementById("time").value = elapsedTime;
+    document.getElementById("time").value = formatTime(elapsedTime);
 
     if (shape == 0) {
         document.getElementById("shape").value = "square";
