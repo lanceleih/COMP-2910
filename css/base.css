@@ -24,8 +24,8 @@ canvas {
     height: 260px;
     padding-top: 10px;
 }
-#easterEgg #logoTitle {
-    padding-left: 15px;
+#easterEgg #logo {
+    padding-left: 15%;
 }
 #main img {
     display: none;
