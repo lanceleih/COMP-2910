@@ -1,11 +1,10 @@
 /* Javascript for All Parts of Game */
 
 /* Javascript for the home page*/
+bgm.volume = 0.2;
+sfx1.volume = 0.8;
+sfx2.volume = 0.8;
 function home() {
-    
-    bgm.volume = 0.2;
-    sfx1.volume = 0.8;
-    sfx2.volume = 0.8;
     bgm.play();
     bgm.loop = true;
     canvas = document.getElementById("mainCanvas");

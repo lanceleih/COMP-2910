@@ -8,6 +8,7 @@
     var sfx1 = new Audio("../audio/tap.wav");
     var sfx2 = new Audio("../audio/click.wav");
 
+
     /*0=square 1=diamond 2=hexagon*/
     var shape;
     /*0=easy 1=medium 2=hard*/

@@ -45,7 +45,7 @@ function selectShape() {
             // back to home
             canvas.removeEventListener("click", getPosition, false);
             sfx1.play();
-            backHome();
+            home();
         }
     }
 }
