@@ -35,35 +35,35 @@ var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"];
 var preload = [
     //Default volume icons
-    "../img/volume/volumeOne.png", //0
-    "../img/volume/volumeTwo.png", //1
-    "../img/volume/volumeThree.png", //2
-    "../img/volume/volumeFour.png",  //3
-    "../img/volume/volumeFive.png",  //4
+    "../img/volume/volumeone.png", //0
+    "../img/volume/volumetwo.png", //1
+    "../img/volume/volumethree.png", //2
+    "../img/volume/volumefour.png",  //3
+    "../img/volume/volumefive.png",  //4
     //Selected volume icons
-    "../img/volume/volumeOneClicked.png", //5
-    "../img/volume/volumeTwoClicked.png",  //6
-    "../img/volume/volumeThreeClicked.png",  //7
-    "../img/volume/volumeFourClicked.png", //8
-    "../img/volume/volumeFiveClicked.png", //9
+    "../img/volume/volumeoneclicked.png", //5
+    "../img/volume/volumetwoclicked.png",  //6
+    "../img/volume/volumethreeclicked.png",  //7
+    "../img/volume/volumefourclicked.png", //8
+    "../img/volume/volumefiveclicked.png", //9
     // Mute buttons
     "../img/volume/mute.png",  //10
-    "../img/volume/muteClicked.png", //11
+    "../img/volume/muteclicked.png", //11
     // Colour Pack Title Images
-    "../img/icons/Jungle%20love.png", //12
-    "../img/icons/Autumn's%20Splendor.png", //13
-    "../img/icons/pacman%20ghosts.png", //14
-    "../img/icons/Beer%20Goggles.png", //15
+    "../img/icons/junglelove.png", //12
+    "../img/icons/autumnssplendor.png", //13
+    "../img/icons/pacmanghosts.png", //14
+    "../img/icons/beergoggles.png", //15
     "../img/icons/icecream.png", //16
     // Colour Pack Panel Images
-    "../img/background/jungleLovePanel2.jpg", //17
-    "../img/background/autumnPanel2.jpg", //18
-    "../img/background/pacmanGhostPanel2.jpg", //19
-    "../img/background/beerGogglesPanel2.jpg", //20
-    "../img/background/iceCreamPanel2.jpg", //21
+    "../img/background/jungleLovePanel.jpg", //17
+    "../img/background/autumnpanel.jpg", //18
+    "../img/background/pacmanghostpanel.jpg", //19
+    "../img/background/beergogglesPanel.jpg", //20
+    "../img/background/icecreampanel.jpg", //21
     //Easter Egg
-    "../img/background/easterEggPanel.jpg", //22
-    "../img/background/easterEggTitle.png" //23
+    "../img/background/eastereggpanel.jpg", //22
+    "../img/background/eastereggtitle.png" //23
 ];
 
 var images = [];
