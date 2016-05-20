@@ -24,11 +24,11 @@ var difficulty;
 // Jungle Love
 var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
 // Autumn's Splendor
-var palette1 = ["#FE845F", "#51545B", "#FAD0B8", "#BCC4C7"];
+var palette1 = ["#BEDFBD", "#51545B", "#FAD0B8", "#BCC4C7"];
 // Pacman Ghosts
 var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
 // Beer Goggles for now
-var palette3 = ["#7D9772", "#BDDFBB", "#F9B899", "#FBC86B"];
+var palette3 = ["#FFCC00", "#BDDFBB", "#688315", "#B15515"];
 // Ice Cream Desserts
 var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 // R/G Colour Blind Palette
