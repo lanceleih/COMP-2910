@@ -12,6 +12,13 @@
     Files must be placed in the proper folder
 ***********************************************************************
 
+******************************How To Play**************************************
+1. Select your shape and difficulty.
+2. Using the limited amount of each colour, fill in the grid.
+3. Complete the grid without two connecting tiles filled with the same colour.
+4. Tiles are connected when their sides are touching.
+5. Diagonals are not considered to be connected.
+********************************************************************************
 
 ***********Folders*********
 1. audio - audio files
