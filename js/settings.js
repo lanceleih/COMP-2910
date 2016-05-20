@@ -75,7 +75,7 @@ function startSettings() {
 
     ctx.clearRect(0, 0, 320, 480);
    //Settings Title
-        ctx.drawImage(settingsTitleImg, 15, 40, 300, 132)
+        ctx.drawImage(settingsTitleImg, 15, 40, 300, 132);
 
 
     //Back button
@@ -130,31 +130,31 @@ function startAudioSettings() {
     function drawBgmVolume1() {
         ctx.clearRect(55, 175, 40, 37);
         //ctx.fillStyle = bgmState1;
-        ctx.drawImage(document.getElementById("bgmVolume1Select"), 55, 175, 40, 37);
+        ctx.drawImage(document.getElementById("volume1Select"), 55, 175, 40, 37);
     }
 
     function drawBgmVolume2() {
         ctx.clearRect(100, 175, 40, 37);
         //ctx.fillStyle = bgmState2;
-        ctx.drawImage(document.getElementById("bgmVolume2"), 100, 175, 40, 37);
+        ctx.drawImage(document.getElementById("volume2"), 100, 175, 40, 37);
     }
 
     function drawBgmVolume3() {
         ctx.clearRect(145, 175, 40, 37);
         //ctx.fillStyle = bgmState3;
-        ctx.drawImage(document.getElementById("bgmVolume3"),145, 175, 40, 37);
+        ctx.drawImage(document.getElementById("volume3"),145, 175, 40, 37);
     }
 
     function drawBgmVolume4() {
         ctx.clearRect(190, 175, 40, 37);
         //ctx.fillStyle = bgmState4;
-        ctx.drawImage(document.getElementById("bgmVolume4"),190, 175, 40, 37);
+        ctx.drawImage(document.getElementById("volume4"),190, 175, 40, 37);
     }
 
     function drawBgmVolume5() {
         ctx.clearRect(235, 175, 40, 37);
         //ctx.fillStyle = bgmState5;
-        ctx.drawImage(document.getElementById("bgmVolume5"), 235, 175, 40, 37);
+        ctx.drawImage(document.getElementById("volume5"), 235, 175, 40, 37);
     }
 
     function drawSfxTitle() {
@@ -165,43 +165,43 @@ function startAudioSettings() {
     function drawSfxVolume1() {
         ctx.clearRect(55, 325, 40, 37);
         //ctx.fillStyle = sfxState1;
-        ctx.drawImage(document.getElementById("sfxVolume1"),55, 325, 40, 37);
+        ctx.drawImage(document.getElementById("volume1"),55, 325, 40, 37);
     }
 
     function drawSfxVolume2() {
         ctx.clearRect(100, 325, 40, 37);
         //ctx.fillStyle = sfxState2;
-        ctx.drawImage(document.getElementById("sfxVolume2"),100, 325, 40, 37);
+        ctx.drawImage(document.getElementById("volume2"),100, 325, 40, 37);
     }
 
     function drawSfxVolume3() {
         ctx.clearRect(145, 325, 40, 37);
         //ctx.fillStyle = sfxState3;
-        ctx.drawImage(document.getElementById("sfxVolume3"),145, 325, 40, 37);
+        ctx.drawImage(document.getElementById("volume3"),145, 325, 40, 37);
     }
 
     function drawSfxVolume4() {
         ctx.clearRect(190, 325, 40, 37);
         //ctx.fillStyle = sfxState4;
-        ctx.drawImage(document.getElementById("sfxVolume4Select"),190, 325, 40, 37);
+        ctx.drawImage(document.getElementById("volume4Select"),190, 325, 40, 37);
     }
 
     function drawSfxVolume5() {
         ctx.clearRect(235, 325, 40, 37);
         //ctx.fillStyle = sfxState5;
-        ctx.drawImage(document.getElementById("sfxVolume5"),235, 325, 40, 37);
+        ctx.drawImage(document.getElementById("volume5"),235, 325, 40, 37);
     }
 
     function drawBgmMuteButton() {
         ctx.clearRect(110, 220, 100, 40);
         //ctx.fillStyle = bgmMuteState;
-        ctx.drawImage(document.getElementById("bgmMute"), 220, 100, 40);
+        ctx.drawImage(document.getElementById("volumeMute"),110, 220, 100, 40);
     }
 
     function drawSfxMuteButton() {
         ctx.clearRect(110, 370, 100, 40);
         //ctx.fillStyle = sfxMuteState;
-        ctx.drawImage(document.getElementById("sfxMute"),110, 370, 100, 40);
+        ctx.drawImage(document.getElementById("volumeMute"),110, 370, 100, 40);
     }
 
     function muteBgm() {

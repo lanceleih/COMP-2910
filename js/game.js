@@ -298,6 +298,18 @@ function drawFixedTile() {
                         ctx.closePath();
                         break;
                     case 1:
+                        // draw | on fixed tile
+                        ctx.beginPath();
+                        ctx.moveTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
+                        ctx.lineTo(tiles[i][j].coordinates.p3.x, tiles[i][j].coordinates.p3.y);
+                        ctx.stroke();
+                        ctx.closePath();
+                        // draw - on fixed tile
+                        ctx.beginPath();
+                        ctx.moveTo(tiles[i][j].coordinates.p2.x, tiles[i][j].coordinates.p2.y);
+                        ctx.lineTo(tiles[i][j].coordinates.p4.x, tiles[i][j].coordinates.p4.y);
+                        ctx.stroke();
+                        ctx.closePath();
                         break;
                     case 2:
                         // draw \ on fixed tile

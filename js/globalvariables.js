@@ -1,19 +1,22 @@
 /* Javascript for All Parts of Game */
 /*Global variables*/
-    var canvas;
-    var ctx;
+var canvas;
+var ctx;
 
-    /* Audio: BGM & SFX */
-    var bgm = new Audio("../audio/shop2.mp3");
-    var sfx1 = new Audio("../audio/tap.wav");
-    var sfx2 = new Audio("../audio/click.wav");
+/* Audio: BGM & SFX */
+var bgm = new Audio("../audio/shopExtended.mp3");
+var sfx1 = new Audio("../audio/tap.wav");
+var sfx2 = new Audio("../audio/click.wav");
+bgm.volume = 0.2;
+sfx1.volume = 0.8;
+sfx2.volume = 0.8;
 
-    /*0=square 1=diamond 2=hexagon*/
-    var shape;
-    /*0=easy 1=medium 2=hard*/
-    var difficulty;
+/*0=square 1=diamond 2=hexagon*/
+var shape;
+/*0=easy 1=medium 2=hard*/
+var difficulty;
 
-    /*Colour Inventory*/
+/*Colour Inventory*/
 // Jungle Love
 var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
 // Autumn's Splendor
@@ -72,8 +75,6 @@ var sfxState5 = volume5Img;
 var sfxMuteState = muteImg;
 var danCount = 0;
 var palette = palette4;
-
-
 
 // new global variables
 // offsets, margins, and x, y, width, height of every components in game
