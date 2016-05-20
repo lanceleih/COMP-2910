@@ -49,9 +49,7 @@ function gameResult() {
     ctx.drawImage(document.getElementById("resultTitle"), 11, 20);
     ctx.drawImage(document.getElementById("restartButton"), 85, 300, 150, 75);
     ctx.drawImage(document.getElementById("menuButton"), 85, 385, 150, 75);
-    ctx.drawImage(document.getElementById("rightArrow"), 275, 230, 25, 25);
-    document.getElementById("addName").style.display = "block";
-
+    
     ctx.font = "20px monospace";
     ctx.beginPath();
     ctx.fillText("Enter name: ", 10, 250);
@@ -62,11 +60,15 @@ function gameResult() {
     ctx.fillText("Your Time: " + timeString, 10, 200);
     canvas.addEventListener("mouseup", gameResultMouseUp, false);
 
+    document.getElementById("addName").style.display = "block";
+    document.getElementById("addNameButton").style.display = "block";
+
     function gameResultMouseUp(event) {
         var canvas_x = event.pageX - canvas.offsetLeft;
         var canvas_y = event.pageY - canvas.offsetTop;
         if (canvas_x > 85 && canvas_x < 235 && canvas_y > 300 && canvas_y < 375) {
             document.getElementById("addName").style.display = "none";
+            document.getElementById("addNameButton").style.display = "none";
             canvas.removeEventListener("mouseup", gameResultMouseUp, false);
             sfx2.play();
             newGame();
@@ -77,15 +79,11 @@ function gameResult() {
             home();
         } else if(canvas_x > 275 && canvas_x < 300 && canvas_y > 230 && canvas_y < 255) {
             document.getElementById("addName").style.display = "none";
+            document.getElementById("addNameButton").style.display = "none";
+            canvas.removeEventListener("mouseup", gameResultMouseUp, false);
             // sendInfo();
-            alert("Name submitted.");
+            // home();
         }
     }
 }
-function sendInfo() {
-    if(shape==0 && difficulty==0) {
-        var s = "square";
-        var level = "easy";
-        var name = document.getElementById("addName").value;
-    }
-}
+

@@ -36,6 +36,14 @@ canvas {
     top: 235px;
     display: none;
 }
+#addNameButton {
+    position: absolute;
+    left: 275px;
+    top: 230px;
+    height: 25px;
+    width: 25px;
+    display: none;
+}
 .leaderboards {
     background-color: #F2EFCC;
     background-image: url("../img/background/BG.jpg");
