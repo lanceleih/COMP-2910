@@ -56,10 +56,10 @@ var preload = [
     "../img/icons/beergoggles.png", //15
     "../img/icons/icecream.png", //16
     // Colour Pack Panel Images
-    "../img/background/jungleLovePanel.jpg", //17
+    "../img/background/jungleLovepanel.jpg", //17
     "../img/background/autumnpanel.jpg", //18
     "../img/background/pacmanghostpanel.jpg", //19
-    "../img/background/beergogglesPanel.jpg", //20
+    "../img/background/beergogglespanel.jpg", //20
     "../img/background/icecreampanel.jpg", //21
     //Easter Egg
     "../img/background/eastereggpanel.jpg", //22
