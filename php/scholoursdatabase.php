@@ -127,9 +127,9 @@
         <input type="text" name="name" id="addName" size="15">
     </form>
 </div>
-<div id="leaderboardEasySquareTable">
-    <img src="../img/icons/BACK.png" id="leaderBack" alt="leaderboard back button" onclick="backLeaderboard()" width="100" height="50">
-    <img id="leaderboardEasyTable" src="../img/title/difficultyeasytitle.png" alt="Scholours" width="300" height="50">
+<div class="leaderboards" id="leaderboardEasySquareTable">
+    <img src="../img/icons/BACK.png" id="leaderBack" alt="leaderboard back button" onclick="backEasySquareLeaderboard()" width="100" height="50">
+    <img id="leaderboardEasySquare" src="../img/title/difficultyeasytitle.png" alt="Scholours" width="300" height="50">
     <?php
         $servername = "mysql4.000webhost.com";
         $username = "a7385043_2910";
@@ -156,8 +156,72 @@
         }
         $conn->close();
     ?>
-    <img class="leftLeaderboardArrow" src="../img/icons/left_arrow.png" alt="left button" height="100" width="50">
-    <img class="rightLearderboardArrow" src="../img/icons/right_arrow.png" alt="right button" height="100" width="50">
+    <img class="leftLeaderboardArrow" onclick="leaderboardEasyToHard()" src="../img/icons/left_arrow.png" alt="left button" height="100" width="50">
+    <img class="rightLearderboardArrow" onclick="leaderboardEasyToMedium()" src="../img/icons/right_arrow.png" alt="right button" height="100" width="50">
+</div>
+<div class="leaderboards" id="leaderboardMediumSquareTable">
+    <img src="../img/icons/BACK.png" id="leaderBack" alt="leaderboard back button" onclick="backMediumSquareLeaderboard()" width="100" height="50">
+    <img id="leaderboardMediumSquare" src="../img/title/difficultymediumtitle.png" alt="Scholours" width="300" height="50">
+    <?php
+        $servername = "mysql4.000webhost.com";
+        $username = "a7385043_2910";
+        $password = "Scholours16";
+        $db = "a7385043_2910";
+
+        $conn = new mysqli($servername,$username,$password, $db);
+        // mysql_select_db('a7385043_2910') or die( "Unable to select database");
+
+        $sql = "SELECT id, name, time, shape, difficulty FROM leaderboard"; 
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            echo "<table><tr><th>ID</th><th>Name</th><th>Time</th></tr>";
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"medium") == 0) {
+                    echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["time"]."</td></tr>";
+                }
+            }
+            echo "</table>";
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+    ?>
+    <img class="leftLeaderboardArrow" onclick="leaderboardMediumToEasy()" src="../img/icons/left_arrow.png" alt="left button" height="100" width="50">
+    <img class="rightLearderboardArrow" onclick="leaderboardMediumToHard()" src="../img/icons/right_arrow.png" alt="right button" height="100" width="50">
+</div>
+<div class="leaderboards" id="leaderboardHardSquareTable">
+    <img src="../img/icons/BACK.png" id="leaderBack" alt="leaderboard back button" onclick="backHardSquareLeaderboard()" width="100" height="50">
+    <img id="leaderboardHardSquare" src="../img/title/difficultyhardtitle.png" alt="Scholours" width="300" height="50">
+    <?php
+        $servername = "mysql4.000webhost.com";
+        $username = "a7385043_2910";
+        $password = "Scholours16";
+        $db = "a7385043_2910";
+
+        $conn = new mysqli($servername,$username,$password, $db);
+        // mysql_select_db('a7385043_2910') or die( "Unable to select database");
+
+        $sql = "SELECT id, name, time, shape, difficulty FROM leaderboard"; 
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            echo "<table><tr><th>ID</th><th>Name</th><th>Time</th></tr>";
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"hard") == 0) {
+                    echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["time"]."</td></tr>";
+                }
+            }
+            echo "</table>";
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+    ?>
+    <img class="leftLeaderboardArrow" onclick="leaderboardHardToMedium()" src="../img/icons/left_arrow.png" alt="left button" height="100" width="50">
+    <img class="rightLearderboardArrow" onclick="leaderboardHardToEasy()" src="../img/icons/right_arrow.png" alt="right button" height="100" width="50">
 </div>
 </body>
 </html>

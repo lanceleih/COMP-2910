@@ -8,6 +8,10 @@ var bgm = new Audio("../audio/shopExtended.mp3");
 var sfx1 = new Audio("../audio/tap.wav");
 var sfx2 = new Audio("../audio/click.wav");
 
+bgm.volume = 0.2;
+sfx1.volume = 0.8;
+sfx2.volume = 0.8;
+
 
 /*0=square 1=diamond 2=hexagon*/
 var shape;
@@ -74,7 +78,10 @@ var sfxMuteState = muteImg;
 var danCount = 0;
 var palette = palette4;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1c990e939383eefec7f25e1bd00b552081c38fa1
 // new global variables
 // offsets, margins, and x, y, width, height of every components in game
 var offset_left;
