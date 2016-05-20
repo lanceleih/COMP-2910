@@ -36,12 +36,10 @@ canvas {
     top: 235px;
     display: none;
 }
-#addNameButton {
+#submitButton {
     position: absolute;
     left: 275px;
     top: 230px;
-    height: 25px;
-    width: 25px;
     display: none;
 }
 .leaderboards {

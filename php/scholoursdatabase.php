@@ -115,7 +115,8 @@
         <input type="hidden" name="time" id="time">
         <input type="hidden" name="shape" id="shape">
         <input type="hidden" name="difficulty" id="difficulty">
-        <input type="image" name="submit" id="addNameButton" alt="submit" src="../img/icons/right_arrow2.png">
+        <!-- <input type="image" name="submit" id="addNameButton" alt="submit" src="../img/icons/right_arrow2.png"> -->
+        <input type="submit" name="submit" id="submitButton">
     </form>
 </div>
 </body>
@@ -226,12 +227,7 @@
 
             $conn = new mysqli($servername,$username,$password, $db);
 
-            $name = $_POST['name'];
-            $time = $_POST['time'];
-            $shape = $_POST['shape'];
-            $difficulty = $_POST['difficulty'];
-
-            $sql = "INSERT INTO leaderboard (id, name, time, shape, difficulty) VALUES ( NULL, '$name', $time', '$shape', '$difficulty')";
+            $sql = "INSERT INTO leaderboard (id, name, time, shape, difficulty) VALUES ( NULL, '$_POST['name']', '$_POST['time']', '$_POST['shape']', '$_POST['difficulty']')";
 
             $result = $conn->query($sql);
 
