@@ -78,21 +78,21 @@
         n. hexa.png             - hexagon button
         o. icecream.png         - ice cream desserts name
         p. junglelove.png       - jungle love name
-        q. leaderboard.png      - leaderboard button
-        r. leftarrow.png        - left arrow button
-        s. mainmenu.png         - main menu button
-        t. medium.png           - medium button
-        u. pacmanghosts.png     - pacman ghosts name
-        v. paused.png           - paused button
-        w. play.png             - play button
-        x. playagain.png        - play again button
-        y. polygon.png          - diamond button
-        z. restart.png          - restart button
-        aa. resume.png          - resume button
-        ab. rightarrow.png      - right arrow button
-        ac. settings.png        - settings button
-        ad. square.png          - square button
-        ae.
+        q. leftarrow.png        - left arrow button
+        r. mainmenu.png         - main menu button
+        s. medium.png           - medium button
+        t. pacmanghosts.png     - pacman ghosts name
+        u. paused.png           - paused button
+        v. play.png             - play button
+        w. playagain.png        - play again button
+        x. polygon.png          - diamond button
+        y. restart.png          - restart button
+        z. resume.png           - resume button
+        aa. rightarrow.png      - right arrow button
+        ab. scores.png          - scores button
+        ab. settings.png        - settings button
+        ac. square.png          - square button
+        ad.
     III. title
         a. audiosettings.png            - audio settings banner
         b. choosecolourpack.png         - colour pack banner
