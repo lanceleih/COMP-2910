@@ -83,3 +83,10 @@ function gameResult() {
         }
     }
 }
+function sendInfo() {
+    if(shape==0 && difficulty==0) {
+        var s = "square";
+        var level = "easy";
+        var name = document.getElementById("addName").value;
+    }
+}
