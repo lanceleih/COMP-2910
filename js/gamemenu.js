@@ -61,27 +61,30 @@ function gameResult() {
     canvas.addEventListener("mouseup", gameResultMouseUp, false);
 
     document.getElementById("addName").style.display = "block";
-    document.getElementById("addNameButton").style.display = "block";
+    document.getElementById("submitButton").style.display = "block";
 
     function gameResultMouseUp(event) {
         var canvas_x = event.pageX - canvas.offsetLeft;
         var canvas_y = event.pageY - canvas.offsetTop;
         if (canvas_x > 85 && canvas_x < 235 && canvas_y > 300 && canvas_y < 375) {
             document.getElementById("addName").style.display = "none";
-            document.getElementById("addNameButton").style.display = "none";
+            document.getElementById("submitButton").style.display = "none";
+            document.getElementById("addName").disabled = true;
+            document.getElementById("submitButton").disabled = true;
             canvas.removeEventListener("mouseup", gameResultMouseUp, false);
             sfx2.play();
             newGame();
         } else if (canvas_x > 85 && canvas_x < 235 && canvas_y > 385 && canvas_y < 460) {
             document.getElementById("addName").style.display = "none";
+            document.getElementById("submitButton").style.display = "none";
+            document.getElementById("addName").disabled = true;
+            document.getElementById("submitButton").disabled = true;
             canvas.removeEventListener("mouseup", gameResultMouseUp, false);
             sfx1.play();
             home();
         } else if(canvas_x > 275 && canvas_x < 300 && canvas_y > 230 && canvas_y < 255) {
-            document.getElementById("addName").style.display = "none";
-            document.getElementById("addNameButton").style.display = "none";
-            canvas.removeEventListener("mouseup", gameResultMouseUp, false);
-            // sendInfo();
+            /* Submitting scores */
+            
 
         }
     }

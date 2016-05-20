@@ -110,7 +110,7 @@
     <img src="../img/docwaylon.gif" id="video" alt="easter egg gif" width="300" height="132">
 </div>
 <div id="leaderboardInput">
-    <form method="post" action="http://scholours.net23.net/php/addscore.php" onsubmit="changeValues()">
+    <form method="post" action="http://scholours.net23.net/php/addscore.php" onsubmit="return changeValues()">
         <input type="text" name="name" id="addName" size="15">
         <input type="hidden" name="time" id="time">
         <input type="hidden" name="shape" id="shape">
@@ -133,16 +133,16 @@
         $conn = new mysqli($servername,$username,$password, $db);
         // mysql_select_db('a7385043_2910') or die( "Unable to select database");
 
-        $sql = "SELECT id, name, time, shape, difficulty FROM leaderboard"; 
+        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='easy' ORDER BY time DESC LIMIT 5"; 
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo "<table><tr>".str_repeat("&nbsp;", 10)."<th>ID</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
+            echo "<table><tr>".str_repeat("&nbsp;", 4)."<th>Rank</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
             // output data of each row
+            $rank = 1;
             while($row = $result->fetch_assoc()) {
-                if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"easy") == 0) {
-                    echo "<tr><td>".$row["id"].str_repeat("&nbsp;", 10)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
-                }
+                echo "<tr><td>".$rank.str_repeat("&nbsp;", 10)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
+                $rank++;
             }
             echo "</table>";
         } else {
@@ -165,16 +165,16 @@
         $conn = new mysqli($servername,$username,$password, $db);
         // mysql_select_db('a7385043_2910') or die( "Unable to select database");
 
-        $sql = "SELECT id, name, time, shape, difficulty FROM leaderboard"; 
+        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='medium' ORDER BY time DESC LIMIT 5";  
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo "<table><tr>".str_repeat("&nbsp;", 10)."<th>ID</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
+            echo "<table><tr>".str_repeat("&nbsp;", 10)."<th>Rank</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
             // output data of each row
+            $rank = 1;
             while($row = $result->fetch_assoc()) {
-                if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"easy") == 0) {
-                    echo "<tr><td>".$row["id"].str_repeat("&nbsp;", 10)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
-                }
+                echo "<tr><td>".$rank.str_repeat("&nbsp;", 10)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
+                $rank++;
             }
             echo "</table>";
         } else {
@@ -197,16 +197,17 @@
         $conn = new mysqli($servername,$username,$password, $db);
         // mysql_select_db('a7385043_2910') or die( "Unable to select database");
 
-        $sql = "SELECT id, name, time, shape, difficulty FROM leaderboard"; 
+        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='hard' ORDER BY time DESC LIMIT 5"; 
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo "<table><tr>".str_repeat("&nbsp;", 10)."<th>ID</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
+            echo "<table><tr>".str_repeat("&nbsp;", 10)."<th>Rank</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
             // output data of each row
+            $rank = 1;
             while($row = $result->fetch_assoc()) {
-                if(strcmp($row[shape],"square") == 0  && strcmp($row[difficulty],"easy") == 0) {
-                    echo "<tr><td>".$row["id"].str_repeat("&nbsp;", 10)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
-                }
+                echo "<tr><td>".$rank.str_repeat("&nbsp;", 10)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
+                $rank++;
+                
             }
             echo "</table>";
         } else {
