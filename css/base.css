@@ -64,6 +64,6 @@ canvas {
 
 table th, table td {
     font-size: 1.5em;
-    padding: 5%; 
+    padding: 0 5%; 
     text-align: center;
 }
