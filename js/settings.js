@@ -502,27 +502,27 @@ function startColourSettings() {
         if (x > 5 && x < 40 && y > 280 && y < 320) {
             if (palette == palette0) {
                 palette = palette4;
-                paletteTitle = paletteTitleArray[4];
+                paletteTitle = images[16];
                 paletteImg = paletteImgArray[4];
             }
             else if (palette == palette4) {
                 palette = palette3;
-                paletteTitle = paletteTitleArray[3];
+                paletteTitle = images[15];
                 paletteImg = paletteImgArray[3];
             }
             else if (palette == palette3) {
                 palette = palette2;
-                paletteTitle = paletteTitleArray[2];
+                paletteTitle = images[14];
                 paletteImg = paletteImgArray[2];
             }
             else if (palette == palette2) {
                 palette = palette1;
-                paletteTitle = paletteTitleArray[1];
+                paletteTitle = images[13];
                 paletteImg = paletteImgArray[1];
             }
             else if (palette == palette1) {
                 palette = palette0;
-                paletteTitle = paletteTitleArray[0];
+                paletteTitle = images[12];
                 paletteImg = paletteImgArray[0];
             }
             sfx2.play();
@@ -530,7 +530,7 @@ function startColourSettings() {
             drawTile1();
             drawTile2();
             drawTile3();
-            //drawColourPackString();
+            drawColourPackString();
             drawPackPanel();
 
 
@@ -540,31 +540,31 @@ function startColourSettings() {
         if (x > 280 && x < 315 && y > 280 && y < 320) {
             if (palette == palette0) {
                 palette = palette1;
-                paletteTitle = paletteTitleArray[1];
+                paletteTitle = images[13];
                 paletteImg = paletteImgArray[1];
 
             }
             else if (palette == palette1) {
                 palette = palette2;
-                paletteTitle = paletteTitleArray[2];
+                paletteTitle = images[14];
                 paletteImg = paletteImgArray[2];
 
             }
             else if (palette == palette2) {
                 palette = palette3;
-                paletteTitle = paletteTitleArray[3];
+                paletteTitle = images[15];
                 paletteImg = paletteImgArray[3];
 
             }
             else if (palette == palette3) {
                 palette = palette4;
-                paletteTitle = paletteTitleArray[4];
+                paletteTitle = images[16];
                 paletteImg = paletteImgArray[4];
 
             }
             else if (palette == palette4) {
                 palette = palette0;
-                paletteTitle = paletteTitleArray[0];
+                paletteTitle = images[12];
                 paletteImg = paletteImgArray[0];
 
             }
@@ -573,7 +573,7 @@ function startColourSettings() {
             drawTile1();
             drawTile2();
             drawTile3();
-            //drawColourPackString();
+            drawColourPackString();
             drawPackPanel();
             //alert(palette);
         }
@@ -584,7 +584,7 @@ function startColourSettings() {
         if (x > 265 && x < 290 && y > 70 && y < 100) {
 
             danCount++;
-            if (danCount == 13) {
+            if (danCount % 13 == 0) {
                 palette = ["#998365", "#1E3259", "#EF1921", "#678314", "#A1C4A6"];
                 paletteTitle = "Ballfondler's Delight";
                 paletteImg = "#FF0F0F0";
@@ -595,6 +595,7 @@ function startColourSettings() {
                 //drawColourPackString();
                 drawPackPanel();
             }
+
         }
 
     }
@@ -614,8 +615,8 @@ function startColourSettings() {
     }
 
     function drawColourPackString() {
-        ctx.clearRect(95, 420, 150, 37);
-        ctx.drawImage(paletteTitle0Img, 95, 420, 150, 37);
+        ctx.clearRect(45, 410, 250, 63);
+        ctx.drawImage(paletteTitle, 45, 410, 250, 63);
 
     }
 
@@ -664,6 +665,6 @@ function startColourSettings() {
     drawTile1();
     drawTile2();
     drawTile3();
-    //drawColourPackString();
+    drawColourPackString();
 
 }

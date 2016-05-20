@@ -31,21 +31,6 @@ var palette3 = ["#7D9772", "#BDDFBB", "#F9B899", "#FBC86B"];
 var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 // R/G Colour Blind Palette
 var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"];
-
-var paletteTitle0Img = document.getElementById("paletteTitle0");
-var paletteTitle1Img = document.getElementById("paletteTitle1");
-var paletteTitle2Img = document.getElementById("paletteTitle2");
-var paletteTitle3Img = document.getElementById("paletteTitle3");
-var paletteTitle4Img = document.getElementById("paletteTitle4");
-
-var paletteTitleArray = [paletteTitle0Img, paletteTitle1Img, paletteTitle2Img, paletteTitle3Img, paletteTitle4Img];
-var paletteTitle = paletteTitle4Img;
-var storePalette = null;
-var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"];
-var paletteImg = paletteImgArray[4];
-var colourModeStateFill = "#FFFFFF";
-var colourModeState = false;
-
 var preload = [
     //Default volume icons
     "../img/volume/volumeOne.png", //0
@@ -61,7 +46,13 @@ var preload = [
     "../img/volume/volumeFiveClicked.png", //9
     // Mute buttons
     "../img/volume/mute.png",  //10
-    "../img/volume/muteClicked.png" //11
+    "../img/volume/muteClicked.png", //11
+    // Colour Pack Title Images
+    "../img/icons/Jungle%20love.png", //12
+    "../img/icons/Autumn's%20Splendor.png", //13
+    "../img/icons/pacman%20ghosts.png", //14
+    "../img/icons/icecream.png", //15
+    "../img/icons/Beer%20Goggles.png" //16
 
 ];
 
@@ -71,29 +62,21 @@ for (i = 0; i < preload.length; i++) {
     images[i].src = preload[i];
 }
 
-var volume1Img = document.getElementById("volume1");
-var volume2Img = document.getElementById("volume2");
-var volume3Img = document.getElementById("volume3");
-var volume4Img = document.getElementById("volume4");
-var volume5Img = document.getElementById("volume5");
+var paletteTitle = images[16];
+var storePalette = null;
+var paletteImgArray = ["#FEF216", "#260101", "#FFBE44", "#B05514", "#953B32"];
+var paletteImg = paletteImgArray[4];
+var colourModeStateFill = "#FFFFFF";
+var colourModeState = false;
 
-var volume1SelectImg = document.getElementById("volume1Select");
-var volume2SelectImg = document.getElementById("volume2Select");
-var volume3SelectImg = document.getElementById("volume3Select");
-var volume4SelectImg = document.getElementById("volume4Select");
-var volume5SelectImg = document.getElementById("volume5Select");
 
-var muteImg = document.getElementById("volumeMute");
-var muteSelectImg = document.getElementById("volumeMuteSelect");
-
-var bgmStateArray = ["#008000", "#998365"];
 var bgmState1 = images[5];
 var bgmState2 = images[1];
 var bgmState3 = images[2];
 var bgmState4 = images[3];
 var bgmState5 = images[4];
 var bgmMuteState = images[10];
-var sfxStateArray = ["#008000", "#998365"];
+
 var sfxState1 = images[0];
 var sfxState2 = images[1];
 var sfxState3 = images[2];
