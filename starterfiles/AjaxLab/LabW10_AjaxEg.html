@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>My Ajax Application</title>
+	<script Language="JavaScript" type="text/javascript">
+	function getXMLHTTPRequest() {
+	try {
+	req = new XMLHttpRequest();
+	} catch(err1) {
+	  try {
+	  req = new ActiveXObject("Msxml2.XMLHTTP");
+	  } catch (err2) {
+		try {
+		req = new ActiveXObject("Microsoft.XMLHTTP");
+		} catch (err3) {
+		  req = false;
+		} 
+	  } 
+	}
+	return req;
+	}
+
+	var http = getXMLHTTPRequest();
+
+	function getServerText() {
+	  var myurl = 'http://localhost/textserver.php';
+	  myRand = parseInt(Math.random()*999999999999999);
+	  var modurl = myurl+"?rand="+myRand;  
+	  http.open("GET", modurl, true);
+	  http.onreadystatechange = useHttpResponse;
+	  http.send(null);
+	}
+
+	function useHttpResponse() {
+	  if (http.readyState == 4) {
+		if(http.status == 200) { 
+		  var mytext = http.responseText;
+		  document.getElementById('myPageElement').innerHTML = mytext;
+		}
+	  } else {
+	  document. getElementById('myPageElement').innerHTML = "waiting..."+http.readyState;
+	  }
+	}
+
+	</script>
+</head>
+
+<body onload="getServerText()">
+	Here is the text returned by the server:<br>
+	<!-- empty div to puhlish result from php script -->
+	<div id="myPageElement"></div>
+</body>
+
+</html>

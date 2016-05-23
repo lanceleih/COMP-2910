@@ -1,3 +1,27 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+canvas {
+    margin: auto;
+    padding: 0;
+    border: none;
+    background-color: #F2EFCC;
+    background-image: url("../img/background/bg.jpg");
+}
+#easterEgg {
+    border: none;
+    background-color: #F2EFCC;
+    background-image: url("../img/background/bg.jpg");
+    width: 320px;
+    height: 480px;
+    display: none;
+}
+#easterEgg #video {
+    width: 320px;
+    height: 260px;
     padding-top: 10px;
 }
 #easterEgg #logo {
