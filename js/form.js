@@ -21,7 +21,5 @@ function changeValues() {
     document.getElementById("addName").style.display = "none";
     document.getElementById("submitButton").style.display = "none";
     canvas.removeEventListener("mouseup", gameResultMouseUp, false);
-    
 
-    return true;
 }

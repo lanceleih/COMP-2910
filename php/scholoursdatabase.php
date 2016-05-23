@@ -10,6 +10,8 @@
     <script src="../js/game.js"></script>
     <script src="../js/utility.js"></script>
     <script src="../js/settings.js"></script>
+    <script src="../js/audio.js"></script>
+    <script src="../js/colourpacksettings.js"></script>
     <script src="../js/leaderboard.js"></script>
     <script src="../js/utility.js"></script>
     <script src="../js/selectmenu.js"></script>
@@ -19,8 +21,8 @@
     <script src="../js/gamemenu.js"></script>
     <script src="../js/colourpack.js"></script>
     <script src="../js/timer.js"></script>
-    <script src="../js/validategame.js"></script>
     <script src="../js/form.js"></script>
+    <script src="../js/validategame.js"></script>
 </head>
 <body onload="home()">
 <div id="main">
@@ -56,7 +58,7 @@
     <img id="resumeButton" src="../img/icons/resume.png" alt="resume button" width="0" height="0">
     <img id="restartButton" src="../img/icons/restart.png" alt="restart button" width="0" height="0">
     <!--<img id="settingsButton" width="0" height="0" src="img/icons/settings.png" alt="settings">-->
-    <img id="menuButton" src="../img/icons/mainMenu.png" alt="menu button" width="0" height="0">
+    <img id="menuButton" src="../img/icons/mainmenu.png" alt="menu button" width="0" height="0">
 
     <!--Images needed for result page-->
     <img id="resultTitle" src="../img/title/resulttitle.png" alt="result title" width="0" height="0">
@@ -109,8 +111,8 @@
     <img src="../img/docwaylon.gif" id="video" alt="easter egg gif" width="300" height="132">
 </div>
 <div id="leaderboardInput">
-    <form method="post" action="http://scholours.net23.net/php/addscore.php" onsubmit="return changeValues()">
-        <input type="text" name="name" id="addName" size="15">
+    <form method="post" action="http://scholours.net23.net/php/addscore.php" onsubmit="changeValues()">
+        <input type="text" name="name" id="addName" size="3">
         <input type="hidden" name="time" id="time">
         <input type="hidden" name="shape" id="shape">
         <input type="hidden" name="difficulty" id="difficulty">
@@ -119,7 +121,7 @@
     </form>
 </div>
 <div class="leaderboards" id="leaderboardEasySquareTable">
-    <img src="../img/icons/BACK.png" id="leaderBack" alt="leaderboard back button" onclick="backEasySquareLeaderboard()" width="100" height="50">
+    <img src="../img/icons/back.png" id="leaderBack" alt="leaderboard back button" onclick="backEasySquareLeaderboard()" width="100" height="50">
     <img id="leaderboardEasySquare" src="../img/title/difficultyeasytitle.png" alt="Scholours" width="300" height="50">
     <?php
         $servername = "mysql4.000webhost.com";
@@ -130,7 +132,7 @@
         $conn = new mysqli($servername,$username,$password, $db);
         // mysql_select_db('a7385043_2910') or die( "Unable to select database");
 
-        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='easy' ORDER BY time DESC LIMIT 5"; 
+        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='easy' ORDER BY time ASC LIMIT 5"; 
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -147,11 +149,11 @@
         }
         $conn->close();
     ?>
-    <img class="leftLeaderboardArrow" onclick="leaderboardEasyToHard()" src="../img/icons/left.png" alt="left button" height="100" width="50">
-    <img class="rightLearderboardArrow" onclick="leaderboardEasyToMedium()" src="../img/icons/right.png" alt="right button" height="100" width="50">
+    <img class="leftLeaderboardArrow" onclick="leaderboardEasyToHard()" src="../img/icons/leftarrow.png" alt="left button" height="100" width="50">
+    <img class="rightLearderboardArrow" onclick="leaderboardEasyToMedium()" src="../img/icons/rightarrow.png" alt="right button" height="100" width="50">
 </div>
 <div class="leaderboards" id="leaderboardMediumSquareTable">
-    <img src="../img/icons/BACK.png" id="leaderBack" alt="leaderboard back button" onclick="backMediumSquareLeaderboard()" width="100" height="50">
+    <img src="../img/icons/back.png" id="leaderBack" alt="leaderboard back button" onclick="backMediumSquareLeaderboard()" width="100" height="50">
     <img id="leaderboardMediumSquare" src="../img/title/difficultymediumtitle.png" alt="Scholours" width="300" height="50">
     <?php
         $servername = "mysql4.000webhost.com";
@@ -162,7 +164,7 @@
         $conn = new mysqli($servername,$username,$password, $db);
         // mysql_select_db('a7385043_2910') or die( "Unable to select database");
 
-        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='medium' ORDER BY time DESC LIMIT 5";  
+        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='medium' ORDER BY time ASC LIMIT 5";  
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -194,7 +196,7 @@
         $conn = new mysqli($servername,$username,$password, $db);
         // mysql_select_db('a7385043_2910') or die( "Unable to select database");
 
-        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='hard' ORDER BY time DESC LIMIT 5"; 
+        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='hard' ORDER BY time ASC LIMIT 5"; 
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -212,8 +214,8 @@
         }
         $conn->close();
     ?>
-    <img class="leftLeaderboardArrow" onclick="leaderboardHardToMedium()" src="../img/icons/left.png" alt="left button" height="100" width="50">
-    <img class="rightLearderboardArrow" onclick="leaderboardHardToEasy()" src="../img/icons/right.png" alt="right button" height="100" width="50">
+    <img class="leftLeaderboardArrow" onclick="leaderboardHardToMedium()" src="../img/icons/leftarrow.png" alt="left button" height="100" width="50">
+    <img class="rightLearderboardArrow" onclick="leaderboardHardToEasy()" src="../img/icons/rightarrow.png" alt="right button" height="100" width="50">
 </div>
 </body>
 </html>

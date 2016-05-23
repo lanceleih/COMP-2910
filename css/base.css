@@ -1,27 +1,3 @@
-body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-canvas {
-    margin: auto;
-    padding: 0;
-    border: none;
-    background-color: #F2EFCC;
-    background-image: url("../img/background/bg.jpg");
-}
-#easterEgg {
-    border: none;
-    background-color: #F2EFCC;
-    background-image: url("../img/background/bg.jpg");
-    width: 320px;
-    height: 480px;
-    display: none;
-}
-#easterEgg #video {
-    width: 320px;
-    height: 260px;
     padding-top: 10px;
 }
 #easterEgg #logo {
@@ -36,12 +12,14 @@ canvas {
     top: 235px;
     display: none;
 }
+
 #submitButton {
     position: absolute;
-    left: 275px;
+    left: 200px;
     top: 230px;
     display: none;
 }
+
 .leaderboards {
     background-color: #F2EFCC;
     background-image: url("../img/background/bg.jpg");

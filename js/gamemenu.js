@@ -84,7 +84,7 @@ function gameResult() {
             home();
         } else if(canvas_x > 275 && canvas_x < 300 && canvas_y > 230 && canvas_y < 255) {
             /* Submitting scores */
-            
+        
 
         }
     }
