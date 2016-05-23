@@ -12,6 +12,13 @@
     Files must be placed in the proper folder
 ***********************************************************************
 
+******************************How To Play**************************************
+1. Select your shape and difficulty.
+2. Using the limited amount of each colour, fill in the grid.
+3. Complete the grid without two connecting tiles filled with the same colour.
+4. Tiles are connected when their sides are touching.
+5. Diagonals are not considered to be connected.
+********************************************************************************
 
 ***********Folders*********
 1. audio - audio files
@@ -124,22 +131,26 @@
         l. volumetwoclicked.png     - volume two button after clicked
 
 5. js
-    a. colourpack.js        - anything about the colour packs and colour inventory
-    b. diamond.js           - all functions specific for diamond
-    c. form.js              - all functions for the submit button for the leaderboard
-    d. game.js              - general game functions
-    e. gamemenu.js          - pause and result page functions
-    f. globalvariables.js   - all global variables (first page loaded)
-    g. hexagon.js           - all functions specific for hexagon
-    h. leaderboard.js       - all functions for the leaderboard pages
-    i. main.js              - home page functions (called on load)
-    j. selectmenu.js        - shape and difficulty select page functions
-    k. settings.js          - settings functions
-    l. square.js            - all functions specific to square
-    m. timer.js             - timer functions
-    n. utility.js           - additional functions (easter egg, etc.)
-    o. validategame.js      - game validation functions
+    a. audio.js                 - all audio functions
+    b. colourpack.js            - anything about the colour packs and colour inventory
+    c. colourpacksettings.js    - all colour pack settings functions
+    d. diamond.js               - all functions specific for diamond
+    e. form.js                  - all functions for the submit button for the leaderboard
+    f. game.js                  - general game functions
+    g. gamemenu.js              - pause and result page functions
+    h. globalvariables.js       - all global variables (first page loaded)
+    i. hexagon.js               - all functions specific for hexagon
+    j. leaderboard.js           - all functions for the leaderboard pages
+    k. main.js                  - home page functions (called on load)
+    l. selectmenu.js            - shape and difficulty select page functions
+    m. settings.js              - settings functions
+    n. square.js                - all functions specific to square
+    o. timer.js                 - timer functions
+    p. utility.js               - additional functions (easter egg, etc.)
+    q. validategame.js          - game validation functions
 
 6. php
     a. scholoursdatabase.php    - identical to the html, except with leaderboard functionality
+    b. addscore.php             - 
+    c. getscore.php             - 
 **************************************************************************************************
