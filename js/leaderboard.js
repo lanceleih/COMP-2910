@@ -34,8 +34,7 @@ function leaderboardShape() {
             // square shape
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
-            document.getElementById("main").style.display = "none";
-            document.getElementById("leaderboardEasySquareTable").style.display = "block";
+            showSquareEasy();
         } else if (x > 180 && x < 305 && y > 180 && y < 280) {
             // rhombus shape
             canvas.removeEventListener("click", getPosition, false);
@@ -95,4 +94,30 @@ function leaderboardHardToEasy() {
 function leaderboardHardToMedium() {
     document.getElementById("leaderboardHardSquareTable").style.display = "none";
     document.getElementById("leaderboardMediumSquareTable").style.display = "block";
+}
+function showSquareEasy() {
+    canvas = document.getElementById("mainCanvas");
+    ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, 320, 480);
+
+    var back = document.getElementById("backButton");
+    ctx.drawImage(back, 0, 0, 100, 50);
+    var squareEasyTitle = document.getElementById("easyTitle");
+    ctx.drawImage(squareEasyTitle, 13, 50, 300, 50);
+    var rightArrow = document.getElementById("rightArrow");
+    ctx.drawImage(rightArrow, 190, 400, 50, 57);
+    var leftArrow = document.getElementById("leftArrow");
+    ctx.drawImage(leftArrow, 70, 400, 50, 57);
+
+    xmlhttp = new XMLHttpRequest();
+        
+    xmlhttp.onreadystatechange = function() {
+    
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        document.getElementById("leaderboardEasySquareTable").innerHTML = xmlhttp.responseText;
+    }
+    };
+
+    xmlhttp.open("POST","http://scholours.net23.net/php/squareeasy.php",true);
+    xmlhttp.send();
 }

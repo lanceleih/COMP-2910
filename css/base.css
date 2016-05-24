@@ -32,15 +32,15 @@ canvas {
 }
 #addName {
     position: absolute;
-    left:  135px;
-    top: 235px;
+    left:  140px;
+    top: 233px;
     display: none;
 }
 
 #submitButton {
     position: absolute;
-    left: 200px;
-    top: 230px;
+    left: 205px;
+    top: 233px;
     display: none;
 }
 .hide { 
@@ -49,11 +49,13 @@ canvas {
     height:0px; 
     display: none;
 }
-
+#leaderboardEasySquareTable {
+    position: absolute;
+    left: 13px;
+    top: 40px;
+}
 .leaderboards {
-    background-color: #F2EFCC;
-    background-image: url("../img/background/bg.jpg");
-    position: relative;
+    position: relative;.
     width: 320px;
     height: 480px;
     display: none;
