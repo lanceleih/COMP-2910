@@ -1,8 +1,32 @@
+.wrapper {
+   display: table;
+   padding: 0;
+   width: 100%;
+   height: auto;
+   position: absolute;
+}
+.container {
+   display: table-cell;
+   vertical-align: middle;
+}
+.canvas-container {
+   position: relative;
+   max-width: 500px;
+   min-width: 320px;
+   margin: 0 auto;
+}
+#mainCanvas {
+   width: 100%;
+   height: auto;
+   background-color: #F2EFCC;
+}
+
 body {
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
+    background-color: #F2EFCC;
 }
 canvas {
     margin: auto;

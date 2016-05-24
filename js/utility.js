@@ -33,3 +33,13 @@ function drawComponent() {
     // color inventory border
     ctx.strokeRect(inventory_x, inventory_y, inventory_width, inventory_height);
 }
+function setResponMargins() {
+    widthFactor = canvas.scrollWidth / canvas.width;
+    heightFactor = canvas.scrollHeight / canvas.height;
+    canvasWidth = canvas.scrollWidth;
+    canvasHeight = canvas.scrollHeight;
+    docWidth = $(document).width();
+    docHeight = $(document).height();
+    leftMargin = ((docWidth - canvasWidth) / 2);
+    topMargin = (docHeight - canvasHeight);
+}
