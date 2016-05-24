@@ -18,6 +18,7 @@
 
             mysqli_close($conn);
             header("Location: http://scholours.net23.net/php/scholoursdatabase.php");
+                
         }
 
 ?>

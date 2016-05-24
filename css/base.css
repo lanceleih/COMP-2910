@@ -43,6 +43,12 @@ canvas {
     top: 230px;
     display: none;
 }
+.hide { 
+    position:absolute;
+    width:0px; 
+    height:0px; 
+    display: none;
+}
 
 .leaderboards {
     background-color: #F2EFCC;
