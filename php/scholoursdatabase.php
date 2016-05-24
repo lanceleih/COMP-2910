@@ -111,7 +111,8 @@
     <img src="../img/docwaylon.gif" id="video" alt="easter egg gif" width="300" height="132">
 </div>
 <div id="leaderboardInput">
-    <form method="post" action="http://scholours.net23.net/php/addscore.php" onsubmit="changeValues()">
+    <iframe name="hiddenFrame" sandbox class="hide"></iframe>
+    <form method="post" action="http://scholours.net23.net/php/addscore.php" onsubmit="changeValues()" target="hiddenFrame">
         <input type="text" name="name" id="addName" size="3">
         <input type="hidden" name="time" id="time">
         <input type="hidden" name="shape" id="shape">
