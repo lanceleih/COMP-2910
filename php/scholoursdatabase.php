@@ -122,25 +122,6 @@
     </form>
 </div>
 <!-- Show leaderboard for Square Easy -->
-<span id="leaderboardEasySquareTable"></span>
-<!-- Show leaderboard for Square Medium -->
-<div class="leaderboards" id="leaderboardMediumSquareTable">
-    <img src="../img/icons/back.png" id="leaderBack" alt="leaderboard back button" onclick="backMediumSquareLeaderboard()" width="100" height="50">
-    <img id="leaderboardMediumSquare" src="../img/title/difficultymediumtitle.png" alt="Scholours" width="300" height="50">
-    <?php
-    include ('squaremedium.php');
-    ?>
-    <img class="leftLeaderboardArrow" onclick="leaderboardMediumToEasy()" src="../img/icons/leftarrow.png" alt="left button" height="100" width="50">
-    <img class="rightLearderboardArrow" onclick="leaderboardMediumToHard()" src="../img/icons/rightarrow.png" alt="right button" height="100" width="50">
-</div>
-<div class="leaderboards" id="leaderboardHardSquareTable">
-    <img src="../img/icons/back.png" id="leaderBack" alt="leaderboard back button" onclick="backHardSquareLeaderboard()" width="100" height="50">
-    <img id="leaderboardHardSquare" src="../img/title/difficultyhardtitle.png" alt="Scholours" width="300" height="50">
-    <?php
-    include ('squarehard.php');
-    ?>
-    <img class="leftLeaderboardArrow" onclick="leaderboardHardToMedium()" src="../img/icons/leftarrow.png" alt="left button" height="100" width="50">
-    <img class="rightLearderboardArrow" onclick="leaderboardHardToEasy()" src="../img/icons/rightarrow.png" alt="right button" height="100" width="50">
-</div>
+<span id="leaderboardTable"></span>
 </body>
 </html>
