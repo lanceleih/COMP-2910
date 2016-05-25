@@ -30,10 +30,8 @@ var shape;
 /*0=easy 1=medium 2=hard*/
 var difficulty;
 
-/*index 0: square index: 1 index: 2
-* Number of games played*/
-var gamesPlayed = [0, 0, 0];
 
+// Number of games played*
 var gamesSqu = 0;
 var gamesDia = 0;
 var gamesHex = 0;

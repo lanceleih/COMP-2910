@@ -224,6 +224,7 @@ function startColourSettings() {
             palette = palette0;
         }
     }
+
     //State 3: Square and Diamond unlocked
     function state3Left() {
         if (palette == palette0) {
@@ -360,6 +361,7 @@ function startColourSettings() {
             palette = palette0;
         }
     }
+
     //State 7: All levels unlocked
     function state7Left(){
         if (palette == palette0) {
@@ -423,7 +425,7 @@ function startColourSettings() {
     }
 
     function whichStateLeft() {
-        if (gamesHex == 0 && gamesDia == 0 && gamesSqu >= 0){
+        if (gamesHex == 0 && gamesDia == 0 && gamesSqu == 0){
             state0Left();
         }
         else if (gamesHex == 0 && gamesDia == 0 && gamesSqu >= 1){
@@ -449,7 +451,7 @@ function startColourSettings() {
         }
     }
     function whichStateRight() {
-        if (gamesHex == 0 && gamesDia == 0 && gamesSqu >= 0){
+        if (gamesHex == 0 && gamesDia == 0 && gamesSqu == 0){
             state0Right();
         }
         else if (gamesHex == 0 && gamesDia == 0 && gamesSqu >= 1){
