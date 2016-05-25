@@ -2,6 +2,7 @@ function newGame() {
     initializePositions();
     initializeGame();
     // insert countdown animation
+
     game();
 }
 
@@ -64,11 +65,11 @@ function initializeGame() {
                     break;
                 case 1:
                     max_row = 5;
-                    max_col = 5;
+                    max_col = 4;
                     break;
                 case 2:
                     max_row = 6;
-                    max_col = 6;
+                    max_col = 4;
                     break;
             }
             max_tile = max_row * max_col;
