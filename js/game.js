@@ -205,8 +205,11 @@ function drawTiles() {
 }
 
 function clickGame(event) {
+    setResponMargins();
     var canvas_x = event.pageX - canvas.offsetLeft;
     var canvas_y = event.pageY - canvas.offsetTop;
+    var x = event.pageX;
+    var y = event.pageY;
     // clicks game board
     if (canvas_x > board_x && canvas_x < board_x + board_width && canvas_y > board_y && canvas_y < board_y + board_height) {
         var tile = getTile(canvas_x, canvas_y);
@@ -215,7 +218,7 @@ function clickGame(event) {
                 sfx3.play();
                 fillTile(tile);
             }
-    } else if (canvas_x > pause_x && canvas_x < pause_x + pause_width && canvas_y > pause_y && canvas_y < pause_y + pause_height) {
+    } else if (x > pause_x * widthFactor + leftMargin && x < ((pause_x * widthFactor + leftMargin) + (pause_width * widthFactor)) && y > pause_y * heightFactor + topMargin && y < ((pause_y * heightFactor + topMargin) + (pause_height * heightFactor))) {
         // clicks pause button
         canvas.removeEventListener("mouseup", clickGame, false);
         clearInterval(gameTimer);

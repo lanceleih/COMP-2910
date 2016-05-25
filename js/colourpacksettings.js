@@ -13,11 +13,12 @@ function startColourSettings() {
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
-        var x = event.x - canvas.offsetLeft;
-        var y = event.y - canvas.offsetTop;
+        setResponMargins();
+        var x = event.x;
+        var y = event.y;
 
         //Back button function
-        if (x > 15 && x < 100 && y > 15 && y < 40) {
+        if (x > 15 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 15 * heightFactor + topMargin && y < 40 * heightFactor + topMargin) {
             ctx.clearRect(0, 0, 320, 480);
             canvas.removeEventListener("mouseup", activeArea, false);
             sfx1.play();
@@ -26,7 +27,7 @@ function startColourSettings() {
         }
 
         //Left Arrow Button clicks
-        if (x > 5 && x < 40 && y > 280 && y < 320) {
+        if (x > 5 * widthFactor + leftMargin && x < 40 * widthFactor + leftMargin && y > 280 * heightFactor + topMargin && y < 320 * heightFactor + topMargin) {
             if (palette == palette0) {
                 palette = palette4;
                 paletteTitle = images[16];
@@ -65,7 +66,7 @@ function startColourSettings() {
         }
 
         //Right Arrow Button clicks
-        if (x > 280 && x < 315 && y > 280 && y < 320) {
+        if (x > 280 * widthFactor + leftMargin && x < 315 * widthFactor + leftMargin && y > 280 * heightFactor + topMargin && y < 320 * heightFactor + topMargin) {
             if (palette == palette0) {
                 palette = palette1;
                 paletteTitle = images[13];

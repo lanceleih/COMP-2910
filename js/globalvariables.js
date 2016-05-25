@@ -14,6 +14,16 @@ sfx1.volume = 0.8;
 sfx2.volume = 0.8;
 sfx3.volume = 0.8;
 
+/*Variables for getting offset for responsive design*/
+var canvasWidth;
+var canvasHeight;
+var docWidth;
+var docHeight;
+var leftMargin;
+var topMargin;
+var widthFactor;
+var heightFactor;
+
 
 /*0=square 1=diamond 2=hexagon*/
 var shape;
