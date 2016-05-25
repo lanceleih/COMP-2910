@@ -206,6 +206,7 @@ function clickGame(event) {
         if (validateGame() === true) {
             canvas.removeEventListener("mouseup", clickGame, false);
             clearInterval(gameTimer);
+            // THIS IS WHERE I SHOULD PUT IN COUNTER FOR UNLOCKABLE -- DAN
             gameResult();
         }
     }
