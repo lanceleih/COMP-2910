@@ -178,7 +178,7 @@ function drawTiles() {
                 tileColor = default_color;
             }
             else {
-                tileColor = palette[tiles[i][j].color];
+                tileColor = palette[2][tiles[i][j].color];
             }
             ctx.fillStyle = tileColor;
             ctx.beginPath();
@@ -232,13 +232,7 @@ function clickGame(event) {
             canvas.removeEventListener("mouseup", clickGame, false);
             clearInterval(gameTimer);
             // THIS IS WHERE I SHOULD PUT IN COUNTER FOR UNLOCKABLE -- DAN
-            if (gamesSqu >= 1){
-                
-            } else if (gamesDia >= 1) {
-                
-            } else if (gamesHex >= 1) {
-                
-            }
+            unlockPack();
             gameResult();
         }
     }
@@ -267,7 +261,7 @@ function fillTile(tile) {
     if (newColor === -1) {
         ctx.fillStyle = default_color;
     } else {
-        ctx.fillStyle = palette[newColor];
+        ctx.fillStyle = palette[2][newColor];
     }
     //ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
     ctx.beginPath();
@@ -326,3 +320,12 @@ function drawFixedTiles() {
     }
 }
 
+function unlockPack(){
+    if (shape == 0){
+        gamesSqu++;
+    } else if (shape == 1) {
+        gamesDia++;
+    } else if (shape == 1) {
+        gamesHex++;
+    }
+}

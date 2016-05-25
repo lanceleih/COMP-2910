@@ -25,7 +25,6 @@ function startSettings() {
         //Back button function: goes to previous page
         if (x > (15 * widthFactor + leftMargin)&& x < (100 * widthFactor + leftMargin) && y > (15 * heightFactor + topMargin) && y < (40 * heightFactor + topMargin)) {
             canvas.removeEventListener("mouseup", activeArea, false);
-            canvas.removeEventListener("mouseup", activeArea, false);
             sfx1.play();
             home();
             //alert("this is the back button");
@@ -33,7 +32,7 @@ function startSettings() {
 
         //Audio Button function: goes into audio settings page
         if (x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
-            canvas.removeEventListener("click", getPosition, false);
+            canvas.removeEventListener("mouseup", activeArea, false);
             sfx2.play();
             startAudioSettings();
             //alert("this is the audio button");
@@ -41,7 +40,6 @@ function startSettings() {
 
         //Colour Pack function: goes into the colour pack selection page
      if (x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) &&  y > (260 * heightFactor + topMargin) && y < (330 * heightFactor + topMargin)) {
-            canvas.removeEventListener("mouseup", activeArea, false);
             canvas.removeEventListener("mouseup", activeArea, false);
             sfx2.play();
             startColourSettings();
