@@ -18,11 +18,12 @@ function startSettings() {
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
-        var x = event.x - canvas.offsetLeft;
-        var y = event.y - canvas.offsetTop;
+        setResponMargins();
+        var x = event.x;
+        var y = event.y;
 
         //Back button function: goes to previous page
-        if (x > 15 && x < 100 && y > 15 && y < 40) {
+        if (x > (15 * widthFactor + leftMargin)&& x < (100 * widthFactor + leftMargin) && y > (15 * heightFactor + topMargin) && y < (40 * heightFactor + topMargin)) {
             canvas.removeEventListener("mouseup", activeArea, false);
             canvas.removeEventListener("mouseup", activeArea, false);
             sfx1.play();
@@ -31,16 +32,15 @@ function startSettings() {
         }
 
         //Audio Button function: goes into audio settings page
-        if (x > 90 && x < 240 && y > 180 && y < 250) {
-            canvas.removeEventListener("mouseup", activeArea, false);
-            canvas.removeEventListener("mouseup", activeArea, false);
+        if (x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
+            canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             startAudioSettings();
             //alert("this is the audio button");
         }
 
         //Colour Pack function: goes into the colour pack selection page
-        if (x > 90 && x < 240 && y > 260 && y < 330) {
+     if (x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) &&  y > (260 * heightFactor + topMargin) && y < (330 * heightFactor + topMargin)) {
             canvas.removeEventListener("mouseup", activeArea, false);
             canvas.removeEventListener("mouseup", activeArea, false);
             sfx2.play();
@@ -49,7 +49,7 @@ function startSettings() {
         }
 
         //Colour blind mode function: toggles colour blind mode on and off
-        if (x > 60 && x < 85 && y > 350 && y < 375) {
+        if (x > (60 * widthFactor + leftMargin) && x < (85 * widthFactor + leftMargin) && y > (350 * heightFactor + topMargin) && y <  (375 * heightFactor + topMargin)) {
             sfx2.play();
             //alert("this is the colour blind toggle");
             if (colourModeState == false) {

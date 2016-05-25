@@ -100,11 +100,12 @@ function startAudioSettings() {
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
-        var x = event.x - canvas.offsetLeft;
-        var y = event.y - canvas.offsetTop;
+        setResponMargins();
+        var x = event.x;
+        var y = event.y;
 
         //Back button function
-        if (x > 15 && x < 100 && y > 15 && y < 40) {
+        if (x > (15 * widthFactor + leftMargin) && x < (100 * widthFactor + leftMargin) && y > (15 * heightFactor + topMargin) && y < (40* heightFactor + topMargin)) {
             canvas.removeEventListener("mouseup", activeArea, false);
             canvas.removeEventListener("mouseup", activeArea, false);
             sfx1.play();
@@ -370,4 +371,5 @@ function startAudioSettings() {
     drawSfxVolume5();
     drawBgmMuteButton();
     drawSfxMuteButton();
+
 }

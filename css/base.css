@@ -1,14 +1,36 @@
+.wrapper {
+   padding: 0;
+   width: 100%;
+   height: auto;
+   position: absolute;
+   left: 25%;
+   right: auto;
+   top: 0;
+}
+#main {
+   position: relative;
+   min-width: 320px;
+   height: 100vh;
+}
+#mainCanvas {
+   width: auto;
+   height: 100%;
+   background-color: #F2EFCC;
+}
+
 body {
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
+    background-color: #F2EFCC;
+   overflow-y: hidden;
+   overflow-x: hidden;
 }
 canvas {
     margin: auto;
     padding: 0;
     border: none;
-    background-color: #F2EFCC;
     background-image: url("../img/background/bg.jpg");
 }
 #easterEgg {
