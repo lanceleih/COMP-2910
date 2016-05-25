@@ -26,7 +26,6 @@ body {
    height: 100%;
    background-color: #F2EFCC;
 }
-
 #images {
     clear: left;
 }
@@ -52,7 +51,7 @@ canvas {
 #easterEgg #logo {
     padding-left: 15%;
 }
-#main img {
+#preloadedImages img {
     display: none;
 }
 #addName {

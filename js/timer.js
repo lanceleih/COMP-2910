@@ -5,13 +5,20 @@ function createTimer() {
 }
 
 function updateTimer() {
+    elapsedTime = parseInt((new Date().getTime() - startTime) / 100, 10);
+    // stops the game if user takes too long
+    if (elapsedTime > expiryGameTime) {
+        canvas.removeEventListener("mouseup", clickGame, false);
+        clearInterval(gameTimer);
+        gameResult();
+    }
+    
     ctx.fillStyle = "#C7B577";
     ctx.beginPath();
     ctx.fillRect(90, 40, 120, 20);
 
     ctx.fillStyle = "#000000";
     ctx.font = "30px monospace";
-    elapsedTime = parseInt((new Date().getTime() - startTime) / 100, 10);
     var timeString = formatTime(elapsedTime);
     ctx.beginPath();
     ctx.fillText(timeString, 90, 60);
