@@ -14,19 +14,20 @@ function paused() {
     canvas.addEventListener("click", tapped, false);
 
     function tapped(event) {
-        var x = event.x - canvas.offsetLeft;
-        var y = event.y - canvas.offsetTop;
+        setResponMargins();
+        var x = event.x;
+        var y = event.y;
 
-        if (x > 90 && x < 240 && y > 180 && y < 255) {
+       if (x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
             canvas.removeEventListener("click", tapped, false);
             sfx2.play();
             game();
-        } else if (x > 90 && x < 240 && y > 260 && y < 335) {
+        } else if(x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin)  && y > (260  * heightFactor + topMargin) && y < (335 * heightFactor + topMargin)) {
             // alert("Restart game!");
             canvas.removeEventListener("click", tapped, false);
             sfx2.play();
             newGame();
-        } else if (x > 90 && x < 240 && y > 340 && y < 415) {
+        } else if(x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) && y > (340 * heightFactor + topMargin) && y < (415 * heightFactor + topMargin)) {
             // alert("go home");
             canvas.removeEventListener("click", tapped, false);
             sfx1.play();
