@@ -58,15 +58,15 @@ canvas {
 }
 #addName {
     position: absolute;
-    padding-left:  11%;
-    padding-top: 41%;
+    left:  42%;
+    top: 49%;
     display: none;
 }
 
 #submitButton {
     position: absolute;
-    padding-left: 16%;
-    padding-top: 41%;
+    left: 60%;
+    top: 49%;
     display: none;
 }
 .hide { 
