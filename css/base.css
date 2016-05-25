@@ -1,19 +1,24 @@
-.wrapper {
-   padding: 0;
-   width: 100%;
-   height: auto;
-   position: absolute;
-   left: 0;
-   right: auto;
-   top: 0;
-   min-width: 320px;
-   min-height: 480px;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F2EFCC;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: relative;
+    min-width: 320px;
+    min-height: 480px;
 }
-#main, #leaderboardInput {
-   position: relative;
-   height: 100vh;
-   min-width: 320px;
-   min-height: 480px;
+#main {
+    position: absolute;
+    height: 100vh;
+    min-width: 320px;
+    min-height: 480px;
+    width: 100%;
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 #mainCanvas {
    width: auto;
@@ -21,21 +26,14 @@
    background-color: #F2EFCC;
 }
 
-body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-color: #F2EFCC;
-   overflow-y: hidden;
-   overflow-x: hidden;
+#images {
+    clear: left;
 }
 canvas {
     margin: auto;
     padding: 0;
     border: none;
     background-image: url("../img/background/bg.jpg");
-    display: block;
 }
 #easterEgg {
     border: none;
