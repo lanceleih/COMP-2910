@@ -42,41 +42,15 @@ function drawColorInventory() {
     ctx.fillRect(240, 410, 30, 40);
 }
 
+function validateColorInventory() {
+    for (var i = 0; i < palette.length; i++) {
+        if (palette[i] === 0)
+            return false;
+    }
+    return true;
+}
+
 function initializeColorInventory() {
-    if (max_tile == 16) {
-        colorInventory[0] = 4;
-        colorInventory[1] = 4;
-        colorInventory[2] = 4;
-        colorInventory[3] = 4;
-    }
-    else if (max_tile == 25) {
-        colorInventory[0] = 7;
-        colorInventory[1] = 6;
-        colorInventory[2] = 6;
-        colorInventory[3] = 6;
-    }
-    else if (max_tile == 36) {
-        colorInventory[0] = 10;
-        colorInventory[1] = 9;
-        colorInventory[2] = 10;
-        colorInventory[3] = 7;
-    }
-    else if (max_tile == 32) {
-        colorInventory[0] = 8;
-        colorInventory[1] = 8;
-        colorInventory[2] = 8;
-        colorInventory[3] = 8;
-    }
-    else if (max_tile == 24) {
-        colorInventory[0] = 6;
-        colorInventory[1] = 6;
-        colorInventory[2] = 6;
-        colorInventory[3] = 6;
-    }
-    else {
-        colorInventory[0] = 7;
-        colorInventory[1] = 6;
-        colorInventory[2] = 6;
-        colorInventory[3] = 6;
-    }
+    for (var i = 0; i < colorInventory.length; i++)
+        colorInventory[i] = 0;
 }

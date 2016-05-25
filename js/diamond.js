@@ -22,6 +22,50 @@ function initializeDiamondArray() {
     }
 }
 
+function randomizeDiamondTiles() {
+    for (var i = 0; i < max_row; i++) {
+        for (var j = 0; j < max_col; j++) {
+            // first row tiles have not top left or top right neighbors
+            if (i == 0) {
+                currentColor = Math.floor(Math.random() * 4);
+            }
+            else {
+                var row = (i - 1 >= 0) ? i - 1 : 0;
+                var topLeftNeighbor;
+                var topRightNeighbor;
+                // if even row
+                if (i % 2 == 1) {
+                    // -1, 0
+                    topLeftNeighbor = j;
+                    //  -1, +1
+                    topRightNeighbor = (j + 1 < max_col) ? j + 1 : j;
+                }
+                else {
+                    // -1, -1
+                    topLeftNeighbor = (j - 1 >= 0) ? j - 1 : 0;
+                    // -1, 0
+                    topRightNeighbor = j;
+                }
+                var topLeftColor = tiles[row][topLeftNeighbor].color;
+                var topRightColor = tiles[row][topRightNeighbor].color;
+                var currentColor = -1;
+                // Get random color, if it's the same color with the top neighbor or left neighbor, do it again
+                do {
+                    currentColor = Math.floor(Math.random() * 4);
+                } while (currentColor === topLeftColor || currentColor === topRightColor);
+            }
+            // After you confirmed this tile's color, increment count in the color inventory
+            tiles[i][j].color = currentColor;
+            colorInventory[currentColor]++;
+        }
+    }
+}
+
+function drawFixedDiamondTiles() {
+    // drawing fixed diamond tiles uses the same code as drawing fixed square tiles
+    drawFixedSquareTiles();
+}
+
 function getDiamondTile(coordX, coordY) {
     for (var i = 0; i < max_row; i++) {
         for (var j = 0; j < max_col; j++) {
