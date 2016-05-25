@@ -13,8 +13,10 @@ function selectShape() {
     ctx.drawImage(img, 180, 180, 125, 100);
     var img = document.getElementById("hexButton");
     ctx.drawImage(img, 20, 300, 125, 100);
+    var img = document.getElementById("tutorial");
+    ctx.drawImage(img, 180, 300, 125, 100);
     var img = document.getElementById("backButton");
-    ctx.drawImage(img, 0, 0, 100, 50);
+    ctx.drawImage(img, 0, 0, 100, 50);   
 
     canvas.addEventListener("click", getPosition, false);
 
@@ -42,6 +44,8 @@ function selectShape() {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             selectDifficulty();
+        } else if (x > 180 * widthFactor + leftMargin && x < 305 * widthFactor + leftMargin && y > 300 * heightFactor + topMargin && y < 400 * heightFactor + topMargin) {
+            // Tutorial
         } else if (x > 15 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 15 * heightFactor + topMargin && y < 40 * heightFactor + topMargin) {
             // back to home
             canvas.removeEventListener("click", getPosition, false);
