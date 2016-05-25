@@ -23,6 +23,64 @@ function initializeHexagonArray() {
     }
 }
 
+function randomizeHexagonTiles() {
+    for (var i = 0; i < max_row; i++) {
+        for (var j = 0; j < max_col; j++) {
+            var row = (i - 1 >= 0) ? i - 1 : 0;
+            // 0, -1
+            var leftNeighbor = (j - 1 >= 0) ? j - 1 : 0;
+            var topLeftNeighbor;
+            var topRightNeighbor;
+            // if even row
+            if (i % 2 == 1) {
+                // -1, 0
+                topLeftNeighbor = j;
+                //  -1, +1
+                topRightNeighbor = (j + 1 < max_col) ? j + 1 : j;
+            }
+            else {
+                // -1, -1
+                topLeftNeighbor = (j - 1 >= 0) ? j - 1 : 0;
+                // -1, 0
+                topRightNeighbor = j;
+            }
+            var topLeftColor = tiles[row][topLeftNeighbor].color;
+            var topRightColor = tiles[row][topRightNeighbor].color;
+            var leftColor = tiles[i][leftNeighbor].color;
+            var currentColor = -1;
+            // Get random color, if it's the same color with the top neighbor or left neighbor, do it again
+            do {
+                currentColor = Math.floor(Math.random() * 4);
+            } while (currentColor === topLeftColor || currentColor === topRightColor || currentColor === leftColor);
+            // After you confirmed this tile's color, increment count in the color inventory
+            tiles[i][j].color = currentColor;
+            colorInventory[currentColor]++;
+        }
+    }
+}
+
+function drawFixedHexagonTiles() {
+    for (var i = 0; i < max_row; i++) {
+        for (var j = 0; j < max_col; j++) {
+            if (tiles[i][j].fixed === true) {
+                ctx.strokeStyle = "#000000";
+                // draw \ on fixed tile
+                ctx.beginPath();
+                ctx.moveTo(tiles[i][j].coordinates.p6.x + 11, tiles[i][j].coordinates.p6.y - 7);
+                ctx.lineTo(tiles[i][j].coordinates.p3.x - 11, tiles[i][j].coordinates.p3.y + 7);
+                ctx.stroke();
+                ctx.closePath();
+                // draw / on fixed tile
+                ctx.beginPath();
+                ctx.moveTo(tiles[i][j].coordinates.p2.x - 11, tiles[i][j].coordinates.p2.y - 7);
+                ctx.lineTo(tiles[i][j].coordinates.p5.x + 11, tiles[i][j].coordinates.p5.y + 7);
+                ctx.stroke();
+                ctx.closePath();
+            }
+        }
+    }
+}
+
 function getHexagonTile(coordX, coordY) {
     for (var i = 0; i < max_row; i++) {
         for (var j = 0; j < max_col; j++) {

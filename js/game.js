@@ -1,6 +1,7 @@
 function newGame() {
     initializePositions();
     initializeGame();
+    // insert countdown animation
     game();
 }
 
@@ -100,38 +101,53 @@ function initializeGame() {
             initializeHexagonArray();
             break;
     }
-    initializeColorInventory();
-    initializeFixedTiles();
+
+    do {
+        initializeColorInventory();
+        randomizeTiles();
+    } while (!validateColorInventory());
+    randomizeFixedTiles();
+    cleanBoard();
 }
 
-function initializeFixedTiles() {
-    tiles[0][0].fixed = true;
-    tiles[0][0].color = 0;
-    colorInventory[0]--;
-    tilesColored++;
-    tiles[1][1].fixed = true;
-    tiles[1][1].color = 1;
-    colorInventory[1]--;
-    tilesColored++;
-    tiles[2][2].fixed = true;
-    tiles[2][2].color = 2;
-    colorInventory[2]--;
-    tilesColored++;
-    tiles[3][3].fixed = true;
-    tiles[3][3].color = 3;
-    colorInventory[3]--;
-    tilesColored++;
-    if (difficulty > 0) {
-        tiles[4][4].fixed = true;
-        tiles[4][4].color = 0;
-        colorInventory[0]--;
-        tilesColored++;
+function randomizeTiles() {
+    switch (shape) {
+        case 0: 
+            randomizeSquareTiles();
+            break;
+        case 1:
+            randomizeDiamondTiles();
+            break;
+        case 2:
+            randomizeHexagonTiles();
+            break;
+        default:
+            alert("Error: shape is not set");
+            break;
     }
-    if (difficulty > 1) {
-        tiles[5][5].fixed = true;
-        tiles[5][5].color = 1;
-        colorInventory[1]--;
-        tilesColored++;
+}
+
+function randomizeFixedTiles() {
+    var count = Math.floor(Math.sqrt(max_tile));
+    while (count > 0) {
+        var num = Math.floor(Math.random() * max_tile);
+        var row = ~~(num / max_row);
+        var col = num % max_col;
+        if (tiles[row][col].fixed == false) {
+            tiles[row][col].fixed = true;
+            count--;
+            colorInventory[tiles[row][col].color]--;
+            tilesColored++;
+        }
+    }
+}
+
+function cleanBoard() {
+    for (var i = 0; i < max_row; i++) {
+        for (var j = 0; j < max_col; j++) {
+            if (tiles[i][j].fixed == false)
+                tiles[i][j].color = -1;
+        }
     }
 }
 
@@ -145,7 +161,7 @@ function game() {
     // drawComponent();
     drawTiles();
     drawColorInventory();
-    drawFixedTile();
+    drawFixedTiles();
     drawRemainingColors();
     createPauseBtn();
     createTimer();
@@ -162,7 +178,7 @@ function drawTiles() {
                 tileColor = default_color;
             }
             else {
-                tileColor = palette[tiles[i][j].color];
+                tileColor = palette[2][tiles[i][j].color];
             }
             ctx.fillStyle = tileColor;
             ctx.beginPath();
@@ -178,13 +194,22 @@ function drawTiles() {
             ctx.fill();
             ctx.stroke();
             ctx.closePath();
+
+            // draw array index
+            // ctx.font = "15px Arial";
+            // ctx.fillStyle = "#000000";
+            // ctx.beginPath();
+            // ctx.fillText(i + ", " + j, tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
         }
     }
 }
 
 function clickGame(event) {
+    setResponMargins();
     var canvas_x = event.pageX - canvas.offsetLeft;
     var canvas_y = event.pageY - canvas.offsetTop;
+    var x = event.pageX;
+    var y = event.pageY;
     // clicks game board
     if (canvas_x > board_x && canvas_x < board_x + board_width && canvas_y > board_y && canvas_y < board_y + board_height) {
         var tile = getTile(canvas_x, canvas_y);
@@ -193,7 +218,7 @@ function clickGame(event) {
                 sfx3.play();
                 fillTile(tile);
             }
-    } else if (canvas_x > pause_x && canvas_x < pause_x + pause_width && canvas_y > pause_y && canvas_y < pause_y + pause_height) {
+    } else if (x > pause_x * widthFactor + leftMargin && x < ((pause_x * widthFactor + leftMargin) + (pause_width * widthFactor)) && y > pause_y * heightFactor + topMargin && y < ((pause_y * heightFactor + topMargin) + (pause_height * heightFactor))) {
         // clicks pause button
         canvas.removeEventListener("mouseup", clickGame, false);
         clearInterval(gameTimer);
@@ -206,6 +231,8 @@ function clickGame(event) {
         if (validateGame() === true) {
             canvas.removeEventListener("mouseup", clickGame, false);
             clearInterval(gameTimer);
+            // THIS IS WHERE I SHOULD PUT IN COUNTER FOR UNLOCKABLE -- DAN
+            unlockPack();
             gameResult();
         }
     }
@@ -234,7 +261,7 @@ function fillTile(tile) {
     if (newColor === -1) {
         ctx.fillStyle = default_color;
     } else {
-        ctx.fillStyle = palette[newColor];
+        ctx.fillStyle = palette[2][newColor];
     }
     //ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
     ctx.beginPath();
@@ -277,57 +304,28 @@ function getNextColor(colorIndex) {
     }
 }
 
-function drawFixedTile() {
-    for (var i = 0; i < max_row; i++) {
-        for (var j = 0; j < max_col; j++) {
-            if (tiles[i][j].fixed === true) {
-                ctx.strokeStyle = "#000000";
-                switch (shape) {
-                    case 0:
-                        // draw \ on fixed tile
-                        ctx.beginPath();
-                        ctx.moveTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
-                        ctx.lineTo(tiles[i][j].coordinates.p3.x, tiles[i][j].coordinates.p3.y);
-                        ctx.stroke();
-                        ctx.closePath();
-                        // draw / on fixed tile
-                        ctx.beginPath();
-                        ctx.moveTo(tiles[i][j].coordinates.p2.x, tiles[i][j].coordinates.p2.y);
-                        ctx.lineTo(tiles[i][j].coordinates.p4.x, tiles[i][j].coordinates.p4.y);
-                        ctx.stroke();
-                        ctx.closePath();
-                        break;
-                    case 1:
-                        // draw | on fixed tile
-                        ctx.beginPath();
-                        ctx.moveTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
-                        ctx.lineTo(tiles[i][j].coordinates.p3.x, tiles[i][j].coordinates.p3.y);
-                        ctx.stroke();
-                        ctx.closePath();
-                        // draw - on fixed tile
-                        ctx.beginPath();
-                        ctx.moveTo(tiles[i][j].coordinates.p2.x, tiles[i][j].coordinates.p2.y);
-                        ctx.lineTo(tiles[i][j].coordinates.p4.x, tiles[i][j].coordinates.p4.y);
-                        ctx.stroke();
-                        ctx.closePath();
-                        break;
-                    case 2:
-                        // draw \ on fixed tile
-                        ctx.beginPath();
-                        ctx.moveTo(tiles[i][j].coordinates.p6.x + 11, tiles[i][j].coordinates.p6.y - 7);
-                        ctx.lineTo(tiles[i][j].coordinates.p3.x - 11, tiles[i][j].coordinates.p3.y + 7);
-                        ctx.stroke();
-                        ctx.closePath();
-                        // draw / on fixed tile
-                        ctx.beginPath();
-                        ctx.moveTo(tiles[i][j].coordinates.p2.x - 11, tiles[i][j].coordinates.p2.y - 7);
-                        ctx.lineTo(tiles[i][j].coordinates.p5.x + 11, tiles[i][j].coordinates.p5.y + 7);
-                        ctx.stroke();
-                        ctx.closePath();
-                        break;
-                }
-            }
-        }
+function drawFixedTiles() {
+    switch (shape) {
+        case 0:
+            drawFixedSquareTiles();
+            break;
+        case 1:
+            drawFixedDiamondTiles();
+            break;
+        case 2:
+            drawFixedHexagonTiles();
+            break;
+        default:
+            alert("Error, shape is not set.");
     }
 }
 
+function unlockPack(){
+    if (shape == 0){
+        gamesSqu++;
+    } else if (shape == 1) {
+        gamesDia++;
+    } else if (shape == 2) {
+        gamesHex++;
+    }
+}
