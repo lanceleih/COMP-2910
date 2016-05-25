@@ -41,7 +41,7 @@ function setResponMargins() {
     canvasHeight = canvas.scrollHeight;
     docWidth = $(window).width();
     docHeight = $(window).height();
-    leftMargin = ((docWidth - canvasWidth) * 0.55);
+    leftMargin = ((docWidth - canvasWidth) * 0);
     if(docWidth < 800) {
         leftMargin = 0;
     }
