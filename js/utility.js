@@ -33,3 +33,4 @@ function drawComponent() {
     // color inventory border
     ctx.strokeRect(inventory_x, inventory_y, inventory_width, inventory_height);
 }
+
