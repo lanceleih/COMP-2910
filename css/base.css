@@ -1,20 +1,15 @@
 .wrapper {
-   display: table;
    padding: 0;
    width: 100%;
    height: auto;
    position: absolute;
+   left: 35%;
+   right: auto;
    top: 0;
-}
-.container {
-   display: table-cell;
-   vertical-align: middle;
 }
 #main {
    position: relative;
-   width: 50%;
    min-width: 320px;
-   margin: 0 auto;
    height: 100vh;
 }
 #mainCanvas {
@@ -36,7 +31,6 @@ canvas {
     margin: auto;
     padding: 0;
     border: none;
-    background-color: #F2EFCC;
     background-image: url("../img/background/bg.jpg");
 }
 #easterEgg {

@@ -38,8 +38,8 @@ function setResponMargins() {
     heightFactor = canvas.scrollHeight / canvas.height;
     canvasWidth = canvas.scrollWidth;
     canvasHeight = canvas.scrollHeight;
-    docWidth = $(document).width();
-    docHeight = $(document).height();
+    docWidth = $(window).width();
+    docHeight = $(window).height();
     leftMargin = ((docWidth - canvasWidth) / 2);
     topMargin = (docHeight - canvasHeight);
 }
