@@ -34,6 +34,10 @@ var difficulty;
 * Number of games played*/
 var gamesPlayed = [0, 0, 0];
 
+var gamesSqu = 0;
+var gamesDia = 0;
+var gamesHex = 0;
+
 /*Colour Inventory*/
 // Jungle Love
 var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
