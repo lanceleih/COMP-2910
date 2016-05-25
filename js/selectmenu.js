@@ -36,7 +36,7 @@ function selectShape() {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             selectDifficulty();
-        } else if (x > 20 * widthFactor + leftMargin && x * widthFactor + leftMargin < 145 && y > 300 * heightFactor + topMargin && y < 400 * heightFactor + topMargin) {
+        } else if (x > 20 * widthFactor + leftMargin && x < 145 * widthFactor + leftMargin && y > 300 * heightFactor + topMargin && y < 400 * heightFactor + topMargin) {
             // hexagon shape
             shape = 2;
             canvas.removeEventListener("click", getPosition, false);
