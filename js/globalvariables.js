@@ -30,19 +30,30 @@ var shape;
 /*0=easy 1=medium 2=hard*/
 var difficulty;
 
+
+// Number of games played*
+var gamesSqu = 0;
+var gamesDia = 0;
+var gamesHex = 0;
+
 /*Colour Inventory*/
 // Jungle Love
-var palette0 = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
+var paletteA = ["#998365", "#56FF6F", "#FF80DC", "#FEF216"];
 // Autumn's Splendor
-var palette1 = ["#BEDFBD", "#51545B", "#FAD0B8", "#BCC4C7"];
+var paletteB = ["#BEDFBD", "#51545B", "#FAD0B8", "#BCC4C7"];
 // Pacman Ghosts
-var palette2 = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
+var paletteC = ["#EF1921", "#00FFE1", "#FEBDDD", "#FFBE44"];
 // Beer Goggles for now
-var palette3 = ["#FFCC00", "#BDDFBB", "#688315", "#B15515"];
+var paletteD = ["#FFCC00", "#BDDFBB", "#688315", "#B15515"];
 // Ice Cream Desserts
-var palette4 = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
+var paletteE = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 // R/G Colour Blind Palette
 var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"];
+// Locked palette
+var paletteF = ["#333333", "#666666", "#999999", "#CCCCCC"];
+
+
+
 var preload = [
     //Default volume icons
     "../img/volume/volumeone.png", //0
@@ -71,9 +82,10 @@ var preload = [
     "../img/background/pacmanghostpanel.jpg", //19
     "../img/background/beergogglespanel.jpg", //20
     "../img/background/icecreampanel.jpg", //21
+    "../img/background/lockedimage.jpg", //22
     //Easter Egg
-    "../img/background/eastereggpanel.jpg", //22
-    "../img/background/eastereggtitle.png" //23
+    "../img/background/eastereggpanel.jpg", //23
+    "../Unused/icons/easterEggTitle.png" //24
 ];
 
 var images = [];
@@ -81,15 +93,26 @@ for (i = 0; i < preload.length; i++) {
     images[i] = new Image();
     images[i].src = preload[i];
 }
+//Jungle love array
+var palette0 = [images[12], images[17], paletteA, true];
+//Autumn's splendor array
+var palette1 = [images[13], images[18], paletteB, true];
+//Pacman Ghost array
+var palette2 = [images[14], images[19], paletteC, true];
+//Beer Goggles array
+var palette3 = [images[15], images[20], paletteD, true];
+//Ice Cream desserts array
+var palette4 = [images[16], images[21], paletteE, true];
+//Locked array
+var palette5 = [images[12], images[22], paletteF, false];
 
-var paletteTitle = images[16];
+var paletteTitle = palette4[0];
 var storeImg = null;
 var storePaletteTitle = null;
 var storePalette = null;
-var paletteImg = images[21];
+var paletteImg = palette4[1];
 var colourModeStateFill = "#FFFFFF";
 var colourModeState = false;
-
 
 var bgmState1 = images[5];
 var bgmState2 = images[1];
