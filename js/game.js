@@ -216,7 +216,7 @@ function clickGame(event) {
     var x = event.pageX;
     var y = event.pageY;
     // clicks game board
-    if (canvas_x > board_x && canvas_x < board_x + board_width && canvas_y > board_y && canvas_y < board_y + board_height) {
+    if (canvas_x > (board_x * widthFactor) && canvas_x < ((board_x * widthFactor) + (board_width * widthFactor)) && canvas_y > (board_y * heightFactor) && canvas_y < ((board_y * heightFactor) + (board_height * heightFactor))) {
         var tile = getTile(canvas_x, canvas_y);
         if (tile != null)
             if (tile.fixed === false) {
@@ -273,7 +273,7 @@ function fillTile(tile) {
         //ctx.fillStyle = palette[newColor];
         //ctx.fillStyle = palette[2][newColor];
     }
-
+    ctx.strokeStyle = "#000000";
     //ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
     ctx.beginPath();
     // ctx.rect(tile.x, tile.y, tile.width, tile.height);
