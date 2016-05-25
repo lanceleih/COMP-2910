@@ -145,22 +145,33 @@ function startColourSettings() {
         if (palette == palette0) {
             palette = palette4;
         }
-        else if (palette == palette4) {
-            palette = palette5;
-        }
-        else if (palette == palette5) {
+        else if (palette == palette5){
             palette = palette0;
         }
+        else if (palette == palette6) {
+            palette = palette5;
+        }
+        else if (palette == palette7) {
+            palette = palette6;
+        }
+        else if (palette == palette4){
+            palette = palette7;
+        }
     }
-
     function state0Right(){
         if (palette == palette0) {
             palette = palette5;
         }
-        else if (palette == palette5) {
+        else if (palette == palette5){
+            palette = palette6;
+        }
+        else if (palette == palette6) {
+            palette = palette7;
+        }
+        else if (palette == palette7) {
             palette = palette4;
         }
-        else if (palette == palette4) {
+        else if (palette == palette4){
             palette = palette0;
         }
     }
@@ -170,27 +181,33 @@ function startColourSettings() {
         if (palette == palette0) {
             palette = palette4;
         }
-        else if(palette == palette1){
+        else if (palette == palette1){
             palette = palette0;
         }
-        else if (palette == palette4) {
-            palette = palette5;
-        }
-        else if (palette == palette5) {
+        else if (palette == palette6) {
             palette = palette1;
+        }
+        else if (palette == palette7) {
+            palette = palette6;
+        }
+        else if (palette == palette4){
+            palette = palette7;
         }
     }
     function state1Right() {
         if (palette == palette0) {
             palette = palette1;
         }
-        else if (palette == palette1) {
-            palette = palette5;
+        else if (palette == palette1){
+            palette = palette6;
         }
-        else if (palette == palette5) {
+        else if (palette == palette6) {
+            palette = palette7;
+        }
+        else if (palette == palette7) {
             palette = palette4;
         }
-        else if (palette == palette4) {
+        else if (palette == palette4){
             palette = palette0;
         }
     }

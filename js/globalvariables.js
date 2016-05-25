@@ -103,8 +103,12 @@ var palette2 = [images[14], images[19], paletteC, true];
 var palette3 = [images[15], images[20], paletteD, true];
 //Ice Cream desserts array
 var palette4 = [images[16], images[21], paletteE, true];
-//Locked array
-var palette5 = [images[12], images[22], paletteF, false];
+//Locked Autumn array
+var palette5 = [images[12], images[18], paletteF, false];
+//Locked Pacman Ghost Array
+var palette6 = [images[12], images[19], paletteF, false];
+//Locked Beer Goggles Array
+var palette7 = [images[12], images[20], paletteF, false];
 
 var paletteTitle = palette4[0];
 var storeImg = null;
