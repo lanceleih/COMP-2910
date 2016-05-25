@@ -325,7 +325,7 @@ function unlockPack(){
         gamesSqu++;
     } else if (shape == 1) {
         gamesDia++;
-    } else if (shape == 1) {
+    } else if (shape == 2) {
         gamesHex++;
     }
 }
