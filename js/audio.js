@@ -114,7 +114,7 @@ function startAudioSettings() {
         }
 
         //Bgm Mute button
-        if (x > 110 && x < 210 && y > 220 && y < 260) {
+        if (x >(110 * widthFactor + leftMargin) && x < (210 * widthFactor + leftMargin)&& y >(220 * heightFactor + topMargin) && y < (260 * heightFactor + topMargin)) {
             muteBgm();
 
             bgmState1 = images[0];
@@ -132,7 +132,7 @@ function startAudioSettings() {
         }
 
         //Bgm Volume1 selected
-        if (x > 55 && x < 90 && y > 175 && y < 215) {
+        if (x > (55 * widthFactor + leftMargin) && x < (90 * widthFactor + leftMargin) && y >(175 * heightFactor + topMargin) && y < (215 * heightFactor + topMargin)) {
             //alert("volume1");
             bgm.volume = 0.2;
             bgmState1 = images[5];
@@ -151,7 +151,7 @@ function startAudioSettings() {
 
         }
         //Bgm Volume2 selected
-        if (x > 100 && x < 140 && y > 175 && y < 215) {
+        if (x > (100 * widthFactor + leftMargin) && x < (140 * widthFactor + leftMargin) && y > (175 * heightFactor + topMargin) && y < (215 * heightFactor + topMargin)) {
             // alert("volume2");
             bgm.volume = 0.4;
             bgmState1 = images[0];
@@ -168,7 +168,7 @@ function startAudioSettings() {
             drawBgmMuteButton();
         }
         //Bgm Volume3 selected
-        if (x > 145 && x < 185 && y > 175 && y < 215) {
+        if (x > (145 * widthFactor + leftMargin) && x < (185 * widthFactor + leftMargin) && y > (175 * heightFactor + topMargin) && y <(215 * heightFactor + topMargin)) {
             // alert("volume3");
             bgm.volume = 0.6;
             bgmState1 = images[0];
@@ -185,7 +185,7 @@ function startAudioSettings() {
             drawBgmMuteButton();
         }
         //Bgm Volume4 selected
-        if (x > 190 && x < 230 && y > 175 && y < 215) {
+        if (x > (190 * widthFactor + leftMargin) && x < (230 * widthFactor + leftMargin) && y > (175 * heightFactor + topMargin)  && y < (215 * heightFactor + topMargin) ) {
             //alert("volume4");
             bgm.volume = 0.8;
             bgmState1 = images[0];
@@ -202,7 +202,7 @@ function startAudioSettings() {
             drawBgmMuteButton();
         }
         //Bgm Volume5 selected
-        if (x > 235 && x < 275 && y > 175 && y < 215) {
+        if (x > (235 * widthFactor + leftMargin) && x < (275 * widthFactor + leftMargin) && y > (175 * heightFactor + topMargin)  && y <(215 * heightFactor + topMargin) ) {
             // alert("volume5");
             bgm.volume = 1.0;
             bgmState1 = images[0];
@@ -222,7 +222,7 @@ function startAudioSettings() {
         //alert(x + " " + y);
 
         //Sfx Volume1 selected
-        if (x > 55 && x < 95 && y > 325 && y < 365) {
+        if (x > (55 * widthFactor + leftMargin) && x < (95 * widthFactor + leftMargin) && y > (325 * heightFactor + topMargin) && y < (365 * heightFactor + topMargin)) {
             //alert("sfx1");
             sfx1.volume = 0.2;
             sfx2.volume = 0.2;
@@ -243,7 +243,7 @@ function startAudioSettings() {
         }
 
         //Sfx Volume2 selected
-        if (x > 100 && x < 140 && y > 325 && y < 365) {
+        if (x > (100 * widthFactor + leftMargin)  && x < (140 * widthFactor + leftMargin)  && y > (325 * heightFactor + topMargin) && y < (365 * heightFactor + topMargin)) {
             //alert("sfx2");
             sfx1.volume = 0.4;
             sfx2.volume = 0.4;
@@ -263,7 +263,7 @@ function startAudioSettings() {
         }
 
         //Sfx Volume3 selected
-        if (x > 145 && x < 185 && y > 325 && y < 365) {
+        if (x > (145 * widthFactor + leftMargin)  && x < (185 * widthFactor + leftMargin)  && y > (325 * heightFactor + topMargin) && y < (365 * heightFactor + topMargin)) {
             //alert("Sfx3");
             sfx1.volume = 0.6;
             sfx2.volume = 0.6;
@@ -283,7 +283,7 @@ function startAudioSettings() {
         }
 
         //Sfx Volume4 selected
-        if (x > 190 && x < 230 && y > 325 && y < 365) {
+        if (x >(190 * widthFactor + leftMargin) && x < (230 * widthFactor + leftMargin) && y > (325 * heightFactor + topMargin)&& y < (365 * heightFactor + topMargin)) {
             //alert("sfx4");
             sfx1.volume = 0.8;
             sfx2.volume = 0.8;
@@ -303,7 +303,7 @@ function startAudioSettings() {
         }
 
         //Sfx Volume5 selected
-        if (x > 235 && x < 275 && y > 325 && y < 365) {
+        if (x > (235 * widthFactor + leftMargin) && x <   (275 * widthFactor + leftMargin)&& y > (325 * heightFactor + topMargin) && y < (365 * heightFactor + topMargin)) {
             //alert("sfx5");
             sfx1.volume = 1.0;
             sfx2.volume = 1.0;
@@ -323,7 +323,7 @@ function startAudioSettings() {
         }
 
         //Sfx Mute button selected
-        if (x > 110 && x < 210 && y > 370 && y < 410) {
+        if (x > (110 * widthFactor + leftMargin) && x < (210 * widthFactor + leftMargin) && y >(370* heightFactor + topMargin)&& y < (410 * heightFactor + topMargin)) {
             muteSfx();
             sfxState1 = images[0];
             sfxState2 = images[1];
