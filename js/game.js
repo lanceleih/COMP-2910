@@ -179,7 +179,7 @@ function drawTiles() {
                 tileColor = default_color;
             }
             else {
-                tileColor = palette[tiles[i][j].color];
+                tileColor = palette[2][tiles[i][j].color];
             }
             //var grd = ctx.createLinearGradient(0,0,tiles[i][j].coordinates.p3.x + tile_width * 2,0);
             var grd = ctx.createRadialGradient(tiles[i][j].coordinates.p2.x,tiles[i][j].coordinates.p2.y,0,tiles[i][j].coordinates.p2.x,tiles[i][j].coordinates.p2.y,tile_width/3);
@@ -236,6 +236,8 @@ function clickGame(event) {
         if (validateGame() === true) {
             canvas.removeEventListener("mouseup", clickGame, false);
             clearInterval(gameTimer);
+            // THIS IS WHERE I SHOULD PUT IN COUNTER FOR UNLOCKABLE -- DAN
+            unlockPack();
             gameResult();
         }
     }
@@ -265,10 +267,11 @@ function fillTile(tile) {
         ctx.fillStyle = default_color;
     } else {
         var grd = ctx.createRadialGradient(tile.coordinates.p2.x,tile.coordinates.p2.y,0,tile.coordinates.p2.x,tile.coordinates.p2.y,tile_width/3);
-        grd.addColorStop(1,palette[newColor]);
+        grd.addColorStop(1,palette[2][newColor]);
         grd.addColorStop(0,"white");
         ctx.fillStyle = grd;
         //ctx.fillStyle = palette[newColor];
+        //ctx.fillStyle = palette[2][newColor];
     }
 
     //ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
@@ -328,3 +331,12 @@ function drawFixedTiles() {
     }
 }
 
+function unlockPack(){
+    if (shape == 0){
+        gamesSqu++;
+    } else if (shape == 1) {
+        gamesDia++;
+    } else if (shape == 2) {
+        gamesHex++;
+    }
+}

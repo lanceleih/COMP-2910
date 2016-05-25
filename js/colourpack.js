@@ -32,19 +32,19 @@ function drawColorInventory() {
     ctx.closePath();
 
     // draw the palette colors
-    ctx.fillStyle = palette[0];
+    ctx.fillStyle = palette[2][0];
     ctx.fillRect(30, 410, 30, 40);
-    ctx.fillStyle = palette[1];
+    ctx.fillStyle = palette[2][1];
     ctx.fillRect(100, 410, 30, 40);
-    ctx.fillStyle = palette[2];
+    ctx.fillStyle = palette[2][2];
     ctx.fillRect(170, 410, 30, 40);
-    ctx.fillStyle = palette[3];
+    ctx.fillStyle = palette[2][3];
     ctx.fillRect(240, 410, 30, 40);
 }
 
 function validateColorInventory() {
-    for (var i = 0; i < palette.length; i++) {
-        if (palette[i] === 0)
+    for (var i = 0; i < palette[2].length; i++) {
+        if (palette[2][i] === 0)
             return false;
     }
     return true;

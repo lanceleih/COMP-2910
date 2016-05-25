@@ -1,34 +1,32 @@
-.wrapper {
-   padding: 0;
-   width: 100%;
-   height: auto;
-   position: absolute;
-   left: 0;
-   right: auto;
-   top: 0;
-   min-width: 320px;
-   min-height: 480px;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F2EFCC;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: relative;
+    min-width: 320px;
+    min-height: 480px;
 }
 #main {
-   position: relative;
-   height: 100vh;
-   min-width: 320px;
-   min-height: 480px;
+    position: absolute;
+    height: 100vh;
+    min-width: 320px;
+    min-height: 480px;
+    width: 100%;
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 #mainCanvas {
    width: auto;
    height: 100%;
    background-color: #F2EFCC;
 }
-
-body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-color: #F2EFCC;
-    overflow-y: hidden;
-    overflow-x: hidden;
+#images {
+    clear: left;
 }
 canvas {
     margin: auto;
@@ -57,15 +55,15 @@ canvas {
 }
 #addName {
     position: absolute;
-    left:  135px;
-    top: 235px;
+    left:  42%;
+    top: 49%;
     display: none;
 }
 
 #submitButton {
     position: absolute;
-    left: 200px;
-    top: 230px;
+    left: 60%;
+    top: 49%;
     display: none;
 }
 .hide { 
@@ -74,25 +72,12 @@ canvas {
     height:0px; 
     display: none;
 }
-
-.leaderboards {
-    background-color: #F2EFCC;
-    background-image: url("../img/background/bg.jpg");
-    position: relative;
-    width: 320px;
-    height: 480px;
+#leaderboardTable {
+    position: absolute;
+    padding-left: 2%;
+    padding-top: 15%;
     display: none;
 }
-.rightLearderboardArrow {
-    position: absolute;
-    right: 0;
-}
-.leftLearderboardArrow {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-}
-
 table th, table td {
     font-size: 1.5em;
     padding: 0 5%; 

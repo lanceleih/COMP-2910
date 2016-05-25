@@ -4,6 +4,7 @@
 bgm.volume = 0.2;
 sfx1.volume = 0.8;
 sfx2.volume = 0.8;
+$(window).resize(setResponMargins);
 function home() {
     bgm.play();
     bgm.loop = true;
