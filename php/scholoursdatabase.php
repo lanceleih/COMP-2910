@@ -27,9 +27,11 @@
     <script src="../js/validategame.js"></script>
 </head>
 <body onload="home()">
-    <div id="main">
-        <canvas id="mainCanvas" width="320" height="480"></canvas>
-    </div>
+<p id="dom-dims"></p>
+        <div id="main">
+          <canvas id="mainCanvas" width="320" height="480"></canvas>
+        </div>
+     
     <!-- Images needed for the home page -->
     <img id="cube" src="../img/icons/cube.png" alt="logo" width="0" height="0">
     <img id="logo" src="../img/title/title.png" alt="logo" width="250" height="250">
@@ -121,102 +123,7 @@
         <input type="submit" name="submit" id="submitButton">
     </form>
 </div>
-<div class="leaderboards" id="leaderboardEasySquareTable">
-    <img src="../img/icons/back.png" id="leaderBack" alt="leaderboard back button" onclick="backEasySquareLeaderboard()" width="100" height="50">
-    <img id="leaderboardEasySquare" src="../img/title/difficultyeasytitle.png" alt="Scholours" width="300" height="50">
-    <?php
-        $servername = "mysql4.000webhost.com";
-        $username = "a7385043_2910";
-        $password = "Scholours16";
-        $db = "a7385043_2910";
-
-        $conn = new mysqli($servername,$username,$password, $db);
-        // mysql_select_db('a7385043_2910') or die( "Unable to select database");
-
-        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='easy' ORDER BY time ASC LIMIT 5"; 
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            echo "<table><tr>".str_repeat("&nbsp;", 4)."<th>Rank</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
-            // output data of each row
-            $rank = 1;
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td>".$rank.str_repeat("&nbsp;", 4)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
-                $rank++;
-            }
-            echo "</table>";
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
-    ?>
-    <img class="leftLeaderboardArrow" onclick="leaderboardEasyToHard()" src="../img/icons/leftarrow.png" alt="left button" height="100" width="50">
-    <img class="rightLearderboardArrow" onclick="leaderboardEasyToMedium()" src="../img/icons/rightarrow.png" alt="right button" height="100" width="50">
-</div>
-<div class="leaderboards" id="leaderboardMediumSquareTable">
-    <img src="../img/icons/back.png" id="leaderBack" alt="leaderboard back button" onclick="backMediumSquareLeaderboard()" width="100" height="50">
-    <img id="leaderboardMediumSquare" src="../img/title/difficultymediumtitle.png" alt="Scholours" width="300" height="50">
-    <?php
-        $servername = "mysql4.000webhost.com";
-        $username = "a7385043_2910";
-        $password = "Scholours16";
-        $db = "a7385043_2910";
-
-        $conn = new mysqli($servername,$username,$password, $db);
-        // mysql_select_db('a7385043_2910') or die( "Unable to select database");
-
-        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='medium' ORDER BY time ASC LIMIT 5";  
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            echo "<table><tr>".str_repeat("&nbsp;", 4)."<th>Rank</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
-            // output data of each row
-            $rank = 1;
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td>".$rank.str_repeat("&nbsp;", 4)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
-                $rank++;
-            }
-            echo "</table>";
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
-    ?>
-    <img class="leftLeaderboardArrow" onclick="leaderboardMediumToEasy()" src="../img/icons/leftarrow.png" alt="left button" height="100" width="50">
-    <img class="rightLearderboardArrow" onclick="leaderboardMediumToHard()" src="../img/icons/rightarrow.png" alt="right button" height="100" width="50">
-</div>
-<div class="leaderboards" id="leaderboardHardSquareTable">
-    <img src="../img/icons/back.png" id="leaderBack" alt="leaderboard back button" onclick="backHardSquareLeaderboard()" width="100" height="50">
-    <img id="leaderboardHardSquare" src="../img/title/difficultyhardtitle.png" alt="Scholours" width="300" height="50">
-    <?php
-        $servername = "mysql4.000webhost.com";
-        $username = "a7385043_2910";
-        $password = "Scholours16";
-        $db = "a7385043_2910";
-
-        $conn = new mysqli($servername,$username,$password, $db);
-        // mysql_select_db('a7385043_2910') or die( "Unable to select database");
-
-        $sql = "SELECT name, time, shape, difficulty FROM leaderboard WHERE shape='square' AND difficulty='hard' ORDER BY time ASC LIMIT 5"; 
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            echo "<table><tr>".str_repeat("&nbsp;", 4)."<th>Rank</th>".str_repeat("&nbsp;", 10)."<th>Name</th>".str_repeat("&nbsp;", 10)."<th>Time</th></tr>";
-            // output data of each row
-            $rank = 1;
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td>".$rank.str_repeat("&nbsp;", 4)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
-                $rank++;
-                
-            }
-            echo "</table>";
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
-    ?>
-    <img class="leftLeaderboardArrow" onclick="leaderboardHardToMedium()" src="../img/icons/leftarrow.png" alt="left button" height="100" width="50">
-    <img class="rightLearderboardArrow" onclick="leaderboardHardToEasy()" src="../img/icons/rightarrow.png" alt="right button" height="100" width="50">
-</div>
+<!-- Show leaderboard for Square Easy -->
+<span id="leaderboardTable"></span>
 </body>
 </html>
