@@ -27,7 +27,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #F2EFCC;
-    overflow: hidden;
 }
 canvas {
     margin: auto;
@@ -35,6 +34,7 @@ canvas {
     border: none;
     background-color: #F2EFCC;
     background-image: url("../img/background/bg.jpg");
+    display: block;
 }
 #easterEgg {
     border: none;
