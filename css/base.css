@@ -55,15 +55,15 @@ canvas {
 }
 #addName {
     position: absolute;
-    left:  11%;
-    top: 41%;
+    padding-left:  11%;
+    padding-top: 41%;
     display: none;
 }
 
 #submitButton {
     position: absolute;
-    left: 16%;
-    top: 41%;
+    padding-left: 16%;
+    padding-top: 41%;
     display: none;
 }
 .hide { 
@@ -74,8 +74,8 @@ canvas {
 }
 #leaderboardTable {
     position: absolute;
-    left: 2%;
-    top: 15%;
+    padding-left: 2%;
+    padding-top: 15%;
     display: none;
 }
 table th, table td {
