@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
     <title>Scholours Game</title>
     <link rel="stylesheet" type="text/css" href="../css/base.css">
+    <link rel="stylesheet" media="screen and (min-device-width: 800px)" href="../css/large.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="../js/globalvariables.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/game.js"></script>
@@ -25,12 +27,12 @@
     <script src="../js/validategame.js"></script>
 </head>
 <body onload="home()">
-<div id="main">
-    <canvas id="mainCanvas" width="320" height="480">
-    </canvas>
+    <div id="main">
+        <canvas id="mainCanvas" width="320" height="480"></canvas>
+    </div>
     <!-- Images needed for the home page -->
     <img id="cube" src="../img/icons/cube.png" alt="logo" width="0" height="0">
-    <img id="logo" src="../img/title/title.png" alt="logo" width="0" height="0">
+    <img id="logo" src="../img/title/title.png" alt="logo" width="250" height="250">
     <img id="slogan" src="../img/title/slogan.png" alt="slogan" width="0" height="0">
     <img id="playButton" src="../img/icons/play.png" alt="play button" height="0" width="0">
     <img id="settingsButton" src="../img/icons/settings.png" alt="settings button" height="0" width="0">
@@ -104,15 +106,13 @@
     <img id="easyTitle" src="../img/title/difficultyeasytitle.png" alt="leaderboard diffulty easy title" height="0" width="0">
     <img id="mediumTitle" src="../img/title/difficultymediumtitle.png" alt="leaderboard diffulty medium title" height="0" width="0">
     <img id="hardTitle" src="../img/title/difficultyhardtitle.png" alt="leaderboard diffulty hard title" height="0" width="0">
-</div>
 <div id="easterEgg">
     <img src="../img/icons/back.png" id="easterBack" alt="easter egg back button" onclick="backEaster()" width="100" height="50">
     <img id="logo" src="../img/title/title.png" alt="Scholours" width="250" height="50">
     <img src="../img/docwaylon.gif" id="video" alt="easter egg gif" width="300" height="132">
 </div>
 <div id="leaderboardInput">
-    <iframe name="hiddenFrame" sandbox class="hide"></iframe>
-    <form method="post" action="http://scholours.net23.net/php/addscore.php" onsubmit="changeValues()" target="hiddenFrame">
+    <form method="post" action="http://scholours.net23.net/php/addscore.php" onsubmit="changeValues()">
         <input type="text" name="name" id="addName" size="3">
         <input type="hidden" name="time" id="time">
         <input type="hidden" name="shape" id="shape">
