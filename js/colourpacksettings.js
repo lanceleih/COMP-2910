@@ -431,22 +431,22 @@ function startColourSettings() {
         else if (gamesHex == 0 && gamesDia == 0 && gamesSqu >= 1){
             state1Left();
         }
-        else if (gamesHex == 0 && gamesDia == 1 && gamesSqu >= 0){
+        else if (gamesHex == 0 && gamesDia >= 1 && gamesSqu == 0){
             state2Left();
         }
-        else if (gamesHex == 0 && gamesDia == 1 && gamesSqu >= 1){
+        else if (gamesHex == 0 && gamesDia >= 1 && gamesSqu >= 1){
             state3Left();
         }
-        else if (gamesHex == 1 && gamesDia == 0 && gamesSqu >= 0){
+        else if (gamesHex >= 1 && gamesDia == 0 && gamesSqu == 0){
             state4Left();
         }
-        else if (gamesHex == 1 && gamesDia == 0 && gamesSqu >= 1){
+        else if (gamesHex >= 1 && gamesDia == 0 && gamesSqu >= 1){
             state5Left();
         }
-        else if (gamesHex == 1 && gamesDia == 1 && gamesSqu >= 0){
+        else if (gamesHex >= 1 && gamesDia >= 1 && gamesSqu == 0){
             state6Left();
         }
-        else if (gamesSqu >= 1 && gamesDia == 1 && gamesHex == 1){
+        else if (gamesSqu >= 1 && gamesDia >= 1 && gamesHex >= 1){
             state7Left();
         }
     }
@@ -457,22 +457,22 @@ function startColourSettings() {
         else if (gamesHex == 0 && gamesDia == 0 && gamesSqu >= 1){
             state1Right();
         }
-        else if (gamesHex == 0 && gamesDia == 1 && gamesSqu >= 0){
+        else if (gamesHex == 0 && gamesDia >= 1 && gamesSqu == 0){
             state2Right();
         }
-        else if (gamesHex == 0 && gamesDia == 1 && gamesSqu >= 1){
+        else if (gamesHex == 0 && gamesDia >= 1 && gamesSqu >= 1){
             state3Right();
         }
-        else if (gamesHex == 1 && gamesDia == 0 && gamesSqu >= 0){
+        else if (gamesHex >= 1 && gamesDia == 0 && gamesSqu == 0){
             state4Right();
         }
-        else if (gamesHex == 1 && gamesDia == 0 && gamesSqu >= 1){
+        else if (gamesHex >= 1 && gamesDia == 0 && gamesSqu >= 1){
             state5Right();
         }
-        else if (gamesHex == 1 && gamesDia == 1 && gamesSqu >= 0){
+        else if (gamesHex >= 1 && gamesDia >= 1 && gamesSqu == 0){
             state6Right();
         }
-        else if (gamesSqu >= 1 && gamesDia == 1 && gamesHex == 1){
+        else if (gamesSqu >= 1 && gamesDia >= 1 && gamesHex >= 1){
             state7Right();
         }
     }
