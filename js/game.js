@@ -129,7 +129,7 @@ function randomizeTiles() {
 }
 
 function randomizeFixedTiles() {
-    var count = Math.floor(Math.sqrt(max_tile));
+    var count = Math.floor(Math.pow(max_tile, (2/3)));
     while (count > 0) {
         var num = Math.floor(Math.random() * max_tile);
         var row = ~~(num / max_row);
@@ -181,7 +181,11 @@ function drawTiles() {
             else {
                 tileColor = palette[tiles[i][j].color];
             }
-            ctx.fillStyle = tileColor;
+            //var grd = ctx.createLinearGradient(0,0,tiles[i][j].coordinates.p3.x + tile_width * 2,0);
+            var grd = ctx.createRadialGradient(tiles[i][j].coordinates.p2.x,tiles[i][j].coordinates.p2.y,0,tiles[i][j].coordinates.p2.x,tiles[i][j].coordinates.p2.y,tile_width/3);
+            grd.addColorStop(1,tileColor);
+            grd.addColorStop(0,"white");
+            ctx.fillStyle = grd;
             ctx.beginPath();
             ctx.moveTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
             ctx.lineTo(tiles[i][j].coordinates.p2.x, tiles[i][j].coordinates.p2.y);
@@ -260,8 +264,13 @@ function fillTile(tile) {
     if (newColor === -1) {
         ctx.fillStyle = default_color;
     } else {
-        ctx.fillStyle = palette[newColor];
+        var grd = ctx.createRadialGradient(tile.coordinates.p2.x,tile.coordinates.p2.y,0,tile.coordinates.p2.x,tile.coordinates.p2.y,tile_width/3);
+        grd.addColorStop(1,palette[newColor]);
+        grd.addColorStop(0,"white");
+        ctx.fillStyle = grd;
+        //ctx.fillStyle = palette[newColor];
     }
+
     //ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
     ctx.beginPath();
     // ctx.rect(tile.x, tile.y, tile.width, tile.height);
