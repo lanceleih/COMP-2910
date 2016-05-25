@@ -9,7 +9,7 @@
    min-width: 320px;
    min-height: 480px;
 }
-#main {
+#main, #leaderboardInput {
    position: relative;
    height: 100vh;
    min-width: 320px;
