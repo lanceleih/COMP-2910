@@ -19,29 +19,30 @@ function selectShape() {
     canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
-        var x = event.x - canvas.offsetLeft;
-        var y = event.y - canvas.offsetTop;
+        setResponMargins();
+        var x = event.x;
+        var y = event.y;
 
         //alert(x + ',' + y);
-        if (x > 20 && x < 145 && y > 180 && y < 280) {
+        if (x > 20 * widthFactor + leftMargin && x < 145 * widthFactor + leftMargin && y > 180 * heightFactor + topMargin && y < 280 * heightFactor + topMargin) {
             // square shape
             shape = 0;
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             selectDifficulty();
-        } else if (x > 180 && x < 305 && y > 180 && y < 280) {
+        } else if (x > 180 * widthFactor + leftMargin && x < 305 * widthFactor + leftMargin && y > 180 * heightFactor + topMargin && y < 280 * heightFactor + topMargin) {
             // diamond shape
             shape = 1;
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             selectDifficulty();
-        } else if (x > 20 && x < 145 && y > 300 && y < 400) {
+        } else if (x > 20 * widthFactor + leftMargin && x * widthFactor + leftMargin < 145 && y > 300 * heightFactor + topMargin && y < 400 * heightFactor + topMargin) {
             // hexagon shape
             shape = 2;
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             selectDifficulty();
-        } else if (x > 15 && x < 100 && y > 15 && y < 40) {
+        } else if (x > 15 * widthFactor + leftMargin && x * widthFactor + leftMargin < 100 && y > 15 * heightFactor + topMargin && y < 40 * heightFactor + topMargin) {
             // back to home
             canvas.removeEventListener("click", getPosition, false);
             sfx1.play();
@@ -68,29 +69,30 @@ function selectDifficulty() {
     canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
-        var x = event.x - canvas.offsetLeft;
-        var y = event.y - canvas.offsetTop;
+        setResponMargins();
+        var x = event.x;
+        var y = event.y;
         //alert(x + ',' + y);
 
-        if(x > 90 && x < 240 && y > 180 && y < 255) {
+        if(x > 90 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 180 * heightFactor + topMargin && y < 255 * heightFactor + topMargin) {
             // easy difficulty
             difficulty = 0;
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             newGame();
-        } else if(x > 90 && x < 240 && y > 260 && y < 335) {
+        } else if(x > 90 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 260 * heightFactor + topMargin && y < 335 * heightFactor + topMargin) {
             // medium difficulty
             difficulty = 1;
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             newGame();
-        } else if(x > 90 && x < 240 && y > 340 && y < 415) {
+        } else if(x > 90 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 340 * heightFactor + topMargin && y < 415 * heightFactor + topMargin) {
             // hard difficulty
             difficulty = 2;
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             newGame();
-        } else if(x > 15 && x < 100 && y > 15 && y < 40) {
+        } else if(x > 15 * widthFactor + leftMargin && x * widthFactor + leftMargin < 100 && y > 15 * heightFactor + topMargin && y < 40 * heightFactor + topMargin) {
             // back to select shape
             canvas.removeEventListener("click", getPosition, false);
             sfx1.play();

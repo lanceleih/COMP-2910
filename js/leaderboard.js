@@ -28,25 +28,26 @@ function leaderboardShape() {
     canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
-        var x = event.x - canvas.offsetLeft;
-        var y = event.y - canvas.offsetTop;
+        setResponMargins();
+        var x = event.x;
+        var y = event.y;
         //alert(x + ',' + y);
-        if (x > 20 && x < 145 && y > 180 && y < 280) {
+        if (x > 20 * widthFactor + leftMargin && x < 145 * widthFactor + leftMargin && y > 180 * heightFactor + topMargin && y < 280 * heightFactor + topMargin) {
             // square shape
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showSquareEasy();
-        } else if (x > 180 && x < 305 && y > 180 && y < 280) {
+        } else if (x > 180 * widthFactor + leftMargin && x < 305 * widthFactor + leftMargin && y > 180 * heightFactor + topMargin && y < 280 * heightFactor + topMargin) {
             // diamond shape
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showDiamondEasy();
-        } else if (x > 20 && x < 145 && y > 300 && y < 400) {
+        } else if (x > 20 * widthFactor + leftMargin && x < 145 * widthFactor + leftMargin && y > 300 * heightFactor + topMargin && y < 400 * heightFactor + topMargin) {
             // hexagon shape
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showHexagonEasy();
-        } else if (x > 15 && x < 100 && y > 15 && y < 40) {
+        } else if (x > 15 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 15 * heightFactor + topMargin && y < 40 * heightFactor + topMargin) {
             // back button
             canvas.removeEventListener("click", getPosition, false);
             sfx1.play();
@@ -88,15 +89,15 @@ function showSquareEasy() {
         var x = event.x - canvas.offsetLeft;
         var y = event.y - canvas.offsetTop;
 
-        if(x > 190 && x < 240 && y > 400 && y < 450) {
+        if(x > 190 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showSquareMedium();
-        } else if(x > 70 && x < 120 && y > 400 && y < 450) {
+        } else if(x > 70 * widthFactor + leftMargin && x < 120 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showSquareHard();
-        } else if(x > 0 && x < 100 && y > 0 && y < 50) {
+        } else if(x > 0 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 0 * heightFactor + topMargin && y < 50 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             leaderboardShape();
@@ -134,15 +135,15 @@ function showSquareMedium() {
         var x = event.x - canvas.offsetLeft;
         var y = event.y - canvas.offsetTop;
 
-        if(x > 190 && x < 240 && y > 400 && y < 450) {
+        if(x > 190 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showSquareHard();
-        } else if(x > 70 && x < 120 && y > 400 && y < 450) {
+        } else if(x > 70 * widthFactor + leftMargin && x < 120 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showSquareEasy();
-        } else if(x > 0 && x < 100 && y > 0 && y < 50) {
+        } else if(x > 0 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 0 * heightFactor + topMargin && y < 50 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             leaderboardShape();
@@ -180,15 +181,15 @@ function showSquareHard() {
         var x = event.x - canvas.offsetLeft;
         var y = event.y - canvas.offsetTop;
 
-        if(x > 190 && x < 240 && y > 400 && y < 450) {
+        if(x > 190 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showSquareEasy();
-        } else if(x > 70 && x < 120 && y > 400 && y < 450) {
+        } else if(x > 70 * widthFactor + leftMargin && x < 120 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showSquareMedium();
-        } else if(x > 0 && x < 100 && y > 0 && y < 50) {
+        } else if(x > 0 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 0 * heightFactor + topMargin && y < 50 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             leaderboardShape();
@@ -229,15 +230,15 @@ function showDiamondEasy() {
         var x = event.x - canvas.offsetLeft;
         var y = event.y - canvas.offsetTop;
 
-        if(x > 190 && x < 240 && y > 400 && y < 450) {
+        if(x > 190 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showDiamondMedium();
-        } else if(x > 70 && x < 120 && y > 400 && y < 450) {
+        } else if(x > 70 * widthFactor + leftMargin && x < 120 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showDiamondHard();
-        } else if(x > 0 && x < 100 && y > 0 && y < 50) {
+        } else if(x > 0 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 0 * heightFactor + topMargin && y < 50 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             leaderboardShape();
@@ -277,15 +278,15 @@ function showDiamondMedium() {
         var x = event.x - canvas.offsetLeft;
         var y = event.y - canvas.offsetTop;
 
-        if(x > 190 && x < 240 && y > 400 && y < 450) {
+        if(x > 190 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showDiamondHard();
-        } else if(x > 70 && x < 120 && y > 400 && y < 450) {
+        } else if(x > 70 * widthFactor + leftMargin && x < 120 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showDiamondEasy();
-        } else if(x > 0 && x < 100 && y > 0 && y < 50) {
+        } else if(x > 0 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 0 * heightFactor + topMargin && y < 50 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             leaderboardShape();
@@ -325,15 +326,15 @@ function showDiamondHard() {
         var x = event.x - canvas.offsetLeft;
         var y = event.y - canvas.offsetTop;
 
-        if(x > 190 && x < 240 && y > 400 && y < 450) {
+        if(x > 190 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showDiamondEasy();
-        } else if(x > 70 && x < 120 && y > 400 && y < 450) {
+        } else if(x > 70 * widthFactor + leftMargin && x < 120 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showDiamondMedium();
-        } else if(x > 0 && x < 100 && y > 0 && y < 50) {
+        } else if(x > 0 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 0 * heightFactor + topMargin && y < 50 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             leaderboardShape();
@@ -374,15 +375,15 @@ function showHexagonEasy() {
         var x = event.x - canvas.offsetLeft;
         var y = event.y - canvas.offsetTop;
 
-        if(x > 190 && x < 240 && y > 400 && y < 450) {
+        if(x > 190 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showHexagonMedium();
-        } else if(x > 70 && x < 120 && y > 400 && y < 450) {
+        } else if(x > 70 * widthFactor + leftMargin && x < 120 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showHexagonHard();
-        } else if(x > 0 && x < 100 && y > 0 && y < 50) {
+        } else if(x > 0 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 0 * heightFactor + topMargin && y < 50 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             leaderboardShape();
@@ -422,15 +423,15 @@ function showHexagonMedium() {
         var x = event.x - canvas.offsetLeft;
         var y = event.y - canvas.offsetTop;
 
-        if(x > 190 && x < 240 && y > 400 && y < 450) {
+        if(x > 190 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showHexagonHard();
-        } else if(x > 70 && x < 120 && y > 400 && y < 450) {
+        } else if(x > 70 * widthFactor + leftMargin && x < 120 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showHexagonEasy();
-        } else if(x > 0 && x < 100 && y > 0 && y < 50) {
+        } else if(x > 0 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 0 * heightFactor + topMargin && y < 50 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             leaderboardShape();
@@ -470,15 +471,15 @@ function showHexagonHard() {
         var x = event.x - canvas.offsetLeft;
         var y = event.y - canvas.offsetTop;
 
-        if(x > 190 && x < 240 && y > 400 && y < 450) {
+        if(x > 190 * widthFactor + leftMargin && x < 240 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showHexagonEasy();
-        } else if(x > 70 && x < 120 && y > 400 && y < 450) {
+        } else if(x > 70 * widthFactor + leftMargin && x < 120 * widthFactor + leftMargin && y > 400 * heightFactor + topMargin && y < 450 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             showHexagonMedium();
-        } else if(x > 0 && x < 100 && y > 0 && y < 50) {
+        } else if(x > 0 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 0 * heightFactor + topMargin && y < 50 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             leaderboardShape();

@@ -9,7 +9,7 @@
    display: table-cell;
    vertical-align: middle;
 }
-.canvas-container {
+#main {
    position: relative;
    max-width: 500px;
    min-width: 320px;
@@ -27,6 +27,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #F2EFCC;
+    overflow: hidden;
 }
 canvas {
     margin: auto;
@@ -56,15 +57,15 @@ canvas {
 }
 #addName {
     position: absolute;
-    left:  140px;
-    top: 233px;
+    left:  11%;
+    top: 41%;
     display: none;
 }
 
 #submitButton {
     position: absolute;
-    left: 205px;
-    top: 233px;
+    left: 16%;
+    top: 41%;
     display: none;
 }
 .hide { 
@@ -73,27 +74,12 @@ canvas {
     height:0px; 
     display: none;
 }
-#leaderboardEasySquareTable {
+#leaderboardTable {
     position: absolute;
-    left: 13px;
-    top: 40px;
-}
-.leaderboards {
-    position: relative;.
-    width: 320px;
-    height: 480px;
+    left: 2%;
+    top: 15%;
     display: none;
 }
-.rightLearderboardArrow {
-    position: absolute;
-    right: 0;
-}
-.leftLearderboardArrow {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-}
-
 table th, table td {
     font-size: 1.5em;
     padding: 0 5%; 
