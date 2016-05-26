@@ -15,7 +15,7 @@
             // output data of each row
             $rank = 1;
             while($row = $result->fetch_assoc()) {
-                echo "<tr><td>".$rank.str_repeat("&nbsp;", 4)."</td><td>".$row["name"].str_repeat("&nbsp;", 10)."</td><td>".$row["time"]."</td></tr>";
+                echo "<tr><td>".$rank."</td><td>".$row["name"]."</td><td>".$row["time"]."</td></tr>";
                 $rank++;
             }
             echo "</table>";

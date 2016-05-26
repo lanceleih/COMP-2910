@@ -214,14 +214,14 @@ function clickGame(event) {
     var y = event.pageY;
 
     // clicks game board
-    if (canvas_x > (board_x * widthFactor) && canvas_x < ((board_x * widthFactor) + (board_width * widthFactor)) && canvas_y > (board_y * heightFactor) && canvas_y < ((board_y * heightFactor) + (board_height * heightFactor))) {
+    if (canvas_x > (board_x * widthFactor + leftMargin) && canvas_x < ((board_x * widthFactor + leftMargin) + (board_width * widthFactor + leftMargin)) && canvas_y > (board_y * heightFactor + topMargin) && canvas_y < ((board_y * heightFactor + topMargin) + (board_height * heightFactor + topMargin))) {
         var tile = getTile(canvas_x, canvas_y);
         if (tile != null)
             if (tile.fixed === false) {
                 sfx3.play();
                 fillTile(tile);
             }
-    } else if (x > pause_x * widthFactor + leftMargin && x < ((pause_x * widthFactor + leftMargin) + (pause_width * widthFactor)) && y > pause_y * heightFactor + topMargin && y < ((pause_y * heightFactor + topMargin) + (pause_height * heightFactor))) {
+    } else if (x > pause_x * widthFactor + leftMargin && x < ((pause_x * widthFactor + leftMargin) + (pause_width * widthFactor)) && y > pause_y * heightFactor + topMargin && y < ((pause_y * heightFactor + topMargin) + (pause_height * heightFactor + topMargin))) {
         // clicks pause button
         canvas.removeEventListener("mouseup", clickGame, false);
         clearInterval(gameTimer);

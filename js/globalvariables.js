@@ -8,6 +8,8 @@ var bgm;
 var sfx1;
 var sfx2;
 var sfx3;
+var sfx4;
+var sfx5;
 
 /*Variables for getting offset for responsive design*/
 var canvasWidth;
@@ -42,12 +44,17 @@ var paletteD;
 var paletteE;
 // R/G Colour Blind Palette
 var rgPalette;
-// Locked palette
+// Locked palette Autumn's splendor
 var paletteF;
+// Locked palette Pacman ghosts
+var paletteG;
+// Locked palette Beer Goggles
+var paletteH;
 
 var preload;
 
 var images;
+
 //Jungle love array
 var palette0;
 //Autumn's splendor array
@@ -58,8 +65,14 @@ var palette2;
 var palette3;
 //Ice Cream desserts array
 var palette4;
-//Locked array
+//Locked Autumn array
 var palette5;
+//Locked Pacman Ghost Array
+var palette6;
+//Locked Beer Goggles Array
+var palette7;
+//Colour Blind Palette Array
+var palette8;
 
 var paletteTitle;
 var storeImg;
@@ -88,6 +101,8 @@ var danCount;
 var danFlag;
 
 var palette;
+
+
 
 // offsets, margins, and x, y, width, height of every components in game
 var offset_left;
@@ -194,9 +209,15 @@ function setGlobalVariables() {
         "../img/background/beergogglespanel.jpg", //20
         "../img/background/icecreampanel.jpg", //21
         "../img/background/lockedimage.jpg", //22
+        // Locked Colour Pack Title Images
+        "../img/icons/beatSquare.png", //23
+        "../img/icons/beatDiamond.png", //24
+        "../img/icons/beatHexagon.png", //25
         //Easter Egg
-        "../img/background/eastereggpanel.jpg", //23
-        "../Unused/icons/easterEggTitle.png" //24
+        "../img/background/eastereggpanel.jpg", //26
+        "../Unused/icons/easterEggTitle.png", //27
+        //Colour Blind Images and Titles
+        "../img/icons/active.png" //28
     ];
     images = [];
     for (i = 0; i < preload.length; i++) {
@@ -263,6 +284,8 @@ function setDefaultAudioSettings() {
     sfx1 = new Audio("../audio/tap2.wav");
     sfx2 = new Audio("../audio/click2.wav");
     sfx3 = new Audio("../audio/glass2.wav");
+    sfx4 = new Audio("../audio/clank.wav");
+    sfx5 = new Audio("../audio/whistle.wav");
 
     // set default bgm + sfx volume level
     bgm.volume = 0.2;
@@ -304,9 +327,13 @@ function setDefaultColorSettings() {
     // Ice Cream Desserts
     paletteE = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
     // R/G Colour Blind Palette
-    rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"];
-    // Locked palette
-    paletteF = ["#333333", "#666666", "#999999", "#CCCCCC"];
+    rgPalette = ["#3860B3", "#FFC740", "#A09EC5", "#A69F8D"];
+    // Locked palette Autumn's splendor
+    paletteF = ["#666666", "#666666", "#666666", "#666666"];
+    // Locked palette Pacman ghosts
+    paletteG = ["#999999", "#999999", "#999999", "#999999"];
+    // Locked palette Beer Goggles
+    paletteH = ["#CCCCCC", "#CCCCCC", "#CCCCCC", "#CCCCCC"];
 
     //Jungle love array
     palette0 = [images[12], images[17], paletteA, true];
@@ -318,8 +345,14 @@ function setDefaultColorSettings() {
     palette3 = [images[15], images[20], paletteD, true];
     //Ice Cream desserts array
     palette4 = [images[16], images[21], paletteE, true];
-    //Locked array
-    palette5 = [images[12], images[22], paletteF, false];
+    //Locked Autumn array
+    palette5 = [images[23], images[22], paletteF, false];
+    //Locked Pacman Ghost Array
+    palette6 = [images[24], images[22], paletteG, false];
+    //Locked Beer Goggles Array
+    palette7 = [images[25], images[22], paletteH, false];
+    //Colour Blind Palette Array
+    palette8 = [images[28], images[22], rgPalette, false];
 
     //set default palette
     palette = palette4;
