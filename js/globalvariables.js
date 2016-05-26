@@ -3,6 +3,7 @@
 var canvas;
 var ctx;
 
+
 /* Audio: BGM & SFX */
 var bgm;
 var sfx1;
