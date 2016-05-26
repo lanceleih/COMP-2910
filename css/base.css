@@ -27,6 +27,7 @@ body {
 }
 #images {
     clear: left;
+    display: none;
 }
 canvas {
     margin: auto;
