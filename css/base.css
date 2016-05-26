@@ -42,12 +42,14 @@ canvas {
     min-height: 480px;
     position: absolute;
     top: 0;
-    padding: 0 5%;
+}
+#logoEaster {
+    margin: 20% 20% 0 20%;
 }
 #easterEgg #video {
     width: 100%;
     height: auto;
-    margin-top: 50%;
+    margin-top: 20%;
 }
 #preloadedImages img {
     display: none;
