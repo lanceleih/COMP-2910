@@ -269,9 +269,9 @@ function setDefaultGameSettings() {
 
 function setDefaultAudioSettings() {
     /* Audio: BGM & SFX */
-    bgm = new Audio("../audio/shop.mp3");
+    bgm = new Audio("../audio/shop.wav");
     sfx1 = new Audio("../audio/tap2.wav");
-    sfx2 = new Audio("../audio/click2.wav");
+    sfx2 = new Audio("../audio/click3.wav");
     sfx3 = new Audio("../audio/glass2.wav");
     sfx4 = new Audio("../audio/clank.wav");
     sfx5 = new Audio("../audio/whistle.wav");
