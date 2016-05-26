@@ -12,26 +12,68 @@ function unlockAutumnsSplendor() {
     if (gamesSqu === 1) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = "#000000";
-        ctx.font = "30px monospace";
-        ctx.beginPath();
-        ctx.fillText("You've unlocked", 20, 200);
-        // color pack image
-        ctx.drawImage(palette1[1], 50, 220, 220, 170);
-        // color pack title
-        ctx.drawImage(palette1[0], 45, 410, 250, 63);
-        // go to settings and start using your new pack
-        // continue
+        var fontSize = 20 * widthFactor;
 
-        canvas.addEventListener("mouseup", clickAnywhere, false);
+        // msg 1 settings
+        var msg = "You've unlocked";
+        var msgX = canvas.width / 2;
+        var msgY = 60;
+
+        // msg 2 settings
+        var msg2 = "a new colour pack!";
+        var msg2X = canvas.width / 2;
+        var msg2Y = msgY + fontSize;
+
+        // color pack panel settings
+        var colorPackImg = palette1[1];
+        var colorPackImgX = 50;
+        var colorPackImgY = msg2Y + 30;
+        var colorPackImgWidth = 220;
+        var colorPackImgHeight = 170;
+
+        // color pack title settings
+        var colorPackTitleImg = palette1[0];
+        var colorPackTitleWidth = 250;
+        var colorPackTitleHeight = 63;
+        var colorPackTitleX = canvas.width / 2 - colorPackTitleWidth / 2;
+        var colorPackTitleY = colorPackImgY + colorPackImgHeight;
+
+        // continue button settings
+        var continueImg = document.getElementById("continueButton");
+        var continueImgX = 85;
+        var continueImgY = 360;
+        var continueImgWidth = 150;
+        var continueImgHeight = 75;
+
+        ctx.fillStyle = "#000000";
+        ctx.font = fontSize + "px monospace";
+        ctx.textAlign = "center";
+        // msg 1
+        ctx.fillText(msg, msgX, msgY);
+        // msg 2
+        ctx.fillText(msg2, msg2X, msg2Y);
+        ctx.textAlign = "start";
+        // color pack image
+        ctx.drawImage(colorPackImg, colorPackImgX, colorPackImgY, colorPackImgWidth, colorPackImgHeight);
+        // color pack title
+        ctx.drawImage(colorPackTitleImg, colorPackTitleX, colorPackTitleY, colorPackTitleWidth, colorPackTitleHeight);
+        // continue
+        ctx.drawImage(continueImg, continueImgX, continueImgY, continueImgWidth, continueImgHeight);
+
+        canvas.addEventListener("mouseup", clicked, false);
     }
     else {
         gameResult();
     }
 
-    function clickAnywhere(event) {
-        canvas.removeEventListener("mouseup", clickAnywhere, false);
-        gameResult();
+    function clicked(event) {
+        var x = (event.x - leftMargin) / widthFactor;
+        var y = (event.y - topMargin) / heightFactor;
+
+        if (x > 85 && x < 235 && y > 360 && y < 435) {
+            canvas.removeEventListener("mouseup", clicked, false);
+            gameResult();
+        }
     }
 }
 
@@ -39,26 +81,68 @@ function unlockPackmansGhosts() {
     if (gamesDia === 1) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = "#000000";
-        ctx.font = "30px monospace";
-        ctx.beginPath();
-        ctx.fillText("You've unlocked", 20, 200);
-        // color pack image
-        ctx.drawImage(palette2[1], 50, 220, 220, 170);
-        // color pack title
-        ctx.drawImage(palette2[0], 45, 410, 250, 63);
-        // go to settings and start using your new pack
-        // continue
+        var fontSize = 20 * widthFactor;
 
-        canvas.addEventListener("mouseup", clickAnywhere, false);
+        // msg 1 settings
+        var msg = "You've unlocked";
+        var msgX = canvas.width / 2;
+        var msgY = 60;
+
+        // msg 2 settings
+        var msg2 = "a new colour pack!";
+        var msg2X = canvas.width / 2;
+        var msg2Y = msgY + fontSize;
+
+        // color pack panel settings
+        var colorPackImg = palette2[1];
+        var colorPackImgX = 50;
+        var colorPackImgY = msg2Y + 30;
+        var colorPackImgWidth = 220;
+        var colorPackImgHeight = 170;
+
+        // color pack title settings
+        var colorPackTitleImg = palette2[0];
+        var colorPackTitleWidth = 250;
+        var colorPackTitleHeight = 63;
+        var colorPackTitleX = canvas.width / 2 - colorPackTitleWidth / 2;
+        var colorPackTitleY = colorPackImgY + colorPackImgHeight;
+
+        // continue button settings
+        var continueImg = document.getElementById("continueButton");
+        var continueImgX = 85;
+        var continueImgY = 360;
+        var continueImgWidth = 150;
+        var continueImgHeight = 75;
+
+        ctx.fillStyle = "#000000";
+        ctx.font = fontSize + "px monospace";
+        ctx.textAlign = "center";
+        // msg 1
+        ctx.fillText(msg, msgX, msgY);
+        // msg 2
+        ctx.fillText(msg2, msg2X, msg2Y);
+        ctx.textAlign = "start";
+        // color pack image
+        ctx.drawImage(colorPackImg, colorPackImgX, colorPackImgY, colorPackImgWidth, colorPackImgHeight);
+        // color pack title
+        ctx.drawImage(colorPackTitleImg, colorPackTitleX, colorPackTitleY, colorPackTitleWidth, colorPackTitleHeight);
+        // continue
+        ctx.drawImage(continueImg, continueImgX, continueImgY, continueImgWidth, continueImgHeight);
+
+        canvas.addEventListener("mouseup", clicked, false);
     }
     else {
         gameResult();
     }
 
-    function clickAnywhere(event) {
-        canvas.removeEventListener("mouseup", clickAnywhere, false);
-        gameResult();
+    function clicked(event) {
+        var x = (event.x - leftMargin) / widthFactor;
+        var y = (event.y - topMargin) / heightFactor;
+
+        if (x > 85 && x < 235 && y > 360 && y < 435) {
+            canvas.removeEventListener("mouseup", clicked, false);
+            gameResult();
+        }
     }
 }
 
@@ -66,25 +150,67 @@ function unlockBeerGoggles() {
     if (gamesHex === 1) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = "#000000";
-        ctx.font = "30px monospace";
-        ctx.beginPath();
-        ctx.fillText("You've unlocked", 20, 200);
-        // color pack image
-        ctx.drawImage(palette3[1], 50, 220, 220, 170);
-        // color pack title
-        ctx.drawImage(palette3[0], 45, 410, 250, 63);
-        // go to settings and start using your new pack
-        // continue
+        var fontSize = 20 * widthFactor;
 
-        canvas.addEventListener("mouseup", clickAnywhere, false);
+        // msg 1 settings
+        var msg = "You've unlocked";
+        var msgX = canvas.width / 2;
+        var msgY = 60;
+
+        // msg 2 settings
+        var msg2 = "a new colour pack!";
+        var msg2X = canvas.width / 2;
+        var msg2Y = msgY + fontSize;
+
+        // color pack panel settings
+        var colorPackImg = palette3[1];
+        var colorPackImgX = 50;
+        var colorPackImgY = msg2Y + 30;
+        var colorPackImgWidth = 220;
+        var colorPackImgHeight = 170;
+
+        // color pack title settings
+        var colorPackTitleImg = palette3[0];
+        var colorPackTitleWidth = 250;
+        var colorPackTitleHeight = 63;
+        var colorPackTitleX = canvas.width / 2 - colorPackTitleWidth / 2;
+        var colorPackTitleY = colorPackImgY + colorPackImgHeight;
+
+        // continue button settings
+        var continueImg = document.getElementById("continueButton");
+        var continueImgX = 85;
+        var continueImgY = 360;
+        var continueImgWidth = 150;
+        var continueImgHeight = 75;
+
+        ctx.fillStyle = "#000000";
+        ctx.font = fontSize + "px monospace";
+        ctx.textAlign = "center";
+        // msg 1
+        ctx.fillText(msg, msgX, msgY);
+        // msg 2
+        ctx.fillText(msg2, msg2X, msg2Y);
+        ctx.textAlign = "start";
+        // color pack image
+        ctx.drawImage(colorPackImg, colorPackImgX, colorPackImgY, colorPackImgWidth, colorPackImgHeight);
+        // color pack title
+        ctx.drawImage(colorPackTitleImg, colorPackTitleX, colorPackTitleY, colorPackTitleWidth, colorPackTitleHeight);
+        // continue
+        ctx.drawImage(continueImg, continueImgX, continueImgY, continueImgWidth, continueImgHeight);
+
+        canvas.addEventListener("mouseup", clicked, false);
     }
     else {
         gameResult();
     }
 
-    function clickAnywhere(event) {
-        canvas.removeEventListener("mouseup", clickAnywhere, false);
-        gameResult();
+    function clicked(event) {
+        var x = (event.x - leftMargin) / widthFactor;
+        var y = (event.y - topMargin) / heightFactor;
+
+        if (x > 85 && x < 235 && y > 360 && y < 435) {
+            canvas.removeEventListener("mouseup", clicked, false);
+            gameResult();
+        }
     }
 }

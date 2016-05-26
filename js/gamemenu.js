@@ -5,11 +5,11 @@ function paused() {
     var pausedTitle = document.getElementById("pausedTitle");
     ctx.drawImage(pausedTitle, 12, 40, 300, 132);
     var resume = document.getElementById("resumeButton");
-    ctx.drawImage(resume, 90, 180, 150, 75);
+    ctx.drawImage(resume, 85, 180, 150, 75);
     var restart = document.getElementById("restartButton");
-    ctx.drawImage(restart, 90, 260, 150, 75);
+    ctx.drawImage(restart, 85, 260, 150, 75);
     var menu = document.getElementById("menuButton");
-    ctx.drawImage(menu, 90, 340, 150, 75);
+    ctx.drawImage(menu, 85, 340, 150, 75);
 
     canvas.addEventListener("click", tapped, false);
 
@@ -17,16 +17,16 @@ function paused() {
         var x = event.x;
         var y = event.y;
 
-       if (x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
+       if (x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
             canvas.removeEventListener("click", tapped, false);
             sfx2.play();
             game();
-        } else if(x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin)  && y > (260  * heightFactor + topMargin) && y < (335 * heightFactor + topMargin)) {
+        } else if(x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin)  && y > (260  * heightFactor + topMargin) && y < (335 * heightFactor + topMargin)) {
             // alert("Restart game!");
             canvas.removeEventListener("click", tapped, false);
             sfx2.play();
             newGame();
-        } else if(x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) && y > (340 * heightFactor + topMargin) && y < (415 * heightFactor + topMargin)) {
+        } else if(x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin) && y > (340 * heightFactor + topMargin) && y < (415 * heightFactor + topMargin)) {
             // alert("go home");
             canvas.removeEventListener("click", tapped, false);
             sfx1.play();

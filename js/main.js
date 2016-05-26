@@ -2,6 +2,7 @@
 
 function scholours() {
     setGlobalVariables();
+    //document.getElementById("mainCanvas").style.display = "block";
     home();
 }
 
