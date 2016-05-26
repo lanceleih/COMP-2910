@@ -7,7 +7,6 @@ function scholours() {
 
 /* Javascript for the home page*/
 function home() {
-
     ctx.clearRect(0, 0, 320, 480);
     var count = 0;
     var img = document.getElementById("cube");

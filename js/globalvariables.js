@@ -210,7 +210,8 @@ function setGlobalVariables() {
         "../img/icons/beatDiamond.png", //24
         "../img/icons/beatHexagon.png", //25
         //Colour Blind Images and Titles
-        "../img/icons/active.png" //26
+        "../img/icons/active.png", //26
+        "../img/background/colourblindmode.jpg" //27
     ];
     images = [];
     for (i = 0; i < preload.length; i++) {
@@ -273,9 +274,9 @@ function setDefaultGameSettings() {
 
 function setDefaultAudioSettings() {
     /* Audio: BGM & SFX */
-    bgm = new Audio("../audio/shop.mp3");
+    bgm = new Audio("../audio/shop.wav");
     sfx1 = new Audio("../audio/tap2.wav");
-    sfx2 = new Audio("../audio/click2.wav");
+    sfx2 = new Audio("../audio/click3.wav");
     sfx3 = new Audio("../audio/glass2.wav");
     sfx4 = new Audio("../audio/clank.wav");
     sfx5 = new Audio("../audio/whistle.wav");
@@ -348,7 +349,7 @@ function setDefaultColorSettings() {
     //Locked Beer Goggles Array
     palette7 = [images[25], images[22], paletteH, false];
     //Colour Blind Palette Array
-    palette8 = [images[26], images[22], rgPalette, false];
+    palette8 = [images[26], images[27], rgPalette, false];
 
     //set default palette
     palette = palette4;
