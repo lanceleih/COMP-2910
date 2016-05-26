@@ -1,8 +1,8 @@
 /* Javascript for All Parts of Game */
 
 function scholours() {
+    document.getElementById("mainCanvas").style.display = "inline";
     setGlobalVariables();
-    //document.getElementById("mainCanvas").style.display = "block";
     home();
 }
 
