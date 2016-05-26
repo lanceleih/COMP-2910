@@ -43,13 +43,6 @@ function setResponMargins() {
     widthFactor = canvas.scrollWidth / canvas.width;
     heightFactor = canvas.scrollHeight / canvas.height;
     ratio = $(window).width() / $(window).height();
-    //width is smaller
-    if (ratio < 1) {
-        heightFactor = widthFactor;
-        //mainDiv.style.height = (canvas.width * heightFactor).toString() + "px";
-    } else {
-        //mainDiv.style.height = (canvas.width * heightFactor).toString() + "px";
-    }
 
     canvasWidth = canvas.scrollWidth;
     canvasHeight = canvas.scrollHeight;
