@@ -290,6 +290,9 @@ function setDefaultAudioSettings() {
     sfx5.volume= 0.8;
 
     // play and loop bgm
+    // bgm.addEventListener('canplay', function() {
+    //     bgm.play();
+    // });
     bgm.play();
     bgm.loop = true;
 
