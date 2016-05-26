@@ -10,11 +10,14 @@
     <script src="../js/utility.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/game.js"></script>
+<<<<<<< HEAD
+=======
+    <script src="../js/achievement.js"></script>
+>>>>>>> 09367d17f67c34eced1dc0132a90a3c13f700dc0
     <script src="../js/settings.js"></script>
     <script src="../js/audio.js"></script>
     <script src="../js/colourpacksettings.js"></script>
     <script src="../js/leaderboard.js"></script>
-    <script src="../js/utility.js"></script>
     <script src="../js/selectmenu.js"></script>
     <script src="../js/diamond.js"></script>
     <script src="../js/square.js"></script>

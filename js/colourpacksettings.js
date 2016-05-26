@@ -18,7 +18,7 @@ function startColourSettings() {
 
         //Back button function
         if (x > 15 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 15 * heightFactor + topMargin && y < 40 * heightFactor + topMargin) {
-            
+
             if (palette == palette5 || palette == palette6 || palette == palette7) {
                 sfx5.play();
             }
@@ -32,42 +32,43 @@ function startColourSettings() {
         }
 
         //Left Arrow Button clicks
-        if (x > (5 * widthFactor + leftMargin) && x < (40 * widthFactor + leftMargin) && y > (280 * heightFactor + topMargin) && y < (320 * heightFactor + topMargin)) {
-            whichStateLeft();
-            if (palette == palette5 || palette == palette6 || palette == palette7){
-                sfx4.play();
-            } else {
-                sfx2.play();
-            }
-            drawTile0();
-            drawTile1();
-            drawTile2();
-            drawTile3();
-            drawColourPackString();
-            drawPackPanel();
+        if (colourModeState == false) {
+            if (x > (5 * widthFactor + leftMargin) && x < (40 * widthFactor + leftMargin) && y > (280 * heightFactor + topMargin) && y < (320 * heightFactor + topMargin)) {
+                whichStateLeft();
+                if (palette == palette5 || palette == palette6 || palette == palette7) {
+                    sfx4.play();
+                } else {
+                    sfx2.play();
+                }
+                drawTile0();
+                drawTile1();
+                drawTile2();
+                drawTile3();
+                drawColourPackString();
+                drawPackPanel();
 
+
+            }
+
+            //Right Arrow Button clicks
+            if (x > 280 * widthFactor + leftMargin && x < 315 * widthFactor + leftMargin && y > 280 * heightFactor + topMargin && y < 320 * heightFactor + topMargin) {
+                whichStateRight();
+                if (palette == palette5 || palette == palette6 || palette == palette7) {
+                    sfx4.play();
+                } else {
+                    sfx2.play();
+                }
+                drawTile0();
+                drawTile1();
+                drawTile2();
+                drawTile3();
+                drawColourPackString();
+                drawPackPanel();
+                //alert(palette);
+            }
 
         }
-
-        //Right Arrow Button clicks
-        if (x > 280 * widthFactor + leftMargin && x < 315 * widthFactor + leftMargin && y > 280 * heightFactor + topMargin && y < 320 * heightFactor + topMargin) {
-            whichStateRight();
-            if (palette == palette5 || palette == palette6 || palette == palette7){
-                sfx4.play();
-            } else {
-                sfx2.play();
-            }
-            drawTile0();
-            drawTile1();
-            drawTile2();
-            drawTile3();
-            drawColourPackString();
-            drawPackPanel();
-            //alert(palette);
-        }
-
     }
-
     //Functions
     //Draws palette image
     function drawPackPanel() {
@@ -457,11 +458,11 @@ function startColourSettings() {
     ctx.drawImage(backButtonImg, 0, 0, 100, 50);
 
     //Left arrow
-    ctx.drawImage(leftArrowImg, 5, 280, 40, 46);
-
-    //Right arrow
-    ctx.drawImage(rightArrowImg, 278, 280, 40, 46);
-
+    if (colourModeState == false) {
+        ctx.drawImage(leftArrowImg, 5, 280, 40, 46);
+        //Right arrow
+        ctx.drawImage(rightArrowImg, 278, 280, 40, 46);
+    }
     //Colour pack title
     ctx.drawImage(colourPackTitleImg, 30, 60, 263, 42);
 

@@ -1,3 +1,5 @@
+
+/* A new game */
 function newGame() {
     //initializePositions();
     initializeGame();
@@ -29,6 +31,7 @@ function newGame() {
 //     inventory_y = offset_top + timer_height + margin_y * 2 + board_height;
 // }
 
+/* initialize game settings */
 function initializeGame() {
     document.getElementById("addName").style.display = "none"; // leaderboard textbox disappears
     startTime = 0;
@@ -208,20 +211,18 @@ function drawTiles() {
 }
 
 function clickGame(event) {
-    var canvas_x = event.pageX - canvas.offsetLeft;
-    var canvas_y = event.pageY - canvas.offsetTop;
-    var x = event.pageX;
-    var y = event.pageY;
+    var x = (event.pageX - leftMargin) / widthFactor;
+    var y = (event.pageY - topMargin) / heightFactor;
 
     // clicks game board
-    if (canvas_x > (board_x * widthFactor + leftMargin) && canvas_x < ((board_x * widthFactor + leftMargin) + (board_width * widthFactor + leftMargin)) && canvas_y > (board_y * heightFactor + topMargin) && canvas_y < ((board_y * heightFactor + topMargin) + (board_height * heightFactor + topMargin))) {
-        var tile = getTile(canvas_x, canvas_y);
+    if (x > board_x && x < (board_x + board_width) && y > board_y && y < (board_y + board_height)) {
+        var tile = getTile(x, y);
         if (tile != null)
             if (tile.fixed === false) {
                 sfx3.play();
                 fillTile(tile);
             }
-    } else if (x > pause_x * widthFactor + leftMargin && x < ((pause_x * widthFactor + leftMargin) + (pause_width * widthFactor)) && y > pause_y * heightFactor + topMargin && y < ((pause_y * heightFactor + topMargin) + (pause_height * heightFactor + topMargin))) {
+    } else if (x > pause_x && x < (pause_x + pause_width) && y > pause_y && y < (pause_y + pause_height)) {
         // clicks pause button
         canvas.removeEventListener("mouseup", clickGame, false);
         clearInterval(gameTimer);
@@ -235,8 +236,9 @@ function clickGame(event) {
             canvas.removeEventListener("mouseup", clickGame, false);
             clearInterval(gameTimer);
             // THIS IS WHERE I SHOULD PUT IN COUNTER FOR UNLOCKABLE -- DAN
+            incrementGames();
             unlockPack();
-            gameResult();
+            //gameResult();
         }
     }
 }
@@ -328,12 +330,13 @@ function drawFixedTiles() {
     }
 }
 
-function unlockPack(){
+// Returns number of games played
+function incrementGames() {
     if (shape == 0){
-        gamesSqu++;
+        return ++gamesSqu;
     } else if (shape == 1) {
-        gamesDia++;
+        return ++gamesDia;
     } else if (shape == 2) {
-        gamesHex++;
+        return ++gamesHex;
     }
 }

@@ -3,6 +3,7 @@
 var canvas;
 var ctx;
 
+
 /* Audio: BGM & SFX */
 var bgm;
 var sfx1;
@@ -17,6 +18,7 @@ var userInputName;
 var submitUserButton;
 var easterDiv;
 var leaderboardTableDiv;
+var ratio;
 
 /*Variables for getting offset for responsive design*/
 var canvasWidth;
@@ -172,6 +174,7 @@ function setGlobalVariables() {
 
     // Responsive design
     setResponMargins();
+    
     /* AUDIO and COLOR PACK images*/
     // preload audio and color pack images into images[]
     preload = [
@@ -208,7 +211,8 @@ function setGlobalVariables() {
         "../img/icons/beatDiamond.png", //24
         "../img/icons/beatHexagon.png", //25
         //Colour Blind Images and Titles
-        "../img/icons/active.png" //26
+        "../img/icons/active.png", //26
+        "../img/background/colourblindmode.jpg" //27
     ];
     images = [];
     for (i = 0; i < preload.length; i++) {
@@ -271,9 +275,9 @@ function setDefaultGameSettings() {
 
 function setDefaultAudioSettings() {
     /* Audio: BGM & SFX */
-    bgm = new Audio("../audio/shop.mp3");
+    bgm = new Audio("../audio/shop.wav");
     sfx1 = new Audio("../audio/tap2.wav");
-    sfx2 = new Audio("../audio/click2.wav");
+    sfx2 = new Audio("../audio/click3.wav");
     sfx3 = new Audio("../audio/glass2.wav");
     sfx4 = new Audio("../audio/clank.wav");
     sfx5 = new Audio("../audio/whistle.wav");
@@ -328,6 +332,7 @@ function setDefaultColorSettings() {
     // Locked palette Beer Goggles
     paletteH = ["#CCCCCC", "#CCCCCC", "#CCCCCC", "#CCCCCC"];
 
+    /* paletteN = [title_image, panel_image, color_pack_colors, visible] */
     //Jungle love array
     palette0 = [images[12], images[17], paletteA, true];
     //Autumn's splendor array
@@ -345,7 +350,7 @@ function setDefaultColorSettings() {
     //Locked Beer Goggles Array
     palette7 = [images[25], images[22], paletteH, false];
     //Colour Blind Palette Array
-    palette8 = [images[26], images[22], rgPalette, false];
+    palette8 = [images[26], images[27], rgPalette, false];
 
     //set default palette
     palette = palette4;
