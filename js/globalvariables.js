@@ -15,6 +15,7 @@ var sfx5;
 var mainDiv;
 var submitButton;
 var easterDiv;
+var leaderboardTableDiv;
 
 /*Variables for getting offset for responsive design*/
 var canvasWidth;
