@@ -209,7 +209,8 @@ function setGlobalVariables() {
         "../img/icons/beatDiamond.png", //24
         "../img/icons/beatHexagon.png", //25
         //Colour Blind Images and Titles
-        "../img/icons/active.png" //26
+        "../img/icons/active.png", //26
+        "../img/background/colourblindmode.jpg" //27
     ];
     images = [];
     for (i = 0; i < preload.length; i++) {
@@ -347,7 +348,7 @@ function setDefaultColorSettings() {
     //Locked Beer Goggles Array
     palette7 = [images[25], images[22], paletteH, false];
     //Colour Blind Palette Array
-    palette8 = [images[26], images[22], rgPalette, false];
+    palette8 = [images[26], images[27], rgPalette, false];
 
     //set default palette
     palette = palette4;
