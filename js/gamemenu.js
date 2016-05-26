@@ -5,11 +5,11 @@ function paused() {
     var pausedTitle = document.getElementById("pausedTitle");
     ctx.drawImage(pausedTitle, 12, 40, 300, 132);
     var resume = document.getElementById("resumeButton");
-    ctx.drawImage(resume, 90, 180, 150, 75);
+    ctx.drawImage(resume, 85, 180, 150, 75);
     var restart = document.getElementById("restartButton");
-    ctx.drawImage(restart, 90, 260, 150, 75);
+    ctx.drawImage(restart, 85, 260, 150, 75);
     var menu = document.getElementById("menuButton");
-    ctx.drawImage(menu, 90, 340, 150, 75);
+    ctx.drawImage(menu, 85, 340, 150, 75);
 
     canvas.addEventListener("click", tapped, false);
 
@@ -17,16 +17,16 @@ function paused() {
         var x = event.x;
         var y = event.y;
 
-       if (x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
+       if (x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
             canvas.removeEventListener("click", tapped, false);
             sfx2.play();
             game();
-        } else if(x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin)  && y > (260  * heightFactor + topMargin) && y < (335 * heightFactor + topMargin)) {
+        } else if(x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin)  && y > (260  * heightFactor + topMargin) && y < (335 * heightFactor + topMargin)) {
             // alert("Restart game!");
             canvas.removeEventListener("click", tapped, false);
             sfx2.play();
             newGame();
-        } else if(x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) && y > (340 * heightFactor + topMargin) && y < (415 * heightFactor + topMargin)) {
+        } else if(x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin) && y > (340 * heightFactor + topMargin) && y < (415 * heightFactor + topMargin)) {
             // alert("go home");
             canvas.removeEventListener("click", tapped, false);
             sfx1.play();
@@ -94,5 +94,47 @@ function gameResult() {
             home();
         }
     }
+}
+function nameEntered() {
+    document.getElementById("addName").value = "";
+    document.getElementById("addName").style.display = "none";
+    document.getElementById("submitButton").style.display = "none";
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    canvas.addEventListener("mouseup", gameResultMouseUp, false);
+
+    ctx.drawImage(document.getElementById("resultTitle"), 11, 20);
+    ctx.drawImage(document.getElementById("restartButton"), 85, 300, 150, 75);
+    ctx.drawImage(document.getElementById("menuButton"), 85, 385, 150, 75);
+
+    ctx.font = "30px monospace";
+    var timeString = formatTime(elapsedTime);
+    ctx.beginPath();
+    ctx.fillText("Your Time: " + timeString, 10, 200);
+
+    ctx.font = "30px monospace";
+    ctx.beginPath();
+    ctx.fillText("Name entered!", 52, 250);
+
+    function gameResultMouseUp(event) {
+        setResponMargins();
+        var canvas_x = event.pageX - canvas.offsetLeft;
+        var canvas_y = event.pageY - canvas.offsetTop;
+        if (canvas_x > 85 * widthFactor + leftMargin && canvas_x < 235 * widthFactor + leftMargin && canvas_y > 300 * heightFactor + topMargin && canvas_y < 375 * heightFactor + topMargin) {
+            document.getElementById("addName").value = "";
+            document.getElementById("addName").style.display = "none";
+            document.getElementById("submitButton").style.display = "none";
+            canvas.removeEventListener("mouseup", gameResultMouseUp, false);
+            sfx2.play();
+            newGame();
+        } else if (canvas_x > 85 * widthFactor + leftMargin && canvas_x < 235 * widthFactor + leftMargin && canvas_y > 385 * heightFactor + topMargin && canvas_y < 460 * heightFactor + topMargin) {
+            document.getElementById("addName").value = "";
+            document.getElementById("addName").style.display = "none";
+            document.getElementById("submitButton").style.display = "none";
+            canvas.removeEventListener("mouseup", gameResultMouseUp, false);
+            sfx1.play();
+            home();
+        }
+    }
+    
 }
 

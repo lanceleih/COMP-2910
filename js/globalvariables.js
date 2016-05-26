@@ -14,7 +14,8 @@ var sfx5;
 
 /*Responsive Margins*/
 var mainDiv;
-var submitButton;
+var userInputName;
+var submitUserButton;
 var easterDiv;
 var leaderboardTableDiv;
 var ratio;
