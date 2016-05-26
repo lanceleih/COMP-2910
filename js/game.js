@@ -2,6 +2,7 @@ function newGame() {
     initializePositions();
     initializeGame();
     // insert countdown animation
+
     game();
 }
 
@@ -64,11 +65,11 @@ function initializeGame() {
                     break;
                 case 1:
                     max_row = 5;
-                    max_col = 5;
+                    max_col = 4;
                     break;
                 case 2:
                     max_row = 6;
-                    max_col = 6;
+                    max_col = 4;
                     break;
             }
             max_tile = max_row * max_col;
@@ -128,7 +129,7 @@ function randomizeTiles() {
 }
 
 function randomizeFixedTiles() {
-    var count = Math.floor(Math.sqrt(max_tile));
+    var count = Math.floor(Math.pow(max_tile, (2/3)));
     while (count > 0) {
         var num = Math.floor(Math.random() * max_tile);
         var row = ~~(num / max_row);
@@ -180,7 +181,11 @@ function drawTiles() {
             else {
                 tileColor = palette[2][tiles[i][j].color];
             }
-            ctx.fillStyle = tileColor;
+            //var grd = ctx.createLinearGradient(0,0,tiles[i][j].coordinates.p3.x + tile_width * 2,0);
+            var grd = ctx.createRadialGradient(tiles[i][j].coordinates.p2.x,tiles[i][j].coordinates.p2.y,0,tiles[i][j].coordinates.p2.x,tiles[i][j].coordinates.p2.y,tile_width/3);
+            grd.addColorStop(1,tileColor);
+            grd.addColorStop(0,"white");
+            ctx.fillStyle = grd;
             ctx.beginPath();
             ctx.moveTo(tiles[i][j].coordinates.p1.x, tiles[i][j].coordinates.p1.y);
             ctx.lineTo(tiles[i][j].coordinates.p2.x, tiles[i][j].coordinates.p2.y);
@@ -211,7 +216,7 @@ function clickGame(event) {
     var x = event.pageX;
     var y = event.pageY;
     // clicks game board
-    if (canvas_x > board_x && canvas_x < board_x + board_width && canvas_y > board_y && canvas_y < board_y + board_height) {
+    if (canvas_x > (board_x * widthFactor) && canvas_x < ((board_x * widthFactor) + (board_width * widthFactor)) && canvas_y > (board_y * heightFactor) && canvas_y < ((board_y * heightFactor) + (board_height * heightFactor))) {
         var tile = getTile(canvas_x, canvas_y);
         if (tile != null)
             if (tile.fixed === false) {
@@ -261,8 +266,14 @@ function fillTile(tile) {
     if (newColor === -1) {
         ctx.fillStyle = default_color;
     } else {
-        ctx.fillStyle = palette[2][newColor];
+        var grd = ctx.createRadialGradient(tile.coordinates.p2.x,tile.coordinates.p2.y,0,tile.coordinates.p2.x,tile.coordinates.p2.y,tile_width/3);
+        grd.addColorStop(1,palette[2][newColor]);
+        grd.addColorStop(0,"white");
+        ctx.fillStyle = grd;
+        //ctx.fillStyle = palette[newColor];
+        //ctx.fillStyle = palette[2][newColor];
     }
+    ctx.strokeStyle = "#000000";
     //ctx.clearRect(tile.x, tile.y, tile.width, tile.height);
     ctx.beginPath();
     // ctx.rect(tile.x, tile.y, tile.width, tile.height);
