@@ -306,7 +306,7 @@ function startColourSettings() {
             palette = palette6;
         }
         else if (palette == palette4){
-            palette = palette7;
+            palette = palette3;
         }
     }
     function state4Right() {
