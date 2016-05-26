@@ -8,6 +8,8 @@ var bgm = new Audio("../audio/shop.mp3");
 var sfx1 = new Audio("../audio/tap2.wav");
 var sfx2 = new Audio("../audio/click2.wav");
 var sfx3 = new Audio("../audio/glass2.wav");
+var sfx4 = new Audio("../audio/clank.wav");
+var sfx5 = new Audio("../audio/whistle.wav");
 
 bgm.volume = 0.2;
 sfx1.volume = 0.8;
@@ -49,8 +51,12 @@ var paletteD = ["#FFCC00", "#BDDFBB", "#688315", "#B15515"];
 var paletteE = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 // R/G Colour Blind Palette
 var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"];
-// Locked palette
-var paletteF = ["#333333", "#666666", "#999999", "#CCCCCC"];
+// Locked palette Autumn's splendor
+var paletteF = ["#666666", "#666666", "#666666", "#666666"];
+// Locked palette Pacman ghosts
+var paletteG = ["#999999", "#999999", "#999999", "#999999"];
+// Locked palette Beer Goggles
+var paletteH = ["#CCCCCC", "#CCCCCC", "#CCCCCC", "#CCCCCC"];
 
 
 
@@ -83,9 +89,15 @@ var preload = [
     "../img/background/beergogglespanel.jpg", //20
     "../img/background/icecreampanel.jpg", //21
     "../img/background/lockedimage.jpg", //22
+    // Locked Colour Pack Title Images
+    "../img/icons/beatSquare.png", //23
+    "../img/icons/beatDiamond.png", //24
+    "../img/icons/beatHexagon.png", //25
     //Easter Egg
-    "../img/background/eastereggpanel.jpg", //23
-    "../Unused/icons/easterEggTitle.png" //24
+    "../img/background/eastereggpanel.jpg", //26
+    "../Unused/icons/easterEggTitle.png", //27
+    //Colour Blind Images and Titles
+    "../img/icons/active.png" //28
 ];
 
 var images = [];
@@ -103,8 +115,14 @@ var palette2 = [images[14], images[19], paletteC, true];
 var palette3 = [images[15], images[20], paletteD, true];
 //Ice Cream desserts array
 var palette4 = [images[16], images[21], paletteE, true];
-//Locked array
-var palette5 = [images[12], images[22], paletteF, false];
+//Locked Autumn array
+var palette5 = [images[23], images[22], paletteF, false];
+//Locked Pacman Ghost Array
+var palette6 = [images[24], images[22], paletteG, false];
+//Locked Beer Goggles Array
+var palette7 = [images[25], images[22], paletteH, false];
+//Colour Blind Palette Array
+var palette8 = [images[28], images[22], rgPalette, false];
 
 var paletteTitle = palette4[0];
 var storeImg = null;
