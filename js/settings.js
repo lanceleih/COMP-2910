@@ -56,7 +56,7 @@ function startSettings() {
                 ctx.clearRect(65, 355, 15, 15);
                 drawColourBlindToggleFill();
                 storePalette = palette;
-                palette = rgPalette;
+                palette = palette8;
                 //alert(colourModeState);
                 //alert("this is blind butotn");
             }
