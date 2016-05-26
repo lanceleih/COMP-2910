@@ -11,6 +11,11 @@ var sfx3;
 var sfx4;
 var sfx5;
 
+/*Responsive Margins*/
+var mainDiv;
+var submitButton;
+var easterDiv;
+
 /*Variables for getting offset for responsive design*/
 var canvasWidth;
 var canvasHeight;
