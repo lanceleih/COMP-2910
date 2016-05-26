@@ -8,14 +8,14 @@
     <link rel="stylesheet" media="screen and (min-device-width: 800px)" href="../css/large.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="../js/globalvariables.js"></script>
+    <script src="../js/utility.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/game.js"></script>
-    <script src="../js/utility.js"></script>
+    <script src="../js/achievement.js"></script>
     <script src="../js/settings.js"></script>
     <script src="../js/audio.js"></script>
     <script src="../js/colourpacksettings.js"></script>
     <script src="../js/leaderboard.js"></script>
-    <script src="../js/utility.js"></script>
     <script src="../js/selectmenu.js"></script>
     <script src="../js/diamond.js"></script>
     <script src="../js/square.js"></script>
