@@ -36,16 +36,29 @@ function drawComponent() {
 
 function setResponMargins() {
     mainDiv = document.getElementById("main");
+    submitButton = document.getElementById("leaderboardInput");
+    easterDiv = document.getElementById("easterEgg");
+    leaderboardTableDiv = document.getElementById("leaderboardTable");
+
     widthFactor = canvas.scrollWidth / canvas.width;
     heightFactor = canvas.scrollHeight / canvas.height;
+
     canvasWidth = canvas.scrollWidth;
     canvasHeight = canvas.scrollHeight;
+
     docWidth = $(window).width();
     docHeight = $(window).height();
     leftMargin = ((docWidth - canvasWidth) / 2);
+
     if(docWidth < 320) {
         leftMargin = 0;
     }
     mainDiv.style.marginLeft =  leftMargin.toString() + "px";
+    submitButton.style.marginLeft =  leftMargin.toString() + "px";
+    submitButton.style.width =  canvasWidth.toString() + "px";
+    easterDiv.style.marginLeft =  leftMargin.toString() + "px";
+    easterDiv.style.width =  canvasWidth.toString() + "px";
+    leaderboardTableDiv.style.marginLeft =  leftMargin.toString() + "px";
+    leaderboardTableDiv.style.width =  canvasWidth.toString() + "px";
     topMargin = (docHeight - canvasHeight);
 }

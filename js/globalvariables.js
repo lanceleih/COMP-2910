@@ -3,6 +3,7 @@
 var canvas;
 var ctx;
 
+
 /* Audio: BGM & SFX */
 var bgm;
 var sfx1;
@@ -10,6 +11,12 @@ var sfx2;
 var sfx3;
 var sfx4;
 var sfx5;
+
+/*Responsive Margins*/
+var mainDiv;
+var submitButton;
+var easterDiv;
+var leaderboardTableDiv;
 
 /*Variables for getting offset for responsive design*/
 var canvasWidth;
@@ -201,11 +208,8 @@ function setGlobalVariables() {
         "../img/icons/beatSquare.png", //23
         "../img/icons/beatDiamond.png", //24
         "../img/icons/beatHexagon.png", //25
-        //Easter Egg
-        "../img/background/eastereggpanel.jpg", //26
-        "../Unused/icons/easterEggTitle.png", //27
         //Colour Blind Images and Titles
-        "../img/icons/active.png" //28
+        "../img/icons/active.png" //26
     ];
     images = [];
     for (i = 0; i < preload.length; i++) {
@@ -280,6 +284,8 @@ function setDefaultAudioSettings() {
     sfx1.volume = 0.8;
     sfx2.volume = 0.8;
     sfx3.volume = 0.8;
+    sfx4.volume = 0.8;
+    sfx5.volume= 0.8;
 
     // play and loop bgm
     bgm.play();
@@ -341,7 +347,7 @@ function setDefaultColorSettings() {
     //Locked Beer Goggles Array
     palette7 = [images[25], images[22], paletteH, false];
     //Colour Blind Palette Array
-    palette8 = [images[28], images[22], rgPalette, false];
+    palette8 = [images[26], images[22], rgPalette, false];
 
     //set default palette
     palette = palette4;
