@@ -35,7 +35,7 @@ function home() {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             selectShape();
-        } else if(x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin)  && y > (260  * heightFactor + topMargin) && y < (335 * heightFactor + topMargin)) {
+        } else if(x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin)  && y > (260 * heightFactor + topMargin) && y < (335 * heightFactor + topMargin)) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             startSettings();
