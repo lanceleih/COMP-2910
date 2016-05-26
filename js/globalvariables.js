@@ -165,6 +165,7 @@ function setGlobalVariables() {
 
     // Responsive design
     setResponMargins();
+    
     /* AUDIO and COLOR PACK images*/
     // preload audio and color pack images into images[]
     preload = [
