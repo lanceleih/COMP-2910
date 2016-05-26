@@ -265,7 +265,7 @@ function startColourSettings() {
             palette = palette0;
         }
         else if (palette == palette2) {
-            palette = palette5;
+            palette = palette1;
         }
         else if (palette == palette7) {
             palette = palette2;
@@ -368,30 +368,30 @@ function startColourSettings() {
         if (palette == palette0) {
             palette = palette4;
         }
-        else if (palette == palette1){
+        else if (palette == palette5){
             palette = palette0;
         }
         else if (palette == palette2) {
-            palette = palette1;
+            palette = palette5;
         }
-        else if (palette == palette7) {
+        else if (palette == palette3) {
             palette = palette2;
         }
         else if (palette == palette4){
-            palette = palette7;
+            palette = palette3;
         }
     }
     function state6Right() {
         if (palette == palette0) {
-            palette = palette1;
+            palette = palette5;
         }
-        else if (palette == palette1){
+        else if (palette == palette5){
             palette = palette2;
         }
         else if (palette == palette2) {
-            palette = palette7;
+            palette = palette3;
         }
-        else if (palette == palette7) {
+        else if (palette == palette3) {
             palette = palette4;
         }
         else if (palette == palette4){
@@ -414,7 +414,7 @@ function startColourSettings() {
             palette = palette2;
         }
         else if (palette == palette4) {
-            palette = palette0;
+            palette = palette3;
         }
     }
     function state7Right() {
@@ -458,7 +458,7 @@ function startColourSettings() {
         else if (gamesHex >= 1 && gamesDia >= 1 && gamesSqu == 0){
             state6Left();
         }
-        else if (gamesSqu >= 1 && gamesDia >= 1 && gamesHex >= 1){
+        else if (gamesHex >= 1 && gamesDia >= 1 && gamesSqu >= 1){
             state7Left();
         }
     }
@@ -484,7 +484,7 @@ function startColourSettings() {
         else if (gamesHex >= 1 && gamesDia >= 1 && gamesSqu == 0){
             state6Right();
         }
-        else if (gamesSqu >= 1 && gamesDia >= 1 && gamesHex >= 1){
+        else if (gamesHex >= 1 && gamesDia >= 1 && gamesSqu >= 1){
             state7Right();
         }
     }
