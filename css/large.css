@@ -51,15 +51,14 @@ canvas {
 }
 #addName {
     position: absolute;
-    left:  135px;
-    top: 235px;
+    top: 20%;
+    margin: 0;
     display: none;
 }
 
 #submitButton {
     position: absolute;
-    left: 200px;
-    top: 230px;
+    margin: 0;
     display: none;
 }
 .hide { 
@@ -68,11 +67,11 @@ canvas {
     height:0px; 
     display: none;
 }
-
 #leaderboardTable {
     position: absolute;
-    top: 25%;
-    width: 100%;
+    margin-top: 10%;
+    margin-left: 3%;
+    width: 27%;
     display: none;
     overflow-x: auto;
 }

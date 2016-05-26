@@ -116,13 +116,13 @@
     <img src="../img/docwaylon.gif" id="video" alt="easter egg gif" width="300" height="132">
 </div>
 <div id="leaderboardInput">
-    <form method="post" action="http://scholours.net23.net/php/addscore.php" onsubmit="changeValues()">
-        <input type="text" name="name" id="addName" size="3">
+    <iframe name="hiddenFrame" sandbox class="hide"></iframe>
+    <form method="post" id="userInput" action="http://scholours.net23.net/php/addscore.php" onsubmit="changeValues()" target="hiddenFrame">
+        <input type="text" name="name" id="addName" maxlength="3" size="1">
         <input type="hidden" name="time" id="time">
         <input type="hidden" name="shape" id="shape">
         <input type="hidden" name="difficulty" id="difficulty">
-        <!-- <input type="image" name="submit" id="addNameButton" alt="submit" src="../img/icons/right_arrow2.png"> -->
-        <input type="submit" name="submit" id="submitButton">
+        <input type="submit" name="submit" id="submitButton" onclick="changeValues()">
     </form>
 </div>
 <!-- Show leaderboard for Square Easy -->

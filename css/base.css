@@ -55,15 +55,15 @@ canvas {
 }
 #addName {
     position: absolute;
-    left:  42%;
-    top: 52%;
+    margin-left:  43%;
+    margin-top: 62%;
     display: none;
 }
 
 #submitButton {
     position: absolute;
-    left: 60%;
-    top: 52%;
+    margin-left: 57%;
+    margin-top: 62%;
     display: none;
 }
 .hide { 
@@ -74,8 +74,9 @@ canvas {
 }
 #leaderboardTable {
     position: absolute;
-    top: 25%;
-    width: 100%;
+    margin-top: 30%;
+    margin-left: 10%;
+    width: 80%;
     display: none;
     overflow-x: auto;
 }
