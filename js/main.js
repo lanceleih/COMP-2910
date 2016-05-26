@@ -8,7 +8,6 @@ function scholours() {
 
 /* Javascript for the home page*/
 function home() {
-
     ctx.clearRect(0, 0, 320, 480);
     var count = 0;
     var img = document.getElementById("cube");
@@ -18,26 +17,26 @@ function home() {
     var img = document.getElementById("slogan");
     ctx.drawImage(img, 60, 420, 200, 50);
     var img = document.getElementById("playButton");
-    ctx.drawImage(img, 90, 180, 150, 75);
+    ctx.drawImage(img, 85, 180, 150, 75);
     var img = document.getElementById("settingsButton");
-    ctx.drawImage(img, 90, 260, 150, 75);
+    ctx.drawImage(img, 85, 260, 150, 75);
     var img = document.getElementById("leaderboardButton");
-    ctx.drawImage(img, 90, 340, 150, 75);
+    ctx.drawImage(img, 85, 340, 150, 75);
     canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
         var x = event.x;
         var y = event.y;
         
-       if (x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
+       if (x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             selectShape();
-        } else if(x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin)  && y > (260 * heightFactor + topMargin) && y < (335 * heightFactor + topMargin)) {
+        } else if(x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin)  && y > (260 * heightFactor + topMargin) && y < (335 * heightFactor + topMargin)) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             startSettings();
-        } else if(x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) && y > (340 * heightFactor + topMargin) && y < (415 * heightFactor + topMargin)) {
+        } else if(x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin) && y > (340 * heightFactor + topMargin) && y < (415 * heightFactor + topMargin)) {
             canvas.removeEventListener("click", getPosition, false);
             sfx2.play();
             leaderboardShape();
