@@ -38,6 +38,7 @@ function setResponMargins() {
     mainDiv = document.getElementById("main");
     submitButton = document.getElementById("leaderboardInput");
     easterDiv = document.getElementById("easterEgg");
+    leaderboardTableDiv = document.getElementById("leaderboardTable");
 
     widthFactor = canvas.scrollWidth / canvas.width;
     heightFactor = canvas.scrollHeight / canvas.height;
@@ -57,5 +58,7 @@ function setResponMargins() {
     submitButton.style.width =  canvasWidth.toString() + "px";
     easterDiv.style.marginLeft =  leftMargin.toString() + "px";
     easterDiv.style.width =  canvasWidth.toString() + "px";
+    leaderboardTableDiv.style.marginLeft =  leftMargin.toString() + "px";
+    leaderboardTableDiv.style.width =  canvasWidth.toString() + "px";
     topMargin = (docHeight - canvasHeight);
 }
