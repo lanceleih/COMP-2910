@@ -56,15 +56,11 @@ canvas {
 }
 #addName {
     position: absolute;
-    left:  42%;
-    top: 52%;
     display: none;
 }
 
 #submitButton {
     position: absolute;
-    left: 60%;
-    top: 52%;
     display: none;
 }
 .hide { 
