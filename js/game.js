@@ -1,3 +1,5 @@
+
+/* A new game */
 function newGame() {
     //initializePositions();
     initializeGame();
@@ -29,6 +31,7 @@ function newGame() {
 //     inventory_y = offset_top + timer_height + margin_y * 2 + board_height;
 // }
 
+/* initialize game settings */
 function initializeGame() {
     document.getElementById("addName").style.display = "none"; // leaderboard textbox disappears
     startTime = 0;
@@ -235,8 +238,9 @@ function clickGame(event) {
             canvas.removeEventListener("mouseup", clickGame, false);
             clearInterval(gameTimer);
             // THIS IS WHERE I SHOULD PUT IN COUNTER FOR UNLOCKABLE -- DAN
+            incrementGames();
             unlockPack();
-            gameResult();
+            //gameResult();
         }
     }
 }
@@ -328,12 +332,13 @@ function drawFixedTiles() {
     }
 }
 
-function unlockPack(){
+// Returns number of games played
+function incrementGames() {
     if (shape == 0){
-        gamesSqu++;
+        return ++gamesSqu;
     } else if (shape == 1) {
-        gamesDia++;
+        return ++gamesDia;
     } else if (shape == 2) {
-        gamesHex++;
+        return ++gamesHex;
     }
 }

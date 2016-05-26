@@ -333,6 +333,7 @@ function setDefaultColorSettings() {
     // Locked palette Beer Goggles
     paletteH = ["#CCCCCC", "#CCCCCC", "#CCCCCC", "#CCCCCC"];
 
+    /* paletteN = [title_image, panel_image, color_pack_colors, visible] */
     //Jungle love array
     palette0 = [images[12], images[17], paletteA, true];
     //Autumn's splendor array
