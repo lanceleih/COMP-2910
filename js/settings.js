@@ -18,7 +18,6 @@ function startSettings() {
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
-        setResponMargins();
         var x = event.x;
         var y = event.y;
 
@@ -56,7 +55,7 @@ function startSettings() {
                 ctx.clearRect(65, 355, 15, 15);
                 drawColourBlindToggleFill();
                 storePalette = palette;
-                palette = rgPalette;
+                palette = palette8;
                 //alert(colourModeState);
                 //alert("this is blind butotn");
             }

@@ -64,8 +64,8 @@ function drawFixedSquareTiles() {
 function getSquareTile(coordX, coordY) {
     for (var i = 0; i < max_row; i++) {
         for (var j = 0; j < max_col; j++) {
-            if (tiles[i][j].coordinates.p1.x * widthFactor < coordX && tiles[i][j].coordinates.p2.x * widthFactor > coordX) {
-                if (tiles[i][j].coordinates.p1.y * heightFactor < coordY && tiles[i][j].coordinates.p3.y * heightFactor > coordY) {
+            if (tiles[i][j].coordinates.p1.x * widthFactor + leftMargin < coordX && tiles[i][j].coordinates.p2.x * widthFactor + leftMargin > coordX) {
+                if (tiles[i][j].coordinates.p1.y * heightFactor + topMargin < coordY && tiles[i][j].coordinates.p3.y * heightFactor + topMargin > coordY) {
                     return tiles[i][j];
                 }
             }

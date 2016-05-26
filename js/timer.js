@@ -12,16 +12,17 @@ function updateTimer() {
         clearInterval(gameTimer);
         gameResult();
     }
-    
-    ctx.fillStyle = "#C7B577";
-    ctx.beginPath();
-    ctx.fillRect(90, 40, 120, 20);
+    else {
+        ctx.fillStyle = "#C7B577";
+        ctx.beginPath();
+        ctx.fillRect(90, 40, 120, 20);
 
-    ctx.fillStyle = "#000000";
-    ctx.font = "30px monospace";
-    var timeString = formatTime(elapsedTime);
-    ctx.beginPath();
-    ctx.fillText(timeString, 90, 60);
+        ctx.fillStyle = "#000000";
+        ctx.font = "30px monospace";
+        var timeString = formatTime(elapsedTime);
+        ctx.beginPath();
+        ctx.fillText(timeString, 90, 60);
+    }
 }
 
 function resumeTimer() {

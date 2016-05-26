@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
     <title>Scholours Game</title>
     <link rel="stylesheet" type="text/css" href="../css/base.css">
-    <link rel="stylesheet" media="screen and (min-device-width: 800px)" href="../css/large.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="../js/globalvariables.js"></script>
     <script src="../js/utility.js"></script>
@@ -26,7 +25,7 @@
     <script src="../js/form.js"></script>
     <script src="../js/validategame.js"></script>
 </head>
-<body onload="home()">
+<body onload="scholours()">
     <div id="main">
         <canvas id="mainCanvas" width="320" height="480"></canvas>
     </div>
@@ -125,7 +124,7 @@
         <input type="submit" name="submit" id="submitButton" onclick="changeValues()">
     </form>
 </div>
-<!-- Show leaderboard for Square Easy -->
-<span id="leaderboardTable"></span>
+    <!-- Show leaderboard -->
+    <span id="leaderboardTable"></span>
 </body>
 </html>
