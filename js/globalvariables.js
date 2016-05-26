@@ -83,9 +83,13 @@ var preload = [
     "../img/background/beergogglespanel.jpg", //20
     "../img/background/icecreampanel.jpg", //21
     "../img/background/lockedimage.jpg", //22
+    // Locked Colour Pack Title Images
+    "../img/icons/beatSquare.png", //23
+    "../img/icons/beatDiamond.png", //24
+    "../img/icons/beatHexagon.png", //25
     //Easter Egg
-    "../img/background/eastereggpanel.jpg", //23
-    "../Unused/icons/easterEggTitle.png" //24
+    "../img/background/eastereggpanel.jpg", //26
+    "../Unused/icons/easterEggTitle.png" //27
 ];
 
 var images = [];
@@ -104,11 +108,11 @@ var palette3 = [images[15], images[20], paletteD, true];
 //Ice Cream desserts array
 var palette4 = [images[16], images[21], paletteE, true];
 //Locked Autumn array
-var palette5 = [images[12], images[18], paletteF, false];
+var palette5 = [images[23], images[22], paletteF, false];
 //Locked Pacman Ghost Array
-var palette6 = [images[12], images[19], paletteF, false];
+var palette6 = [images[24], images[22], paletteF, false];
 //Locked Beer Goggles Array
-var palette7 = [images[12], images[20], paletteF, false];
+var palette7 = [images[25], images[22], paletteF, false];
 
 var paletteTitle = palette4[0];
 var storeImg = null;

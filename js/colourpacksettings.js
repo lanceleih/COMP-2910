@@ -217,27 +217,33 @@ function startColourSettings() {
         if (palette == palette0) {
             palette = palette4;
         }
-        else if(palette == palette2){
+        else if (palette == palette5){
             palette = palette0;
-        }
-        else if (palette == palette4) {
-            palette = palette5;
-        }
-        else if (palette == palette5) {
-            palette = palette2;
-        }
-    }
-    function state2Right() {
-        if (palette == palette0) {
-            palette = palette2;
         }
         else if (palette == palette2) {
             palette = palette5;
         }
-        else if (palette == palette5) {
+        else if (palette == palette7) {
+            palette = palette2;
+        }
+        else if (palette == palette4){
+            palette = palette7;
+        }
+    }
+    function state2Right() {
+        if (palette == palette0) {
+            palette = palette5;
+        }
+        else if (palette == palette5){
+            palette = palette2;
+        }
+        else if (palette == palette2) {
+            palette = palette7;
+        }
+        else if (palette == palette7) {
             palette = palette4;
         }
-        else if (palette == palette4) {
+        else if (palette == palette4){
             palette = palette0;
         }
     }
@@ -247,30 +253,30 @@ function startColourSettings() {
         if (palette == palette0) {
             palette = palette4;
         }
-        else if(palette == palette1){
+        else if (palette == palette1){
             palette = palette0;
         }
         else if (palette == palette2) {
-            palette = palette1;
+            palette = palette5;
         }
-        else if (palette == palette5) {
+        else if (palette == palette7) {
             palette = palette2;
         }
         else if (palette == palette4){
-            palette = palette5;
+            palette = palette7;
         }
     }
     function state3Right() {
         if (palette == palette0) {
             palette = palette1;
         }
-        else if (palette == palette1) {
+        else if (palette == palette1){
             palette = palette2;
         }
         else if (palette == palette2) {
-            palette = palette5;
+            palette = palette7;
         }
-        else if (palette == palette5) {
+        else if (palette == palette7) {
             palette = palette4;
         }
         else if (palette == palette4){
@@ -282,27 +288,33 @@ function startColourSettings() {
         if (palette == palette0) {
             palette = palette4;
         }
-        else if(palette == palette3){
+        else if (palette == palette5){
             palette = palette0;
         }
-        else if (palette == palette4) {
+        else if (palette == palette6) {
             palette = palette5;
         }
-        else if (palette == palette5) {
-            palette = palette3;
+        else if (palette == palette3) {
+            palette = palette6;
+        }
+        else if (palette == palette4){
+            palette = palette7;
         }
     }
     function state4Right() {
         if (palette == palette0) {
+            palette = palette5;
+        }
+        else if (palette == palette5){
+            palette = palette6;
+        }
+        else if (palette == palette6) {
             palette = palette3;
         }
         else if (palette == palette3) {
-            palette = palette5;
-        }
-        else if (palette == palette5) {
             palette = palette4;
         }
-        else if (palette == palette4) {
+        else if (palette == palette4){
             palette = palette0;
         }
     }
@@ -312,14 +324,14 @@ function startColourSettings() {
         if (palette == palette0) {
             palette = palette4;
         }
-        else if(palette == palette1){
+        else if (palette == palette1){
             palette = palette0;
         }
-        else if (palette == palette3) {
-            palette = palette5;
-        }
-        else if (palette == palette5) {
+        else if (palette == palette6) {
             palette = palette1;
+        }
+        else if (palette == palette3) {
+            palette = palette6;
         }
         else if (palette == palette4){
             palette = palette3;
@@ -329,10 +341,10 @@ function startColourSettings() {
         if (palette == palette0) {
             palette = palette1;
         }
-        else if (palette == palette1) {
-            palette = palette5;
+        else if (palette == palette1){
+            palette = palette6;
         }
-        else if (palette == palette5) {
+        else if (palette == palette6) {
             palette = palette3;
         }
         else if (palette == palette3) {
@@ -348,30 +360,30 @@ function startColourSettings() {
         if (palette == palette0) {
             palette = palette4;
         }
-        else if(palette == palette5){
+        else if (palette == palette1){
             palette = palette0;
         }
         else if (palette == palette2) {
-            palette = palette5;
+            palette = palette1;
         }
-        else if (palette == palette3) {
+        else if (palette == palette7) {
             palette = palette2;
         }
         else if (palette == palette4){
-            palette = palette3;
+            palette = palette7;
         }
     }
     function state6Right() {
         if (palette == palette0) {
-            palette = palette5;
+            palette = palette1;
         }
-        else if (palette == palette5) {
+        else if (palette == palette1){
             palette = palette2;
         }
         else if (palette == palette2) {
-            palette = palette3;
+            palette = palette7;
         }
-        else if (palette == palette3) {
+        else if (palette == palette7) {
             palette = palette4;
         }
         else if (palette == palette4){
@@ -383,60 +395,35 @@ function startColourSettings() {
     function state7Left(){
         if (palette == palette0) {
             palette = palette4;
-            // paletteTitle = images[16];
-            // paletteImg = images[21];
-        }
-        else if (palette == palette4) {
-            palette = palette3;
-            // paletteTitle = images[15];
-            // paletteImg = images[20];
-        }
-        else if (palette == palette3) {
-            palette = palette2;
-            // paletteTitle = images[14];
-            // paletteImg = images[19];
-        }
-        else if (palette == palette2) {
-            palette = palette1;
-            // paletteTitle = images[13];
-            // paletteImg = images[18];
         }
         else if (palette == palette1) {
             palette = palette0;
-            // paletteTitle = images[12];
-            // paletteImg = images[17];
+        }
+        else if (palette == palette2) {
+            palette = palette1;
+        }
+        else if (palette == palette3) {
+            palette = palette2;
+        }
+        else if (palette == palette4) {
+            palette = palette0;
         }
     }
     function state7Right() {
         if (palette == palette0) {
             palette = palette1;
-            // paletteTitle = images[13];
-            // paletteImg = images[18];
-
         }
         else if (palette == palette1) {
             palette = palette2;
-            // paletteTitle = images[14];
-            // paletteImg = images[19];
-
         }
         else if (palette == palette2) {
             palette = palette3;
-            // paletteTitle = images[15];
-            // paletteImg = images[20];
-
         }
         else if (palette == palette3) {
             palette = palette4;
-            // paletteTitle = images[16];
-            // paletteImg = images[21];
-
         }
         else if (palette == palette4) {
             palette = palette0;
-            // paletteTitle = images[12];
-            // paletteImg = images[17];
-
         }
 
     }
