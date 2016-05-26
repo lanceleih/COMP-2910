@@ -50,7 +50,7 @@ var paletteD = ["#FFCC00", "#BDDFBB", "#688315", "#B15515"];
 // Ice Cream Desserts
 var paletteE = ["#A1C4A6", "#FBD78D", "#F5634A", "#953B32"];
 // R/G Colour Blind Palette
-var rgPalette = ["#004163", "#FFC740", "#A09EC5", "#A69F8D"];
+var rgPalette = ["#3860B3", "#FFC740", "#A09EC5", "#A69F8D"];
 // Locked palette Autumn's splendor
 var paletteF = ["#666666", "#666666", "#666666", "#666666"];
 // Locked palette Pacman ghosts
