@@ -3,12 +3,6 @@
 var canvas;
 var ctx;
 
-/*Tutorial page*/
-var imageone;
-var imagetwo;
-var imagethree;
-var imagefour;
-
 
 /* Audio: BGM & SFX */
 var bgm;
