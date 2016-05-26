@@ -28,7 +28,6 @@ function leaderboardShape() {
     canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
-        setResponMargins();
         var x = event.x;
         var y = event.y;
         //alert(x + ',' + y);

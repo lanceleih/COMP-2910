@@ -27,7 +27,6 @@ function home() {
     canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
-        setResponMargins();
         var x = event.x;
         var y = event.y;
         

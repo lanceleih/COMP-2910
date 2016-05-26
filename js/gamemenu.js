@@ -14,7 +14,6 @@ function paused() {
     canvas.addEventListener("click", tapped, false);
 
     function tapped(event) {
-        setResponMargins();
         var x = event.x;
         var y = event.y;
 
@@ -65,7 +64,6 @@ function gameResult() {
     document.getElementById("submitButton").style.display = "block";
 
     function gameResultMouseUp(event) {
-        setResponMargins();
         var canvas_x = event.pageX - canvas.offsetLeft;
         var canvas_y = event.pageY - canvas.offsetTop;
         if (canvas_x > 85 * widthFactor + leftMargin && canvas_x < 235 * widthFactor + leftMargin && canvas_y > 300 * heightFactor + topMargin && canvas_y < 375 * heightFactor + topMargin) {
