@@ -189,6 +189,8 @@ var gameTimer;
 var startTime;
 // how long has it been since timer started
 var elapsedTime;
+// The amount of time you're allowed to play per game - 30 minutes
+var expiryGameTime = 1000 * 60 * 30;
 // color inventory array
 var colorInventory = new Array(4);
 // how many tiles has been colored -- fires validation when all tiles are colored

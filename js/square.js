@@ -41,6 +41,7 @@ function drawFixedSquareTiles() {
     for (var i = 0; i < max_row; i++) {
         for (var j = 0; j < max_col; j++) {
             if (tiles[i][j].fixed === true) {
+                ctx.lineWidth=2;
                 ctx.strokeStyle = "#000000";
                 // draw \ on fixed tile
                 ctx.beginPath();
@@ -54,6 +55,7 @@ function drawFixedSquareTiles() {
                 ctx.lineTo(tiles[i][j].coordinates.p4.x, tiles[i][j].coordinates.p4.y);
                 ctx.stroke();
                 ctx.closePath();
+                ctx.lineWidth=1;
             }
         }
     }
@@ -62,8 +64,8 @@ function drawFixedSquareTiles() {
 function getSquareTile(coordX, coordY) {
     for (var i = 0; i < max_row; i++) {
         for (var j = 0; j < max_col; j++) {
-            if (tiles[i][j].coordinates.p1.x < coordX && tiles[i][j].coordinates.p2.x > coordX) {
-                if (tiles[i][j].coordinates.p1.y < coordY && tiles[i][j].coordinates.p3.y > coordY) {
+            if (tiles[i][j].coordinates.p1.x * widthFactor < coordX && tiles[i][j].coordinates.p2.x * widthFactor > coordX) {
+                if (tiles[i][j].coordinates.p1.y * heightFactor < coordY && tiles[i][j].coordinates.p3.y * heightFactor > coordY) {
                     return tiles[i][j];
                 }
             }
