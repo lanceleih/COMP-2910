@@ -276,6 +276,8 @@ function setDefaultAudioSettings() {
     sfx1.volume = 0.8;
     sfx2.volume = 0.8;
     sfx3.volume = 0.8;
+    sfx4.volume = 0.8;
+    sfx5.volume= 0.8;
 
     // play and loop bgm
     bgm.play();
