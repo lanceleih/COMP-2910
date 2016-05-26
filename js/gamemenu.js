@@ -44,24 +44,36 @@ function gameResult() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#000000";
-    
 
     ctx.drawImage(document.getElementById("resultTitle"), 11, 20);
     ctx.drawImage(document.getElementById("restartButton"), 85, 300, 150, 75);
     ctx.drawImage(document.getElementById("menuButton"), 85, 385, 150, 75);
-    
-    ctx.font = "20px monospace";
-    ctx.beginPath();
-    ctx.fillText("Enter name: ", 10, 250);
 
-    ctx.font = "30px monospace";
-    var timeString = formatTime(elapsedTime);
-    ctx.beginPath();
-    ctx.fillText("Your Time: " + timeString, 10, 200);
+    if (elapsedTime <= expiryGameTime) {
+        // Text label - Your Time: formated_time
+        ctx.font = "30px monospace";
+        ctx.beginPath();
+        ctx.fillText("Your Time: " + formatTime(elapsedTime), 10, 200);
+
+        // Text label - Enter name:
+        ctx.font = "20px monospace";
+        ctx.beginPath();
+        ctx.fillText("Enter name: ", 10, 250);
+
+        // Display input form + submit button
+        document.getElementById("addName").style.display = "block";
+        document.getElementById("submitButton").style.display = "block";
+    }
+    else {
+        ctx.font = "30px monospace";
+        ctx.beginPath();
+        ctx.fillText("Game Over", 87, 200);
+        ctx.font = "20px monospace";
+        ctx.fillText("You ran out of time.", 55, 250);
+    }
+
+    // Add event listener for game result page
     canvas.addEventListener("mouseup", gameResultMouseUp, false);
-
-    document.getElementById("addName").style.display = "block";
-    document.getElementById("submitButton").style.display = "block";
 
     function gameResultMouseUp(event) {
         var canvas_x = event.pageX - canvas.offsetLeft;

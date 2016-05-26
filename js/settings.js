@@ -18,7 +18,6 @@ function startSettings() {
 
     //Maps the coordinates for the clickable areas on the screen
     function activeArea(event) {
-        setResponMargins();
         var x = event.x;
         var y = event.y;
 

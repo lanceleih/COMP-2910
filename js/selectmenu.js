@@ -1,6 +1,3 @@
-/*Global variables*/
-    var home;
-    var ctx;
 /*The select shape page for the game*/
 function selectShape() {
     ctx.clearRect(0, 0, 320, 480);
