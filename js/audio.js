@@ -95,6 +95,9 @@ function startAudioSettings() {
     function muteSfx() {
         sfx1.volume = 0;
         sfx2.volume = 0;
+        sfx3.volume = 0;
+        sfx4.volume = 0;
+        sfx5.volume = 0;
     }
 
 
@@ -225,6 +228,9 @@ function startAudioSettings() {
             //alert("sfx1");
             sfx1.volume = 0.2;
             sfx2.volume = 0.2;
+            sfx3.volume = 0.2;
+            sfx4.volume = 0.2;
+            sfx5.volume = 0.2;
             sfx2.play();
             sfxState1 = images[5];
             sfxState2 = images[1];
@@ -246,6 +252,9 @@ function startAudioSettings() {
             //alert("sfx2");
             sfx1.volume = 0.4;
             sfx2.volume = 0.4;
+            sfx3.volume = 0.4;
+            sfx4.volume = 0.4;
+            sfx5.volume = 0.4;
             sfx2.play();
             sfxState1 = images[0];
             sfxState2 = images[6];
@@ -266,6 +275,9 @@ function startAudioSettings() {
             //alert("Sfx3");
             sfx1.volume = 0.6;
             sfx2.volume = 0.6;
+            sfx3.volume = 0.6;
+            sfx4.volume = 0.6;
+            sfx5.volume = 0.6;
             sfx2.play();
             sfxState1 = images[0];
             sfxState2 = images[1];
@@ -286,6 +298,9 @@ function startAudioSettings() {
             //alert("sfx4");
             sfx1.volume = 0.8;
             sfx2.volume = 0.8;
+            sfx3.volume = 0.8;
+            sfx4.volume = 0.8;
+            sfx5.volume = 0.8;
             sfx2.play();
             sfxState1 = images[0];
             sfxState2 = images[1];
@@ -306,6 +321,9 @@ function startAudioSettings() {
             //alert("sfx5");
             sfx1.volume = 1.0;
             sfx2.volume = 1.0;
+            sfx3.volume = 1.0;
+            sfx4.volume = 1.0;
+            sfx5.volume = 1.0;
             sfx2.play();
             sfxState1 = images[0];
             sfxState2 = images[1];
