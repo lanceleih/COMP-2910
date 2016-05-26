@@ -41,7 +41,9 @@ function selectShape() {
             sfx2.play();
             selectDifficulty();
         } else if (x > 180 * widthFactor + leftMargin && x < 305 * widthFactor + leftMargin && y > 300 * heightFactor + topMargin && y < 400 * heightFactor + topMargin) {
-            tutorial();// Tutorial
+            canvas.removeEventListener("click", getPosition, false);
+            sfx2.play();
+            firstTutorial();// Tutorial
         } else if (x > 15 * widthFactor + leftMargin && x < 100 * widthFactor + leftMargin && y > 15 * heightFactor + topMargin && y < 40 * heightFactor + topMargin) {
             // back to home
             canvas.removeEventListener("click", getPosition, false);

@@ -1,8 +1,15 @@
-function tutorial() {
+function firstTutorial() {
     ctx.clearRect(0, 0, 320, 480);
-    var count = 0;
-    var firstimage = document.getElementById("1");
-    ctx.drawImage(firstimg, 15, 70, 70, 70);
+    var leftArrowTutorial = document.getElementById("leftArrow");
+    var rightArrowTutorial = document.getElementById("rightArrow");
+
+    //Left arrow
+    ctx.drawImage(leftArrowTutorial, 5, 280, 40, 46);
+    //Right arrow
+    ctx.drawImage(rightArrowTutorial, 278, 280, 40, 46);
+
+    var firstImage = document.getElementById("1");
+    ctx.drawImage(firstImage, 50, 60, 220, 400);
     var img = document.getElementById("backButton");
     ctx.drawImage(img, 0, 0, 100, 50);
     /*var secondimg = document.getElementById("2");
