@@ -124,7 +124,23 @@
         <input type="submit" name="submit" id="submitButton" onclick="changeValues()">
     </form>
 </div>
-    <!-- Show leaderboard -->
-    <span id="leaderboardTable"></span>
+    <div id="easterEgg">
+        <img src="../img/icons/back.png" id="easterBack" alt="easter egg back button" onclick="backEaster()" width="100" height="50">
+        <br>
+        <img id="logo" src="../img/title/title.png" alt="Scholours" width="250" height="50">
+        <img src="../img/docwaylon.gif" id="video" alt="easter egg gif" width="300" height="132">
+    </div>
+    <div id="leaderboardInput">
+        <form method="post" action="http://scholours.net23.net/php/addscore.php" onsubmit="changeValues()">
+            <input type="text" name="name" id="addName" size="3">
+            <input type="hidden" name="time" id="time">
+            <input type="hidden" name="shape" id="shape">
+            <input type="hidden" name="difficulty" id="difficulty">
+            <!-- <input type="image" name="submit" id="addNameButton" alt="submit" src="../img/icons/right_arrow2.png"> -->
+            <input type="submit" name="submit" id="submitButton">
+        </form>
+    </div>
+<!-- Show Leaderboard -->    
+<span id="leaderboardTable"></span>
 </body>
 </html>

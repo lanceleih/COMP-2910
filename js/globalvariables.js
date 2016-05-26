@@ -11,6 +11,11 @@ var sfx3;
 var sfx4;
 var sfx5;
 
+/*Responsive Margins*/
+var mainDiv;
+var submitButton;
+var easterDiv;
+
 /*Variables for getting offset for responsive design*/
 var canvasWidth;
 var canvasHeight;
@@ -164,18 +169,7 @@ function setGlobalVariables() {
     ctx = canvas.getContext("2d");
 
     // Responsive design
-    canvasWidth = canvas.scrollWidth;
-    canvasHeight = canvas.scrollHeight;
-    docWidth = $(window).width();
-    docHeight = $(window).height();
-    leftMargin = ((docWidth - canvasWidth) * 0);
-    if(docWidth < 800) {
-        leftMargin = 0;
-    }
-    topMargin = (docHeight - canvasHeight);
-    widthFactor = canvas.scrollWidth / canvas.width;
-    heightFactor = canvas.scrollHeight / canvas.height;
-
+    setResponMargins();
     /* AUDIO and COLOR PACK images*/
     // preload audio and color pack images into images[]
     preload = [
