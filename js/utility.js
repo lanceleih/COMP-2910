@@ -35,15 +35,17 @@ function drawComponent() {
 }
 
 function setResponMargins() {
+    mainDiv = document.getElementById("main");
     widthFactor = canvas.scrollWidth / canvas.width;
     heightFactor = canvas.scrollHeight / canvas.height;
     canvasWidth = canvas.scrollWidth;
     canvasHeight = canvas.scrollHeight;
     docWidth = $(window).width();
     docHeight = $(window).height();
-    leftMargin = ((docWidth - canvasWidth) * 0);
-    if(docWidth < 800) {
+    leftMargin = ((docWidth - canvasWidth) / 2);
+    if(docWidth < 320) {
         leftMargin = 0;
     }
+    mainDiv.style.marginLeft =  leftMargin.toString() + "px";
     topMargin = (docHeight - canvasHeight);
 }
