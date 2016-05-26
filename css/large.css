@@ -69,25 +69,33 @@ canvas {
     display: none;
 }
 
-.leaderboards {
-    background-color: #F2EFCC;
-    position: relative;
-    width: 320px;
-    height: 480px;
+#leaderboardTable {
+    position: absolute;
+    top: 25%;
+    width: 100%;
     display: none;
+    overflow-x: auto;
 }
-.rightLearderboardArrow {
-    position: absolute;
-    right: 0;
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
 }
-.leftLearderboardArrow {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+th td {
+    padding: 3px;
 }
-
-table th, table td {
-    font-size: 1.5em;
-    padding: 0 5%; 
+td {
     text-align: center;
+}
+tr {
+    text-align: center;
+}
+th {
+    background-color: #7E9772;
+}
+tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+tr:nth-child(odd) {
+    background-color: #d3d3d3;
 }
