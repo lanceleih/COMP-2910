@@ -15,7 +15,7 @@ function firstTutorial() {
     canvas.addEventListener("click", getPosition, false);
     ctx.strokeStyle = '#000';  // some color/style
     ctx.lineWidth = 5;         // thickness
-    ctx.strokeRect( 50, 60, 220, 400);
+    ctx.strokeRect( 55, 60, 220, 400);
     function getPosition() {
         var x = event.x;
         var y = event.y;
@@ -53,7 +53,7 @@ function secondTutorial() {
     canvas.addEventListener("click", getPosition, false);
     ctx.strokeStyle = '#000';  // some color/style
     ctx.lineWidth = 5;         // thickness
-    ctx.strokeRect( 50, 60, 220, 400);
+    ctx.strokeRect( 55, 60, 220, 400);
     function getPosition() {
         var x = event.x;
         var y = event.y;
@@ -91,7 +91,7 @@ function thirdTutorial() {
     canvas.addEventListener("click", getPosition, false);
     ctx.strokeStyle = '#000';  // some color/style
     ctx.lineWidth = 5;         // thickness
-    ctx.strokeRect( 50, 60, 220, 400);
+    ctx.strokeRect( 55, 60, 220, 400);
     function getPosition() {
         var x = event.x;
         var y = event.y;
