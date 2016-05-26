@@ -1,35 +1,33 @@
 function newGame() {
-    initializePositions();
+    //initializePositions();
     initializeGame();
-    // insert countdown animation
-
     game();
 }
 
-function initializePositions() {
-    offset_left = 20;
-    offset_right = offset_left;
-    offset_top = 20;
-    offset_bottom = offset_top;
-    margin_x = 20;
-    margin_y = 20;
-    timer_x = offset_left;
-    timer_y = offset_top;
-    timer_width = 200;
-    timer_height = 60;
-    pause_x = timer_x + timer_width + margin_x;
-    pause_y = offset_top;
-    pause_width = 60;
-    pause_height = timer_height;
-    inventory_width = canvas.width - offset_left - offset_right;
-    inventory_height = timer_height;
-    board_x = offset_left;
-    board_y = offset_top + timer_height + margin_y;
-    board_width = canvas.width - offset_left - offset_right;
-    board_height = canvas.height - offset_top - offset_bottom - timer_height - margin_x * 2 - inventory_height;
-    inventory_x = offset_left;
-    inventory_y = offset_top + timer_height + margin_y * 2 + board_height;
-}
+// function initializePositions() {
+//     offset_left = 20;
+//     offset_right = offset_left;
+//     offset_top = 20;
+//     offset_bottom = offset_top;
+//     margin_x = 20;
+//     margin_y = 20;
+//     timer_x = offset_left;
+//     timer_y = offset_top;
+//     timer_width = 200;
+//     timer_height = 60;
+//     pause_x = timer_x + timer_width + margin_x;
+//     pause_y = offset_top;
+//     pause_width = 60;
+//     pause_height = timer_height;
+//     inventory_width = canvas.width - offset_left - offset_right;
+//     inventory_height = timer_height;
+//     board_x = offset_left;
+//     board_y = offset_top + timer_height + margin_y;
+//     board_width = canvas.width - offset_left - offset_right;
+//     board_height = canvas.height - offset_top - offset_bottom - timer_height - margin_x * 2 - inventory_height;
+//     inventory_x = offset_left;
+//     inventory_y = offset_top + timer_height + margin_y * 2 + board_height;
+// }
 
 function initializeGame() {
     document.getElementById("addName").style.display = "none"; // leaderboard textbox disappears
@@ -210,11 +208,11 @@ function drawTiles() {
 }
 
 function clickGame(event) {
-    setResponMargins();
     var canvas_x = event.pageX - canvas.offsetLeft;
     var canvas_y = event.pageY - canvas.offsetTop;
     var x = event.pageX;
     var y = event.pageY;
+
     // clicks game board
     if (canvas_x > (board_x * widthFactor) && canvas_x < ((board_x * widthFactor) + (board_width * widthFactor)) && canvas_y > (board_y * heightFactor) && canvas_y < ((board_y * heightFactor) + (board_height * heightFactor))) {
         var tile = getTile(canvas_x, canvas_y);
@@ -270,7 +268,6 @@ function fillTile(tile) {
         grd.addColorStop(1,palette[2][newColor]);
         grd.addColorStop(0,"white");
         ctx.fillStyle = grd;
-        //ctx.fillStyle = palette[newColor];
         //ctx.fillStyle = palette[2][newColor];
     }
     ctx.strokeStyle = "#000000";

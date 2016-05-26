@@ -1,6 +1,3 @@
-/*Global variables*/
-    var home;
-    var ctx;
 /*The select shape page for the game*/
 function selectShape() {
     ctx.clearRect(0, 0, 320, 480);
@@ -21,7 +18,6 @@ function selectShape() {
     canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
-        setResponMargins();
         var x = event.x;
         var y = event.y;
 
@@ -73,7 +69,6 @@ function selectDifficulty() {
     canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
-        setResponMargins();
         var x = event.x;
         var y = event.y;
         //alert(x + ',' + y);

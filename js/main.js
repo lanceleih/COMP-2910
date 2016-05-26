@@ -1,15 +1,13 @@
 /* Javascript for All Parts of Game */
 
+function scholours() {
+    setGlobalVariables();
+    home();
+}
+
 /* Javascript for the home page*/
-bgm.volume = 0.2;
-sfx1.volume = 0.8;
-sfx2.volume = 0.8;
-$(window).resize(setResponMargins);
 function home() {
-    bgm.play();
-    bgm.loop = true;
-    canvas = document.getElementById("mainCanvas");
-    ctx = canvas.getContext("2d");
+
     ctx.clearRect(0, 0, 320, 480);
     var count = 0;
     var img = document.getElementById("cube");
@@ -27,7 +25,6 @@ function home() {
     canvas.addEventListener("click", getPosition, false);
 
     function getPosition(event) {
-        setResponMargins();
         var x = event.x;
         var y = event.y;
         
