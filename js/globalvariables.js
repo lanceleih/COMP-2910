@@ -266,7 +266,7 @@ function setDefaultGameSettings() {
 
     // The amount of time you're allowed to play per game - 30 minutes = 10 deci-seconds per second  * 60 seconds per minute  * 60 minutes
     expiryGameTime = 10 * 60 * 60;
-    //expiryGameTime = 10 * 5; // testing purpose - 5 seconds only
+    // expiryGameTime = 10 * 5; // testing purpose - 5 seconds only
 
     // color inventory array
     colorInventory = new Array(4);

@@ -51,13 +51,13 @@ function gameResult() {
 
     if (elapsedTime <= expiryGameTime) {
         // Text label - Your Time: formated_time
-        ctx.font = "30px monospace";
-        ctx.beginPath();
-        ctx.fillText("Your Time: " + formatTime(elapsedTime), 10, 200);
+        ctx.font = "25px monospace";
+        ctx.textAlign = "center";
+        ctx.fillText("Your Time: " + formatTime(elapsedTime), (canvas.width / 2), 200);
+        ctx.textAlign = "start";
 
         // Text label - Enter name:
         ctx.font = "20px monospace";
-        ctx.beginPath();
         ctx.fillText("Enter name: ", 10, 250);
 
         // Display input form + submit button
@@ -65,11 +65,12 @@ function gameResult() {
         document.getElementById("submitButton").style.display = "block";
     }
     else {
-        ctx.font = "30px monospace";
-        ctx.beginPath();
-        ctx.fillText("Game Over", 87, 200);
-        ctx.font = "20px monospace";
-        ctx.fillText("You ran out of time.", 55, 250);
+        ctx.textAlign = "center";
+        ctx.font = 25 + "px monospace";
+        ctx.fillText("Game Over", (canvas.width / 2), 200);
+        ctx.font = 20 + "px monospace";
+        ctx.fillText("You ran out of time.", (canvas.width / 2), 250);
+        ctx.textAlign = "start";
     }
 
     // Add event listener for game result page

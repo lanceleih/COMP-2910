@@ -18,19 +18,19 @@ body {
     margin: 0;
 }
 #mainCanvas {
-   width: auto;
-   height: 100%;
-   background-color: #F2EFCC;
+    width: auto;
+    height: 100%;
+    background-color: #F2EFCC;
+    background-image: url("../img/background/bg.jpg");
+    background-position: center;
+    display: none;
+    margin: auto;
+    padding: 0;
+    border: none;
 }
 #images {
     clear: left;
     display: none;
-}
-canvas {
-    margin: auto;
-    padding: 0;
-    border: none;
-    background-image: url("../img/background/bg.jpg");
 }
 #easterEgg {
     border: none;

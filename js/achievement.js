@@ -81,7 +81,7 @@ function unlockPackmansGhosts() {
     if (gamesDia === 1) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        var fontSize = 20 * widthFactor;
+        var fontSize = 20;
 
         // msg 1 settings
         var msg = "You've unlocked";
