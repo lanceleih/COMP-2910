@@ -17,6 +17,7 @@ var mainDiv;
 var submitButton;
 var easterDiv;
 var leaderboardTableDiv;
+var ratio;
 
 /*Variables for getting offset for responsive design*/
 var canvasWidth;
