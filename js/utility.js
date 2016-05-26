@@ -36,7 +36,8 @@ function drawComponent() {
 
 function setResponMargins() {
     mainDiv = document.getElementById("main");
-    submitButton = document.getElementById("leaderboardInput");
+    userInputName = document.getElementById("addName");
+    submitUserButton = document.getElementById("submitButton");
     easterDiv = document.getElementById("easterEgg");
     leaderboardTableDiv = document.getElementById("leaderboardTable");
 
@@ -53,12 +54,26 @@ function setResponMargins() {
     if(docWidth < 320) {
         leftMargin = 0;
     }
+
+    canvasWidthUserInput = canvasWidth - (canvasWidth * .90);
+    leftMarginUserInput = ((docWidth - (canvasWidth * 0.15)) / 2);
+    canvasWidthSubmitUserButton = canvasWidth - (canvasWidth * 0.80);
+    leftMarginSubmitUserButton = ((docWidth - (canvasWidth * -0.15)) / 2);
+
     mainDiv.style.marginLeft =  leftMargin.toString() + "px";
-    submitButton.style.marginLeft =  leftMargin.toString() + "px";
-    submitButton.style.width =  canvasWidth.toString() + "px";
+    userInputName.style.marginLeft =  leftMarginUserInput.toString() + "px";
+    userInputName.style.width =  canvasWidthUserInput.toString() + "px";
+    submitUserButton.style.marginLeft = leftMarginSubmitUserButton.toString() + "px";
+    submitUserButton.style.width = canvasWidthSubmitUserButton.toString() + "px";
     easterDiv.style.marginLeft =  leftMargin.toString() + "px";
     easterDiv.style.width =  canvasWidth.toString() + "px";
     leaderboardTableDiv.style.marginLeft =  leftMargin.toString() + "px";
     leaderboardTableDiv.style.width =  canvasWidth.toString() + "px";
+    
     topMargin = (docHeight - canvasHeight);
+
+    topMarginUserInput = (docHeight - (canvasHeight * 0.56));
+    userInputName.style.marginTop = topMarginUserInput.toString() + "px";
+    topMarginSubmitButton = (docHeight - (canvasHeight * 0.55));
+    submitUserButton.style.marginTop = topMarginUserInput.toString() + "px";;
 }

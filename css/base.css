@@ -56,15 +56,14 @@ canvas {
 }
 #addName {
     position: absolute;
-    margin-left:  43%;
-    margin-top: 62%;
+    padding: 0.5%;
+    font-size: 103%;
     display: none;
 }
-
 #submitButton {
     position: absolute;
-    margin-left: 57%;
-    margin-top: 62%;
+    font-size: 103%;
+    padding: 0.5%;
     display: none;
 }
 .hide { 
