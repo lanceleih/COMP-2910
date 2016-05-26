@@ -145,8 +145,6 @@ var sfxState3 = images[2];
 var sfxState4 = images[8];
 var sfxState5 = images[4];
 var sfxMuteState = images[10];
-var danCount = 0;
-var danFlag = false;
 var palette = palette4;
 
 // new global variables

@@ -66,47 +66,9 @@ function startColourSettings() {
             //alert(palette);
         }
 
-        //Dan's easter egg
-        //alert(x + " " + y);
-
-        if (x > 265 && x < 290 && y > 70 && y < 100) {
-
-            danCount++;
-            if (danCount % 3 == 0 && danFlag == false) {
-                danFlag = true;
-                alert(danFlag);
-                palette = ["#998365", "#1E3259", "#EF1921", "#678314", "#A1C4A6"];
-                storeImg = paletteImg;
-                storePaletteTitle = paletteTitle;
-                paletteTitle = images[23];
-                paletteImg = images[22];
-                drawTile0();
-                drawTile1();
-                drawTile2();
-                drawTile3();
-                drawColourPackString();
-                drawPackPanel();
-            }
-            else if (danCount % 3 != 0 && danFlag == true){
-                danFlag = false;
-                alert(danFlag);
-                paletteImg = storeImg;
-                paletteTitle = storePaletteTitle;
-                drawTile0();
-                drawTile1();
-                drawTile2();
-                drawTile3();
-                drawColourPackString();
-                drawPackPanel();
-            }
-
-        }
-
     }
 
     //Functions
-
-
     //Draws palette image
     function drawPackPanel() {
         ctx.clearRect(50, 220, 220, 170);
