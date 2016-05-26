@@ -102,8 +102,6 @@ var danFlag;
 
 var palette;
 
-
-
 // offsets, margins, and x, y, width, height of every components in game
 var offset_left;
 var offset_right;
