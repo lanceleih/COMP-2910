@@ -30,7 +30,8 @@ function home() {
         
        if (x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
             canvas.removeEventListener("click", getPosition, false);
-            sfx2.play();
+           bgm.play();
+           sfx2.play();
             selectShape();
         } else if(x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin)  && y > (260 * heightFactor + topMargin) && y < (335 * heightFactor + topMargin)) {
             canvas.removeEventListener("click", getPosition, false);

@@ -275,12 +275,12 @@ function setDefaultGameSettings() {
 
 function setDefaultAudioSettings() {
     /* Audio: BGM & SFX */
-    bgm = new Audio("../audio/shop.wav");
-    sfx1 = new Audio("../audio/tap2.wav");
-    sfx2 = new Audio("../audio/click3.wav");
-    sfx3 = new Audio("../audio/glass2.wav");
-    sfx4 = new Audio("../audio/clank.wav");
-    sfx5 = new Audio("../audio/whistle.wav");
+    bgm = new Audio("../audio/shop.mp3");
+    sfx1 = new Audio("../audio/tap2.mp3");
+    sfx2 = new Audio("../audio/click2.mp3");
+    sfx3 = new Audio("../audio/glass2.mp3");
+    sfx4 = new Audio("../audio/clank.mp3");
+    sfx5 = new Audio("../audio/whistle.mp3");
 
     // set default bgm + sfx volume level
     bgm.volume = 0.2;
@@ -291,7 +291,11 @@ function setDefaultAudioSettings() {
     sfx5.volume= 0.8;
 
     // play and loop bgm
-    bgm.play();
+    //  bgm.addEventListener('canplay', function() {
+    //      bgm.play();
+    //  });
+    // bgm.load();
+    //bgm.play();
     bgm.loop = true;
 
     // set default bgm button states

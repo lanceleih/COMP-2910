@@ -78,8 +78,8 @@ function startColourSettings() {
 
     //Draws palette colour pack titles
     function drawColourPackString() {
-        ctx.clearRect(45, 410, 250, 63);
-        ctx.drawImage(palette[0], 45, 410, 250, 63);
+        ctx.clearRect(35, 410, 250, 63);
+        ctx.drawImage(palette[0], 35, 410, 250, 63);
 
     }
 
