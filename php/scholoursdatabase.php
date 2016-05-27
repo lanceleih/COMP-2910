@@ -10,10 +10,7 @@
     <script src="../js/utility.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/game.js"></script>
-<<<<<<< HEAD
-=======
     <script src="../js/achievement.js"></script>
->>>>>>> 09367d17f67c34eced1dc0132a90a3c13f700dc0
     <script src="../js/settings.js"></script>
     <script src="../js/audio.js"></script>
     <script src="../js/colourpacksettings.js"></script>
@@ -27,6 +24,7 @@
     <script src="../js/timer.js"></script>
     <script src="../js/form.js"></script>
     <script src="../js/validategame.js"></script>
+    <script src="../js/tutorial.js"></script>
 </head>
 <body onload="scholours()">
     <div id="main">
@@ -49,6 +47,11 @@
         <img id="diamondButton" src="../img/icons/polygon.png" alt="diamond shape button" height="0" width="0">
         <img id="hexButton" src="../img/icons/hexa.png" alt="hexagon shape button" height="0" width="0">
         <img id="tutorial" src="../img/icons/tutorial.png" alt="tutorial button" height="0" width="0">
+
+        <!-- Images for the tutorial page-->
+        <img id="1" src="../img/tutorial/firsttutorial.jpg" alt="first image" height="0" width="0">
+        <img id="2" src="../img/tutorial/secondtutorial.jpg" alt="second image" height="0" width="0">
+        <img id="3" src="../img/tutorial/thirdtutorial.jpg" alt="thrid image" height="0" width="0">
 
         <!--Images needed for difficulty page-->
         <img id="difficultyTitle" src="../img/title/difficultytitle.png" alt="difficulty title" height="0" width="0">
