@@ -15,7 +15,7 @@ function updateTimer() {
     else {
         ctx.fillStyle = "#C7B577";
         ctx.beginPath();
-        ctx.fillRect(80, 35, 133, 30);
+        ctx.fillRect(80, 35, 135, 30);
 
         ctx.fillStyle = "#000000";
         ctx.font = "30px monospace";
