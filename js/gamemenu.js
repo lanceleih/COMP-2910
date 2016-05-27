@@ -96,48 +96,5 @@ function gameResult() {
         }
     }
 }
-function nameEntered() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    document.getElementById("addName").value = "";
-    document.getElementById("addName").style.display = "none";
-    document.getElementById("submitButton").style.display = "none";
-    
-    ctx.drawImage(document.getElementById("resultTitle"), 11, 20);
-    ctx.drawImage(document.getElementById("restartButton"), 85, 300, 150, 75);
-    ctx.drawImage(document.getElementById("menuButton"), 85, 385, 150, 75);
 
-    // Add event listener for game result page
-    canvas.addEventListener("mouseup", gameResultMouseUp, false);
-
-    ctx.font = "30px monospace";
-    var timeString2 = formatTime(elapsedTime);
-    ctx.beginPath();
-    ctx.fillText("Your Time: " + timeString2, 10, 200);
-
-    ctx.font = "30px monospace";
-    ctx.beginPath();
-    ctx.fillText("Name entered!", 52, 250);
-
-    function gameResultMouseUp(event) {
-        setResponMargins();
-        var canvas_x = event.pageX - canvas.offsetLeft;
-        var canvas_y = event.pageY - canvas.offsetTop;
-        if (canvas_x > 85 * widthFactor + leftMargin && canvas_x < 235 * widthFactor + leftMargin && canvas_y > 300 * heightFactor + topMargin && canvas_y < 375 * heightFactor + topMargin) {
-            document.getElementById("addName").value = "";
-            document.getElementById("addName").style.display = "none";
-            document.getElementById("submitButton").style.display = "none";
-            canvas.removeEventListener("mouseup", gameResultMouseUp, false);
-            sfx2.play();
-            newGame();
-        } else if (canvas_x > 85 * widthFactor + leftMargin && canvas_x < 235 * widthFactor + leftMargin && canvas_y > 385 * heightFactor + topMargin && canvas_y < 460 * heightFactor + topMargin) {
-            document.getElementById("addName").value = "";
-            document.getElementById("addName").style.display = "none";
-            document.getElementById("submitButton").style.display = "none";
-            canvas.removeEventListener("mouseup", gameResultMouseUp, false);
-            sfx1.play();
-            home();
-        }
-    }
-    
-}
 
