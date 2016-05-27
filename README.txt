@@ -20,18 +20,27 @@
 5. Diagonals are not considered to be connected.
 ********************************************************************************
 
+**********************************Important*************************************
+    This game currently only consistently runs on Chrome, both on the
+    desktop and mobile. To get the full experience, running the game through
+    desktop is the best option. Results may vary if used on mobile due to issues
+    regarding audio playback and initial load time on some Android and Apple devices.
+********************************************************************************
+
 *********************Results From Testing**************************************
 1. Event handlers for javascript on handled differently depending on browser.
 2. Game works as intended on the desktop environment.
 3. Sound effects did not work properly on all mobile devices, even those using the same browser.
 4. Initial load up time varies depending on the mobile device.
 5. Mobile browsers do not automatically play audio unless it is by a user-driven event, ie. touch/click.
+6. On mobile and depending on device, initial sound effects may lag; afterwards it does not lag.
+7. On mobile, game will be cut off if the browser if the address bar is hidden.
 ************************************************************************************
 
 *******************Solutions/Workarounds For Problems***************************
 1. Currently, the game only functions properly using Chrome, both on desktop and mobile.
 2. On mobile, background music is activated when "Play" button is pressed.
-3.
+3. Currently, as long as the user does not scroll down their browser, the game will resize as intended.
 ********************************************************************************
 ***********Folders*********
 1. audio - audio files
@@ -53,25 +62,13 @@
 
 ***************************Files******************************
 1. audio
-    a. clank.mp3        - locked sound effect
-    b. clank.wav        - locked sound effect
-    c. click.wav        - sound effects 1
-    d. click2.mp3       - sound effect
-    e. click2.wav       - testing
-    f. click3.wav       - testing
-    g. glass.wav        - testing
-    h. glass2.mp3       - testing
-    i. glass2.wav       - testing
-    j. shop.mp3         - background music (accordian)
-    k. shop.wav         - background music
-    l. shop2.mp3        - background music
-    m. showtime.mp3     - testing
-    n. switch.wav       - testing
-    o. tap.wav          - sound effect 2
-    p. tap2.mp3         - sound effect 3
-    q. tab2.wav         - testing
-    r. whistle.mp3      - sound effect
-    s. whistle.wav      - sound effect
+    a. clank.mp3        - sound effect: locked unlockable
+    b. click2.mp3       - sound effect: general button press
+    c. glass2.mp3       - sound effect: tile press
+    d. shop.mp3         - background music (bgm)
+    e. tap2.mp3         - sound effect: back button press
+    f. whistle.mp3      - sound effect: deny action
+
 
 2. css
     a. base.css     - basic css, used for any divs(easter egg)
