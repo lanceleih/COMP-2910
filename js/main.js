@@ -1,6 +1,6 @@
 /* Javascript for All Parts of Game */
 
-function scholours() {
+function scholours() {  
     document.getElementById("mainCanvas").style.display = "inline";
     setGlobalVariables();
     home();
