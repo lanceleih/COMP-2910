@@ -19,8 +19,6 @@ function changeValues() {
     } else if (difficulty == 2) {
         document.getElementById("difficulty").value = "hard";
     }
-    
-    canvas.removeEventListener("mouseup", gameResultMouseUp, false);
 }
 /* Javascript for the Game Result Page*/
 function nameEntered() {
