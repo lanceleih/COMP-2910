@@ -20,6 +20,19 @@
 5. Diagonals are not considered to be connected.
 ********************************************************************************
 
+*********************Results From Testing**************************************
+1. Event handlers for javascript on handled differently depending on browser.
+2. Game works as intended on the desktop environment.
+3. Sound effects did not work properly on all mobile devices, even those using the same browser.
+4. Initial load up time varies depending on the mobile device.
+5. Mobile browsers do not automatically play audio unless it is by a user-driven event, ie. touch/click.
+************************************************************************************
+
+*******************Solutions/Workarounds For Problems***************************
+1. Currently, the game only functions properly using Chrome, both on desktop and mobile.
+2. On mobile, background music is activated when "Play" button is pressed.
+3.
+********************************************************************************
 ***********Folders*********
 1. audio - audio files
 2. css  - css files
