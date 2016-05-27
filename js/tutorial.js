@@ -1,10 +1,7 @@
 function firstTutorial() {
     ctx.clearRect(0, 0, 320, 480);
-    var leftArrowTutorial = document.getElementById("leftArrow");
     var rightArrowTutorial = document.getElementById("rightArrow");
 
-    //Left arrow
-    ctx.drawImage(leftArrowTutorial, 5, 280, 40, 46);
     //Right arrow
     ctx.drawImage(rightArrowTutorial, 278, 280, 40, 46);
 
@@ -29,10 +26,6 @@ function firstTutorial() {
             canvas.removeEventListener("click", getPosition, false);
             sfx1.play();
             secondTutorial();
-        } else if (x > 5 * widthFactor + leftMargin && x < 45 * widthFactor + leftMargin && y > 280 * heightFactor + topMargin && y < 326 * heightFactor + topMargin) {
-            canvas.removeEventListener("click", getPosition, false);
-            sfx1.play();
-            thirdTutorial();
         }
     }
 }
@@ -77,12 +70,9 @@ function secondTutorial() {
 function thirdTutorial() {
     ctx.clearRect(0, 0, 320, 480);
     var leftArrowTutorial = document.getElementById("leftArrow");
-    var rightArrowTutorial = document.getElementById("rightArrow");
 
     //Left arrow
     ctx.drawImage(leftArrowTutorial, 5, 280, 40, 46);
-    //Right arrow
-    ctx.drawImage(rightArrowTutorial, 278, 280, 40, 46);
 
     var secondImage = document.getElementById("3");
     ctx.drawImage(secondImage, 50, 60, 220, 400);
@@ -101,10 +91,6 @@ function thirdTutorial() {
             canvas.removeEventListener("click", getPosition, false);
             sfx1.play();
             selectShape();
-        } else if (x > 278 * widthFactor + leftMargin && x < 318 * widthFactor + leftMargin && y > 280 * heightFactor + topMargin && y < 326 * heightFactor + topMargin) {
-            canvas.removeEventListener("click", getPosition, false);
-            sfx1.play();
-            firstTutorial();
         } else if (x > 5 * widthFactor + leftMargin && x < 45 * widthFactor + leftMargin && y > 280 * heightFactor + topMargin && y < 326 * heightFactor + topMargin) {
             canvas.removeEventListener("click", getPosition, false);
             sfx1.play();

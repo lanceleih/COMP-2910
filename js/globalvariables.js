@@ -83,14 +83,27 @@ var palette7;
 //Colour Blind Palette Array
 var palette8;
 
+// Palette image containing title of the colour pack
 var paletteTitle;
+// Temporarily stores previous palette when
+// colour blind mode is selected
 var storeImg;
+// Temporarily stores previous palette title when
+// colour blind mode is selected
 var storePaletteTitle;
+// Temporarily store the previous palette colours
+// when colour blind mode is selected
 var storePalette;
+// Stores the current palette image
 var paletteImg;
+// Fills in the toggle box when colour blind mode
+// is selected
 var colourModeStateFill;
+// Boolean: false when colour blind mode
+// is off, true when colour blind mode is selected
 var colourModeState;
 
+//The state of the bgm volume including muting bgm
 var bgmState1;
 var bgmState2;
 var bgmState3;
@@ -98,6 +111,7 @@ var bgmState4;
 var bgmState5;
 var bgmMuteState;
 
+//The state of the sfx volume including muting sfx
 var sfxState1;
 var sfxState2;
 var sfxState3;
@@ -105,10 +119,7 @@ var sfxState4;
 var sfxState5;
 var sfxMuteState;
 
-/* Dan's Testing variables*/
-var danCount;
-var danFlag;
-
+//The current palette of colours being used
 var palette;
 
 // offsets, margins, and x, y, width, height of every components in game
@@ -220,9 +231,6 @@ function setGlobalVariables() {
         images[i].src = preload[i];
     }
 
-    /* DAN's testing variables */
-    danCount = 0;
-    danFlag = false;
 
     setDefaultGameSettings();
     setDefaultAudioSettings();
@@ -266,7 +274,7 @@ function setDefaultGameSettings() {
 
     // The amount of time you're allowed to play per game - 30 minutes = 10 deci-seconds per second  * 60 seconds per minute  * 60 minutes
     expiryGameTime = 10 * 60 * 60;
-    //expiryGameTime = 10 * 5; // testing purpose - 5 seconds only
+    // expiryGameTime = 10 * 5; // testing purpose - 5 seconds only
 
     // color inventory array
     colorInventory = new Array(4);
@@ -275,12 +283,12 @@ function setDefaultGameSettings() {
 
 function setDefaultAudioSettings() {
     /* Audio: BGM & SFX */
-    bgm = new Audio("../audio/shop.wav");
-    sfx1 = new Audio("../audio/tap2.wav");
-    sfx2 = new Audio("../audio/click3.wav");
-    sfx3 = new Audio("../audio/glass2.wav");
-    sfx4 = new Audio("../audio/clank.wav");
-    sfx5 = new Audio("../audio/whistle.wav");
+    bgm = new Audio("../audio/shop.mp3");
+    sfx1 = new Audio("../audio/tap2.mp3");
+    sfx2 = new Audio("../audio/click2.mp3");
+    sfx3 = new Audio("../audio/glass2.mp3");
+    sfx4 = new Audio("../audio/clank.mp3");
+    sfx5 = new Audio("../audio/whistle.mp3");
 
     // set default bgm + sfx volume level
     bgm.volume = 0.2;
@@ -291,6 +299,10 @@ function setDefaultAudioSettings() {
     sfx5.volume= 0.8;
 
     // play and loop bgm
+    //  bgm.addEventListener('canplay', function() {
+    //      bgm.play();
+    //  });
+    // bgm.load();
     bgm.play();
     bgm.loop = true;
 
@@ -358,10 +370,11 @@ function setDefaultColorSettings() {
     paletteTitle = palette4[0];
     //set default palette image
     paletteImg = palette4[1];
-
+    //set to default null
     storeImg = null;
     storePaletteTitle = null;
     storePalette = null;
+    //set to white and colour blind mode as off (false)
     colourModeStateFill = "#FFFFFF";
     colourModeState = false;
 }

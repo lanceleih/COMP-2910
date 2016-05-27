@@ -30,7 +30,7 @@ function startSettings() {
         }
 
         //Audio Button function: goes into audio settings page
-        if (x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
+        if (x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin) && y > (180 * heightFactor + topMargin) && y < (255 * heightFactor + topMargin)) {
             canvas.removeEventListener("mouseup", activeArea, false);
             sfx2.play();
             startAudioSettings();
@@ -38,7 +38,7 @@ function startSettings() {
         }
 
         //Colour Pack function: goes into the colour pack selection page
-     if (x > (90 * widthFactor + leftMargin) && x < (240 * widthFactor + leftMargin) &&  y > (260 * heightFactor + topMargin) && y < (330 * heightFactor + topMargin)) {
+     if (x > (85 * widthFactor + leftMargin) && x < (235 * widthFactor + leftMargin) &&  y > (260 * heightFactor + topMargin) && y < (330 * heightFactor + topMargin)) {
             canvas.removeEventListener("mouseup", activeArea, false);
             sfx2.play();
             startColourSettings();
@@ -85,15 +85,15 @@ function startSettings() {
 
 
     //Audio button
-        ctx.drawImage(audioButtonImg, 90, 180, 150, 75);
+        ctx.drawImage(audioButtonImg, 85, 180, 150, 75);
 
 
     //Colour pack button
-        ctx.drawImage(colourPackButtonImg, 90, 260, 150, 75);
+        ctx.drawImage(colourPackButtonImg, 85, 260, 150, 75);
 
 
     //Colour Blind Image
-        ctx.drawImage(colourBlindImg, 90, 343, 175, 36);
+        ctx.drawImage(colourBlindImg, 85, 343, 175, 36);
 
 
     //Colour Blind Toggle Box

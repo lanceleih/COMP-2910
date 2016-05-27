@@ -70,6 +70,9 @@
         <!--<img id="settingsButton" width="0" height="0" src="img/icons/settings.png" alt="settings">-->
         <img id="menuButton" src="../img/icons/mainmenu.png" alt="menu button" width="0" height="0">
 
+        <!-- Images needed for unlock page-->
+        <img id="continueButton" src="../img/icons/continue.png" alt="continue button" width="0" height="0">
+
         <!--Images needed for result page-->
         <img id="resultTitle" src="../img/title/resulttitle.png" alt="result title" width="0" height="0">
 
@@ -114,6 +117,7 @@
         <img id="easyTitle" src="../img/title/difficultyeasytitle.png" alt="leaderboard diffulty easy title" height="0" width="0">
         <img id="mediumTitle" src="../img/title/difficultymediumtitle.png" alt="leaderboard diffulty medium title" height="0" width="0">
         <img id="hardTitle" src="../img/title/difficultyhardtitle.png" alt="leaderboard diffulty hard title" height="0" width="0">
+
     </div>
 <div id="leaderboardInput">
     <iframe name="hiddenFrame" sandbox class="hide"></iframe>

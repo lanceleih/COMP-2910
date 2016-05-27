@@ -78,8 +78,8 @@ function startColourSettings() {
 
     //Draws palette colour pack titles
     function drawColourPackString() {
-        ctx.clearRect(45, 410, 250, 63);
-        ctx.drawImage(palette[0], 45, 410, 250, 63);
+        ctx.clearRect(35, 410, 250, 63);
+        ctx.drawImage(palette[0], 35, 410, 250, 63);
 
     }
 
@@ -110,6 +110,7 @@ function startColourSettings() {
         ctx.fillStyle = palette[2][3];
         ctx.fillRect(235, 125, 65, 70)
     }
+
     //State 0: No levels unlocked 0 0 0
     function state0Left(){
         if (palette == palette0) {
@@ -183,7 +184,7 @@ function startColourSettings() {
         }
     }
 
-    //State 2: Only Diamond unlocked
+    //State 2: Only Diamond unlocked 0 1 0
     function state2Left() {
         if (palette == palette0) {
             palette = palette4;
@@ -219,7 +220,7 @@ function startColourSettings() {
         }
     }
 
-    //State 3: Square and Diamond unlocked
+    //State 3: Square and Diamond unlocked 0 1 1
     function state3Left() {
         if (palette == palette0) {
             palette = palette4;
@@ -254,7 +255,7 @@ function startColourSettings() {
             palette = palette0;
         }
     }
-    //State 4: Only Hexagon unlocked
+    //State 4: Only Hexagon unlocked 1 0 0
     function state4Left() {
         if (palette == palette0) {
             palette = palette4;
@@ -290,7 +291,7 @@ function startColourSettings() {
         }
     }
 
-    //State 5: Square and hexagon unlocked
+    //State 5: Square and hexagon unlocked 1 0 1
     function state5Left() {
         if (palette == palette0) {
             palette = palette4;
@@ -326,7 +327,7 @@ function startColourSettings() {
         }
     }
 
-    //State 6: Diamond and hexagon unlocked
+    //State 6: Diamond and hexagon unlocked 1 1 0
     function state6Left() {
         if (palette == palette0) {
             palette = palette4;
@@ -362,7 +363,7 @@ function startColourSettings() {
         }
     }
 
-    //State 7: All levels unlocked
+    //State 7: All levels unlocked 1 1 1
     function state7Left(){
         if (palette == palette0) {
             palette = palette4;
@@ -399,6 +400,7 @@ function startColourSettings() {
 
     }
 
+    // Looks at how many unlockables have been unlocked to rotate left
     function whichStateLeft() {
         if (gamesHex == 0 && gamesDia == 0 && gamesSqu == 0){
             state0Left();
@@ -425,6 +427,7 @@ function startColourSettings() {
             state7Left();
         }
     }
+    // Looks at how many unlockables have been unlocked to rotate right 
     function whichStateRight() {
         if (gamesHex == 0 && gamesDia == 0 && gamesSqu == 0){
             state0Right();

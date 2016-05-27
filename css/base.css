@@ -5,37 +5,36 @@ body {
     overflow-y: hidden;
     overflow-x: hidden;
     position: relative;
-    min-width: 320px;
-    min-height: 480px;
-    margin: 0 auto;
 }
 #main {
     position: absolute;
+    width: auto;
     height: 100vh;
     min-width: 320px;
     min-height: 480px;
-    width: 100%;
     margin: 0;
+    padding: 0;
 }
 #mainCanvas {
-   width: auto;
-   height: 100%;
-   background-color: #F2EFCC;
+    width: auto;
+    height: 100%;
+    background-color: #F2EFCC;
+    background-image: url("../img/background/bg.jpg");
+    background-position: center;
+    display: none;
+    margin: auto;
+    padding: 0;
+    border: none;
 }
 #images {
     clear: left;
     display: none;
 }
-canvas {
-    margin: auto;
-    padding: 0;
-    border: none;
-    background-image: url("../img/background/bg.jpg");
-}
 #easterEgg {
     border: none;
     background-color: #F2EFCC;
     background-image: url("../img/background/bg.jpg");
+    background-position: center;
     display: none;
     height: 100vh;
     min-width: 320px;
