@@ -42,6 +42,8 @@
 2. On mobile, background music is activated when "Play" button is pressed.
 3. Currently, as long as the user does not scroll down their browser, the game will resize as intended.
 ********************************************************************************
+
+
 ***********Folders*********
 1. audio - audio files
 2. css  - css files
@@ -86,7 +88,7 @@
         d. colourblindmode.jpg  - colour blind colour pack image
         e. icecreampanel.jpg    - colour pack ice cream image
         f. junglelovepanel.jpg  - colour pack jungle love image
-        g. lockedimage.jpg      - locked image for achivements
+        g. lockedimage.jpg      - locked image for achievements
         h. pacmanghostpanel.jpg - colour pack pacman ghost image
     II. icons
         a. active.png           - active text
