@@ -34,26 +34,35 @@
     I. background   - background images
     II. icons       - button images
     III. title      - title images
-    IV. volume      - volume buttons
+    IV. tutorial    - tutorial images
+    V. volume       - volume buttons
 ****************************************
 
 ***************************Files******************************
 1. audio
-    a. click.wav        - sound effects 1
-    b. click2.wav       - testing
-    c. glass.wav        - testing
-    d. glass2.wav       - testing
-    e. shop.mp3         - background music (accordian)
-    f. shop2.mp3        - background music
-    g. shopExtended.mp3 - testing
-    h. showtime.mp3     - testing
-    i. switch.wav       - testing
-    j. tap.wav          - sound effect 2
-    k. tab2.wav         - testing
-
+    a. clank.mp3        - locked sound effect
+    b. clank.wav        - locked sound effect
+    c. click.wav        - sound effects 1
+    d. click2.mp3       - sound effect
+    e. click2.wav       - testing
+    f. click3.wav       - testing
+    g. glass.wav        - testing
+    h. glass2.mp3       - testing
+    i. glass2.wav       - testing
+    j. shop.mp3         - background music (accordian)
+    k. shop.wav         - background music
+    l. shop2.mp3        - background music
+    m. showtime.mp3     - testing
+    n. switch.wav       - testing
+    o. tap.wav          - sound effect 2
+    p. tap2.mp3         - sound effect 3
+    q. tab2.wav         - testing
+    r. whistle.mp3      - sound effect
+    s. whistle.wav      - sound effect
 
 2. css
-    a. base.css - basic css, used for any divs(easter egg)
+    a. base.css     - basic css, used for any divs(easter egg)
+    b. large.css    - for larger screens
 
 3. html
     a. scholours.html   - main html with canvas, divs and any images used
@@ -64,49 +73,56 @@
         a. autumnpanel.jpg      - colour pack autumn image
         b. beergogglespanel.jpg - colour pack beer image
         c. bg.jpg               - background image of the game
-        d. eastereggpanel.jpg   -  extra colour pack image
+        d. colourblindmode.jpg  - colour blind colour pack image
         e. icecreampanel.jpg    - colour pack ice cream image
         f. junglelovepanel.jpg  - colour pack jungle love image
-        g. pacmanghostpanel.jpg - colour pack pacman ghost image
+        g. lockedimage.jpg      - locked image for achivements
+        h. pacmanghostpanel.jpg - colour pack pacman ghost image
     II. icons
-        a. audio.png            - audio button
-        b. autumn.png           - autumn splendor name
-        c. back.png             - back button
-        d. beergoggles.png      - beer goggles name
-        e. bgmusic.png          - background music name
-        f. bgtimer.png          - timer icon
-        g. buttonfinal.png      - button template
-        h. colourblind.png      - colour blind name
-        i. colourpacks.png      - colour packs button
-        j. cube.png             - cube image for logo
-        k. easy.png             - easy button
-        l. effects.png          - effects name
-        m. hard.png             - hard button
-        n. hexa.png             - hexagon button
-        o. icecream.png         - ice cream desserts name
-        p. junglelove.png       - jungle love name
-        q. leftarrow.png        - left arrow button
-        r. mainmenu.png         - main menu button
-        s. medium.png           - medium button
-        t. pacmanghosts.png     - pacman ghosts name
-        u. paused.png           - paused button
-        v. play.png             - play button
-        w. playagain.png        - play again button
-        x. polygon.png          - diamond button
-        y. restart.png          - restart button
-        z. resume.png           - resume button
-        aa. rightarrow.png      - right arrow button
-        ab. scores.png          - scores button
-        ac. settings.png        - settings button
-        ad. square.png          - square button
-        ae. title.png           - title name (Scholours)
-        af. tutorial.png        - tutorial button
+        a. active.png           - active text
+        b. audio.png            - audio button
+        c. autumn.png           - autumn splendor name
+        d. back.png             - back button
+        e. beatDiamond.png      - beat diamond text
+        f. beatHexagon.png      - beat hexagon text
+        g. beatSquare.png       - beat square text
+        h. beergoggles.png      - beer goggles name
+        i. bgmusic.png          - background music name
+        j. bgtimer.png          - timer icon
+        k. buttonfinal.png      - button template
+        l. colourblind.png      - colour blind name
+        m. colourpacks.png      - colour packs button
+        n. continue.png         - continue button
+        o. cube.png             - cube image for logo
+        p. easy.png             - easy button
+        q. effects.png          - effects name
+        r. hard.png             - hard button
+        s. hexa.png             - hexagon button
+        t. icecream.png         - ice cream desserts name
+        u. junglelove.png       - jungle love name
+        v. leftarrow.png        - left arrow button
+        w. lockedColours        - locked Colours text
+        x. mainmenu.png         - main menu button
+        y. medium.png           - medium button
+        z. pacmanghosts.png     - pacman ghosts name
+        aa. paused.png           - paused button
+        ab. play.png             - play button
+        ac. playagain.png        - play again button
+        ad. polygon.png          - diamond button
+        ae. restart.png          - restart button
+        af. resume.png           - resume button
+        ag. rightarrow.png      - right arrow button
+        ah. scores.png          - scores button
+        ai. settings.png        - settings button
+        aj. square.png          - square button
+        ak. title.png           - title name (Scholours)
+        al. tutorial.png        - tutorial button
     III. title
         a. audiosettings.png            - audio settings banner
         b. choosecolourpack.png         - colour pack banner
         c. difficultyeasytitle.png      - difficulty easy banner
-        d. difficultyhardbanner.png     - difficulty hard banner
-        e. difficultymediumbanner.png   - difficulty medium banner
+        d. difficultyhardtitle.png     - difficulty hard banner
+        e. difficultymediumtitle.png   - difficulty medium banner
         f. diffcultytitle.png           - difficulty header
         g. leaderboardtitle.png         - leaderboard choose shape header
         h. pausedtitle.png              - paused header
@@ -116,7 +132,11 @@
         l. slogan.png                   - slogan image
         m. title.png                    - title (Scholours)
         n. titleicon.png                - template for header
-    IV. volume
+    IV. Tutorial
+        a. firsttutorial.jpg    - first tutorial image
+        b. secondtutorial.jpg   - second tutorial image
+        c. thirdtutorial.jpg    - third tutorial image
+    V. volume
         a. mute.png                 - mute button
         b. muteclicked.png          - mute button after clicked
         c. volumefive.png           - volume five button
@@ -131,26 +151,37 @@
         l. volumetwoclicked.png     - volume two button after clicked
 
 5. js
-    a. audio.js                 - all audio functions
-    b. colourpack.js            - anything about the colour packs and colour inventory
-    c. colourpacksettings.js    - all colour pack settings functions
-    d. diamond.js               - all functions specific for diamond
-    e. form.js                  - all functions for the submit button for the leaderboard
-    f. game.js                  - general game functions
-    g. gamemenu.js              - pause and result page functions
-    h. globalvariables.js       - all global variables (first page loaded)
-    i. hexagon.js               - all functions specific for hexagon
-    j. leaderboard.js           - all functions for the leaderboard pages
-    k. main.js                  - home page functions (called on load)
-    l. selectmenu.js            - shape and difficulty select page functions
-    m. settings.js              - settings functions
-    n. square.js                - all functions specific to square
-    o. timer.js                 - timer functions
-    p. utility.js               - additional functions (easter egg, etc.)
-    q. validategame.js          - game validation functions
+    a. achievement.js           - locked achievement functions
+    b. audio.js                 - all audio functions
+    c. colourpack.js            - anything about the colour packs and colour inventory
+    d. colourpacksettings.js    - all colour pack settings functions
+    e. diamond.js               - all functions specific for diamond
+    f. form.js                  - all functions for the submit button for the leaderboard
+    g. game.js                  - general game functions
+    h. gamemenu.js              - pause and result page functions
+    i. globalvariables.js       - all global variables (first page loaded)
+    j. hexagon.js               - all functions specific for hexagon
+    k. leaderboard.js           - all functions for the leaderboard pages
+    l. main.js                  - home page functions (called on load)
+    m. selectmenu.js            - shape and difficulty select page functions
+    n. settings.js              - settings functions
+    o. square.js                - all functions specific to square
+    p. timer.js                 - timer functions
+    q. tutorial.js              - tutorial functions
+    r. utility.js               - additional functions (easter egg, etc.)
+    s. validategame.js          - game validation functions
 
 6. php
-    a. scholoursdatabase.php    - identical to the html, except with leaderboard functionality
-    b. addscore.php             - 
-    c. getscore.php             - 
+    a. addscore.php             - adds score to the leaderboard
+    b. config.php               - information for the database
+    c. diamondeasy.php          - display diamond easy results
+    d. diamondhard.php          - display diamond hard results
+    e. diamondmedium.php        - display diamond medium results
+    f. hexagoneasy.php          - display hexagon easy results
+    g. hexagonhard.php          - display hexagon hard results
+    h. hexagonmedium.php        - display hexagon medium results
+    i. scholoursdatabase.php    - identical to the html, except with leaderboard functionality
+    j. squareeasy.php           - display square easy results
+    k. squarehard.php           - display square hard results
+    l. squaremedium.php         - display square medium results
 **************************************************************************************************
