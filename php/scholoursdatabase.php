@@ -126,7 +126,7 @@
         <input type="hidden" name="time" id="time">
         <input type="hidden" name="shape" id="shape">
         <input type="hidden" name="difficulty" id="difficulty">
-        <input type="submit" name="submit" id="submitButton" onclick="changeValues()">
+        <input type="submit" name="submit" id="submitButton">
     </form>
 </div>
     <div id="easterEgg">
