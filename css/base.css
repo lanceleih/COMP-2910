@@ -57,13 +57,13 @@ body {
     position: absolute;
     padding: 0.5%;
     font-size: 103%;
-    display: none;
+    display: block;
 }
 #submitButton {
     position: absolute;
     font-size: 103%;
     padding: 0.5%;
-    display: none;
+    display: block;
 }
 .hide { 
     position:absolute;
