@@ -57,15 +57,16 @@ function setResponMargins() {
     }
 
     canvasWidthUserInput = canvasWidth - (canvasWidth * .90);
-    leftMarginUserInput = ((docWidth - (canvasWidth * 0.15)) / 2);
+    leftMarginUserInput = ((docWidth - (canvasWidth * 0.10)) / 2);
     canvasWidthSubmitUserButton = canvasWidth - (canvasWidth * 0.80);
-    leftMarginSubmitUserButton = ((docWidth - (canvasWidth * -0.15)) / 2);
+    leftMarginSubmitUserButton = ((docWidth - (canvasWidth * -0.2)) / 2);
 
     mainDiv.style.marginLeft =  leftMargin.toString() + "px";
     userInputName.style.marginLeft =  leftMarginUserInput.toString() + "px";
     userInputName.style.width =  canvasWidthUserInput.toString() + "px";
     submitUserButton.style.marginLeft = leftMarginSubmitUserButton.toString() + "px";
     submitUserButton.style.width = canvasWidthSubmitUserButton.toString() + "px";
+
     easterDiv.style.marginLeft =  leftMargin.toString() + "px";
     easterDiv.style.width =  canvasWidth.toString() + "px";
     leaderboardTableDiv.style.marginLeft =  leftMargin.toString() + "px";
@@ -74,8 +75,13 @@ function setResponMargins() {
     topMargin = (docHeight - canvasHeight);
     //topMargin = 0;
 
+    /* Fixes the margin-top of object */
     topMarginUserInput = (docHeight - (canvasHeight * 0.56));
     userInputName.style.marginTop = topMarginUserInput.toString() + "px";
     topMarginSubmitButton = (docHeight - (canvasHeight * 0.55));
     submitUserButton.style.marginTop = topMarginUserInput.toString() + "px";
+
+    topMarginLeaderboardTableDiv = (docHeight - (canvasHeight * 0.80));
+    leaderboardTableDiv.style.marginTop = topMarginLeaderboardTableDiv.toString() + "px";
+
 }

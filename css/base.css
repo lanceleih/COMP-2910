@@ -57,13 +57,13 @@ body {
     position: absolute;
     padding: 0.5%;
     font-size: 103%;
-    display: none;
+    display: block;
 }
 #submitButton {
     position: absolute;
     font-size: 103%;
     padding: 0.5%;
-    display: none;
+    display: block;
 }
 .hide { 
     position:absolute;
@@ -73,9 +73,6 @@ body {
 }
 #leaderboardTable {
     position: absolute;
-    margin-top: 30%;
-    margin-left: 10%;
-    width: 80%;
     display: none;
     overflow-x: auto;
 }
@@ -83,9 +80,6 @@ table {
     border-collapse: collapse;
     border: 1px solid black;
     width: 100%;
-}
-th td {
-    padding: 3px;
 }
 td {
     text-align: center;

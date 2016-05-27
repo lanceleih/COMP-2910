@@ -83,14 +83,27 @@ var palette7;
 //Colour Blind Palette Array
 var palette8;
 
+// Palette image containing title of the colour pack
 var paletteTitle;
+// Temporarily stores previous palette when
+// colour blind mode is selected
 var storeImg;
+// Temporarily stores previous palette title when
+// colour blind mode is selected
 var storePaletteTitle;
+// Temporarily store the previous palette colours
+// when colour blind mode is selected
 var storePalette;
+// Stores the current palette image
 var paletteImg;
+// Fills in the toggle box when colour blind mode
+// is selected
 var colourModeStateFill;
+// Boolean: false when colour blind mode
+// is off, true when colour blind mode is selected
 var colourModeState;
 
+//The state of the bgm volume including muting bgm
 var bgmState1;
 var bgmState2;
 var bgmState3;
@@ -98,6 +111,7 @@ var bgmState4;
 var bgmState5;
 var bgmMuteState;
 
+//The state of the sfx volume including muting sfx
 var sfxState1;
 var sfxState2;
 var sfxState3;
@@ -105,10 +119,7 @@ var sfxState4;
 var sfxState5;
 var sfxMuteState;
 
-/* Dan's Testing variables*/
-var danCount;
-var danFlag;
-
+//The current palette of colours being used
 var palette;
 
 // offsets, margins, and x, y, width, height of every components in game
@@ -220,9 +231,6 @@ function setGlobalVariables() {
         images[i].src = preload[i];
     }
 
-    /* DAN's testing variables */
-    danCount = 0;
-    danFlag = false;
 
     setDefaultGameSettings();
     setDefaultAudioSettings();
@@ -295,7 +303,7 @@ function setDefaultAudioSettings() {
     //      bgm.play();
     //  });
     // bgm.load();
-    //bgm.play();
+    bgm.play();
     bgm.loop = true;
 
     // set default bgm button states
@@ -362,10 +370,11 @@ function setDefaultColorSettings() {
     paletteTitle = palette4[0];
     //set default palette image
     paletteImg = palette4[1];
-
+    //set to default null
     storeImg = null;
     storePaletteTitle = null;
     storePalette = null;
+    //set to white and colour blind mode as off (false)
     colourModeStateFill = "#FFFFFF";
     colourModeState = false;
 }
