@@ -43,14 +43,14 @@ function setResponMargins() {
 
     widthFactor = canvas.scrollWidth / canvas.width;
     heightFactor = canvas.scrollHeight / canvas.height;
-    ratio = $(window).width() / $(window).height();
-
     canvasWidth = canvas.scrollWidth;
     canvasHeight = canvas.scrollHeight;
 
     docWidth = $(window).width();
     docHeight = $(window).height();
     leftMargin = ((docWidth - canvasWidth) / 2);
+
+    ratio = canvas.width / canvas.height;
 
     if(docWidth < 320) {
         leftMargin = 0;
@@ -72,9 +72,10 @@ function setResponMargins() {
     leaderboardTableDiv.style.width =  canvasWidth.toString() + "px";
     
     topMargin = (docHeight - canvasHeight);
+    //topMargin = 0;
 
     topMarginUserInput = (docHeight - (canvasHeight * 0.56));
     userInputName.style.marginTop = topMarginUserInput.toString() + "px";
     topMarginSubmitButton = (docHeight - (canvasHeight * 0.55));
-    submitUserButton.style.marginTop = topMarginUserInput.toString() + "px";;
+    submitUserButton.style.marginTop = topMarginUserInput.toString() + "px";
 }
