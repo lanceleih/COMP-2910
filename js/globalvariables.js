@@ -295,7 +295,7 @@ function setDefaultAudioSettings() {
     //      bgm.play();
     //  });
     // bgm.load();
-    //bgm.play();
+    bgm.play();
     bgm.loop = true;
 
     // set default bgm button states
